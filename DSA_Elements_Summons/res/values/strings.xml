@@ -4,5 +4,9 @@
     <string name="app_name">DSA_Elements_Summons</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    <string name="btn_CreateCharacter">Create Character</string>
+    <string name="btn_EditCharacter">Edit Character</string>
+    <string name="btn_SummonElemental">Summon Elemental</string>
+    <string name="img_ElementCircle">Circle of Elements</string>
 
 </resources>
