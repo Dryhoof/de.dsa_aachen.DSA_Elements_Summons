@@ -2,11 +2,19 @@
 <resources>
 
     <string name="app_name">DSA_Elements_Summons</string>
-    <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="btn_CreateCharacter">Create Character</string>
     <string name="btn_EditCharacter">Edit Character</string>
     <string name="btn_SummonElemental">Summon Elemental</string>
+    <string name="btn_Dummy">DummyDummy</string>
     <string name="img_ElementCircle">Circle of Elements</string>
+    <string name="str_StatCourage">Courage:</string>
+    <string name="str_StatWisdom">Wisdom:</string>
+    <string name="str_StatCharisma">Charisma:</string>
+    <string name="str_StatIntuition">Intuition:</string>
+    <string name="str_Talents">Talents</string>
+    <string name="str_TalentCallElementalServant">Call Elemental Servant:</string>
+    <string name="str_TalentCallDjinn">Call Djinn:</string>
+    <string name="str_TalentCallMasterOfElement">Call Master of Element:</string>
 
 </resources>

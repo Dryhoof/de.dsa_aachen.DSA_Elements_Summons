@@ -16,26 +16,52 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout1=0x7f070000;
-        public static final int button2=0x7f070002;
-        public static final int button3=0x7f070003;
-        public static final int createChar=0x7f070001;
-        public static final int imageView1=0x7f070004;
-        public static final int menu_settings=0x7f070005;
+        public static final int button2=0x7f070012;
+        public static final int button3=0x7f070013;
+        public static final int createChar=0x7f070011;
+        public static final int createCharEditStatCharisma=0x7f070006;
+        public static final int createCharEditStatCourage=0x7f070002;
+        public static final int createCharEditStatIntuition=0x7f070008;
+        public static final int createCharEditStatWisdom=0x7f070004;
+        public static final int createCharEditTalentCallDjinn=0x7f07000e;
+        public static final int createCharEditTalentCallElementalServant=0x7f07000c;
+        public static final int createCharEditTalentCallMasterOfElement=0x7f070010;
+        public static final int createCharTextStatCharisma=0x7f070005;
+        public static final int createCharTextStatCourage=0x7f070001;
+        public static final int createCharTextStatIntuition=0x7f070007;
+        public static final int createCharTextStatWisdom=0x7f070003;
+        public static final int createCharTextTalentCallDjinn=0x7f07000d;
+        public static final int createCharTextTalentCallElementalServant=0x7f07000b;
+        public static final int createCharTextTalentCallMasterOfElement=0x7f07000f;
+        public static final int createCharTextTalents=0x7f07000a;
+        public static final int imageView1=0x7f070014;
+        public static final int menu_settings=0x7f070015;
+        public static final int objLine=0x7f070009;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int create_char_activity=0x7f030000;
+        public static final int main_activity=0x7f030001;
     }
     public static final class menu {
-        public static final int activity_main=0x7f060000;
+        public static final int create_char_activity=0x7f060000;
+        public static final int main_activity=0x7f060001;
     }
     public static final class string {
         public static final int app_name=0x7f040000;
-        public static final int btn_CreateCharacter=0x7f040003;
-        public static final int btn_EditCharacter=0x7f040004;
-        public static final int btn_SummonElemental=0x7f040005;
-        public static final int hello_world=0x7f040001;
+        public static final int btn_CreateCharacter=0x7f040002;
+        public static final int btn_Dummy=0x7f040005;
+        public static final int btn_EditCharacter=0x7f040003;
+        public static final int btn_SummonElemental=0x7f040004;
         public static final int img_ElementCircle=0x7f040006;
-        public static final int menu_settings=0x7f040002;
+        public static final int menu_settings=0x7f040001;
+        public static final int str_StatCharisma=0x7f040009;
+        public static final int str_StatCourage=0x7f040007;
+        public static final int str_StatIntuition=0x7f04000a;
+        public static final int str_StatWisdom=0x7f040008;
+        public static final int str_TalentCallDjinn=0x7f04000d;
+        public static final int str_TalentCallElementalServant=0x7f04000c;
+        public static final int str_TalentCallMasterOfElement=0x7f04000e;
+        public static final int str_Talents=0x7f04000b;
     }
     public static final class style {
         /** 
@@ -64,5 +90,6 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f050001;
+        public static final int mainLayoutMargin=0x7f050002;
     }
 }
