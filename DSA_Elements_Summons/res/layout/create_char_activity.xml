@@ -1,0 +1,208 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    style="@style/mainLayoutMargin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CreateCharActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:weightSum="100" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:layout_weight="50"
+            android:weightSum="100" >
+
+            <TextView
+                android:id="@+id/createCharTextStatCourage"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="35"
+                android:text="@string/str_StatCourage"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/createCharEditStatCourage"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="65"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="50"
+            android:weightSum="100" >
+
+            <TextView
+                android:id="@+id/createCharTextStatWisdom"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="35"
+                android:text="@string/str_StatWisdom"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/createCharEditStatWisdom"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="65"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:baselineAligned="false"
+        android:weightSum="100" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:layout_weight="50"
+            android:weightSum="100" >
+
+            <TextView
+                android:id="@+id/createCharTextStatCharisma"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="35"
+                android:text="@string/str_StatCharisma"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/createCharEditStatCharisma"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="65"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_weight="50"
+            android:weightSum="100" >
+
+            <TextView
+                android:id="@+id/createCharTextStatIntuition"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="35"
+                android:text="@string/str_StatIntuition"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/createCharEditStatIntuition"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="65"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/objLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/darker_gray" />
+
+    <TextView
+        android:id="@+id/createCharTextTalents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_Talents"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100" >
+
+        <TextView
+            android:id="@+id/createCharTextTalentCallElementalServant"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="35"
+            android:text="@string/str_TalentCallElementalServant"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/createCharEditTalentCallElementalServant"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="65"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100" >
+
+        <TextView
+            android:id="@+id/createCharTextTalentCallDjinn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="35"
+            android:text="@string/str_TalentCallDjinn"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/createCharEditTalentCallDjinn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="65"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="100" >
+
+        <TextView
+            android:id="@+id/createCharTextTalentCallMasterOfElement"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="35"
+            android:text="@string/str_TalentCallMasterOfElement"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/createCharEditTalentCallMasterOfElement"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="65"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+
+</LinearLayout>
