@@ -27,9 +27,13 @@
     <string name="str_ElementIce">Element ice</string>
     <string name="str_ElementAir">Element Air</string>
     <string name="str_KnowledgeOfAttribute">Knowledge of attribute</string>
-    <string name="str_TelentedDemonic">No. of demonic talents:</string>
+    <string name="str_TalentedDemonic">No. of demonic talents:</string>
     <string name="str_KnowledgeDemonic">No. of demonic knowledges:</string>
-    <string name="str_DemonicCovenant">Demonic covenant</string>
     <string name="str_SpecialCharacteristics">Special characteristics:</string>
+    <string name="str_AffinityToElementals">Affinity to elementals</string>
+    <string name="str_DemonicCovenant">Demonic covenant</string>
+    <string name="str_CloakedAura">Cloaked aura</string>
+    <string name="str_WeakPresence">Weak presence (1-5)</string>
+    <string name="str_StrengthOfStigma">Strength of stigma(1-3)</string>
     
 </resources>

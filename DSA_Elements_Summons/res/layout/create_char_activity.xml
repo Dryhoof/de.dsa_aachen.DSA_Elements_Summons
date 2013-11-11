@@ -38,6 +38,7 @@
                         android:id="@+id/createCharTextCharacterName"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_weight="50"
                         android:text="@string/str_TextCharacterName"
                         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -84,6 +85,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="8dp"
                         android:layout_weight="50"
+                        android:baselineAligned="true"
                         android:weightSum="100" >
 
                         <TextView
@@ -97,11 +99,11 @@
 
                         <EditText
                             android:id="@+id/createCharEditStatCourage"
+                            style="@style/styleEditDecimal"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="65"
-                            android:ems="10"
-                            android:inputType="numberDecimal" >
+                            android:ems="10" >
 
                             <requestFocus />
                         </EditText>
@@ -125,6 +127,7 @@
 
                         <EditText
                             android:id="@+id/createCharEditStatWisdom"
+                            style="@style/styleEditDecimal"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="65"
@@ -144,6 +147,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="8dp"
                         android:layout_weight="50"
+                        android:baselineAligned="true"
                         android:weightSum="100" >
 
                         <TextView
@@ -157,6 +161,7 @@
 
                         <EditText
                             android:id="@+id/createCharEditStatCharisma"
+                            style="@style/styleEditDecimal"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="65"
@@ -169,6 +174,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:layout_weight="50"
+                        android:baselineAligned="true"
                         android:weightSum="100" >
 
                         <TextView
@@ -182,6 +188,7 @@
 
                         <EditText
                             android:id="@+id/createCharEditStatIntuition"
+                            style="@style/styleEditDecimal"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="65"
@@ -189,7 +196,6 @@
                             android:inputType="numberDecimal" />
                     </LinearLayout>
                 </LinearLayout>
-
             </LinearLayout>
 
             <LinearLayout
@@ -228,6 +234,7 @@
 
                     <EditText
                         android:id="@+id/createCharEditTalentCallElementalServant"
+                        style="@style/styleEditDecimal"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="65"
@@ -251,6 +258,7 @@
 
                     <EditText
                         android:id="@+id/createCharEditTalentCallDjinn"
+                        style="@style/styleEditDecimal"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="65"
@@ -274,6 +282,7 @@
 
                     <EditText
                         android:id="@+id/createCharEditTalentCallMasterOfElement"
+                        style="@style/styleEditDecimal"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="65"
@@ -309,7 +318,7 @@
                     android:weightSum="100" >
 
                     <CheckBox
-                        android:id="@+id/createCharCheckBoxTelendetFire"
+                        android:id="@+id/createCharCheckBoxTalentedFire"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="50"
@@ -375,19 +384,19 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="35"
-                        android:text="@string/str_TelentedDemonic"
+                        android:text="@string/str_TalentedDemonic"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textSize="16sp" />
 
                     <EditText
-                        android:id="@+id/createCharEditTelentedDemonic"
+                        android:id="@+id/createCharEditTalentedDemonic"
+                        style="@style/styleEditDecimal"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="65"
                         android:ems="10"
                         android:inputType="numberDecimal" />
                 </LinearLayout>
-
             </LinearLayout>
 
             <LinearLayout
@@ -489,6 +498,7 @@
 
                     <EditText
                         android:id="@+id/createCharEditKnowledgeDemonic"
+                        style="@style/styleEditDecimal"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="65"
@@ -524,18 +534,10 @@
                     android:weightSum="100" >
 
                     <CheckBox
-                        android:id="@+id/CheckBox02"
+                        android:id="@+id/createCharCheckBoxAffinityToElementals"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="50"
-                        android:text="@string/str_ElementFire" />
-
-                    <CheckBox
-                        android:id="@+id/CheckBox06"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="50"
-                        android:text="@string/str_ElementWater" />
+                        android:text="@string/str_AffinityToElementals" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -545,18 +547,10 @@
                     android:weightSum="100" >
 
                     <CheckBox
-                        android:id="@+id/CheckBox01"
+                        android:id="@+id/createCharCheckBoxDemonicCovenant"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="50"
-                        android:text="@string/str_ElementLife" />
-
-                    <CheckBox
-                        android:id="@+id/CheckBox03"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="50"
-                        android:text="@string/str_ElementIce" />
+                        android:text="@string/str_DemonicCovenant" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -566,36 +560,55 @@
                     android:weightSum="100" >
 
                     <CheckBox
-                        android:id="@+id/CheckBox04"
+                        android:id="@+id/createCharCheckBoxCloakedAura"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="50"
-                        android:text="@string/str_ElementStone" />
-
-                    <CheckBox
-                        android:id="@+id/CheckBox05"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="50"
-                        android:text="@string/str_ElementAir" />
+                        android:text="@string/str_CloakedAura" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:baselineAligned="true"
                     android:weightSum="100" >
 
                     <TextView
-                        android:id="@+id/TextView01"
+                        android:id="@+id/createCharTextWeakPresence"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="35"
-                        android:text="@string/str_KnowledgeDemonic"
+                        android:text="@string/str_WeakPresence"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textSize="16sp" />
 
                     <EditText
-                        android:id="@+id/EditText01"
+                        android:id="@+id/createCharEditWeakPresence"
+                        style="@style/styleEditDecimal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="65"
+                        android:ems="10"
+                        android:inputType="numberDecimal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="true"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/createCharTextStrengthOfStigma"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="35"
+                        android:text="@string/str_StrengthOfStigma"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/createCharEditStrengthOfStigma"
+                        style="@style/styleEditDecimal"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="65"
@@ -603,7 +616,6 @@
                         android:inputType="numberDecimal" />
                 </LinearLayout>
             </LinearLayout>
-
         </LinearLayout>
 
     </ScrollView>
