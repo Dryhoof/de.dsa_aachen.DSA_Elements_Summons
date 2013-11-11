@@ -3,206 +3,609 @@
     android:id="@+id/LinearLayout1"
     style="@style/mainLayoutMargin"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".CreateCharActivity" >
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:baselineAligned="false"
-        android:weightSum="100" >
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:layout_weight="50"
-            android:weightSum="100" >
-
-            <TextView
-                android:id="@+id/createCharTextStatCourage"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="35"
-                android:text="@string/str_StatCourage"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/createCharEditStatCourage"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="65"
-                android:ems="10"
-                android:inputType="numberDecimal" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_weight="50"
-            android:weightSum="100" >
-
-            <TextView
-                android:id="@+id/createCharTextStatWisdom"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="35"
-                android:text="@string/str_StatWisdom"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/createCharEditStatWisdom"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="65"
-                android:ems="10"
-                android:inputType="numberDecimal" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:baselineAligned="false"
-        android:weightSum="100" >
+        android:layout_height="wrap_content" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:layout_weight="50"
-            android:weightSum="100" >
+            android:orientation="vertical" >
 
-            <TextView
-                android:id="@+id/createCharTextStatCharisma"
-                android:layout_width="fill_parent"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="35"
-                android:text="@string/str_StatCharisma"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="16sp" />
+                android:orientation="vertical" >
 
-            <EditText
-                android:id="@+id/createCharEditStatCharisma"
-                android:layout_width="fill_parent"
+                <TextView
+                    android:id="@+id/createCharTextHead"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_CreateCharHead"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/createCharTextCharacterName"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_TextCharacterName"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/createCharEditCharacterName"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:ems="10"
+                        android:inputType="textPersonName" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="65"
-                android:ems="10"
-                android:inputType="numberDecimal" />
+                android:orientation="vertical" >
+
+                <View
+                    android:id="@+id/View04"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/createCharTextAttributes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_Attributes"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="50"
+                        android:weightSum="100" >
+
+                        <TextView
+                            android:id="@+id/createCharTextStatCourage"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="35"
+                            android:text="@string/str_StatCourage"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/createCharEditStatCourage"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="65"
+                            android:ems="10"
+                            android:inputType="numberDecimal" >
+
+                            <requestFocus />
+                        </EditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_weight="50"
+                        android:weightSum="100" >
+
+                        <TextView
+                            android:id="@+id/createCharTextStatWisdom"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="35"
+                            android:text="@string/str_StatWisdom"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/createCharEditStatWisdom"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="65"
+                            android:ems="10"
+                            android:inputType="numberDecimal" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="50"
+                        android:weightSum="100" >
+
+                        <TextView
+                            android:id="@+id/createCharTextStatCharisma"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="35"
+                            android:text="@string/str_StatCharisma"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/createCharEditStatCharisma"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="65"
+                            android:ems="10"
+                            android:inputType="numberDecimal" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_weight="50"
+                        android:weightSum="100" >
+
+                        <TextView
+                            android:id="@+id/createCharTextStatIntuition"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="35"
+                            android:text="@string/str_StatIntuition"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/createCharEditStatIntuition"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="65"
+                            android:ems="10"
+                            android:inputType="numberDecimal" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <View
+                    android:id="@+id/objLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/createCharTextTalents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_Talents"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/createCharTextTalentCallElementalServant"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="35"
+                        android:text="@string/str_TalentCallElementalServant"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/createCharEditTalentCallElementalServant"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="65"
+                        android:ems="10"
+                        android:inputType="numberDecimal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/createCharTextTalentCallDjinn"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="35"
+                        android:text="@string/str_TalentCallDjinn"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/createCharEditTalentCallDjinn"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="65"
+                        android:ems="10"
+                        android:inputType="numberDecimal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/createCharTextTalentCallMasterOfElement"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="35"
+                        android:text="@string/str_TalentCallMasterOfElement"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/createCharEditTalentCallMasterOfElement"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="65"
+                        android:ems="10"
+                        android:inputType="numberDecimal" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <View
+                    android:id="@+id/View01"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/createCharTextTalented"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_TalentedFor"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <CheckBox
+                        android:id="@+id/createCharCheckBoxTelendetFire"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementFire" />
+
+                    <CheckBox
+                        android:id="@+id/createCharCheckBoxTalentedWater"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementWater" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <CheckBox
+                        android:id="@+id/createCharCheckBoxTalentedLife"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementLife" />
+
+                    <CheckBox
+                        android:id="@+id/createCharCheckBoxTalentedIce"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementIce" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <CheckBox
+                        android:id="@+id/createCharCheckBoxTalentedStone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementStone" />
+
+                    <CheckBox
+                        android:id="@+id/createCharCheckBoxTalentedAir"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementAir" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/createCharTextTalentedDemonic"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="35"
+                        android:text="@string/str_TelentedDemonic"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/createCharEditTelentedDemonic"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="65"
+                        android:ems="10"
+                        android:inputType="numberDecimal" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <View
+                    android:id="@+id/View02"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/createCharTextKnowledgeOfAttribute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_KnowledgeOfAttribute"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <CheckBox
+                        android:id="@+id/createCharCheckBoxKnowledgeFire"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementFire" />
+
+                    <CheckBox
+                        android:id="@+id/createCharCheckBoxKnowledgeWater"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementWater" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <CheckBox
+                        android:id="@+id/createCharCheckBoxKnowledgeLife"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementLife" />
+
+                    <CheckBox
+                        android:id="@+id/createCharCheckBoxKnowledgeIce"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementIce" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <CheckBox
+                        android:id="@+id/createCharCheckBoxKnowledgeStone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementStone" />
+
+                    <CheckBox
+                        android:id="@+id/createCharCheckBoxKnowledgeAir"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementAir" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/createCharTextKnowledgeDemonic"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="35"
+                        android:text="@string/str_KnowledgeDemonic"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/createCharEditKnowledgeDemonic"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="65"
+                        android:ems="10"
+                        android:inputType="numberDecimal" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <View
+                    android:id="@+id/View03"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/createCharTextSpecialAttributes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_SpecialCharacteristics"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <CheckBox
+                        android:id="@+id/CheckBox02"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementFire" />
+
+                    <CheckBox
+                        android:id="@+id/CheckBox06"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementWater" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <CheckBox
+                        android:id="@+id/CheckBox01"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementLife" />
+
+                    <CheckBox
+                        android:id="@+id/CheckBox03"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementIce" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <CheckBox
+                        android:id="@+id/CheckBox04"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementStone" />
+
+                    <CheckBox
+                        android:id="@+id/CheckBox05"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementAir" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/TextView01"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="35"
+                        android:text="@string/str_KnowledgeDemonic"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/EditText01"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="65"
+                        android:ems="10"
+                        android:inputType="numberDecimal" />
+                </LinearLayout>
+            </LinearLayout>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_weight="50"
-            android:weightSum="100" >
-
-            <TextView
-                android:id="@+id/createCharTextStatIntuition"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="35"
-                android:text="@string/str_StatIntuition"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/createCharEditStatIntuition"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="65"
-                android:ems="10"
-                android:inputType="numberDecimal" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <View
-        android:id="@+id/objLine"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/darker_gray" />
-
-    <TextView
-        android:id="@+id/createCharTextTalents"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/str_Talents"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="100" >
-
-        <TextView
-            android:id="@+id/createCharTextTalentCallElementalServant"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="35"
-            android:text="@string/str_TalentCallElementalServant"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/createCharEditTalentCallElementalServant"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="65"
-            android:ems="10"
-            android:inputType="numberDecimal" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="100" >
-
-        <TextView
-            android:id="@+id/createCharTextTalentCallDjinn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="35"
-            android:text="@string/str_TalentCallDjinn"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/createCharEditTalentCallDjinn"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="65"
-            android:ems="10"
-            android:inputType="numberDecimal" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="100" >
-
-        <TextView
-            android:id="@+id/createCharTextTalentCallMasterOfElement"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="35"
-            android:text="@string/str_TalentCallMasterOfElement"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/createCharEditTalentCallMasterOfElement"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="65"
-            android:ems="10"
-            android:inputType="numberDecimal" />
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

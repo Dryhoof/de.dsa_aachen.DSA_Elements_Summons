@@ -3,18 +3,33 @@
 
     <string name="app_name">DSA_Elements_Summons</string>
     <string name="menu_settings">Settings</string>
-    <string name="btn_CreateCharacter">Create Character</string>
-    <string name="btn_EditCharacter">Edit Character</string>
-    <string name="btn_SummonElemental">Summon Elemental</string>
+    <string name="btn_CreateCharacter">Create character</string>
+    <string name="btn_EditCharacter">Edit character</string>
+    <string name="btn_SummonElemental">Summon elemental</string>
     <string name="btn_Dummy">DummyDummy</string>
-    <string name="img_ElementCircle">Circle of Elements</string>
+    <string name="img_ElementCircle">Circle of elements</string>
+    <string name="str_CreateCharHead">Character creation:</string>
+    <string name="str_TextCharacterName">Character name:</string>
+    <string name="str_Attributes">Attributes:</string>
     <string name="str_StatCourage">Courage:</string>
     <string name="str_StatWisdom">Wisdom:</string>
     <string name="str_StatCharisma">Charisma:</string>
     <string name="str_StatIntuition">Intuition:</string>
     <string name="str_Talents">Talents</string>
-    <string name="str_TalentCallElementalServant">Call Elemental Servant:</string>
-    <string name="str_TalentCallDjinn">Call Djinn:</string>
-    <string name="str_TalentCallMasterOfElement">Call Master of Element:</string>
-
+    <string name="str_TalentCallElementalServant">Call elemental servant:</string>
+    <string name="str_TalentCallDjinn">Call djinn:</string>
+    <string name="str_TalentCallMasterOfElement">Call master of element:</string>
+    <string name="str_TalentedFor">Talented for</string>
+    <string name="str_ElementFire">Element fire</string>
+    <string name="str_ElementWater">Element water</string>
+    <string name="str_ElementLife">Element life</string>
+    <string name="str_ElementStone">Element stone</string>
+    <string name="str_ElementIce">Element ice</string>
+    <string name="str_ElementAir">Element Air</string>
+    <string name="str_KnowledgeOfAttribute">Knowledge of attribute</string>
+    <string name="str_TelentedDemonic">No. of demonic talents:</string>
+    <string name="str_KnowledgeDemonic">No. of demonic knowledges:</string>
+    <string name="str_DemonicCovenant">Demonic covenant</string>
+    <string name="str_SpecialCharacteristics">Special characteristics:</string>
+    
 </resources>
