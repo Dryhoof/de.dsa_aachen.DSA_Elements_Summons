@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -22,7 +21,9 @@ public class MainActivity extends Activity {
         });
 	}
 	void createCharView(){
-		Intent intent = new Intent();intent.setClass(MainActivity.this,CreateCharActivity.class); startActivity(intent);
+		Intent intent = new Intent();
+		intent.setClass(MainActivity.this,CreateCharActivity.class); 
+		startActivity(intent);
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -32,3 +33,4 @@ public class MainActivity extends Activity {
 	}
 
 }
+
