@@ -14,13 +14,13 @@
         android:text="@string/btn_CreateCharacter" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/editChar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_EditCharacter" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/summonElemental"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_SummonElemental" />

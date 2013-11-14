@@ -52,7 +52,7 @@ public class CreateCharActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.create_char_activity);
-		
+		/*
 		SQLiteDatabase Database = DB.getReadableDatabase();
 		Cursor query = Database.query(false, "Characters", null, null, null, null, null, "id ASC", null);
 		if(query.getCount() != 0){
@@ -99,6 +99,7 @@ public class CreateCharActivity extends Activity {
 		    createCharCheckBoxTalentedFire.setChecked(talentedFire);
 		}
 		Database.close();
+		*/
 	}
 	
 	protected void onStop(){
@@ -108,13 +109,13 @@ public class CreateCharActivity extends Activity {
 		// All objects are from android.context.Context
         SQLiteDatabase DatabaseRead = DB.getReadableDatabase();
 		Cursor query = DatabaseRead.query(false, "Characters", null, null, null, null, null, "id ASC", null);
-		int queryCount = query.getCount();
+		//int queryCount = query.getCount();
 		DatabaseRead.close();
 		
         SQLiteDatabase Database = DB.getWritableDatabase();
         ContentValues values = new ContentValues();
         
-		values.put(dbField.id.stringValue,1);
+		//values.put(dbField.id.stringValue,1);
 		values.put(dbField.characterName.stringValue,getFormElementString(R.id.createCharEditCharacterName));
 		values.put(dbField.statCourage.stringValue,getFormElementInt(R.id.createCharEditStatCourage));
 		values.put(dbField.statWisdom.stringValue,getFormElementInt(R.id.createCharEditStatWisdom));
@@ -142,12 +143,8 @@ public class CreateCharActivity extends Activity {
 		values.put(dbField.cloakedAura.stringValue,getFormElementBoolean(R.id.createCharCheckBoxCloakedAura));
 		values.put(dbField.weakPresence.stringValue,getFormElementInt(R.id.createCharEditWeakPresence));
 		values.put(dbField.strengthOfStigma.stringValue,getFormElementInt(R.id.createCharEditStrengthOfStigma));
-		
-		if(queryCount == 1){
-			Database.update("Characters", values, "id = '1'", null);
-		}else{
-        	Database.insert("Characters", "id", values);
-		}
+
+        Database.insert("Characters", "id", values);
 		Database.close();
 	}
 	private boolean getFormElementBoolean(int Rid){
@@ -170,7 +167,7 @@ public class CreateCharActivity extends Activity {
 		}
         String RidTextViewString = sequence.toString();
         return(RidTextViewString);
-	}
+	}/*
 	private void setCheckBox(Cursor cursor, int columnId, int Rid){
 	    boolean bool = cursor.getInt(columnId)>0;
 	    final CheckBox checkBox = (CheckBox) findViewById(Rid);
@@ -187,7 +184,7 @@ public class CreateCharActivity extends Activity {
 		String string = cursor.getString(columnId);
 	    final TextView textView = (TextView) findViewById(Rid);
 	    textView.setText(string);
-	}
+	}*/
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
