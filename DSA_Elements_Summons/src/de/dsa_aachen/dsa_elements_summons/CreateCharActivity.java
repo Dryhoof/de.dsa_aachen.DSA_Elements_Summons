@@ -2,7 +2,6 @@ package de.dsa_aachen.dsa_elements_summons;
 
 import android.app.Activity;
 import android.content.ContentValues;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
@@ -41,9 +40,9 @@ public class CreateCharActivity extends Activity {
         strengthOfStigma("strengthOfStigma",27);
 		
 		private String stringValue;
-	    private int intValue;
+	    //private int intValue;
         private dbField(String stringV, int value) {
-        	intValue = value;
+        	//intValue = value;
         	stringValue = stringV;
         }
 	}
@@ -107,10 +106,10 @@ public class CreateCharActivity extends Activity {
 
 		// We need an Editor object to make preference changes.
 		// All objects are from android.context.Context
-        SQLiteDatabase DatabaseRead = DB.getReadableDatabase();
-		Cursor query = DatabaseRead.query(false, "Characters", null, null, null, null, null, "id ASC", null);
+        //SQLiteDatabase DatabaseRead = DB.getReadableDatabase();
+		//Cursor query = DatabaseRead.query(false, "Characters", null, null, null, null, null, "id ASC", null);
 		//int queryCount = query.getCount();
-		DatabaseRead.close();
+		//DatabaseRead.close();
 		
         SQLiteDatabase Database = DB.getWritableDatabase();
         ContentValues values = new ContentValues();

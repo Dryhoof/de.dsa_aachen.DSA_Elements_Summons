@@ -11,19 +11,19 @@
         android:id="@+id/createChar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_CreateCharacter" />
+        android:text="@string/str_CreateCharacter" />
 
     <Button
         android:id="@+id/editChar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_EditCharacter" />
+        android:text="@string/str_EditCharacter" />
 
     <Button
         android:id="@+id/summonElemental"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_SummonElemental" />
+        android:text="@string/str_SummonElemental" />
 
     <ImageView
         android:id="@+id/imageView1"

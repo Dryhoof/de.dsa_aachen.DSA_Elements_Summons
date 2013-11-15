@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <item type="id" name="dynamicCharButton0"/>
     <item type="id" name="dynamicCharButton1"/>
     <item type="id" name="dynamicCharButton2"/>
     <item type="id" name="dynamicCharButton3"/>
@@ -30,5 +31,4 @@
     <item type="id" name="dynamicCharButton28"/>
     <item type="id" name="dynamicCharButton29"/>
     <item type="id" name="dynamicCharButton30"/>
-    
 </resources>

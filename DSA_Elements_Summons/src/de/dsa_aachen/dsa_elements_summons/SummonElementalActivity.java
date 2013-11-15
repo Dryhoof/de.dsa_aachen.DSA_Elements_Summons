@@ -5,9 +5,21 @@ import android.app.Activity;
 import android.view.Menu;
 
 public class SummonElementalActivity extends Activity {
+	int dbId;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		if (savedInstanceState == null) {
+		    Bundle extras = getIntent().getExtras();
+		    if(extras == null) {
+		        dbId= 0;
+		    } else {
+		    	dbId= extras.getInt("dbId");
+		    }
+		} else {
+			dbId= (Integer) savedInstanceState.getSerializable("dbId");
+		}
+		System.out.println("SummonElementalActivity.dbId = "+ dbId);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.summon_elemental_activity);
 	}

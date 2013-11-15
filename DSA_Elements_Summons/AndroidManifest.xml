@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="11"
-        android:targetSdkVersion="17" />
+        android:targetSdkVersion="18" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="de.dsa_aachen.dsa_elements_summons.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" android:screenOrientation="portrait" android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,11 +32,11 @@
         </activity>
         <activity
             android:name="de.dsa_aachen.dsa_elements_summons.SelectCharActivity"
-            android:label="@string/title_activity_select_char" >
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name="de.dsa_aachen.dsa_elements_summons.SummonElementalActivity"
-            android:label="@string/title_activity_summon_elemental" >
+            android:label="@string/app_name" >
         </activity>
     </application>
 
