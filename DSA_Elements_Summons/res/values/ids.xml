@@ -31,4 +31,7 @@
     <item type="id" name="dynamicCharButton28"/>
     <item type="id" name="dynamicCharButton29"/>
     <item type="id" name="dynamicCharButton30"/>
+    <item type="id" name="buttonSummonElementalServant"/>
+    <item type="id" name="buttonSummonDjinn"/>
+    <item type="id" name="buttonSummonMasterOfElement"/>
 </resources>

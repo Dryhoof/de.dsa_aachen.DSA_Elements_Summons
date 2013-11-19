@@ -1,5 +1,6 @@
 package de.dsa_aachen.dsa_elements_summons;
 
+import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_Database.dbField;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -13,50 +14,6 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 public class EditCharActivity extends Activity {
-	public enum dbField {
-		id("id",0),
-        characterName("characterName",1),
-        statCourage("statCourage",2),
-        statWisdom("statWisdom",3),
-        statCharisma("statCharisma",4),
-        statIntuition("statIntuition",5),
-        talentCallElementalServant("talentCallElementalServant",6),
-        talentCallDjinn("talentCallDjinn",7),
-        talentCallMasterOfElement("talentCallMasterOfElement",8),
-        talentedFire("talentedFire",9),
-        talentedWater("talentedWater",10),
-        talentedLife("talentedLife",11),
-        talentedIce("talentedIce",12),
-        talentedStone("talentedStone",13),
-        talentedAir("talentedAir",14),
-        talentedDemonic("talentedDemonic",15),
-        knowledgeFire("knowledgeFire",16),
-        knowledgeWater("knowledgeWater",17),
-        knowledgeLife("knowledgeLife",18),
-        knowledgeIce("knowledgeIce",19),
-        knowledgeStone("knowledgeStone",20),
-        knowledgeAir("knowledgeAir",21),
-        knowledgeDemonic("knowledgeDemonic",22),
-        affinityToElementals("affinityToElementals",23),
-        demonicCovenant("demonicCovenant",24),
-        cloakedAura("cloakedAura",25),
-        weakPresence("weakPresence",26),
-        strengthOfStigma("strengthOfStigma",27);
-		
-		private String stringValue;
-	    private int intValue;
-        private dbField(String stringV, int value) {
-        	setIntValue(value);
-        	stringValue = stringV;
-        }
-		public int getIntValue() {
-			return intValue;
-		}
-		public void setIntValue(int intValue) {
-			this.intValue = intValue;
-		}
-	}
-
 	int dbId;
 	DSA_Summons_Elements_Database DB = new DSA_Summons_Elements_Database(this);
    // public static final String PREFS_NAME = "DSA_Summons_Prefs";
@@ -75,10 +32,17 @@ public class EditCharActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.edit_char_activity);
 		
-        final Button saveChar = (Button) findViewById(R.id.saveNewChar);
+        final Button saveChar = (Button) findViewById(R.id.saveChar);
         saveChar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	saveChar();
+            	mainView();
+            }
+        });
+        final Button deleteChar = (Button) findViewById(R.id.deleteChar);
+        deleteChar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	deleteChar();
             	mainView();
             }
         });
@@ -182,38 +146,43 @@ public class EditCharActivity extends Activity {
 		return true;
 	}
 	private void saveChar(){
-		 SQLiteDatabase Database = DB.getWritableDatabase();
+		SQLiteDatabase Database = DB.getWritableDatabase();
         ContentValues values = new ContentValues();
         
-		values.put(dbField.id.stringValue,dbId);
-		values.put(dbField.characterName.stringValue,getFormElementString(R.id.editCharEditCharacterName));
-		values.put(dbField.statCourage.stringValue,getFormElementInt(R.id.editCharEditStatCourage));
-		values.put(dbField.statWisdom.stringValue,getFormElementInt(R.id.editCharEditStatWisdom));
-		values.put(dbField.statCharisma.stringValue,getFormElementInt(R.id.editCharEditStatCharisma));
-		values.put(dbField.statIntuition.stringValue,getFormElementInt(R.id.editCharEditStatIntuition));
-		values.put(dbField.talentCallElementalServant.stringValue,getFormElementInt(R.id.editCharEditTalentCallElementalServant));
-		values.put(dbField.talentCallDjinn.stringValue,getFormElementInt(R.id.editCharEditTalentCallDjinn));
-		values.put(dbField.talentCallMasterOfElement.stringValue,getFormElementInt(R.id.editCharEditTalentCallMasterOfElement));
-		values.put(dbField.talentedFire.stringValue,getFormElementBoolean(R.id.editCharCheckBoxTalentedFire));
-		values.put(dbField.talentedWater.stringValue,getFormElementBoolean(R.id.editCharCheckBoxTalentedWater));
-		values.put(dbField.talentedLife.stringValue,getFormElementBoolean(R.id.editCharCheckBoxTalentedLife));
-		values.put(dbField.talentedIce.stringValue,getFormElementBoolean(R.id.editCharCheckBoxTalentedIce));
-		values.put(dbField.talentedStone.stringValue,getFormElementBoolean(R.id.editCharCheckBoxTalentedStone));
-		values.put(dbField.talentedAir.stringValue,getFormElementBoolean(R.id.editCharCheckBoxTalentedAir));
-		values.put(dbField.talentedDemonic.stringValue,getFormElementInt(R.id.editCharEditTalentedDemonic));
-		values.put(dbField.knowledgeFire.stringValue,getFormElementBoolean(R.id.editCharCheckBoxKnowledgeFire));
-		values.put(dbField.knowledgeWater.stringValue,getFormElementBoolean(R.id.editCharCheckBoxKnowledgeWater));
-		values.put(dbField.knowledgeLife.stringValue,getFormElementBoolean(R.id.editCharCheckBoxKnowledgeLife));
-		values.put(dbField.knowledgeIce.stringValue,getFormElementBoolean(R.id.editCharCheckBoxKnowledgeIce));
-		values.put(dbField.knowledgeStone.stringValue,getFormElementBoolean(R.id.editCharCheckBoxKnowledgeStone));
-		values.put(dbField.knowledgeAir.stringValue,getFormElementBoolean(R.id.editCharCheckBoxKnowledgeAir));
-		values.put(dbField.knowledgeDemonic.stringValue,getFormElementInt(R.id.editCharEditKnowledgeDemonic));
-		values.put(dbField.affinityToElementals.stringValue,getFormElementBoolean(R.id.editCharCheckBoxAffinityToElementals));
-		values.put(dbField.demonicCovenant.stringValue,getFormElementBoolean(R.id.editCharCheckBoxDemonicCovenant));
-		values.put(dbField.cloakedAura.stringValue,getFormElementBoolean(R.id.editCharCheckBoxCloakedAura));
-		values.put(dbField.weakPresence.stringValue,getFormElementInt(R.id.editCharEditWeakPresence));
-		values.put(dbField.strengthOfStigma.stringValue,getFormElementInt(R.id.editCharEditStrengthOfStigma));
-		Database.update("Characters", values, "id = '1'", null);
+		values.put(dbField.id.getStringValue(),dbId);
+		values.put(dbField.characterName.getStringValue(),getFormElementString(R.id.editCharEditCharacterName));
+		values.put(dbField.statCourage.getStringValue(),getFormElementInt(R.id.editCharEditStatCourage));
+		values.put(dbField.statWisdom.getStringValue(),getFormElementInt(R.id.editCharEditStatWisdom));
+		values.put(dbField.statCharisma.getStringValue(),getFormElementInt(R.id.editCharEditStatCharisma));
+		values.put(dbField.statIntuition.getStringValue(),getFormElementInt(R.id.editCharEditStatIntuition));
+		values.put(dbField.talentCallElementalServant.getStringValue(),getFormElementInt(R.id.editCharEditTalentCallElementalServant));
+		values.put(dbField.talentCallDjinn.getStringValue(),getFormElementInt(R.id.editCharEditTalentCallDjinn));
+		values.put(dbField.talentCallMasterOfElement.getStringValue(),getFormElementInt(R.id.editCharEditTalentCallMasterOfElement));
+		values.put(dbField.talentedFire.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxTalentedFire));
+		values.put(dbField.talentedWater.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxTalentedWater));
+		values.put(dbField.talentedLife.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxTalentedLife));
+		values.put(dbField.talentedIce.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxTalentedIce));
+		values.put(dbField.talentedStone.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxTalentedStone));
+		values.put(dbField.talentedAir.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxTalentedAir));
+		values.put(dbField.talentedDemonic.getStringValue(),getFormElementInt(R.id.editCharEditTalentedDemonic));
+		values.put(dbField.knowledgeFire.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxKnowledgeFire));
+		values.put(dbField.knowledgeWater.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxKnowledgeWater));
+		values.put(dbField.knowledgeLife.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxKnowledgeLife));
+		values.put(dbField.knowledgeIce.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxKnowledgeIce));
+		values.put(dbField.knowledgeStone.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxKnowledgeStone));
+		values.put(dbField.knowledgeAir.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxKnowledgeAir));
+		values.put(dbField.knowledgeDemonic.getStringValue(),getFormElementInt(R.id.editCharEditKnowledgeDemonic));
+		values.put(dbField.affinityToElementals.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxAffinityToElementals));
+		values.put(dbField.demonicCovenant.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxDemonicCovenant));
+		values.put(dbField.cloakedAura.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxCloakedAura));
+		values.put(dbField.weakPresence.getStringValue(),getFormElementInt(R.id.editCharEditWeakPresence));
+		values.put(dbField.strengthOfStigma.getStringValue(),getFormElementInt(R.id.editCharEditStrengthOfStigma));
+		Database.update("Characters", values, "id = '"+dbId+"'", null);
+		Database.close();
+	}
+	private void deleteChar(){
+		SQLiteDatabase Database = DB.getWritableDatabase();
+		Database.delete("Characters", ""+dbField.id.getStringValue()+" = '"+dbId+"'", null);
 		Database.close();
 	}
 	private void mainView(){

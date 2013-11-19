@@ -68,7 +68,7 @@
                     android:background="@android:color/darker_gray" />
 
                 <TextView
-                    android:id="@+id/editCharTextAttributes"
+                    android:id="@+id/textSelectElement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/str_Attributes"
@@ -624,10 +624,22 @@
                 android:orientation="vertical" >
 
                 <Button
-                    android:id="@+id/saveNewChar"
+                    android:id="@+id/saveChar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/str_SaveChar" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <Button
+                    android:id="@+id/deleteChar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_DeleteChar" />
             </LinearLayout>
 
         </LinearLayout>
