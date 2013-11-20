@@ -52,6 +52,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/LinearLayoutElementSpinners"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
@@ -77,6 +78,11 @@
             android:layout_height="wrap_content" 
         	android:entries="@array/str_ElementsArray"
         	android:prompt="@string/str_ElementsPrompt" />
+
+        <Spinner
+            android:id="@+id/spinnerChooseQualityOfMaterial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
