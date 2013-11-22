@@ -1,17 +1,14 @@
 package de.dsa_aachen.dsa_elements_summons;
 
-import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_Database.dbField;
-import android.os.Bundle;
 import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.Spinner;
@@ -128,8 +125,8 @@ public class SummonElementalActivity extends Activity
 		View linearLayoutElementSpinners = 
 				findViewById(R.id.LinearLayoutElementSpinners);
 		try{
-			View namebar = linearLayoutElementSpinners.findViewById(R.id.spinnerChooseQualityOfMaterial);
-			((LinearLayout)namebar.getParent()).removeView(namebar);
+			View oldSpinner = linearLayoutElementSpinners.findViewById(R.id.spinnerChooseQualityOfMaterial);
+			((LinearLayout)oldSpinner.getParent()).removeView(oldSpinner);
 		}catch(NullPointerException e){
 			System.out.println("Catched the god damn nullpointer!");
 		}
@@ -147,7 +144,8 @@ public class SummonElementalActivity extends Activity
 		layoutSummonElementalActivity.addView(spinner);
 		// Create an ArrayAdapter using the string array and a default spinner layout
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-		        spinnerElement.values()[position].getStringArrayId(), android.R.layout.simple_spinner_item);
+		        spinnerElement.values()[position].getStringArrayId(), 
+		        android.R.layout.simple_spinner_item);
 		// Specify the layout to use when the list of choices appears
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		// Apply the adapter to the spinner

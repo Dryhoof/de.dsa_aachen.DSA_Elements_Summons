@@ -65,19 +65,37 @@
             android:layout_marginTop="16dp"
             android:background="@android:color/darker_gray" />
 
-        <TextView
-            android:id="@+id/textSelectElement"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/LinearLayoutElementSpinners2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/str_SelectElement"
+            android:weightSum="100" >
+            
+        <TextView
+            android:id="@+id/textElement"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:text="@string/str_Element"
+            android:layout_gravity="center_vertical"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
             android:id="@+id/spinnerTypeOfElement"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" 
-        	android:entries="@array/str_ElementsArray"
-        	android:prompt="@string/str_ElementsPrompt" />
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="50"
+            android:entries="@array/str_ElementsArray"
+            android:prompt="@string/str_ElementsPrompt" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/QualityOfMaterial"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_QualityOfMaterial"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
             android:id="@+id/spinnerChooseQualityOfMaterial"

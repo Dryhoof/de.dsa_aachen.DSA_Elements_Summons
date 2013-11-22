@@ -12,6 +12,7 @@ public class DSA_Summons_Elements_Database extends SQLiteOpenHelper{
     "create table " + CHARACTERS_TABLE_NAME + " (" +
         "id" + " integer primary key autoincrement, " +
         "characterName" + " text not null, " +
+        "characterClass" + " integer, " +
         "statCourage" + " integer, " +
         "statWisdom" + " integer, " +
         "statCharisma" + " integer, " +
@@ -41,32 +42,33 @@ public class DSA_Summons_Elements_Database extends SQLiteOpenHelper{
 	public static enum dbField {
 		id("id",0),
         characterName("characterName",1),
-        statCourage("statCourage",2),
-        statWisdom("statWisdom",3),
-        statCharisma("statCharisma",4),
-        statIntuition("statIntuition",5),
-        talentCallElementalServant("talentCallElementalServant",6),
-        talentCallDjinn("talentCallDjinn",7),
-        talentCallMasterOfElement("talentCallMasterOfElement",8),
-        talentedFire("talentedFire",9),
-        talentedWater("talentedWater",10),
-        talentedLife("talentedLife",11),
-        talentedIce("talentedIce",12),
-        talentedStone("talentedStone",13),
-        talentedAir("talentedAir",14),
-        talentedDemonic("talentedDemonic",15),
-        knowledgeFire("knowledgeFire",16),
-        knowledgeWater("knowledgeWater",17),
-        knowledgeLife("knowledgeLife",18),
-        knowledgeIce("knowledgeIce",19),
-        knowledgeStone("knowledgeStone",20),
-        knowledgeAir("knowledgeAir",21),
-        knowledgeDemonic("knowledgeDemonic",22),
-        affinityToElementals("affinityToElementals",23),
-        demonicCovenant("demonicCovenant",24),
-        cloakedAura("cloakedAura",25),
-        weakPresence("weakPresence",26),
-        strengthOfStigma("strengthOfStigma",27);
+        characterClass("characterClass",2),
+        statCourage("statCourage",3),
+        statWisdom("statWisdom",4),
+        statCharisma("statCharisma",5),
+        statIntuition("statIntuition",6),
+        talentCallElementalServant("talentCallElementalServant",7),
+        talentCallDjinn("talentCallDjinn",8),
+        talentCallMasterOfElement("talentCallMasterOfElement",9),
+        talentedFire("talentedFire",10),
+        talentedWater("talentedWater",11),
+        talentedLife("talentedLife",12),
+        talentedIce("talentedIce",13),
+        talentedStone("talentedStone",14),
+        talentedAir("talentedAir",15),
+        talentedDemonic("talentedDemonic",16),
+        knowledgeFire("knowledgeFire",17),
+        knowledgeWater("knowledgeWater",18),
+        knowledgeLife("knowledgeLife",19),
+        knowledgeIce("knowledgeIce",20),
+        knowledgeStone("knowledgeStone",21),
+        knowledgeAir("knowledgeAir",22),
+        knowledgeDemonic("knowledgeDemonic",23),
+        affinityToElementals("affinityToElementals",24),
+        demonicCovenant("demonicCovenant",25),
+        cloakedAura("cloakedAura",26),
+        weakPresence("weakPresence",27),
+        strengthOfStigma("strengthOfStigma",28);
 		
 		private String stringValue;
 	    private int intValue;
@@ -87,6 +89,7 @@ public class DSA_Summons_Elements_Database extends SQLiteOpenHelper{
 			this.stringValue = stringValue;
 		}
 	}
+
 	private static final String DATABASE_NAME = "DSA_Summons_Database";
 
     DSA_Summons_Elements_Database(Context context) {

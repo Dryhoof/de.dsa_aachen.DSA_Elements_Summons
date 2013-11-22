@@ -9,12 +9,61 @@ package de.dsa_aachen.dsa_elements_summons;
 
 public final class R {
     public static final class array {
-        public static final int str_ElementalPurityAirArray=0x7f070006;
-        public static final int str_ElementalPurityFireArray=0x7f070001;
-        public static final int str_ElementalPurityIceArray=0x7f070004;
-        public static final int str_ElementalPurityLifeArray=0x7f070003;
-        public static final int str_ElementalPurityStoneArray=0x7f070005;
-        public static final int str_ElementalPurityWaterArray=0x7f070002;
+        public static final int str_ElementalPurity=0x7f070001;
+        public static final int str_ElementalPurityAirArray=0x7f070007;
+        public static final int str_ElementalPurityFireArray=0x7f070002;
+        public static final int str_ElementalPurityIceArray=0x7f070005;
+        public static final int str_ElementalPurityLifeArray=0x7f070004;
+        public static final int str_ElementalPurityStoneArray=0x7f070006;
+        public static final int str_ElementalPurityWaterArray=0x7f070003;
+        /**  <string name="str_ElementalPurityFireArrayVPr">very precious: iron foundry,dragonfire(-6)</string>
+    <string name="str_ElementalPurityFireArrayPr">precious: lava, volcano embers(-4)</string>
+    <string name="str_ElementalPurityFireArrayCo">concentrated: forge fire(-2)</string>
+    <string name="str_ElementalPurityFireArrayPu">pure: camp fire,oven(0)</string>
+    <string name="str_ElementalPurityFireArrayIm">impaired:candle flame(+2)</string>
+    <string name="str_ElementalPurityFireArrayIg">ignoble: Khôm heat(+4)</string>
+    <string name="str_ElementalPurityFireArrayPIg">particularly ignoble: \'cold\' light(+6)</string>
+    
+    <string name="str_ElementalPurityWaterArrayVPr">very precious: (-6)</string>
+    <string name="str_ElementalPurityWaterArrayPr">precious: (-4)</string>
+    <string name="str_ElementalPurityWaterArrayCo">concentrated: (-2)</string>
+    <string name="str_ElementalPurityWaterArrayPu">pure: (0)</string>
+    <string name="str_ElementalPurityWaterArrayIm">impaired:(+2)</string>
+    <string name="str_ElementalPurityWaterArrayIg">ignoble: (+4)</string>
+    <string name="str_ElementalPurityWaterArrayPIg">particularly ignoble: (+6)</string>
+    
+    <string name="str_ElementalPurityLifeArrayVPr">very precious: (-6)</string>
+    <string name="str_ElementalPurityLifeArrayPr">precious: (-4)</string>
+    <string name="str_ElementalPurityLifeArrayCo">concentrated: (-2)</string>
+    <string name="str_ElementalPurityLifeArrayPu">pure: (0)</string>
+    <string name="str_ElementalPurityLifeArrayIm">impaired:(+2)</string>
+    <string name="str_ElementalPurityLifeArrayIg">ignoble: (+4)</string>
+    <string name="str_ElementalPurityLifeArrayPIg">particularly ignoble: (+6)</string>
+    
+    <string name="str_ElementalPurityIceArrayVPr">very precious: (-6)</string>
+    <string name="str_ElementalPurityIceArrayPr">precious: (-4)</string>
+    <string name="str_ElementalPurityIceArrayCo">concentrated: (-2)</string>
+    <string name="str_ElementalPurityIceArrayPu">pure: (0)</string>
+    <string name="str_ElementalPurityIceArrayIm">impaired:(+2)</string>
+    <string name="str_ElementalPurityIceArrayIg">ignoble: (+4)</string>
+    <string name="str_ElementalPurityIceArrayPIg">particularly ignoble: (+6)</string>
+    
+    <string name="str_ElementalPurityStoneArrayVPr">very precious: (-6)</string>
+    <string name="str_ElementalPurityStoneArrayPr">precious: (-4)</string>
+    <string name="str_ElementalPurityStoneArrayCo">concentrated: (-2)</string>
+    <string name="str_ElementalPurityStoneArrayPu">pure: (0)</string>
+    <string name="str_ElementalPurityStoneArrayIm">impaired:(+2)</string>
+    <string name="str_ElementalPurityStoneArrayIg">ignoble: (+4)</string>
+    <string name="str_ElementalPurityStoneArrayPIg">particularly ignoble: (+6)</string>
+    
+    <string name="str_ElementalPurityAirArrayVPr">very precious: (-6)</string>
+    <string name="str_ElementalPurityAirArrayPr">precious: (-4)</string>
+    <string name="str_ElementalPurityAirArrayCo">concentrated: (-2)</string>
+    <string name="str_ElementalPurityAirArrayPu">pure: (0)</string>
+    <string name="str_ElementalPurityAirArrayIm">impaired:(+2)</string>
+    <string name="str_ElementalPurityAirArrayIg">ignoble: (+4)</string>
+    <string name="str_ElementalPurityAirArrayPIg">particularly ignoble: (+6)</string>
+         */
         public static final int str_ElementsArray=0x7f070000;
     }
     public static final class attr {
@@ -36,12 +85,14 @@ public final class R {
     public static final class id {
         public static final int LinearLayout1=0x7f05001f;
         public static final int LinearLayoutElementSpinners=0x7f05008c;
+        public static final int LinearLayoutElementSpinners2=0x7f05008d;
+        public static final int QualityOfMaterial=0x7f05008f;
         public static final int TextView01=0x7f050087;
         public static final int View01=0x7f050036;
         public static final int View02=0x7f050040;
         public static final int View03=0x7f05004a;
         public static final int View04=0x7f050024;
-        public static final int action_settings=0x7f050090;
+        public static final int action_settings=0x7f050092;
         public static final int createChar=0x7f050083;
         public static final int createCharCheckBoxAffinityToElementals=0x7f05004c;
         public static final int createCharCheckBoxCloakedAura=0x7f05004e;
@@ -166,7 +217,7 @@ public final class R {
         public static final int editCharTextTalents=0x7f050060;
         public static final int editCharTextWeakPresence=0x7f05007d;
         public static final int imageView1=0x7f050086;
-        public static final int menu_settings=0x7f05008f;
+        public static final int menu_settings=0x7f050091;
         public static final int objLine=0x7f05002e;
         public static final int radioDjinn=0x7f05008a;
         public static final int radioElementalServant=0x7f050089;
@@ -174,10 +225,10 @@ public final class R {
         public static final int saveChar=0x7f050081;
         public static final int saveNewChar=0x7f050053;
         public static final int scrollView1=0x7f050020;
-        public static final int spinnerChooseQualityOfMaterial=0x7f05008e;
-        public static final int spinnerTypeOfElement=0x7f05008d;
+        public static final int spinnerChooseQualityOfMaterial=0x7f050090;
+        public static final int spinnerTypeOfElement=0x7f05008e;
         public static final int summonElemental=0x7f050085;
-        public static final int textSelectElement=0x7f050057;
+        public static final int textElement=0x7f050057;
         public static final int typeOfSummon=0x7f050088;
     }
     public static final class layout {
@@ -206,10 +257,13 @@ public final class R {
         public static final int str_CloakedAura=0x7f06001e;
         public static final int str_CreateCharHead=0x7f060006;
         public static final int str_CreateCharacter=0x7f060002;
+        public static final int str_Cristalomant=0x7f060039;
         public static final int str_DeleteChar=0x7f060024;
         public static final int str_DemonicCovenant=0x7f06001d;
         public static final int str_Djinn=0x7f060027;
+        public static final int str_Druid=0x7f060035;
         public static final int str_EditCharacter=0x7f060003;
+        public static final int str_Element=0x7f060030;
         public static final int str_ElementAir=0x7f060017;
         public static final int str_ElementFire=0x7f060012;
         public static final int str_ElementIce=0x7f060016;
@@ -218,14 +272,25 @@ public final class R {
         public static final int str_ElementWater=0x7f060013;
         public static final int str_ElementalServant=0x7f060026;
         public static final int str_ElementsPrompt=0x7f060029;
+        public static final int str_EquipmentCristalomant1=0x7f06003a;
+        public static final int str_EquipmentCristalomant2=0x7f06003b;
+        public static final int str_EquipmentDruid1=0x7f060036;
+        public static final int str_EquipmentDruid2=0x7f060037;
+        public static final int str_EquipmentMage1=0x7f060033;
+        public static final int str_EquipmentMage2=0x7f060034;
+        public static final int str_EquipmentShaman1=0x7f06003d;
+        public static final int str_EquipmentShaman2=0x7f06003e;
         public static final int str_Fire=0x7f06002a;
+        public static final int str_Geode=0x7f060038;
         public static final int str_KnowledgeDemonic=0x7f06001a;
         public static final int str_KnowledgeOfAttribute=0x7f060018;
         public static final int str_Life=0x7f06002c;
+        public static final int str_Mage=0x7f060032;
         public static final int str_MasterOfElement=0x7f060028;
+        public static final int str_QualityOfMaterial=0x7f060031;
         public static final int str_SaveChar=0x7f060023;
-        public static final int str_SelectElement=0x7f060030;
         public static final int str_SelectSummoning=0x7f06002f;
+        public static final int str_Shaman=0x7f06003c;
         public static final int str_SpecialCharacteristics=0x7f06001b;
         public static final int str_StatCharisma=0x7f06000b;
         public static final int str_StatCourage=0x7f060009;
