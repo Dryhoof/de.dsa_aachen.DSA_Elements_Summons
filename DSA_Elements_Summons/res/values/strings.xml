@@ -9,6 +9,16 @@
     <string name="img_ElementCircle">Circle of elements</string>
     <string name="str_CreateCharHead">Character creation:</string>
     <string name="str_TextCharacterName">Character name:</string>
+    <string name="str_ClassesPrompt">Choose the class:</string>
+    <string-array name="str_ClassesArray">
+        <item>Mage</item>
+        <item>Druid</item>
+        <item>Geode</item>
+        <item>Cristalomant</item>
+        <item>Shaman</item>
+    </string-array>
+    
+    <string name="str_TextCharacterClass">Character class:</string>
     <string name="str_Attributes">Attributes:</string>
     <string name="str_StatCourage">Courage:</string>
     <string name="str_StatWisdom">Wisdom:</string>
@@ -128,7 +138,7 @@
     <string-array name="str_ElementalPurityFireArray">
         <item>very precious: iron foundry,dragonfire(-6)</item>
         <item>precious: lava, volcano embers(-4)</item>
-        <item>concentrated: forge fire(-2</item>
+        <item>concentrated: forge fire(-2)</item>
         <item>pure: camp fire,oven(0)</item>
         <item>impaired:candle flame(+2)</item>
         <item>ignoble: Khôm heat(+4)</item>
@@ -137,57 +147,57 @@
     
     
     <string-array name="str_ElementalPurityWaterArray">
-        <item>very precious: -6</item>
-        <item>precious: -4</item>
-        <item>concentrated: -2</item>
-        <item>pure: 0</item>
-        <item>impaired: +2</item>
-        <item>ignoble: +4</item>
-        <item>particularly ignoble: +6</item>
+        <item>very precious: pure water(citadel)(-6)</item>
+        <item>precious: deep sea water, Efferd sanctuary(-4)</item>
+        <item>concentrated: fresh spring water, mountain lake(-2)</item>
+        <item>pure: seawater, lake, river(0)</item>
+        <item>impaired: rainwawter,used water(+2)</item>
+        <item>ignoble: brackish water, swampwater(+4)</item>
+        <item>particularly ignoble: air moisture, drain water(+6)</item>
     </string-array>
     
     
     <string-array name="str_ElementalPurityLifeArray">
-        <item>very precious: -6</item>
-        <item>precious: -4</item>
-        <item>concentrated: -2</item>
-        <item>pure: 0</item>
-        <item>impaired: +2</item>
-        <item>ignoble: +4</item>
-        <item>particularly ignoble: +6</item>
+        <item>very precious: very rare plant/animal(-6)</item>
+        <item>precious: (-4)</item>
+        <item>concentrated: (-2)</item>
+        <item>pure: (0)</item>
+        <item>impaired: (+2)</item>
+        <item>ignoble: (+4)</item>
+        <item>particularly ignoble: (+6)</item>
     </string-array>
     
     
     <string-array name="str_ElementalPurityIceArray">
-        <item>very precious: -6</item>
-        <item>precious: -4</item>
-        <item>concentrated: -2</item>
-        <item>pure: 0</item>
-        <item>impaired: +2</item>
-        <item>ignoble: +4</item>
-        <item>particularly ignoble: +6</item>
+        <item>very precious: deep abyssial frost(-6)</item>
+        <item>precious: (-4)</item>
+        <item>concentrated: (-2)</item>
+        <item>pure: (0)</item>
+        <item>impaired: (+2)</item>
+        <item>ignoble: (+4)</item>
+        <item>particularly ignoble: (+6)</item>
     </string-array>
     
     
     <string-array name="str_ElementalPurityStoneArray">
-        <item>very precious: -6</item>
-        <item>precious: -4</item>
-        <item>concentrated: -2</item>
-        <item>pure: 0</item>
-        <item>impaired: +2</item>
-        <item>ignoble: +4</item>
-        <item>particularly ignoble: +6</item>
+        <item>very precious: gemstones, dwarven gold(-6)</item>
+        <item>precious: (-4)</item>
+        <item>concentrated: (-2)</item>
+        <item>pure: (0)</item>
+        <item>impaired: (+2)</item>
+        <item>ignoble: (+4)</item>
+        <item>particularly ignoble: (+6)</item>
     </string-array>
     
     
     <string-array name="str_ElementalPurityAirArray">
-        <item>very precious: -6</item>
-        <item>precious: -4</item>
-        <item>concentrated: -2</item>
-        <item>pure: 0</item>
-        <item>impaired: +2</item>
-        <item>ignoble: +4</item>
-        <item>particularly ignoble: +6</item>
+        <item>very precious: pure air(citadel)(-6)</item>
+        <item>precious: (-4)</item>
+        <item>concentrated: (-2)</item>
+        <item>pure: (0)</item>
+        <item>impaired: (+2)</item>
+        <item>ignoble: (+4)</item>
+        <item>particularly ignoble: (+6)</item>
     </string-array>
 	
 </resources>

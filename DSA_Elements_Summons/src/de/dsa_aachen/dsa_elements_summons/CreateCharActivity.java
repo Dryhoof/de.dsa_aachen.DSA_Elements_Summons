@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class CreateCharActivity extends Activity {
@@ -47,6 +48,8 @@ public class CreateCharActivity extends Activity {
         
 		//values.put(dbField.id.stringValue,1);
 		values.put(dbField.characterName.getStringValue(),getFormElementString(R.id.createCharEditCharacterName));
+		values.put(dbField.characterClass.getStringValue(),getFormElementSpinnerPosition(R.id.createCharChooseCharacterClass));  
+		
 		values.put(dbField.statCourage.getStringValue(),getFormElementInt(R.id.createCharEditStatCourage));
 		values.put(dbField.statWisdom.getStringValue(),getFormElementInt(R.id.createCharEditStatWisdom));
 		values.put(dbField.statCharisma.getStringValue(),getFormElementInt(R.id.createCharEditStatCharisma));
@@ -108,6 +111,12 @@ public class CreateCharActivity extends Activity {
         String RidTextViewString = sequence.toString();
     	someThingToWrite = true;
         return(RidTextViewString);
+	}
+	private int getFormElementSpinnerPosition(int Rid){
+		final Spinner spinner = (Spinner)findViewById(Rid);
+		int position = spinner.getSelectedItemPosition();
+		//System.out.println("spinner position = "+ position);
+		return position;
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

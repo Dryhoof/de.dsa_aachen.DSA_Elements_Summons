@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class EditCharActivity extends Activity {
@@ -54,6 +55,7 @@ public class EditCharActivity extends Activity {
 			query.moveToFirst();
 
 			setEditTextString(query, dbField.characterName.getIntValue(), R.id.editCharEditCharacterName);
+			setEditSpinnerPositionInt(query, dbField.characterClass.getIntValue(), R.id.editCharChooseCharacterClass);
 			setEditTextInt(query, dbField.statCourage.getIntValue(), R.id.editCharEditStatCourage);
 			setEditTextInt(query, dbField.statWisdom.getIntValue(), R.id.editCharEditStatWisdom);
 			setEditTextInt(query, dbField.statCharisma.getIntValue(), R.id.editCharEditStatCharisma);
@@ -122,6 +124,12 @@ public class EditCharActivity extends Activity {
         String RidTextViewString = sequence.toString();
         return(RidTextViewString);
 	}
+	private int getFormElementSpinnerPosition(int Rid){
+		final Spinner spinner = (Spinner)findViewById(Rid);
+		int position = spinner.getSelectedItemPosition();
+		//System.out.println("spinner position = "+ position);
+		return position;
+	}
 	private void setCheckBox(Cursor cursor, int columnId, int Rid){
 	    boolean bool = cursor.getInt(columnId)>0;
 	    final CheckBox checkBox = (CheckBox) findViewById(Rid);
@@ -131,8 +139,11 @@ public class EditCharActivity extends Activity {
 		int Int = cursor.getInt(columnId);
 	    final TextView textView = (TextView) findViewById(Rid);
 	    textView.setText(String.valueOf(Int));
-
-		
+	}
+	private void setEditSpinnerPositionInt(Cursor cursor, int columnId,int Rid){
+		int Int = cursor.getInt(columnId);
+		final Spinner spinner = (Spinner)findViewById(Rid);
+		spinner.setSelection(Int);
 	}
 	private void setEditTextString(Cursor cursor, int columnId, int Rid){
 		String string = cursor.getString(columnId);
@@ -151,6 +162,7 @@ public class EditCharActivity extends Activity {
         
 		values.put(dbField.id.getStringValue(),dbId);
 		values.put(dbField.characterName.getStringValue(),getFormElementString(R.id.editCharEditCharacterName));
+		values.put(dbField.characterClass.getStringValue(),getFormElementSpinnerPosition(R.id.editCharChooseCharacterClass));  
 		values.put(dbField.statCourage.getStringValue(),getFormElementInt(R.id.editCharEditStatCourage));
 		values.put(dbField.statWisdom.getStringValue(),getFormElementInt(R.id.editCharEditStatWisdom));
 		values.put(dbField.statCharisma.getStringValue(),getFormElementInt(R.id.editCharEditStatCharisma));
