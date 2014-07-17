@@ -73,6 +73,24 @@
             		android:entries="@array/str_ClassesArray"
             		android:prompt="@string/str_ClassesPrompt"  />
                 </LinearLayout>
+
+                 <LinearLayout
+                     android:id="@+id/createCharLinearLayoutClassEquipBoxes"
+            		 android:orientation="vertical"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content" >
+                     <CheckBox
+                        android:id="@+id/createCharCheckBoxEquipment1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_EquipmentMage1" />
+                    <CheckBox
+                        android:id="@+id/createCharCheckBoxEquipment2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_EquipmentMage2" />
+
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout

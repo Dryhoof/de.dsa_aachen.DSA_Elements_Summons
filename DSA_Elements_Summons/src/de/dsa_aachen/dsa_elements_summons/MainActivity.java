@@ -35,8 +35,10 @@ public class MainActivity extends Activity {
         });
 	}
 	void createCharView(){
+		System.out.println("Starting EditCharActivity");
 		Intent intent = new Intent();
-		intent.setClass(MainActivity.this,CreateCharActivity.class); 
+		intent.setClass(MainActivity.this,EditCharActivity.class);
+		//intent.putExtra("dbId", 0); 
 		startActivity(intent);
 	}
 	/*void editCharView(){

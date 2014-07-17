@@ -1,7 +1,7 @@
 package de.dsa_aachen.dsa_elements_summons;
 
 public class DSA_Summons_Elements_CharacterClass {
-	private static enum Classes{
+	public static enum Classes{
 		Mage(0,R.array.str_ClassesArray,R.string.str_EquipmentMage1,R.string.str_EquipmentMage2),
 		Druid(1,R.array.str_ClassesArray,R.string.str_EquipmentDruid1,R.string.str_EquipmentDruid2),
 		Geode(2,R.array.str_ClassesArray,R.string.str_EquipmentDruid1,R.string.str_EquipmentDruid2),
@@ -16,7 +16,12 @@ public class DSA_Summons_Elements_CharacterClass {
 			setFirstEquipmentId(firstEquipmentId);
 			setSecondEquipmentId(secondEquipmentId);
 		}
-
+		public static Classes getById(int id) {
+		    for(Classes c : values()) {
+		        if(c.dbId == id) return c;
+		    }
+		    return null;
+		 }
 		public int getDbId() {
 			return dbId;
 		}
@@ -43,4 +48,5 @@ public class DSA_Summons_Elements_CharacterClass {
 		}
 		
 	}
+	
 }

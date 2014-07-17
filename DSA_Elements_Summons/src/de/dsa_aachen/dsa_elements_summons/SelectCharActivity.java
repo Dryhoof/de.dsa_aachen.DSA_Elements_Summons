@@ -50,10 +50,10 @@ public class SelectCharActivity extends Activity {
         };*/
 		do{
 			button[i] = new Button(this);
-			System.out.println("SelectCharActivity.echo");
+			//System.out.println("SelectCharActivity.echo");
 			LinearLayout.LayoutParams editParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
 			button[i].setLayoutParams(editParams);
-			System.out.println("SelectCharActivity.echo");
+			//System.out.println("SelectCharActivity.echo");
 			int ressourceId = getResources().getIdentifier(
 				    "dynamicCharButton"+cursor.getPosition(),
 				    "id",
