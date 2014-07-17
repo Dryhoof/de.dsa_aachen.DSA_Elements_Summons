@@ -18,6 +18,9 @@
             android:orientation="vertical" >
 
             <LinearLayout
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical" >
@@ -46,11 +49,16 @@
 
                     <EditText
                         android:id="@+id/editCharEditCharacterName"
+                        android:nextFocusUp="@id/editCharEditCharacterName"
+                        android:nextFocusLeft="@id/editCharEditCharacterName"
+                        android:nextFocusDown="@+id/editCharChooseCharacterClass"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="50"
                         android:ems="10"
-                        android:inputType="textPersonName" />
+                        android:inputType="textPersonName" >
+
+                    </EditText>
                 </LinearLayout>
                 
                 <LinearLayout
@@ -68,6 +76,9 @@
                         android:textSize="16sp" />
                 <Spinner
             		android:id="@+id/editCharChooseCharacterClass"
+                    android:nextFocusUp="@id/editCharEditCharacterName"
+                    android:nextFocusLeft="@id/editCharEditCharacterName"
+                    android:nextFocusDown="@+id/editCharChooseCharacterClass"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="50"
@@ -145,8 +156,6 @@
                             android:layout_weight="65"
                             android:ems="10"
                             android:inputType="number" >
-
-                            <requestFocus />
                         </EditText>
                     </LinearLayout>
 

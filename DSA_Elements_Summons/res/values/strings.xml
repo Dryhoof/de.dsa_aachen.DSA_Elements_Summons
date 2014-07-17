@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">DSA_Elements_Summons</string>
+    <string name="app_name">DSA Elements Summons</string>
     <string name="menu_settings">Settings</string>
     <string name="str_CreateCharacter">Create character</string>
     <string name="str_EditCharacter">Edit character</string>
@@ -62,22 +62,17 @@
     <string name="str_Element">Element:</string>
     <string name="str_QualityOfMaterial">Quality of material:</string>
     
-    <string name="str_Mage">Mage</string>
-    <string name="str_EquipmentMage1">White summoning robe -1</string>
-    <string name="str_EquipmentMage2">Barefoot -1</string>
+    <string name="str_EquipmentMage1">White summoning robe (-1)</string>
+    <string name="str_EquipmentMage2">Barefoot (-1)</string>
     
-    <string name="str_Geode">Geode</string>
-    <string name="str_Druid">Druid</string>
-    <string name="str_EquipmentDruid1">Naked -1</string>
-    <string name="str_EquipmentDruid2">Ritual cleansing -1</string>
+    <string name="str_EquipmentDruid1">Naked (-1)</string>
+    <string name="str_EquipmentDruid2">Ritual cleansing (-1)</string>
     
-    <string name="str_Cristalomant">Cristalomant</string>
-    <string name="str_EquipmentCristalomant1">First potent cristal -1</string>
-    <string name="str_EquipmentCristalomant2">Second potent cristal -1</string>
+    <string name="str_EquipmentCristalomant1">First potent cristal (-1)</string>
+    <string name="str_EquipmentCristalomant2">Second potent cristal (-1)</string>
     
-    <string name="str_Shaman">Shaman</string>
-    <string name="str_EquipmentShaman1">First Equipment -1</string>
-    <string name="str_EquipmentShaman2">Second Equipment -1</string>
+    <string name="str_EquipmentShaman1">First Equipment (-1)</string>
+    <string name="str_EquipmentShaman2">Second Equipment (-1)</string>
     
   <!-- <string name="str_ElementalPurityFireArrayVPr">very precious: iron foundry,dragonfire(-6)</string>
     <string name="str_ElementalPurityFireArrayPr">precious: lava, volcano embers(-4)</string>
