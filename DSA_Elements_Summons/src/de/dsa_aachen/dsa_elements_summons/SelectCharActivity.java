@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 
 public class SelectCharActivity extends Activity {
+	static final int CREATE_CHARACTER_REQUEST = 0;
 	private String nextActivity = "";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,70 +33,99 @@ public class SelectCharActivity extends Activity {
 		DSA_Summons_Elements_Database DB = new DSA_Summons_Elements_Database(this);
 		SQLiteDatabase Database = DB.getReadableDatabase();
 		final Cursor cursor = Database.query(false, "Characters", null, null, null, null, null, "id ASC", null);
-		cursor.moveToFirst();
-		int i = 0;
-		final int dbId[] = new int[cursor.getCount()];
-		final Button button[] = new Button[cursor.getCount()];
-
-		/*OnClickListener onclicklistener = new OnClickListener() {
-			@Override
-            public void onClick(View v) {
-				for(int j=0;j<cursor.getCount();j++){
-					if(v == button[j]){
-		            	editCharView(dbId[j]);
-		            	break;
-			        }
-				}
-            }
-        };*/
-		do{
-			button[i] = new Button(this);
-			//System.out.println("SelectCharActivity.echo");
+		if(cursor.getCount()< 1){
+			
+			System.out.println("no Character in Database!");
+			System.out.println("Starting EditCharActivity");
 			LinearLayout.LayoutParams editParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
-			button[i].setLayoutParams(editParams);
-			//System.out.println("SelectCharActivity.echo");
-			int ressourceId = getResources().getIdentifier(
-				    "dynamicCharButton"+cursor.getPosition(),
-				    "id",
-				    this.getBaseContext().getPackageName());
-			button[i].setTag(ressourceId);
-			button[i].setText(cursor.getString(dbField.characterName.getIntValue()));
-			//button[i].setOnClickListener(onclicklistener);
+			Button createChar = new Button(this);
+			createChar.setTag(R.id.createChar);
+			createChar.setText(R.string.str_CreateCharacter);
+			createChar.setLayoutParams(editParams);
 			LinearLayout myLayout = (LinearLayout) findViewById(R.id.LinearLayout1);
-			myLayout.addView(button[i]);
-			System.out.println("SelectCharActivity.[i] = "+ i);
-			System.out.println("SelectCharActivity.button[i] = "+ ressourceId);
-			dbId[i] = cursor.getInt(dbField.id.getIntValue());
-			System.out.println("SelectCharActivity.dbId[i] = "+ dbId[i]);
-			button[i].setOnClickListener(new View.OnClickListener() {
+			myLayout.addView(createChar);
+			//final Button createChar = (Button) findViewById(R.id.createChar);
+	        createChar.setOnClickListener(new View.OnClickListener() {
+	            public void onClick(View v) {
+	            	createCharView();
+	            }
+	        });
+			//Intent intent = new Intent();
+			//intent.setClass(SelectCharActivity.this,EditCharActivity.class);
+			//intent.putExtra("dbId", 0); 
+			//startActivity(intent);
+		}else{
+			cursor.moveToFirst();
+			int i = 0;
+			final int dbId[] = new int[cursor.getCount()];
+			final Button button[] = new Button[cursor.getCount()];
+
+			/*OnClickListener onclicklistener = new OnClickListener() {
 				@Override
-		        public void onClick(View v) {
+	            public void onClick(View v) {
 					for(int j=0;j<cursor.getCount();j++){
 						if(v == button[j]){
-							System.out.println("nextActivity.equals(\"EditCharActivity\") =  "+ nextActivity.equals("EditCharActivity"));
-							if(nextActivity.equals("EditCharActivity")){
-				            	editCharView(dbId[j]);
-							}
-							System.out.println("nextActivity.equals(\"SummonElementalActivity\") =  "+ nextActivity.equals("SummonElementalActivity"));
-							if(nextActivity.equals("SummonElementalActivity")){
-								System.out.println();
-								summonElementalView(dbId[j]);
-							}
+			            	editCharView(dbId[j]);
 			            	break;
 				        }
 					}
-		        }
-		    });
-			i++;
-		}while(cursor.moveToNext());
-		
+	            }
+	        };*/
+			do{
+				button[i] = new Button(this);
+				//System.out.println("SelectCharActivity.echo");
+				LinearLayout.LayoutParams editParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+				button[i].setLayoutParams(editParams);
+				//System.out.println("SelectCharActivity.echo");
+				int ressourceId = getResources().getIdentifier(
+					    "dynamicCharButton"+cursor.getPosition(),
+					    "id",
+					    this.getBaseContext().getPackageName());
+				button[i].setTag(ressourceId);
+				button[i].setText(cursor.getString(dbField.characterName.getIntValue()));
+				//button[i].setOnClickListener(onclicklistener);
+				LinearLayout myLayout = (LinearLayout) findViewById(R.id.LinearLayout1);
+				myLayout.addView(button[i]);
+				System.out.println("SelectCharActivity.[i] = "+ i);
+				System.out.println("SelectCharActivity.button[i] = "+ ressourceId);
+				dbId[i] = cursor.getInt(dbField.id.getIntValue());
+				System.out.println("SelectCharActivity.dbId[i] = "+ dbId[i]);
+				button[i].setOnClickListener(new View.OnClickListener() {
+					@Override
+			        public void onClick(View v) {
+						for(int j=0;j<cursor.getCount();j++){
+							if(v == button[j]){
+								System.out.println("nextActivity.equals(\"EditCharActivity\") =  "+ nextActivity.equals("EditCharActivity"));
+								if(nextActivity.equals("EditCharActivity")){
+					            	editCharView(dbId[j]);
+								}
+								System.out.println("nextActivity.equals(\"SummonElementalActivity\") =  "+ nextActivity.equals("SummonElementalActivity"));
+								if(nextActivity.equals("SummonElementalActivity")){
+									System.out.println();
+									summonElementalView(dbId[j]);
+								}
+				            	break;
+					        }
+						}
+			        }
+			    });
+				i++;
+			}while(cursor.moveToNext());
+		}
+		Database.close();
 	}
-
 	void summonElementalView(int dbId){
 		System.out.println("Starting SummonElementalActivity");
 		Intent intent = new Intent();
 		intent.setClass(SelectCharActivity.this,SummonElementalActivity.class); 
 		intent.putExtra("dbId", dbId);
+		startActivity(intent);
+	}
+	void createCharView(){
+		System.out.println("Starting EditCharActivity");
+		Intent intent = new Intent();
+		intent.setClass(SelectCharActivity.this,EditCharActivity.class);
+		//intent.putExtra("dbId", 0); 
 		startActivity(intent);
 	}
 	void editCharView(int dbId){
