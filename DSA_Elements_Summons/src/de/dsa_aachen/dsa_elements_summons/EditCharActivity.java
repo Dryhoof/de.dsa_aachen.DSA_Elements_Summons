@@ -4,19 +4,24 @@ import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_Database.dbField;
 import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_CharacterClass.Classes;
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Toast;
 
 public class EditCharActivity extends Activity
 	implements OnItemSelectedListener{
@@ -49,12 +54,11 @@ public class EditCharActivity extends Activity
         saveChar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	saveChar();
-            	mainView();
             }
         });
 
 
-		Spinner spinner = (Spinner) findViewById(R.id.editCharChooseCharacterClass);
+		Spinner spinner = (Spinner)findViewById(R.id.editCharChooseCharacterClass);
 		spinner.setOnItemSelectedListener(this);
 		if(dbId != 0){
 			//System.out.println("dbId != 0");
@@ -209,8 +213,21 @@ public class EditCharActivity extends Activity
 		SQLiteDatabase Database = DB.getWritableDatabase();
         ContentValues values = new ContentValues();
         if(dbId != 0){ values.put(dbField.id.getStringValue(),dbId); }
-        
-		values.put(dbField.characterName.getStringValue(),getFormElementString(R.id.editCharEditCharacterName));
+        String name = getFormElementString(R.id.editCharEditCharacterName);
+        if(name == ""){
+	        Context context = getApplicationContext();
+	        CharSequence text = getResources().getString(R.string.str_ErrorCharName);
+	        int duration = Toast.LENGTH_SHORT;
+	        Toast toast = Toast.makeText(context, text, duration);
+	        toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 100);
+	        toast.show();
+	        final EditText editCharEditCharacterName = (EditText)findViewById(R.id.editCharEditCharacterName);
+	        editCharEditCharacterName.requestFocus();
+	        ScrollView mainScrollView = (ScrollView)findViewById(R.id.scrollView1);
+	        mainScrollView.fullScroll(ScrollView.FOCUS_UP);
+	        return;
+        }
+		values.put(dbField.characterName.getStringValue(),name);
 		values.put(dbField.characterClass.getStringValue(),getFormElementSpinnerPosition(R.id.editCharChooseCharacterClass));  
 		
 		int charakterEquipmentModifier = 0;
@@ -257,12 +274,12 @@ public class EditCharActivity extends Activity
 			 Database.update("Characters", values, "id = '"+dbId+"'", null); 
 		 }else{
 			if(someThingToWrite == true){
-				 System.out.println("Database insert!");
+				System.out.println("Database insert!");
 		        Database.insert("Characters", "id", values);
 			}
 		 }
-		
 		Database.close();
+    	mainView();
 	}
 	private void deleteChar(){
 		SQLiteDatabase Database = DB.getWritableDatabase();

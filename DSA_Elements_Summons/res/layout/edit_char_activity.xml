@@ -51,13 +51,14 @@
                         android:id="@+id/editCharEditCharacterName"
                         android:nextFocusUp="@id/editCharEditCharacterName"
                         android:nextFocusLeft="@id/editCharEditCharacterName"
-                        android:nextFocusDown="@+id/editCharChooseCharacterClass"
+                        android:nextFocusDown="@+id/editCharEditStatCourage"
+                    	android:nextFocusRight="@+id/editCharEditStatCourage"
+                    	android:nextFocusForward="@+id/editCharEditStatCourage"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="50"
                         android:ems="10"
                         android:inputType="textPersonName" >
-
                     </EditText>
                 </LinearLayout>
                 
@@ -66,19 +67,16 @@
                     android:layout_height="wrap_content"
                     android:weightSum="100" >
                 <TextView
-                        android:id="@+id/createCharTextCharacterClass"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="50"
-                        android:text="@string/str_TextCharacterClass"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:textSize="16sp" />
+                    android:id="@+id/createCharTextCharacterClass"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="50"
+                    android:text="@string/str_TextCharacterClass"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="16sp" />
                 <Spinner
             		android:id="@+id/editCharChooseCharacterClass"
-                    android:nextFocusUp="@id/editCharEditCharacterName"
-                    android:nextFocusLeft="@id/editCharEditCharacterName"
-                    android:nextFocusDown="@+id/editCharChooseCharacterClass"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="50"
@@ -150,6 +148,10 @@
 
                         <EditText
                             android:id="@+id/editCharEditStatCourage"
+		                    android:nextFocusUp="@id/editCharEditCharacterName"
+		                    android:nextFocusLeft="@id/editCharEditCharacterName"
+		                    android:nextFocusDown="@+id/editCharEditStatWisdom"
+		                    android:nextFocusRight="@+id/editCharEditStatWisdom"
                             style="@style/styleEditDecimal"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
@@ -177,6 +179,10 @@
 
                         <EditText
                             android:id="@+id/editCharEditStatWisdom"
+		                    android:nextFocusUp="@id/editCharEditStatCourage"
+		                    android:nextFocusLeft="@id/editCharEditStatCourage"
+		                    android:nextFocusDown="@+id/editCharEditStatCharisma"
+		                    android:nextFocusRight="@+id/editCharEditStatCharisma"
                             style="@style/styleEditDecimal"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
@@ -211,6 +217,10 @@
 
                         <EditText
                             android:id="@+id/editCharEditStatCharisma"
+		                    android:nextFocusUp="@id/editCharEditStatWisdom"
+		                    android:nextFocusLeft="@id/editCharEditStatWisdom"
+		                    android:nextFocusDown="@+id/editCharEditStatIntuition"
+		                    android:nextFocusRight="@+id/editCharEditStatIntuition"
                             style="@style/styleEditDecimal"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
@@ -238,6 +248,10 @@
 
                         <EditText
                             android:id="@+id/editCharEditStatIntuition"
+		                    android:nextFocusUp="@id/editCharEditStatCharisma"
+		                    android:nextFocusLeft="@id/editCharEditStatCharisma"
+		                    android:nextFocusDown="@+id/editCharEditTalentCallElementalServant"
+		                    android:nextFocusRight="@+id/editCharEditTalentCallElementalServant"
                             style="@style/styleEditDecimal"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
@@ -284,6 +298,10 @@
 
                     <EditText
                         android:id="@+id/editCharEditTalentCallElementalServant"
+	                    android:nextFocusUp="@id/editCharEditStatIntuition"
+	                    android:nextFocusLeft="@id/editCharEditStatIntuition"
+	                    android:nextFocusDown="@+id/editCharEditTalentCallDjinn"
+	                    android:nextFocusRight="@+id/editCharEditTalentCallDjinn"
                         style="@style/styleEditDecimal"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -308,6 +326,10 @@
 
                     <EditText
                         android:id="@+id/editCharEditTalentCallDjinn"
+	                    android:nextFocusUp="@id/editCharEditTalentCallElementalServant"
+	                    android:nextFocusLeft="@id/editCharEditTalentCallElementalServant"
+	                    android:nextFocusDown="@+id/editCharEditTalentCallMasterOfElement"
+	                    android:nextFocusRight="@+id/editCharEditTalentCallMasterOfElement"
                         style="@style/styleEditDecimal"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -332,6 +354,10 @@
 
                     <EditText
                         android:id="@+id/editCharEditTalentCallMasterOfElement"
+	                    android:nextFocusUp="@id/editCharEditTalentCallDjinn"
+	                    android:nextFocusLeft="@id/editCharEditTalentCallDjinn"
+	                    android:nextFocusDown="@+id/editCharEditTalentedDemonic"
+	                    android:nextFocusRight="@+id/editCharEditTalentedDemonic"
                         style="@style/styleEditDecimal"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -440,6 +466,10 @@
 
                     <EditText
                         android:id="@+id/editCharEditTalentedDemonic"
+	                    android:nextFocusUp="@id/editCharEditTalentCallMasterOfElement"
+	                    android:nextFocusLeft="@id/editCharEditTalentCallMasterOfElement"
+	                    android:nextFocusDown="@+id/editCharEditKnowledgeDemonic"
+	                    android:nextFocusRight="@+id/editCharEditKnowledgeDemonic"
                         style="@style/styleEditDecimal"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -548,6 +578,10 @@
 
                     <EditText
                         android:id="@+id/editCharEditKnowledgeDemonic"
+	                    android:nextFocusUp="@id/editCharEditTalentedDemonic"
+	                    android:nextFocusLeft="@id/editCharEditTalentedDemonic"
+	                    android:nextFocusDown="@+id/editCharEditWeakPresence"
+	                    android:nextFocusRight="@+id/editCharEditWeakPresence"
                         style="@style/styleEditDecimal"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -633,6 +667,10 @@
 
                     <EditText
                         android:id="@+id/editCharEditWeakPresence"
+	                    android:nextFocusUp="@id/editCharEditKnowledgeDemonic"
+	                    android:nextFocusLeft="@id/editCharEditKnowledgeDemonic"
+	                    android:nextFocusDown="@+id/editCharEditStrengthOfStigma"
+	                    android:nextFocusRight="@+id/editCharEditStrengthOfStigma"
                         style="@style/styleEditDecimal"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -658,6 +696,8 @@
 
                     <EditText
                         android:id="@+id/editCharEditStrengthOfStigma"
+	                    android:nextFocusUp="@id/editCharEditWeakPresence"
+	                    android:nextFocusLeft="@id/editCharEditWeakPresence"
                         style="@style/styleEditDecimal"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"

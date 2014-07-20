@@ -73,6 +73,7 @@
     
     <string name="str_EquipmentShaman1">First Equipment (-1)</string>
     <string name="str_EquipmentShaman2">Second Equipment (-1)</string>
+    <string name="str_ErrorCharName">You need to enter a character name!</string>
     
   <!-- <string name="str_ElementalPurityFireArrayVPr">very precious: iron foundry,dragonfire(-6)</string>
     <string name="str_ElementalPurityFireArrayPr">precious: lava, volcano embers(-4)</string>
