@@ -85,15 +85,16 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout1=0x7f05001f;
-        public static final int LinearLayoutElementSpinners=0x7f050064;
-        public static final int LinearLayoutElementSpinners2=0x7f050065;
-        public static final int QualityOfMaterial=0x7f050067;
+        public static final int LinearLayoutElementSpinners=0x7f050067;
+        public static final int LinearLayoutElementSpinners2=0x7f050069;
+        public static final int QualityOfMaterial=0x7f05006b;
         public static final int TextView01=0x7f05005f;
         public static final int View01=0x7f05003c;
         public static final int View02=0x7f050046;
         public static final int View03=0x7f050050;
         public static final int View04=0x7f05002a;
-        public static final int action_settings=0x7f05006b;
+        public static final int View05=0x7f050068;
+        public static final int action_settings=0x7f05006f;
         public static final int createChar=0x7f05005b;
         public static final int createCharTextCharacterClass=0x7f050025;
         public static final int deleteChar=0x7f05005a;
@@ -179,17 +180,20 @@ public final class R {
         public static final int editCharTextTalents=0x7f050035;
         public static final int editCharTextWeakPresence=0x7f050055;
         public static final int imageView1=0x7f05005e;
-        public static final int menu_settings=0x7f05006a;
+        public static final int menu_settings=0x7f05006e;
         public static final int objLine=0x7f050034;
         public static final int radioDjinn=0x7f050062;
         public static final int radioElementalServant=0x7f050061;
         public static final int radioMasterOfElement=0x7f050063;
         public static final int saveChar=0x7f050058;
         public static final int scrollView1=0x7f050020;
-        public static final int spinner1=0x7f050069;
-        public static final int spinnerChooseQualityOfMaterial=0x7f050068;
-        public static final int spinnerTypeOfElement=0x7f050066;
+        public static final int spinner1=0x7f05006d;
+        public static final int spinnerChooseQualityOfMaterial=0x7f05006c;
+        public static final int spinnerTypeOfElement=0x7f05006a;
         public static final int summonElemental=0x7f05005d;
+        public static final int summonElementalCharacterName=0x7f050064;
+        public static final int summonElementalCheckBoxEquipment1=0x7f050065;
+        public static final int summonElementalCheckBoxEquipment2=0x7f050066;
         public static final int textElement=0x7f05002b;
         public static final int typeOfSummon=0x7f050060;
     }

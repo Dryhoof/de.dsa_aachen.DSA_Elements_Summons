@@ -11,102 +11,160 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".SummonElementalActivity" >
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/TextView01"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/str_SelectSummoning"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <RadioGroup
-            android:id="@+id/typeOfSummon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <RadioButton
-                android:id="@+id/radioElementalServant"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/str_ElementalServant" />
-
-            <RadioButton
-                android:id="@+id/radioDjinn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/str_Djinn" />
-
-            <RadioButton
-                android:id="@+id/radioMasterOfElement"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/str_MasterOfElement" />
-
-        </RadioGroup>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/LinearLayoutElementSpinners"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-        <View
-            android:id="@+id/View04"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/darker_gray" />
-
-        <LinearLayout
-            android:id="@+id/LinearLayoutElementSpinners2"
+        android:layout_height="wrap_content" >
+        
+        
+        
+    	<LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="100" >
+            android:orientation="vertical" >
             
-        <TextView
-            android:id="@+id/textElement"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:text="@string/str_Element"
-            android:layout_gravity="center_vertical"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100" >
 
-        <Spinner
-            android:id="@+id/spinnerTypeOfElement"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="50"
-            android:entries="@array/str_ElementsArray"
-            android:prompt="@string/str_ElementsPrompt" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="50"
+                    android:textSize="16sp" />
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/summonElementalCharacterName"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:ems="10" />
+            </LinearLayout>
+            
+            
+		    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical" >
+		        
+		        <TextView
+		            android:id="@+id/TextView01"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/str_SelectSummoning"
+		            android:textAppearance="?android:attr/textAppearanceLarge" />
+		
+		        <RadioGroup
+		            android:id="@+id/typeOfSummon"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content" >
+		
+		            <RadioButton
+		                android:id="@+id/radioElementalServant"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:checked="true"
+		                android:text="@string/str_ElementalServant" />
+		
+		            <RadioButton
+		                android:id="@+id/radioDjinn"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/str_Djinn" />
+		
+		            <RadioButton
+		                android:id="@+id/radioMasterOfElement"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:text="@string/str_MasterOfElement" />
+		
+		        </RadioGroup>
+		
+		    </LinearLayout>
+		    <LinearLayout
+		        android:id="@+id/LinearLayoutElementSpinners"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical" >
+		
+		        <View
+		            android:id="@+id/View05"
+		            android:layout_width="match_parent"
+		            android:layout_height="1dp"
+		            android:layout_marginBottom="16dp"
+		            android:layout_marginTop="16dp"
+		            android:background="@android:color/darker_gray" />
+		
+		        <LinearLayout
+		            android:id="@+id/LinearLayoutElementSpinners2"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:weightSum="100" >
+		            
+		        <TextView
+		            android:id="@+id/textElement"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="50"
+		            android:text="@string/str_Element"
+		            android:layout_gravity="center_vertical"
+		            android:textAppearance="?android:attr/textAppearanceLarge" />
+		
+		        <Spinner
+		            android:id="@+id/spinnerTypeOfElement"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="50"
+		            android:entries="@array/str_ElementsArray"
+		            android:prompt="@string/str_ElementsPrompt" />
+		
+		        </LinearLayout>
+		
+		        <TextView
+		            android:id="@+id/QualityOfMaterial"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:text="@string/str_QualityOfMaterial"
+		            android:textAppearance="?android:attr/textAppearanceLarge" />
+		
+		        <Spinner
+		            android:id="@+id/spinnerChooseQualityOfMaterial"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content" />
+		
+		    </LinearLayout>
+		    
+		    <View
+	          android:id="@+id/View04"
+	          android:layout_width="match_parent"
+	          android:layout_height="1dp"
+	          android:layout_marginBottom="16dp"
+	          android:layout_marginTop="16dp"
+	          android:background="@android:color/darker_gray" />
 
-        <TextView
-            android:id="@+id/QualityOfMaterial"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/str_QualityOfMaterial"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+     		<LinearLayout
+                 android:id="@+id/editCharLinearLayoutClassEquipBoxes"
+        		 android:orientation="vertical"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content" >
+                 <CheckBox
+                    android:id="@+id/summonElementalCheckBoxEquipment1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_EquipmentMage1" />
+                <CheckBox
+                    android:id="@+id/summonElementalCheckBoxEquipment2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_EquipmentMage2" />
 
-        <Spinner
-            android:id="@+id/spinnerChooseQualityOfMaterial"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+            </LinearLayout>		
+		    <Spinner
+		        android:id="@+id/spinner1"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content" />
+		    </LinearLayout>
+	</ScrollView>
 </LinearLayout>

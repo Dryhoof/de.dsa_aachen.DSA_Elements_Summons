@@ -1,5 +1,6 @@
 package de.dsa_aachen.dsa_elements_summons;
 
+import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_Database.dbField;
 import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -9,7 +10,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.Spinner;
 
@@ -60,55 +63,78 @@ public class SummonElementalActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.summon_elemental_activity);
 		SQLiteDatabase Database = DB.getReadableDatabase();
-		final Cursor cursor = Database.query(false, "Characters", null, null, 
-				null, null, null, "id ASC", null);
-		cursor.moveToFirst();
+
+		Cursor query = Database.query(false, "Characters", null, "id = '" + dbId + "'", null, null, null, "id ASC", null);
+		query.moveToFirst();
 		Spinner spinner = (Spinner) findViewById(R.id.spinnerTypeOfElement);
 		spinner.setOnItemSelectedListener(this);
-		/*
-		LinearLayout.LayoutParams editParams = 
-			new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,
-				LayoutParams.WRAP_CONTENT);
-		LinearLayout layoutSummonElementalActivity = 
-			(LinearLayout) findViewById(R.id.LinearLayout1);
+		
+		setEditTextString(query, dbField.characterName.getIntValue(), R.id.summonElementalCharacterName);
+		
+		//setEditSpinnerPositionInt(query, dbField.characterClass.getIntValue(), R.id.editCharChooseCharacterClass);
+		
+		int charakterEquipmentModifier = query.getInt(dbField.characterEquipmentModifier.getIntValue());
+		System.out.println("charakterEquipmentModifier = "+charakterEquipmentModifier);
+		if(charakterEquipmentModifier == 1 || charakterEquipmentModifier == 3 ) {
+			final CheckBox checkBox = (CheckBox) findViewById(R.id.summonElementalCheckBoxEquipment1);
+		    checkBox.setChecked(true);
+		    //setCheckBox(query,1, R.id.editCharCheckBoxEquipment1);
+		}
 
-		Button elementalServant = new Button(this);
-		elementalServant.setLayoutParams(editParams);
-		elementalServant.setTag(getResources().getIdentifier(
-			"buttonSummonElementalServant","id",
-			this.getBaseContext().getPackageName()));
-		elementalServant.setText(R.string.str_ElementalServant);
-		layoutSummonElementalActivity.addView(elementalServant);
-		elementalServant.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	//TODO create function
-            }
-        });
-		Button djinn = new Button(this);
-		djinn.setLayoutParams(editParams);
-		djinn.setTag(getResources().getIdentifier("buttonSummonDjinn",
-			"id",this.getBaseContext().getPackageName()));
-		djinn.setText(R.string.str_Djinn);
-		layoutSummonElementalActivity.addView(djinn);
-		djinn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	//TODO create function
-            }
-        });
+		if(charakterEquipmentModifier > 1) {
+			final CheckBox checkBox = (CheckBox) findViewById(R.id.summonElementalCheckBoxEquipment2);
+		    checkBox.setChecked(true);
+			//setCheckBox(query,1, R.id.editCharCheckBoxEquipment2);
+		}
+		setEditTextInt(query, dbField.statCourage.getIntValue(), R.id.summonElementalEditStatCourage);
+		setEditTextInt(query, dbField.statWisdom.getIntValue(), R.id.summonElementalEditStatWisdom);
+		setEditTextInt(query, dbField.statCharisma.getIntValue(), R.id.summonElementalEditStatCharisma);
+		setEditTextInt(query, dbField.statIntuition.getIntValue(), R.id.summonElementalEditStatIntuition);
+		setEditTextInt(query, dbField.talentCallElementalServant.getIntValue(), R.id.summonElementalEditTalentCallElementalServant);
+		setEditTextInt(query, dbField.talentCallDjinn.getIntValue(), R.id.summonElementalEditTalentCallDjinn);
+		setEditTextInt(query, dbField.talentCallMasterOfElement.getIntValue(), R.id.summonElementalEditTalentCallMasterOfElement);
+		//setCheckBox(query, dbField.talentedFire.getIntValue(), R.id.editCharCheckBoxTalentedFire);
+		//setCheckBox(query, dbField.talentedWater.getIntValue(), R.id.editCharCheckBoxTalentedWater);
+		//setCheckBox(query, dbField.talentedLife.getIntValue(), R.id.editCharCheckBoxTalentedLife);
+		//setCheckBox(query, dbField.talentedIce.getIntValue(), R.id.editCharCheckBoxTalentedIce);
+		//setCheckBox(query, dbField.talentedStone.getIntValue(), R.id.editCharCheckBoxTalentedStone);
+		//setCheckBox(query, dbField.talentedAir.getIntValue(), R.id.editCharCheckBoxTalentedAir);
+		//setEditTextInt(query, dbField.talentedDemonic.getIntValue(), R.id.editCharEditTalentedDemonic);
+		setCheckBox(query, dbField.knowledgeFire.getIntValue(), R.id.summonElementalCheckBoxKnowledgeFire);
+		setCheckBox(query, dbField.knowledgeWater.getIntValue(), R.id.summonElementalCheckBoxKnowledgeWater);
+		setCheckBox(query, dbField.knowledgeLife.getIntValue(), R.id.summonElementalCheckBoxKnowledgeLife);
+		setCheckBox(query, dbField.knowledgeIce.getIntValue(), R.id.summonElementalCheckBoxKnowledgeIce);
+		setCheckBox(query, dbField.knowledgeStone.getIntValue(), R.id.summonElementalCheckBoxKnowledgeStone);
+		setCheckBox(query, dbField.knowledgeAir.getIntValue(), R.id.summonElementalCheckBoxKnowledgeAir);
+		setEditTextInt(query, dbField.knowledgeDemonic.getIntValue(), R.id.summonElementalEditKnowledgeDemonic);
+		//setCheckBox(query, dbField.affinityToElementals.getIntValue(), R.id.editCharCheckBoxAffinityToElementals);
+		setCheckBox(query, dbField.demonicCovenant.getIntValue(), R.id.summonElementalCheckBoxDemonicCovenant);
+		//setCheckBox(query, dbField.cloakedAura.getIntValue(), R.id.editCharCheckBoxCloakedAura);
+		//setEditTextInt(query, dbField.weakPresence.getIntValue(), R.id.editCharEditWeakPresence);
+		setEditTextInt(query, dbField.strengthOfStigma.getIntValue(), R.id.summonElementalEditStrengthOfStigma);
 
-		Button masterOfElement = new Button(this);
-		masterOfElement.setLayoutParams(editParams);
-		masterOfElement.setTag(getResources().getIdentifier(
-			"buttonSummonMasterOfElement","id",
-			this.getBaseContext().getPackageName()));
-		masterOfElement.setText(R.string.str_MasterOfElement);
-		layoutSummonElementalActivity.addView(masterOfElement);
-		masterOfElement.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-            	//TODO create function
-            }
-        });
-        */
+		Database.close();
+	}
+	
+	private void setCheckBox(Cursor cursor, int columnId, int Rid){
+	    boolean bool = cursor.getInt(columnId)>0;
+	    final CheckBox checkBox = (CheckBox) findViewById(Rid);
+	    checkBox.setChecked(bool);
+	}
+	private void setEditTextInt(Cursor cursor, int columnId, int Rid){
+		int Int = cursor.getInt(columnId);
+	    final TextView textView = (TextView) findViewById(Rid);
+	    textView.setText(String.valueOf(Int));
+	}
+	private void setEditSpinnerPositionInt(Cursor cursor, int columnId,int Rid){
+		int Int = cursor.getInt(columnId);
+		final Spinner spinner = (Spinner)findViewById(Rid);
+		spinner.setSelection(Int);
+	}
+	private void setEditTextString(Cursor cursor, int columnId, int Rid){
+		String string = cursor.getString(columnId);
+	    final TextView textView = (TextView) findViewById(Rid);
+	    textView.setText(string);
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
