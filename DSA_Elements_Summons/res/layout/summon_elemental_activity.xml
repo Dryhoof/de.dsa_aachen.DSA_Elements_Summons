@@ -42,13 +42,172 @@
                     android:layout_weight="50"
                     android:ems="10" />
             </LinearLayout>
-            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                
+
+                <TextView
+                    android:id="@+id/textElement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_Attributes"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="50"
+                        android:baselineAligned="true"
+                        android:weightSum="100" >
+
+                        <TextView
+                            android:id="@+id/editCharTextStatCourage"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="35"
+                            android:text="@string/str_StatCourage"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/summonElementalEditStatCourage"
+                            style="@style/styleEditDecimal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="65"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:nextFocusDown="@+id/summonElementalEditStatWisdom"
+                            android:nextFocusRight="@+id/summonElementalEditStatWisdom" >
+
+                        </EditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_weight="50"
+                        android:weightSum="100" >
+
+                        <TextView
+                            android:id="@+id/editCharTextStatWisdom"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="35"
+                            android:text="@string/str_StatWisdom"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/summonElementalEditStatWisdom"
+                            style="@style/styleEditDecimal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="65"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:nextFocusDown="@+id/summonElementalEditStatCharisma"
+                            android:nextFocusLeft="@id/summonElementalEditStatCourage"
+                            android:nextFocusRight="@+id/summonElementalEditStatCharisma"
+                            android:nextFocusUp="@id/summonElementalEditStatCourage" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:layout_weight="50"
+                        android:baselineAligned="true"
+                        android:weightSum="100" >
+
+                        <TextView
+                            android:id="@+id/editCharTextStatCharisma"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="35"
+                            android:text="@string/str_StatCharisma"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/summonElementalEditStatCharisma"
+                            style="@style/styleEditDecimal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="65"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:nextFocusDown="@+id/editCharEditStatIntuition"
+                            android:nextFocusLeft="@id/summonElementalEditStatWisdom"
+                            android:nextFocusRight="@+id/editCharEditStatIntuition"
+                            android:nextFocusUp="@id/summonElementalEditStatWisdom" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_weight="50"
+                        android:baselineAligned="true"
+                        android:weightSum="100" >
+
+                        <TextView
+                            android:id="@+id/editCharTextStatIntuition"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="35"
+                            android:text="@string/str_StatIntuition"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/summonElementalEditStatIntuition"
+                            style="@style/styleEditDecimal"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="65"
+                            android:ems="10"
+                            android:inputType="number"
+                            android:nextFocusDown="@+id/spinnerTypeOfElement"
+                            android:nextFocusLeft="@id/summonElementalEditStatCharisma"
+                            android:nextFocusRight="@+id/spinnerTypeOfElement"
+                            android:nextFocusUp="@id/summonElementalEditStatCharisma" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
             
 		    <LinearLayout
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:orientation="vertical" >
-		        
+		        <View
+                    android:id="@+id/View04"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/darker_gray" />
 		        <TextView
 		            android:id="@+id/TextView01"
 		            android:layout_width="wrap_content"
