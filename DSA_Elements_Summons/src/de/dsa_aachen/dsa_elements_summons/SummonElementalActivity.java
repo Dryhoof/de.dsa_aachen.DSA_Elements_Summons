@@ -18,7 +18,17 @@ import android.widget.Spinner;
 
 public class SummonElementalActivity extends Activity 
 	implements OnItemSelectedListener{
-	int dbId;
+	private int dbId;
+	private boolean talentedFire;
+	private boolean talentedWater;
+	private boolean talentedLife;
+	private boolean talentedIce;
+	private boolean talentedStone;
+	private boolean talentedAir;
+	private int talentedDemonic;
+	private boolean affinityToElementals;
+	private boolean cloakedAura;
+	private int weakPresence;
 	DSA_Summons_Elements_Database DB = new DSA_Summons_Elements_Database(this);
 	public static enum spinnerElement {
 		fire(0,R.array.str_ElementalPurityFireArray),
@@ -93,24 +103,30 @@ public class SummonElementalActivity extends Activity
 		setEditTextInt(query, dbField.talentCallElementalServant.getIntValue(), R.id.summonElementalEditTalentCallElementalServant);
 		setEditTextInt(query, dbField.talentCallDjinn.getIntValue(), R.id.summonElementalEditTalentCallDjinn);
 		setEditTextInt(query, dbField.talentCallMasterOfElement.getIntValue(), R.id.summonElementalEditTalentCallMasterOfElement);
-		//setCheckBox(query, dbField.talentedFire.getIntValue(), R.id.editCharCheckBoxTalentedFire);
-		//setCheckBox(query, dbField.talentedWater.getIntValue(), R.id.editCharCheckBoxTalentedWater);
-		//setCheckBox(query, dbField.talentedLife.getIntValue(), R.id.editCharCheckBoxTalentedLife);
-		//setCheckBox(query, dbField.talentedIce.getIntValue(), R.id.editCharCheckBoxTalentedIce);
-		//setCheckBox(query, dbField.talentedStone.getIntValue(), R.id.editCharCheckBoxTalentedStone);
-		//setCheckBox(query, dbField.talentedAir.getIntValue(), R.id.editCharCheckBoxTalentedAir);
-		//setEditTextInt(query, dbField.talentedDemonic.getIntValue(), R.id.editCharEditTalentedDemonic);
+		
+		talentedFire = dbField.talentedFire.getIntValue() == 1 ? true : false;
+		talentedWater = dbField.talentedWater.getIntValue() == 1 ? true : false; 
+		talentedLife = dbField.talentedLife.getIntValue() == 1 ? true : false; 
+		talentedIce = dbField.talentedIce.getIntValue() == 1 ? true : false; 
+		talentedStone = dbField.talentedStone.getIntValue() == 1 ? true : false; 
+		talentedAir = dbField.talentedAir.getIntValue() == 1 ? true : false; 
+		talentedDemonic = dbField.talentedDemonic.getIntValue();
+		
 		setCheckBox(query, dbField.knowledgeFire.getIntValue(), R.id.summonElementalCheckBoxKnowledgeFire);
 		setCheckBox(query, dbField.knowledgeWater.getIntValue(), R.id.summonElementalCheckBoxKnowledgeWater);
 		setCheckBox(query, dbField.knowledgeLife.getIntValue(), R.id.summonElementalCheckBoxKnowledgeLife);
 		setCheckBox(query, dbField.knowledgeIce.getIntValue(), R.id.summonElementalCheckBoxKnowledgeIce);
 		setCheckBox(query, dbField.knowledgeStone.getIntValue(), R.id.summonElementalCheckBoxKnowledgeStone);
 		setCheckBox(query, dbField.knowledgeAir.getIntValue(), R.id.summonElementalCheckBoxKnowledgeAir);
+		
 		setEditTextInt(query, dbField.knowledgeDemonic.getIntValue(), R.id.summonElementalEditKnowledgeDemonic);
-		//setCheckBox(query, dbField.affinityToElementals.getIntValue(), R.id.editCharCheckBoxAffinityToElementals);
+		
+		affinityToElementals = dbField.affinityToElementals.getIntValue() == 1 ? true: false;
+		
 		setCheckBox(query, dbField.demonicCovenant.getIntValue(), R.id.summonElementalCheckBoxDemonicCovenant);
-		//setCheckBox(query, dbField.cloakedAura.getIntValue(), R.id.editCharCheckBoxCloakedAura);
-		//setEditTextInt(query, dbField.weakPresence.getIntValue(), R.id.editCharEditWeakPresence);
+		cloakedAura = dbField.cloakedAura.getIntValue() == 1 ? true : false;
+		weakPresence = dbField.weakPresence.getIntValue();
+		
 		setEditTextInt(query, dbField.strengthOfStigma.getIntValue(), R.id.summonElementalEditStrengthOfStigma);
 
 		Database.close();

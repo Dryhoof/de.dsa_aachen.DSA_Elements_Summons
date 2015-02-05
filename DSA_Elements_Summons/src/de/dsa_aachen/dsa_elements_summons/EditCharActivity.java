@@ -1,7 +1,7 @@
 package de.dsa_aachen.dsa_elements_summons;
 
 import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_Database.dbField;
-import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_CharacterClass.Classes;
+import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_CharacterClasses.Classes;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;

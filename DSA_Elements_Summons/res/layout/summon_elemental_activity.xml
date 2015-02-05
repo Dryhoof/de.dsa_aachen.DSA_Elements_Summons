@@ -50,7 +50,7 @@
                 
 
                 <TextView
-                    android:id="@+id/textElement"
+                    android:id="@+id/textAttributes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/str_Attributes"
@@ -71,7 +71,7 @@
                         android:weightSum="100" >
 
                         <TextView
-                            android:id="@+id/editCharTextStatCourage"
+                            android:id="@+id/summonElementalTextStatCourage"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="35"
@@ -101,7 +101,7 @@
                         android:weightSum="100" >
 
                         <TextView
-                            android:id="@+id/editCharTextStatWisdom"
+                            android:id="@+id/summonElementalTextStatWisdom"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="35"
@@ -140,7 +140,7 @@
                         android:weightSum="100" >
 
                         <TextView
-                            android:id="@+id/editCharTextStatCharisma"
+                            android:id="@+id/summonElementalTextStatCharisma"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="35"
@@ -156,9 +156,9 @@
                             android:layout_weight="65"
                             android:ems="10"
                             android:inputType="number"
-                            android:nextFocusDown="@+id/editCharEditStatIntuition"
+                            android:nextFocusDown="@+id/summonElementalEditStatIntuition"
                             android:nextFocusLeft="@id/summonElementalEditStatWisdom"
-                            android:nextFocusRight="@+id/editCharEditStatIntuition"
+                            android:nextFocusRight="@+id/summonElementalEditStatIntuition"
                             android:nextFocusUp="@id/summonElementalEditStatWisdom" />
 
                     </LinearLayout>
@@ -172,7 +172,7 @@
                         android:weightSum="100" >
 
                         <TextView
-                            android:id="@+id/editCharTextStatIntuition"
+                            android:id="@+id/summonElementalTextStatIntuition"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="35"
@@ -188,9 +188,9 @@
                             android:layout_weight="65"
                             android:ems="10"
                             android:inputType="number"
-                            android:nextFocusDown="@+id/spinnerTypeOfElement"
+                            android:nextFocusDown="@+id/summonElementalEditTalentCallElementalServant"
                             android:nextFocusLeft="@id/summonElementalEditStatCharisma"
-                            android:nextFocusRight="@+id/spinnerTypeOfElement"
+                            android:nextFocusRight="@+id/summonElementalEditTalentCallElementalServant"
                             android:nextFocusUp="@id/summonElementalEditStatCharisma" />
 
                     </LinearLayout>
@@ -242,6 +242,270 @@
 		        </RadioGroup>
 		
 		    </LinearLayout>
+		    
+		    <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:weightSum="100" >
+	
+	            <TextView
+	                android:id="@+id/summonElementalTextTalentCallElementalServant"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_weight="35"
+	                android:text="@string/str_TalentCallElementalServant"
+	                android:textAppearance="?android:attr/textAppearanceMedium"
+	                android:textSize="16sp" />
+	
+	            <EditText
+	                android:id="@+id/summonElementalEditTalentCallElementalServant"
+		            android:nextFocusUp="@id/summonElementalEditStatIntuition"
+		            android:nextFocusLeft="@id/summonElementalEditStatIntuition"
+		            android:nextFocusDown="@+id/summonElementalEditTalentCallDjinn"
+		            android:nextFocusRight="@+id/summonElementalEditTalentCallDjinn"
+	                style="@style/styleEditDecimal"
+	                android:layout_width="fill_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_weight="65"
+	                android:ems="10"
+	                android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100" >
+
+                <TextView
+                    android:id="@+id/summonElementalTextTalentCallDjinn"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="@string/str_TalentCallDjinn"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/summonElementalEditTalentCallDjinn"
+	                android:nextFocusUp="@id/summonElementalEditTalentCallElementalServant"
+	                android:nextFocusLeft="@id/summonElementalEditTalentCallElementalServant"
+	                android:nextFocusDown="@+id/summonElementalEditTalentCallMasterOfElement"
+	                android:nextFocusRight="@+id/summonElementalEditTalentCallMasterOfElement"
+                    style="@style/styleEditDecimal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="100" >
+
+                <TextView
+                    android:id="@+id/summonElementalTextTalentCallMasterOfElement"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="35"
+                    android:text="@string/str_TalentCallMasterOfElement"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/summonElementalEditTalentCallMasterOfElement"
+	                android:nextFocusUp="@id/summonElementalEditTalentCallDjinn"
+	                android:nextFocusLeft="@id/summonElementalEditTalentCallDjinn"
+		            android:nextFocusDown="@+id/summonElementalEditKnowledgeDemonic"
+		            android:nextFocusRight="@+id/summonElementalEditKnowledgeDemonic"
+                    style="@style/styleEditDecimal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="65"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <View
+                    android:id="@+id/View02"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/summonElementalTextKnowledgeOfAttribute"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_KnowledgeOfAttribute"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+            
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <CheckBox
+                        android:id="@+id/summonElementalCheckBoxKnowledgeFire"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementFire" />
+
+                    <CheckBox
+                        android:id="@+id/summonElementalCheckBoxKnowledgeWater"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementWater" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <CheckBox
+                        android:id="@+id/summonElementalCheckBoxKnowledgeLife"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementLife" />
+
+                    <CheckBox
+                        android:id="@+id/summonElementalCheckBoxKnowledgeIce"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementIce" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <CheckBox
+                        android:id="@+id/summonElementalCheckBoxKnowledgeStone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementStone" />
+
+                    <CheckBox
+                        android:id="@+id/summonElementalCheckBoxKnowledgeAir"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:text="@string/str_ElementAir" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/summonElementalTextKnowledgeDemonic"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="35"
+                        android:text="@string/str_KnowledgeDemonic"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/summonElementalEditKnowledgeDemonic"
+	                    android:nextFocusUp="@id/summonElementalEditTalentCallMasterOfElement"
+	                    android:nextFocusLeft="@id/summonElementalEditTalentCallMasterOfElement"
+	                    android:nextFocusDown="@+id/summonElementalEditStrengthOfStigma"
+	                    android:nextFocusRight="@+id/summonElementalEditStrengthOfStigma"
+                        style="@style/styleEditDecimal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="65"
+                        android:ems="10"
+                        android:inputType="number" />
+                </LinearLayout>
+            </LinearLayout>
+            
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <View
+                    android:id="@+id/View03"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/summonElementalTextSpecialAttributes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_SpecialCharacteristics"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <CheckBox
+                        android:id="@+id/summonElementalCheckBoxDemonicCovenant"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_DemonicCovenant" />
+                </LinearLayout>
+            </LinearLayout>
+            
+            <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="true"
+                    android:weightSum="100" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="true"
+                    android:weightSum="100" >
+
+                    <TextView
+                        android:id="@+id/summonElementalTextStrengthOfStigma"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="35"
+                        android:text="@string/str_StrengthOfStigma"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/summonElementalEditStrengthOfStigma"
+	                    android:nextFocusUp="@id/summonElementalEditKnowledgeDemonic"
+	                    android:nextFocusLeft="@id/summonElementalEditKnowledgeDemonic"
+                        style="@style/styleEditDecimal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="65"
+                        android:ems="10"
+                        android:inputType="number" />
+                </LinearLayout>
+            </LinearLayout>
+            
+            
 		    <LinearLayout
 		        android:id="@+id/LinearLayoutElementSpinners"
 		        android:layout_width="match_parent"
@@ -296,7 +560,7 @@
 		    </LinearLayout>
 		    
 		    <View
-	          android:id="@+id/View04"
+	          android:id="@+id/View06"
 	          android:layout_width="match_parent"
 	          android:layout_height="1dp"
 	          android:layout_marginBottom="16dp"
@@ -304,7 +568,7 @@
 	          android:background="@android:color/darker_gray" />
 
      		<LinearLayout
-                 android:id="@+id/editCharLinearLayoutClassEquipBoxes"
+                 android:id="@+id/summonElementalLinearLayoutClassEquipBoxes"
         		 android:orientation="vertical"
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content" >

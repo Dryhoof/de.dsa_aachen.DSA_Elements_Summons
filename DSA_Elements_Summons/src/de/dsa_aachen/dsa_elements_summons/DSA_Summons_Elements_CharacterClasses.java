@@ -1,6 +1,6 @@
 package de.dsa_aachen.dsa_elements_summons;
 
-public class DSA_Summons_Elements_CharacterClass {
+public class DSA_Summons_Elements_CharacterClasses {
 	public static enum Classes{
 		Mage(0,R.array.str_ClassesArray,R.string.str_EquipmentMage1,R.string.str_EquipmentMage2),
 		Druid(1,R.array.str_ClassesArray,R.string.str_EquipmentDruid1,R.string.str_EquipmentDruid2),
