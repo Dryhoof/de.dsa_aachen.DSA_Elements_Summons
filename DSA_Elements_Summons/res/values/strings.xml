@@ -75,54 +75,6 @@
     <string name="str_EquipmentShaman2">Second Equipment (-1)</string>
     <string name="str_ErrorCharName">You need to enter a character name!</string>
     
-  <!-- <string name="str_ElementalPurityFireArrayVPr">very precious: iron foundry,dragonfire(-6)</string>
-    <string name="str_ElementalPurityFireArrayPr">precious: lava, volcano embers(-4)</string>
-    <string name="str_ElementalPurityFireArrayCo">concentrated: forge fire(-2)</string>
-    <string name="str_ElementalPurityFireArrayPu">pure: camp fire,oven(0)</string>
-    <string name="str_ElementalPurityFireArrayIm">impaired:candle flame(+2)</string>
-    <string name="str_ElementalPurityFireArrayIg">ignoble: Khôm heat(+4)</string>
-    <string name="str_ElementalPurityFireArrayPIg">particularly ignoble: \'cold\' light(+6)</string>
-    
-    <string name="str_ElementalPurityWaterArrayVPr">very precious: (-6)</string>
-    <string name="str_ElementalPurityWaterArrayPr">precious: (-4)</string>
-    <string name="str_ElementalPurityWaterArrayCo">concentrated: (-2)</string>
-    <string name="str_ElementalPurityWaterArrayPu">pure: (0)</string>
-    <string name="str_ElementalPurityWaterArrayIm">impaired:(+2)</string>
-    <string name="str_ElementalPurityWaterArrayIg">ignoble: (+4)</string>
-    <string name="str_ElementalPurityWaterArrayPIg">particularly ignoble: (+6)</string>
-    
-    <string name="str_ElementalPurityLifeArrayVPr">very precious: (-6)</string>
-    <string name="str_ElementalPurityLifeArrayPr">precious: (-4)</string>
-    <string name="str_ElementalPurityLifeArrayCo">concentrated: (-2)</string>
-    <string name="str_ElementalPurityLifeArrayPu">pure: (0)</string>
-    <string name="str_ElementalPurityLifeArrayIm">impaired:(+2)</string>
-    <string name="str_ElementalPurityLifeArrayIg">ignoble: (+4)</string>
-    <string name="str_ElementalPurityLifeArrayPIg">particularly ignoble: (+6)</string>
-    
-    <string name="str_ElementalPurityIceArrayVPr">very precious: (-6)</string>
-    <string name="str_ElementalPurityIceArrayPr">precious: (-4)</string>
-    <string name="str_ElementalPurityIceArrayCo">concentrated: (-2)</string>
-    <string name="str_ElementalPurityIceArrayPu">pure: (0)</string>
-    <string name="str_ElementalPurityIceArrayIm">impaired:(+2)</string>
-    <string name="str_ElementalPurityIceArrayIg">ignoble: (+4)</string>
-    <string name="str_ElementalPurityIceArrayPIg">particularly ignoble: (+6)</string>
-    
-    <string name="str_ElementalPurityStoneArrayVPr">very precious: (-6)</string>
-    <string name="str_ElementalPurityStoneArrayPr">precious: (-4)</string>
-    <string name="str_ElementalPurityStoneArrayCo">concentrated: (-2)</string>
-    <string name="str_ElementalPurityStoneArrayPu">pure: (0)</string>
-    <string name="str_ElementalPurityStoneArrayIm">impaired:(+2)</string>
-    <string name="str_ElementalPurityStoneArrayIg">ignoble: (+4)</string>
-    <string name="str_ElementalPurityStoneArrayPIg">particularly ignoble: (+6)</string>
-    
-    <string name="str_ElementalPurityAirArrayVPr">very precious: (-6)</string>
-    <string name="str_ElementalPurityAirArrayPr">precious: (-4)</string>
-    <string name="str_ElementalPurityAirArrayCo">concentrated: (-2)</string>
-    <string name="str_ElementalPurityAirArrayPu">pure: (0)</string>
-    <string name="str_ElementalPurityAirArrayIm">impaired:(+2)</string>
-    <string name="str_ElementalPurityAirArrayIg">ignoble: (+4)</string>
-    <string name="str_ElementalPurityAirArrayPIg">particularly ignoble: (+6)</string>-->
-    
     <string-array name="str_ElementsArray">
         <item>Fire</item>
         <item>Water</item>
@@ -131,10 +83,45 @@
         <item>Stone</item>
         <item>Air</item>
     </string-array>
-    <string-array name="str_ElementalPurity">
+    <string name="str_QualityOfTrueName">Quality of true name</string>
+    <string-array name="str_QualityOfTrueNameArray">
+        <item>no true name</item>
+        <item>Quality 1 (rough thesis-sketch)</item>
+        <item>Quality 2</item>
+        <item>Quality 3</item>
+        <item>Quality 4</item>
+        <item>Quality 5</item>
+        <item>Quality 6</item>
+        <item>Quality 7 (complete "Submatrix")</item>
     </string-array>
-    
-    
+    <string name="str_CircumstancesOfThePlace">Circumstances of the place:</string>
+    <string-array name="str_CircumstancesOfThePlaceArray">
+        <item>elemental citadel of used element</item>
+        <item>near the elemental citadel </item>
+        <item>grand sanctuary (f.e. valley of elements)</item>
+        <item>important ritual space(f.e. Drakonia)</item>
+        <item>place of elemental purity(f.e. Schlund)</item>
+        <item>potent elemental location</item>
+        <item>element predominantly</item>
+        <item>culturally-used place</item>
+        <item>another element predominantly</item>
+        <item>complete absence of the element</item>
+        <item>contaminated site</item>
+        <item>large demonic sanctuary</item>
+        <item>gate of horror</item>
+        <item>gate of horror (Agrimoth)</item>
+    </string-array>
+    <string name="str_Powernode">Powernode (with Powerlinemagic I)</string>
+    <string name="str_CircumstancesOfTime">Circumstances of time</string>
+    <string-array name="str_CircumstancesOfTimeArray">
+        <item>1 on D20</item>
+        <item>2–3 on D20</item>
+        <item>4–5 on D20</item>
+        <item>6–15 on D20</item>
+        <item>16–17 on D20</item>
+        <item>18–19 on D20</item>
+        <item>20 on D20 (or nameless days)</item>
+    </string-array>
     <string-array name="str_ElementalPurityFireArray">
         <item>very precious: iron foundry,dragonfire(-6)</item>
         <item>precious: lava, volcano embers(-4)</item>

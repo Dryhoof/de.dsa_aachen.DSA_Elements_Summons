@@ -28,19 +28,20 @@
                 android:layout_height="wrap_content"
                 android:weightSum="100" >
 
-                <View
+                <TextView
+                    android:id="@+id/summonElementalTextCharacterName"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
                     android:layout_weight="50"
-                    android:textSize="16sp" />
+                    android:text="@string/str_TextCharacterName"
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
 
                 <TextView
                     android:id="@+id/summonElementalCharacterName"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="50"
-                    android:ems="10" />
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

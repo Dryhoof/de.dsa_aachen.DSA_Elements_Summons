@@ -9,63 +9,17 @@ package de.dsa_aachen.dsa_elements_summons;
 
 public final class R {
     public static final class array {
+        public static final int str_CircumstancesOfThePlaceArray=0x7f070003;
+        public static final int str_CircumstancesOfTimeArray=0x7f070004;
         public static final int str_ClassesArray=0x7f070000;
-        public static final int str_ElementalPurity=0x7f070002;
-        public static final int str_ElementalPurityAirArray=0x7f070008;
-        public static final int str_ElementalPurityFireArray=0x7f070003;
-        public static final int str_ElementalPurityIceArray=0x7f070006;
-        public static final int str_ElementalPurityLifeArray=0x7f070005;
-        public static final int str_ElementalPurityStoneArray=0x7f070007;
-        public static final int str_ElementalPurityWaterArray=0x7f070004;
-        /**  <string name="str_ElementalPurityFireArrayVPr">very precious: iron foundry,dragonfire(-6)</string>
-    <string name="str_ElementalPurityFireArrayPr">precious: lava, volcano embers(-4)</string>
-    <string name="str_ElementalPurityFireArrayCo">concentrated: forge fire(-2)</string>
-    <string name="str_ElementalPurityFireArrayPu">pure: camp fire,oven(0)</string>
-    <string name="str_ElementalPurityFireArrayIm">impaired:candle flame(+2)</string>
-    <string name="str_ElementalPurityFireArrayIg">ignoble: Khôm heat(+4)</string>
-    <string name="str_ElementalPurityFireArrayPIg">particularly ignoble: \'cold\' light(+6)</string>
-    
-    <string name="str_ElementalPurityWaterArrayVPr">very precious: (-6)</string>
-    <string name="str_ElementalPurityWaterArrayPr">precious: (-4)</string>
-    <string name="str_ElementalPurityWaterArrayCo">concentrated: (-2)</string>
-    <string name="str_ElementalPurityWaterArrayPu">pure: (0)</string>
-    <string name="str_ElementalPurityWaterArrayIm">impaired:(+2)</string>
-    <string name="str_ElementalPurityWaterArrayIg">ignoble: (+4)</string>
-    <string name="str_ElementalPurityWaterArrayPIg">particularly ignoble: (+6)</string>
-    
-    <string name="str_ElementalPurityLifeArrayVPr">very precious: (-6)</string>
-    <string name="str_ElementalPurityLifeArrayPr">precious: (-4)</string>
-    <string name="str_ElementalPurityLifeArrayCo">concentrated: (-2)</string>
-    <string name="str_ElementalPurityLifeArrayPu">pure: (0)</string>
-    <string name="str_ElementalPurityLifeArrayIm">impaired:(+2)</string>
-    <string name="str_ElementalPurityLifeArrayIg">ignoble: (+4)</string>
-    <string name="str_ElementalPurityLifeArrayPIg">particularly ignoble: (+6)</string>
-    
-    <string name="str_ElementalPurityIceArrayVPr">very precious: (-6)</string>
-    <string name="str_ElementalPurityIceArrayPr">precious: (-4)</string>
-    <string name="str_ElementalPurityIceArrayCo">concentrated: (-2)</string>
-    <string name="str_ElementalPurityIceArrayPu">pure: (0)</string>
-    <string name="str_ElementalPurityIceArrayIm">impaired:(+2)</string>
-    <string name="str_ElementalPurityIceArrayIg">ignoble: (+4)</string>
-    <string name="str_ElementalPurityIceArrayPIg">particularly ignoble: (+6)</string>
-    
-    <string name="str_ElementalPurityStoneArrayVPr">very precious: (-6)</string>
-    <string name="str_ElementalPurityStoneArrayPr">precious: (-4)</string>
-    <string name="str_ElementalPurityStoneArrayCo">concentrated: (-2)</string>
-    <string name="str_ElementalPurityStoneArrayPu">pure: (0)</string>
-    <string name="str_ElementalPurityStoneArrayIm">impaired:(+2)</string>
-    <string name="str_ElementalPurityStoneArrayIg">ignoble: (+4)</string>
-    <string name="str_ElementalPurityStoneArrayPIg">particularly ignoble: (+6)</string>
-    
-    <string name="str_ElementalPurityAirArrayVPr">very precious: (-6)</string>
-    <string name="str_ElementalPurityAirArrayPr">precious: (-4)</string>
-    <string name="str_ElementalPurityAirArrayCo">concentrated: (-2)</string>
-    <string name="str_ElementalPurityAirArrayPu">pure: (0)</string>
-    <string name="str_ElementalPurityAirArrayIm">impaired:(+2)</string>
-    <string name="str_ElementalPurityAirArrayIg">ignoble: (+4)</string>
-    <string name="str_ElementalPurityAirArrayPIg">particularly ignoble: (+6)</string>
-         */
+        public static final int str_ElementalPurityAirArray=0x7f07000a;
+        public static final int str_ElementalPurityFireArray=0x7f070005;
+        public static final int str_ElementalPurityIceArray=0x7f070008;
+        public static final int str_ElementalPurityLifeArray=0x7f070007;
+        public static final int str_ElementalPurityStoneArray=0x7f070009;
+        public static final int str_ElementalPurityWaterArray=0x7f070006;
         public static final int str_ElementsArray=0x7f070001;
+        public static final int str_QualityOfTrueNameArray=0x7f070002;
     }
     public static final class attr {
     }
@@ -85,17 +39,17 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout1=0x7f05001f;
-        public static final int LinearLayoutElementSpinners=0x7f050081;
-        public static final int LinearLayoutElementSpinners2=0x7f050083;
-        public static final int QualityOfMaterial=0x7f050085;
-        public static final int TextView01=0x7f05006a;
+        public static final int LinearLayoutElementSpinners=0x7f050082;
+        public static final int LinearLayoutElementSpinners2=0x7f050084;
+        public static final int QualityOfMaterial=0x7f050086;
+        public static final int TextView01=0x7f05006b;
         public static final int View01=0x7f05003c;
         public static final int View02=0x7f050046;
         public static final int View03=0x7f050050;
         public static final int View04=0x7f05002a;
-        public static final int View05=0x7f050082;
-        public static final int View06=0x7f050087;
-        public static final int action_settings=0x7f05008d;
+        public static final int View05=0x7f050083;
+        public static final int View06=0x7f050088;
+        public static final int action_settings=0x7f05008e;
         public static final int createChar=0x7f05005b;
         public static final int createCharTextCharacterClass=0x7f050025;
         public static final int deleteChar=0x7f05005a;
@@ -181,51 +135,52 @@ public final class R {
         public static final int editCharTextTalents=0x7f050035;
         public static final int editCharTextWeakPresence=0x7f050055;
         public static final int imageView1=0x7f05005e;
-        public static final int menu_settings=0x7f05008c;
+        public static final int menu_settings=0x7f05008d;
         public static final int objLine=0x7f050034;
-        public static final int radioDjinn=0x7f05006d;
-        public static final int radioElementalServant=0x7f05006c;
-        public static final int radioMasterOfElement=0x7f05006e;
+        public static final int radioDjinn=0x7f05006e;
+        public static final int radioElementalServant=0x7f05006d;
+        public static final int radioMasterOfElement=0x7f05006f;
         public static final int saveChar=0x7f050058;
         public static final int scrollView1=0x7f050020;
-        public static final int spinner1=0x7f05008b;
-        public static final int spinnerChooseQualityOfMaterial=0x7f050086;
-        public static final int spinnerTypeOfElement=0x7f050084;
+        public static final int spinner1=0x7f05008c;
+        public static final int spinnerChooseQualityOfMaterial=0x7f050087;
+        public static final int spinnerTypeOfElement=0x7f050085;
         public static final int summonElemental=0x7f05005d;
-        public static final int summonElementalCharacterName=0x7f05005f;
-        public static final int summonElementalCheckBoxDemonicCovenant=0x7f05007f;
-        public static final int summonElementalCheckBoxEquipment1=0x7f050089;
-        public static final int summonElementalCheckBoxEquipment2=0x7f05008a;
-        public static final int summonElementalCheckBoxKnowledgeAir=0x7f05007b;
-        public static final int summonElementalCheckBoxKnowledgeFire=0x7f050076;
-        public static final int summonElementalCheckBoxKnowledgeIce=0x7f050079;
-        public static final int summonElementalCheckBoxKnowledgeLife=0x7f050078;
-        public static final int summonElementalCheckBoxKnowledgeStone=0x7f05007a;
-        public static final int summonElementalCheckBoxKnowledgeWater=0x7f050077;
-        public static final int summonElementalEditKnowledgeDemonic=0x7f050074;
-        public static final int summonElementalEditStatCharisma=0x7f050065;
-        public static final int summonElementalEditStatCourage=0x7f050062;
-        public static final int summonElementalEditStatIntuition=0x7f050067;
-        public static final int summonElementalEditStatWisdom=0x7f050063;
-        public static final int summonElementalEditStrengthOfStigma=0x7f05007d;
-        public static final int summonElementalEditTalentCallDjinn=0x7f050070;
-        public static final int summonElementalEditTalentCallElementalServant=0x7f050069;
-        public static final int summonElementalEditTalentCallMasterOfElement=0x7f050072;
-        public static final int summonElementalLinearLayoutClassEquipBoxes=0x7f050088;
-        public static final int summonElementalTextKnowledgeDemonic=0x7f05007c;
-        public static final int summonElementalTextKnowledgeOfAttribute=0x7f050075;
-        public static final int summonElementalTextSpecialAttributes=0x7f05007e;
-        public static final int summonElementalTextStatCharisma=0x7f050066;
-        public static final int summonElementalTextStatCourage=0x7f050061;
-        public static final int summonElementalTextStatIntuition=0x7f050068;
-        public static final int summonElementalTextStatWisdom=0x7f050064;
-        public static final int summonElementalTextStrengthOfStigma=0x7f050080;
-        public static final int summonElementalTextTalentCallDjinn=0x7f050071;
-        public static final int summonElementalTextTalentCallElementalServant=0x7f05006f;
-        public static final int summonElementalTextTalentCallMasterOfElement=0x7f050073;
-        public static final int textAttributes=0x7f050060;
+        public static final int summonElementalCharacterName=0x7f050060;
+        public static final int summonElementalCheckBoxDemonicCovenant=0x7f050080;
+        public static final int summonElementalCheckBoxEquipment1=0x7f05008a;
+        public static final int summonElementalCheckBoxEquipment2=0x7f05008b;
+        public static final int summonElementalCheckBoxKnowledgeAir=0x7f05007c;
+        public static final int summonElementalCheckBoxKnowledgeFire=0x7f050077;
+        public static final int summonElementalCheckBoxKnowledgeIce=0x7f05007a;
+        public static final int summonElementalCheckBoxKnowledgeLife=0x7f050079;
+        public static final int summonElementalCheckBoxKnowledgeStone=0x7f05007b;
+        public static final int summonElementalCheckBoxKnowledgeWater=0x7f050078;
+        public static final int summonElementalEditKnowledgeDemonic=0x7f050075;
+        public static final int summonElementalEditStatCharisma=0x7f050066;
+        public static final int summonElementalEditStatCourage=0x7f050063;
+        public static final int summonElementalEditStatIntuition=0x7f050068;
+        public static final int summonElementalEditStatWisdom=0x7f050064;
+        public static final int summonElementalEditStrengthOfStigma=0x7f05007e;
+        public static final int summonElementalEditTalentCallDjinn=0x7f050071;
+        public static final int summonElementalEditTalentCallElementalServant=0x7f05006a;
+        public static final int summonElementalEditTalentCallMasterOfElement=0x7f050073;
+        public static final int summonElementalLinearLayoutClassEquipBoxes=0x7f050089;
+        public static final int summonElementalTextCharacterName=0x7f05005f;
+        public static final int summonElementalTextKnowledgeDemonic=0x7f05007d;
+        public static final int summonElementalTextKnowledgeOfAttribute=0x7f050076;
+        public static final int summonElementalTextSpecialAttributes=0x7f05007f;
+        public static final int summonElementalTextStatCharisma=0x7f050067;
+        public static final int summonElementalTextStatCourage=0x7f050062;
+        public static final int summonElementalTextStatIntuition=0x7f050069;
+        public static final int summonElementalTextStatWisdom=0x7f050065;
+        public static final int summonElementalTextStrengthOfStigma=0x7f050081;
+        public static final int summonElementalTextTalentCallDjinn=0x7f050072;
+        public static final int summonElementalTextTalentCallElementalServant=0x7f050070;
+        public static final int summonElementalTextTalentCallMasterOfElement=0x7f050074;
+        public static final int textAttributes=0x7f050061;
         public static final int textElement=0x7f05002b;
-        public static final int typeOfSummon=0x7f05006b;
+        public static final int typeOfSummon=0x7f05006c;
     }
     public static final class layout {
         public static final int edit_char_activity=0x7f030000;
@@ -248,6 +203,8 @@ public final class R {
         public static final int str_AffinityToElementals=0x7f06001e;
         public static final int str_Air=0x7f060030;
         public static final int str_Attributes=0x7f06000a;
+        public static final int str_CircumstancesOfThePlace=0x7f06003e;
+        public static final int str_CircumstancesOfTime=0x7f060040;
         public static final int str_ClassesPrompt=0x7f060008;
         public static final int str_CloakedAura=0x7f060020;
         public static final int str_CreateCharHead=0x7f060006;
@@ -279,7 +236,9 @@ public final class R {
         public static final int str_KnowledgeOfAttribute=0x7f06001a;
         public static final int str_Life=0x7f06002e;
         public static final int str_MasterOfElement=0x7f06002a;
+        public static final int str_Powernode=0x7f06003f;
         public static final int str_QualityOfMaterial=0x7f060033;
+        public static final int str_QualityOfTrueName=0x7f06003d;
         public static final int str_SaveChar=0x7f060025;
         public static final int str_SelectSummoning=0x7f060031;
         public static final int str_SpecialCharacteristics=0x7f06001d;

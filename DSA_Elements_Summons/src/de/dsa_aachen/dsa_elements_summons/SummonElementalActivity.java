@@ -1,6 +1,7 @@
 package de.dsa_aachen.dsa_elements_summons;
 
 import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_Database.dbField;
+import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_CharacterClasses.Classes;
 import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -81,19 +82,23 @@ public class SummonElementalActivity extends Activity
 		
 		setEditTextString(query, dbField.characterName.getIntValue(), R.id.summonElementalCharacterName);
 		
+		Classes character = Classes.getById(dbField.characterClass.getIntValue());
+		CheckBox checkboxEquipment1 = (CheckBox)findViewById(R.id.summonElementalCheckBoxEquipment1);
+		checkboxEquipment1.setText(getString(character.getFirstEquipmentId()));
+		CheckBox checkboxEquipment2 = (CheckBox)findViewById(R.id.summonElementalCheckBoxEquipment2);
+		checkboxEquipment2.setText(getString(character.getSecondEquipmentId()));
+		
 		//setEditSpinnerPositionInt(query, dbField.characterClass.getIntValue(), R.id.editCharChooseCharacterClass);
 		
-		int charakterEquipmentModifier = query.getInt(dbField.characterEquipmentModifier.getIntValue());
-		System.out.println("charakterEquipmentModifier = "+charakterEquipmentModifier);
-		if(charakterEquipmentModifier == 1 || charakterEquipmentModifier == 3 ) {
-			final CheckBox checkBox = (CheckBox) findViewById(R.id.summonElementalCheckBoxEquipment1);
-		    checkBox.setChecked(true);
+		int characterEquipmentModifier = query.getInt(dbField.characterEquipmentModifier.getIntValue());
+		System.out.println("characterEquipmentModifier = "+characterEquipmentModifier);
+		if(characterEquipmentModifier == 1 || characterEquipmentModifier == 3 ) {
+			checkboxEquipment1.setChecked(true);
 		    //setCheckBox(query,1, R.id.editCharCheckBoxEquipment1);
 		}
 
-		if(charakterEquipmentModifier > 1) {
-			final CheckBox checkBox = (CheckBox) findViewById(R.id.summonElementalCheckBoxEquipment2);
-		    checkBox.setChecked(true);
+		if(characterEquipmentModifier > 1) {
+			checkboxEquipment2.setChecked(true);
 			//setCheckBox(query,1, R.id.editCharCheckBoxEquipment2);
 		}
 		setEditTextInt(query, dbField.statCourage.getIntValue(), R.id.summonElementalEditStatCourage);
