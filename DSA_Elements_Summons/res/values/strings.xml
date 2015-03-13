@@ -62,6 +62,7 @@
     <string name="str_Element">Element:</string>
     <string name="str_QualityOfMaterial">Quality of material:</string>
     
+    <string name="str_Equipment">Equipment:</string>
     <string name="str_EquipmentMage1">White summoning robe (-1)</string>
     <string name="str_EquipmentMage2">Barefoot (-1)</string>
     
@@ -83,44 +84,44 @@
         <item>Stone</item>
         <item>Air</item>
     </string-array>
-    <string name="str_QualityOfTrueName">Quality of true name</string>
+    <string name="str_QualityOfTrueName">Quality of true name:</string>
     <string-array name="str_QualityOfTrueNameArray">
         <item>no true name</item>
-        <item>Quality 1 (rough thesis-sketch)</item>
-        <item>Quality 2</item>
-        <item>Quality 3</item>
-        <item>Quality 4</item>
-        <item>Quality 5</item>
-        <item>Quality 6</item>
-        <item>Quality 7 (complete "Submatrix")</item>
+        <item>Quality 1 (rough thesis-sketch) (-1/0)</item>
+        <item>Quality 2 (-2/-1)</item>
+        <item>Quality 3 (-3/-1)</item>
+        <item>Quality 4 (-4/-1)</item>
+        <item>Quality 5 (-5/-2)</item>
+        <item>Quality 6 (-6/-2)</item>
+        <item>Quality 7 (complete "Submatrix") (-7/-2)</item>
     </string-array>
-    <string name="str_CircumstancesOfThePlace">Circumstances of the place:</string>
+    <string name="str_CircumstancesOfThePlace">Circumstances of place:</string>
     <string-array name="str_CircumstancesOfThePlaceArray">
-        <item>elemental citadel of used element</item>
-        <item>near the elemental citadel </item>
-        <item>grand sanctuary (f.e. valley of elements)</item>
-        <item>important ritual space(f.e. Drakonia)</item>
-        <item>place of elemental purity(f.e. Schlund)</item>
-        <item>potent elemental location</item>
-        <item>element predominantly</item>
-        <item>culturally-used place</item>
-        <item>another element predominantly</item>
-        <item>complete absence of the element</item>
-        <item>contaminated site</item>
-        <item>large demonic sanctuary</item>
-        <item>gate of horror</item>
-        <item>gate of horror (Agrimoth)</item>
+        <item>elemental citadel of used element (-7/-2)</item>
+        <item>near the elemental citadel (-6/-2)</item>
+        <item>grand sanctuary (f.e. valley of elements) (-5/-2)</item>
+        <item>important ritual space(f.e. Drakonia) (-4/-1)</item>
+        <item>place of elemental purity(f.e. Schlund) (-3/-1)</item>
+        <item>potent elemental location (-2/-1)</item>
+        <item>element predominantly (-1/0)</item>
+        <item>culturally-used place (+1/0)</item>
+        <item>another element predominantly (+2/+1)</item>
+        <item>complete absence of the element (+3/+1)</item>
+        <item>contaminated site (+4/+1)</item>
+        <item>large demonic sanctuary (+5/+2)</item>
+        <item>gate of horror (+6/+2)</item>
+        <item>gate of horror (Agrimoth) (+7/+2)</item>
     </string-array>
     <string name="str_Powernode">Powernode (with Powerlinemagic I)</string>
     <string name="str_CircumstancesOfTime">Circumstances of time</string>
     <string-array name="str_CircumstancesOfTimeArray">
-        <item>1 on D20</item>
-        <item>2–3 on D20</item>
-        <item>4–5 on D20</item>
-        <item>6–15 on D20</item>
-        <item>16–17 on D20</item>
-        <item>18–19 on D20</item>
-        <item>20 on D20 (or nameless days)</item>
+        <item>1 on D20 (-3/-1)</item>
+        <item>2–3 on D20 (-2/-1)</item>
+        <item>4–5 on D20 (-1/0)</item>
+        <item>6–15 on D20(0/0)</item>
+        <item>16–17 on D20 (+1/0)</item>
+        <item>18–19 on D20 (+2/+1)</item>
+        <item>20 on D20 (or nameless days) (+3/+1)</item>
     </string-array>
     <string-array name="str_ElementalPurityFireArray">
         <item>very precious: iron foundry,dragonfire(-6)</item>

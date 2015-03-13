@@ -60,6 +60,5 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main_activity, menu);
 		return true;
 	}
-
 }
 
