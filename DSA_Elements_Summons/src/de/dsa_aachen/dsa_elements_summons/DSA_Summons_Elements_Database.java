@@ -13,7 +13,7 @@ public class DSA_Summons_Elements_Database extends SQLiteOpenHelper{
         "id" + " integer primary key autoincrement, " +
         "characterName" + " text not null, " +
         "characterClass" + " integer, " +
-        "characterEquipmentModifier" + " integer, " +
+        //"characterEquipmentModifier" + " integer, " +
         "statCourage" + " integer, " +
         "statWisdom" + " integer, " +
         "statCharisma" + " integer, " +
@@ -44,7 +44,7 @@ public class DSA_Summons_Elements_Database extends SQLiteOpenHelper{
 		id("id",0),
         characterName("characterName",1),
         characterClass("characterClass",2),
-        characterEquipmentModifier("characterEquipmentModifier",3),
+        /*characterEquipmentModifier("characterEquipmentModifier",3),
         statCourage("statCourage",4),
         statWisdom("statWisdom",5),
         statCharisma("statCharisma",6),
@@ -70,7 +70,33 @@ public class DSA_Summons_Elements_Database extends SQLiteOpenHelper{
         demonicCovenant("demonicCovenant",26),
         cloakedAura("cloakedAura",27),
         weakPresence("weakPresence",28),
-        strengthOfStigma("strengthOfStigma",29);
+        strengthOfStigma("strengthOfStigma",29);*/
+        statCourage("statCourage",3),
+        statWisdom("statWisdom",4),
+        statCharisma("statCharisma",5),
+        statIntuition("statIntuition",6),
+        talentCallElementalServant("talentCallElementalServant",7),
+        talentCallDjinn("talentCallDjinn",8),
+        talentCallMasterOfElement("talentCallMasterOfElement",9),
+        talentedFire("talentedFire",10),
+        talentedWater("talentedWater",11),
+        talentedLife("talentedLife",12),
+        talentedIce("talentedIce",13),
+        talentedStone("talentedStone",14),
+        talentedAir("talentedAir",15),
+        talentedDemonic("talentedDemonic",16),
+        knowledgeFire("knowledgeFire",17),
+        knowledgeWater("knowledgeWater",18),
+        knowledgeLife("knowledgeLife",19),
+        knowledgeIce("knowledgeIce",20),
+        knowledgeStone("knowledgeStone",21),
+        knowledgeAir("knowledgeAir",22),
+        knowledgeDemonic("knowledgeDemonic",23),
+        affinityToElementals("affinityToElementals",24),
+        demonicCovenant("demonicCovenant",25),
+        cloakedAura("cloakedAura",26),
+        weakPresence("weakPresence",27),
+        strengthOfStigma("strengthOfStigma",28);
 		
 		private String stringValue;
 	    private int intValue;

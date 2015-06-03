@@ -36,6 +36,7 @@
             android:name="de.dsa_aachen.dsa_elements_summons.SummonElementalActivity"
             android:label="@string/app_name" >
         </activity>
+        <activity android:name="de.dsa_aachen.dsa_elements_summons.SummoningResultActivity"></activity>
     </application>
 
 </manifest>

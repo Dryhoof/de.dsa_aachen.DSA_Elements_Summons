@@ -79,7 +79,7 @@
             		android:prompt="@string/str_ClassesPrompt"  />
                 </LinearLayout>
                 
-                <LinearLayout
+                <!-- <LinearLayout
                      android:id="@+id/editCharLinearLayoutClassEquipBoxes"
             		 android:orientation="vertical"
                      android:layout_width="match_parent"
@@ -95,7 +95,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/str_EquipmentMage2" />
 
-                </LinearLayout>
+                </LinearLayout>-->
             </LinearLayout>
 
             <LinearLayout

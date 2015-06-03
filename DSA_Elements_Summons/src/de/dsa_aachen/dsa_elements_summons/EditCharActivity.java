@@ -1,7 +1,7 @@
 package de.dsa_aachen.dsa_elements_summons;
 
 import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_Database.dbField;
-import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_CharacterClasses.Classes;
+//import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_CharacterClasses.Classes;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
@@ -78,7 +78,7 @@ public class EditCharActivity extends Activity
 				setEditTextString(query, dbField.characterName.getIntValue(), R.id.editCharEditCharacterName);
 				setEditSpinnerPositionInt(query, dbField.characterClass.getIntValue(), R.id.editCharChooseCharacterClass);
 				
-				int charakterEquipmentModifier = query.getInt(dbField.characterEquipmentModifier.getIntValue());
+				/*int charakterEquipmentModifier = query.getInt(dbField.characterEquipmentModifier.getIntValue());
 				System.out.println("charakterEquipmentModifier = "+charakterEquipmentModifier);
 				if(charakterEquipmentModifier == 1 || charakterEquipmentModifier == 3 ) {
 					final CheckBox checkBox = (CheckBox) findViewById(R.id.editCharCheckBoxEquipment1);
@@ -90,7 +90,7 @@ public class EditCharActivity extends Activity
 					final CheckBox checkBox = (CheckBox) findViewById(R.id.editCharCheckBoxEquipment2);
 				    checkBox.setChecked(true);
 					//setCheckBox(query,1, R.id.editCharCheckBoxEquipment2);
-				}
+				}*/
 				setEditTextInt(query, dbField.statCourage.getIntValue(), R.id.editCharEditStatCourage);
 				setEditTextInt(query, dbField.statWisdom.getIntValue(), R.id.editCharEditStatWisdom);
 				setEditTextInt(query, dbField.statCharisma.getIntValue(), R.id.editCharEditStatCharisma);
@@ -230,7 +230,7 @@ public class EditCharActivity extends Activity
 		values.put(dbField.characterName.getStringValue(),name);
 		values.put(dbField.characterClass.getStringValue(),getFormElementSpinnerPosition(R.id.editCharChooseCharacterClass));  
 		
-		int charakterEquipmentModifier = 0;
+		/*int charakterEquipmentModifier = 0;
 		if(getFormElementBoolean(R.id.editCharCheckBoxEquipment1)){
 			charakterEquipmentModifier = charakterEquipmentModifier + 1;
 			System.out.println("charakterEquipmentModifier +1 = "+ charakterEquipmentModifier);
@@ -240,7 +240,7 @@ public class EditCharActivity extends Activity
 			System.out.println("charakterEquipmentModifier +2 = "+ charakterEquipmentModifier);
 		}
 		System.out.println("charakterEquipmentModifier = "+ charakterEquipmentModifier);
-		values.put(dbField.characterEquipmentModifier.getStringValue(), charakterEquipmentModifier);
+		values.put(dbField.characterEquipmentModifier.getStringValue(), charakterEquipmentModifier);*/
 		
 		
 		values.put(dbField.statCourage.getStringValue(),getFormElementInt(R.id.editCharEditStatCourage));
@@ -296,7 +296,7 @@ public class EditCharActivity extends Activity
 	@Override
 	public void onItemSelected(AdapterView<?> arg0, View view, int position,
 			long rId) {
-		Classes choosenClass  = Classes.getById(position);
+		/*Classes choosenClass  = Classes.getById(position);
 		View linearLayoutClassEquipBoxes = 
 				findViewById(R.id.editCharLinearLayoutClassEquipBoxes);
 		CheckBox oldCheckbox1 = (CheckBox)linearLayoutClassEquipBoxes.findViewById(R.id.editCharCheckBoxEquipment1);
@@ -305,7 +305,7 @@ public class EditCharActivity extends Activity
 
 		CheckBox oldCheckbox2 = (CheckBox)linearLayoutClassEquipBoxes.findViewById(R.id.editCharCheckBoxEquipment2);
 		oldCheckbox2.setText(getString(choosenClass.getSecondEquipmentId()));
-		//System.out.println("Changed editCharCheckBoxEquipment2!");
+		//System.out.println("Changed editCharCheckBoxEquipment2!");*/
 	}
 
 	@Override

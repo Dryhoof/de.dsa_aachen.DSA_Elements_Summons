@@ -3,6 +3,8 @@ package de.dsa_aachen.dsa_elements_summons;
 import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_Database.dbField;
 import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_CharacterClasses.Classes;
 import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -83,69 +85,87 @@ public class SummonElementalActivity extends Activity
 		CheckBox checkboxEquipment2 = (CheckBox)findViewById(R.id.summonElementalCheckBoxEquipment2);
 		checkboxEquipment2.setText(getString(character.getSecondEquipmentId()));
 		
-		//setEditSpinnerPositionInt(query, dbField.characterClass.getIntValue(), R.id.editCharChooseCharacterClass);
 		
-		int characterEquipmentModifier = query.getInt(dbField.characterEquipmentModifier.getIntValue());
+		/*int characterEquipmentModifier = query.getInt(dbField.characterEquipmentModifier.getIntValue());
 		System.out.println("characterEquipmentModifier = "+characterEquipmentModifier);
 		if(characterEquipmentModifier == 1 || characterEquipmentModifier == 3 ) {
 			checkboxEquipment1.setChecked(true);
-		    //setCheckBox(query,1, R.id.editCharCheckBoxEquipment1);
 		}
 
 		if(characterEquipmentModifier > 1) {
 			checkboxEquipment2.setChecked(true);
-			//setCheckBox(query,1, R.id.editCharCheckBoxEquipment2);
-		}
-		statCourage = dbField.statCourage.getIntValue();
-		statWisdom = dbField.statWisdom.getIntValue();
-		statCharisma = dbField.statCharisma.getIntValue();
-		statIntuition = dbField.statIntuition.getIntValue();
-		talentCallElementalServant = dbField.talentCallElementalServant.getIntValue();
-		talentCallDjinn = dbField.talentCallDjinn.getIntValue();
-		talentCallMasterOfElement = dbField.talentCallMasterOfElement.getIntValue();
-		/*setEditTextInt(query, dbField.statCourage.getIntValue(), R.id.summonElementalEditStatCourage);
-		setEditTextInt(query, dbField.statWisdom.getIntValue(), R.id.summonElementalEditStatWisdom);
-		setEditTextInt(query, dbField.statCharisma.getIntValue(), R.id.summonElementalEditStatCharisma);
-		setEditTextInt(query, dbField.statIntuition.getIntValue(), R.id.summonElementalEditStatIntuition);
-		setEditTextInt(query, dbField.talentCallElementalServant.getIntValue(), R.id.summonElementalEditTalentCallElementalServant);
-		setEditTextInt(query, dbField.talentCallDjinn.getIntValue(), R.id.summonElementalEditTalentCallDjinn);
-		setEditTextInt(query, dbField.talentCallMasterOfElement.getIntValue(), R.id.summonElementalEditTalentCallMasterOfElement);*/
-		
-		talentedFire = dbField.talentedFire.getIntValue() == 1 ? true : false;
-		talentedWater = dbField.talentedWater.getIntValue() == 1 ? true : false; 
-		talentedLife = dbField.talentedLife.getIntValue() == 1 ? true : false; 
-		talentedIce = dbField.talentedIce.getIntValue() == 1 ? true : false; 
-		talentedStone = dbField.talentedStone.getIntValue() == 1 ? true : false; 
-		talentedAir = dbField.talentedAir.getIntValue() == 1 ? true : false; 
-		talentedDemonic = dbField.talentedDemonic.getIntValue();
-		
-		knowledgeFire = dbField.knowledgeFire.getIntValue()== 1 ? true : false;
-		knowledgeWater = dbField.knowledgeWater.getIntValue()== 1 ? true : false;
-		knowledgeLife = dbField.knowledgeLife.getIntValue()== 1 ? true : false;
-		knowledgeIce = dbField.knowledgeIce.getIntValue()== 1 ? true : false;
-		knowledgeStone = dbField.knowledgeStone.getIntValue()== 1 ? true : false;
-		knowledgeAir = dbField.knowledgeAir.getIntValue()== 1 ? true : false;
-		/*setCheckBox(query, dbField.knowledgeFire.getIntValue(), R.id.summonElementalCheckBoxKnowledgeFire);
-		setCheckBox(query, dbField.knowledgeWater.getIntValue(), R.id.summonElementalCheckBoxKnowledgeWater);
-		setCheckBox(query, dbField.knowledgeLife.getIntValue(), R.id.summonElementalCheckBoxKnowledgeLife);
-		setCheckBox(query, dbField.knowledgeIce.getIntValue(), R.id.summonElementalCheckBoxKnowledgeIce);
-		setCheckBox(query, dbField.knowledgeStone.getIntValue(), R.id.summonElementalCheckBoxKnowledgeStone);
-		setCheckBox(query, dbField.knowledgeAir.getIntValue(), R.id.summonElementalCheckBoxKnowledgeAir);*/
-		
-		knowledgeDemonic = dbField.knowledgeDemonic.getIntValue();
-		//setEditTextInt(query, dbField.knowledgeDemonic.getIntValue(), R.id.summonElementalEditKnowledgeDemonic);
-		
-		affinityToElementals = dbField.affinityToElementals.getIntValue() == 1 ? true: false;
-		
-		demonicCovenant = dbField.demonicCovenant.getIntValue()== 1 ? true : false;
-		//setCheckBox(query, dbField.demonicCovenant.getIntValue(), R.id.summonElementalCheckBoxDemonicCovenant);
-		cloakedAura = dbField.cloakedAura.getIntValue() == 1 ? true : false;
-		weakPresence = dbField.weakPresence.getIntValue();
-		
-		strengthOfStigma = dbField.strengthOfStigma.getIntValue();
-		//setEditTextInt(query, dbField.strengthOfStigma.getIntValue(), R.id.summonElementalEditStrengthOfStigma);
+		}*/
+		SharedPreferences settings = this.getPreferences(MODE_PRIVATE);
+		SharedPreferences.Editor editor = settings.edit();
+		editor.putInt("statCourage", dbField.statCourage.getIntValue());
+		//statCourage = dbField.statCourage.getIntValue();
+		editor.putInt("statWisdom", dbField.statWisdom.getIntValue());
+		//statWisdom = dbField.statWisdom.getIntValue();
+		editor.putInt("statCharisma", dbField.statCharisma.getIntValue());
+		//statCharisma = dbField.statCharisma.getIntValue();
+		editor.putInt("statIntuition", dbField.statIntuition.getIntValue());
+		//statIntuition = dbField.statIntuition.getIntValue();
+		editor.putInt("talentCallElementalServant", dbField.talentCallElementalServant.getIntValue());
+		//talentCallElementalServant = dbField.talentCallElementalServant.getIntValue();
+		editor.putInt("talentCallDjinn", dbField.talentCallDjinn.getIntValue());
+		//talentCallDjinn = dbField.talentCallDjinn.getIntValue();
+		editor.putInt("talentCallMasterOfElement", dbField.talentCallMasterOfElement.getIntValue());
+		//talentCallMasterOfElement = dbField.talentCallMasterOfElement.getIntValue();
 
+		editor.putBoolean("talentedFire", dbField.talentedFire.getIntValue() == 1 ? true : false);
+		//talentedFire = dbField.talentedFire.getIntValue() == 1 ? true : false;
+		editor.putBoolean("talentedWater", dbField.talentedWater.getIntValue() == 1 ? true : false);
+		//talentedWater = dbField.talentedWater.getIntValue() == 1 ? true : false; 
+		editor.putBoolean("talentedLife", dbField.talentedLife.getIntValue() == 1 ? true : false);
+		//talentedLife = dbField.talentedLife.getIntValue() == 1 ? true : false; 
+		editor.putBoolean("talentedIce", dbField.talentedIce.getIntValue() == 1 ? true : false);
+		//talentedIce = dbField.talentedIce.getIntValue() == 1 ? true : false; 
+		editor.putBoolean("talentedStone", dbField.talentedStone.getIntValue() == 1 ? true : false);
+		//talentedStone = dbField.talentedStone.getIntValue() == 1 ? true : false; 
+		editor.putBoolean("talentedAir", dbField.talentedAir.getIntValue() == 1 ? true : false);
+		//talentedAir = dbField.talentedAir.getIntValue() == 1 ? true : false; 
+		editor.putInt("talentedDemonic", dbField.talentedDemonic.getIntValue());
+		//talentedDemonic = dbField.talentedDemonic.getIntValue();
+
+		editor.putBoolean("knowledgeFire", dbField.knowledgeFire.getIntValue() == 1 ? true : false);
+		//knowledgeFire = dbField.knowledgeFire.getIntValue()== 1 ? true : false;
+		editor.putBoolean("knowledgeWater", dbField.knowledgeWater.getIntValue() == 1 ? true : false);
+		//knowledgeWater = dbField.knowledgeWater.getIntValue()== 1 ? true : false;
+		editor.putBoolean("knowledgeLife", dbField.knowledgeLife.getIntValue() == 1 ? true : false);
+		//knowledgeLife = dbField.knowledgeLife.getIntValue()== 1 ? true : false;
+		editor.putBoolean("knowledgeIce", dbField.knowledgeIce.getIntValue() == 1 ? true : false);
+		//knowledgeIce = dbField.knowledgeIce.getIntValue()== 1 ? true : false;
+		editor.putBoolean("knowledgeStone", dbField.knowledgeStone.getIntValue() == 1 ? true : false);
+		//knowledgeStone = dbField.knowledgeStone.getIntValue()== 1 ? true : false;
+		editor.putBoolean("knowledgeAir", dbField.knowledgeAir.getIntValue() == 1 ? true : false);
+		//knowledgeAir = dbField.knowledgeAir.getIntValue()== 1 ? true : false;
+
+		editor.putInt("knowledgeDemonic", dbField.knowledgeDemonic.getIntValue());
+		//knowledgeDemonic = dbField.knowledgeDemonic.getIntValue();
+
+		editor.putBoolean("affinityToElementals", dbField.affinityToElementals.getIntValue() == 1 ? true : false);
+		//affinityToElementals = dbField.affinityToElementals.getIntValue() == 1 ? true: false;
+
+		editor.putBoolean("demonicCovenant", dbField.demonicCovenant.getIntValue() == 1 ? true : false);
+		//demonicCovenant = dbField.demonicCovenant.getIntValue()== 1 ? true : false;
+		editor.putBoolean("cloakedAura", dbField.cloakedAura.getIntValue() == 1 ? true : false);
+		//cloakedAura = dbField.cloakedAura.getIntValue() == 1 ? true : false;
+		editor.putInt("weakPresence", dbField.weakPresence.getIntValue());
+		//weakPresence = dbField.weakPresence.getIntValue();
+
+		editor.putInt("strengthOfStigma", dbField.strengthOfStigma.getIntValue());
+		//strengthOfStigma = dbField.strengthOfStigma.getIntValue();
+		
+		editor.commit();
 		Database.close();
+	}
+	
+	private void summonResultView(){
+		this.onStop();
+		Intent intent = new Intent();
+		intent.setClass(SummonElementalActivity.this,SummoningResultActivity.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		startActivity(intent);
 	}
 	
 	private void setCheckBox(Cursor cursor, int columnId, int Rid){
