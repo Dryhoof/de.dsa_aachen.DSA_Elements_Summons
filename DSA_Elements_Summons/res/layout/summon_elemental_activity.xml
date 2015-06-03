@@ -256,6 +256,16 @@
 		            android:layout_height="wrap_content"
 		            android:entries="@array/str_CircumstancesOfTimeArray" />
 		    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
 
+                <Button
+                    android:id="@+id/calculateSummoning"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_CalculateSummoning" />
+            </LinearLayout>
 		</LinearLayout>
 	</ScrollView>

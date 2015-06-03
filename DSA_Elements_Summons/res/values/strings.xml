@@ -86,7 +86,7 @@
     </string-array>
     <string name="str_QualityOfTrueName">Quality of true name:</string>
     <string-array name="str_QualityOfTrueNameArray">
-        <item>no true name</item>
+        <item>no true name (0/0)</item>
         <item>Quality 1 (rough thesis-sketch) (-1/0)</item>
         <item>Quality 2 (-2/-1)</item>
         <item>Quality 3 (-3/-1)</item>
@@ -188,4 +188,5 @@
         <item>particularly ignoble: (+6)</item>
     </string-array>
 	
+    <string name="str_CalculateSummoning">Calculate summoning</string>
 </resources>

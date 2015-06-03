@@ -3,8 +3,10 @@ package de.dsa_aachen.dsa_elements_summons;
 import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_Database.dbField;
 import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_CharacterClasses.Classes;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -13,34 +15,35 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.Spinner;
 
 public class SummonElementalActivity extends Activity 
 	implements OnItemSelectedListener{
-	private int dbId, talentedDemonic, weakPresence, statCourage, statWisdom, statCharisma,
-		statIntuition, talentCallElementalServant, talentCallDjinn, talentCallMasterOfElement,
-		knowledgeDemonic, strengthOfStigma;
-	private boolean talentedFire,  talentedWater, talentedLife, talentedIce, talentedStone, 
-		talentedAir, knowledgeFire, knowledgeWater, knowledgeLife, knowledgeIce, knowledgeStone, 
-		knowledgeAir, affinityToElementals, cloakedAura, demonicCovenant;
+	private int dbId;
 	DSA_Summons_Elements_Database DB = new DSA_Summons_Elements_Database(this);
-	public static enum spinnerElement {
-		fire(0,R.array.str_ElementalPurityFireArray),
-        water(1,R.array.str_ElementalPurityWaterArray),
-        life(2,R.array.str_ElementalPurityLifeArray),
-        ice(3,R.array.str_ElementalPurityIceArray),
-        stone(4,R.array.str_ElementalPurityStoneArray),
-        air(5,R.array.str_ElementalPurityAirArray);
+	public static enum SpinnerElement {
+		fire(0,R.array.str_ElementalPurityFireArray,dbField.talentedFire,dbField.knowledgeFire),
+        water(1,R.array.str_ElementalPurityWaterArray,dbField.talentedWater,dbField.knowledgeWater),
+        life(2,R.array.str_ElementalPurityLifeArray,dbField.talentedLife,dbField.knowledgeLife),
+        ice(3,R.array.str_ElementalPurityIceArray,dbField.talentedIce,dbField.knowledgeIce),
+        stone(4,R.array.str_ElementalPurityStoneArray,dbField.talentedStone,dbField.knowledgeStone),
+        air(5,R.array.str_ElementalPurityAirArray,dbField.talentedAir,dbField.knowledgeAir);
 		
 	    private int intValue;
 	    private int stringArrayId;
-        private spinnerElement(int value,int array) {
+	    private dbField talentedElementDbField;
+	    private dbField knowledgeElementDbField;
+        private SpinnerElement(int value,int array,dbField telentedElement,dbField knowledgeElement) {
         	setIntValue(value);
         	setStringArrayId(array);
+        	setTalentedElementDbField(telentedElement);
+        	setKnowledgeElementDbField(knowledgeElement);
         }
 		public int getIntValue() {
 			return intValue;
@@ -54,6 +57,21 @@ public class SummonElementalActivity extends Activity
 		public void setStringArrayId(int stringArrayId) {
 			this.stringArrayId = stringArrayId;
 		}
+		public dbField getTalentedElementDbField() {
+			return talentedElementDbField;
+		}
+		public void setTalentedElementDbField(dbField talentedElementDbField) {
+			this.talentedElementDbField = talentedElementDbField;
+		}
+		public dbField getKnowledgeElementDbField() {
+			return knowledgeElementDbField;
+		}
+		public void setKnowledgeElementDbField(dbField knowledgeElementDbField) {
+			this.knowledgeElementDbField = knowledgeElementDbField;
+		}
+	}
+	public static SpinnerElement[] getSpinnerElementValue(){
+		return SpinnerElement.values();
 	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +88,13 @@ public class SummonElementalActivity extends Activity
 		System.out.println("SummonElementalActivity.dbId = "+ dbId);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.summon_elemental_activity);
+        final Button calculateSummoning = (Button) findViewById(R.id.calculateSummoning);
+        calculateSummoning.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	savePreferences();
+            	summonResultView();
+            }
+        });
 		SQLiteDatabase Database = DB.getReadableDatabase();
 
 		Cursor query = Database.query(false, "Characters", null, "id = '" + dbId + "'", null, null, null, "id ASC", null);
@@ -95,24 +120,38 @@ public class SummonElementalActivity extends Activity
 		if(characterEquipmentModifier > 1) {
 			checkboxEquipment2.setChecked(true);
 		}*/
-		SharedPreferences settings = this.getPreferences(MODE_PRIVATE);
+		Database.close();
+	}
+	private void savePreferences(){
+		SQLiteDatabase Database = DB.getReadableDatabase();
+		Cursor query = Database.query(false, "Characters", null, "id = '" + dbId + "'", null, null, null, "id ASC", null);
+		query.moveToFirst();
+		SharedPreferences settings = this.getSharedPreferences("de.dsa_aachen.dsa_elements_summons", MODE_PRIVATE);
 		SharedPreferences.Editor editor = settings.edit();
-		editor.putInt("statCourage", dbField.statCourage.getIntValue());
+		
+		int spinnerTypeOfElement = settings.getInt("spinnerTypeOfElement", 0);
+		SpinnerElement[] spinnerElements = SummonElementalActivity.getSpinnerElementValue();
+		spinnerElements[spinnerTypeOfElement].getStringArrayId();
+		
+		//spinnerElements[spinnerTypeOfElement].getKnowledgeElementDbField();
+		
+		editor.putInt("statCourage", query.getInt(dbField.statCourage.getIntValue()));
 		//statCourage = dbField.statCourage.getIntValue();
-		editor.putInt("statWisdom", dbField.statWisdom.getIntValue());
+		editor.putInt("statWisdom", query.getInt(dbField.statWisdom.getIntValue()));
 		//statWisdom = dbField.statWisdom.getIntValue();
-		editor.putInt("statCharisma", dbField.statCharisma.getIntValue());
+		editor.putInt("statCharisma", query.getInt(dbField.statCharisma.getIntValue()));
 		//statCharisma = dbField.statCharisma.getIntValue();
-		editor.putInt("statIntuition", dbField.statIntuition.getIntValue());
+		editor.putInt("statIntuition", query.getInt(dbField.statIntuition.getIntValue()));
 		//statIntuition = dbField.statIntuition.getIntValue();
-		editor.putInt("talentCallElementalServant", dbField.talentCallElementalServant.getIntValue());
+		editor.putInt("talentCallElementalServant", query.getInt(dbField.talentCallElementalServant.getIntValue()));
 		//talentCallElementalServant = dbField.talentCallElementalServant.getIntValue();
-		editor.putInt("talentCallDjinn", dbField.talentCallDjinn.getIntValue());
+		editor.putInt("talentCallDjinn", query.getInt(dbField.talentCallDjinn.getIntValue()));
 		//talentCallDjinn = dbField.talentCallDjinn.getIntValue();
-		editor.putInt("talentCallMasterOfElement", dbField.talentCallMasterOfElement.getIntValue());
+		editor.putInt("talentCallMasterOfElement", query.getInt(dbField.talentCallMasterOfElement.getIntValue()));
 		//talentCallMasterOfElement = dbField.talentCallMasterOfElement.getIntValue();
 
-		editor.putBoolean("talentedFire", dbField.talentedFire.getIntValue() == 1 ? true : false);
+		editor.putBoolean("talentedElement", query.getInt(spinnerElements[spinnerTypeOfElement].getTalentedElementDbField().getIntValue())>0);
+		/*editor.putBoolean("talentedFire", dbField.talentedFire.getIntValue() == 1 ? true : false);
 		//talentedFire = dbField.talentedFire.getIntValue() == 1 ? true : false;
 		editor.putBoolean("talentedWater", dbField.talentedWater.getIntValue() == 1 ? true : false);
 		//talentedWater = dbField.talentedWater.getIntValue() == 1 ? true : false; 
@@ -123,11 +162,12 @@ public class SummonElementalActivity extends Activity
 		editor.putBoolean("talentedStone", dbField.talentedStone.getIntValue() == 1 ? true : false);
 		//talentedStone = dbField.talentedStone.getIntValue() == 1 ? true : false; 
 		editor.putBoolean("talentedAir", dbField.talentedAir.getIntValue() == 1 ? true : false);
+		*/
 		//talentedAir = dbField.talentedAir.getIntValue() == 1 ? true : false; 
-		editor.putInt("talentedDemonic", dbField.talentedDemonic.getIntValue());
+		editor.putInt("talentedDemonic", query.getInt(dbField.talentedDemonic.getIntValue()));
 		//talentedDemonic = dbField.talentedDemonic.getIntValue();
-
-		editor.putBoolean("knowledgeFire", dbField.knowledgeFire.getIntValue() == 1 ? true : false);
+		editor.putBoolean("knowledgeElement", query.getInt(spinnerElements[spinnerTypeOfElement].getKnowledgeElementDbField().getIntValue())>0);
+		/*editor.putBoolean("knowledgeFire", dbField.knowledgeFire.getIntValue() == 1 ? true : false);
 		//knowledgeFire = dbField.knowledgeFire.getIntValue()== 1 ? true : false;
 		editor.putBoolean("knowledgeWater", dbField.knowledgeWater.getIntValue() == 1 ? true : false);
 		//knowledgeWater = dbField.knowledgeWater.getIntValue()== 1 ? true : false;
@@ -139,27 +179,75 @@ public class SummonElementalActivity extends Activity
 		//knowledgeStone = dbField.knowledgeStone.getIntValue()== 1 ? true : false;
 		editor.putBoolean("knowledgeAir", dbField.knowledgeAir.getIntValue() == 1 ? true : false);
 		//knowledgeAir = dbField.knowledgeAir.getIntValue()== 1 ? true : false;
-
-		editor.putInt("knowledgeDemonic", dbField.knowledgeDemonic.getIntValue());
+		*/
+		editor.putInt("knowledgeDemonic", query.getInt(dbField.knowledgeDemonic.getIntValue()));
 		//knowledgeDemonic = dbField.knowledgeDemonic.getIntValue();
 
-		editor.putBoolean("affinityToElementals", dbField.affinityToElementals.getIntValue() == 1 ? true : false);
+		editor.putBoolean("affinityToElementals", query.getInt(dbField.affinityToElementals.getIntValue())>0);
 		//affinityToElementals = dbField.affinityToElementals.getIntValue() == 1 ? true: false;
 
-		editor.putBoolean("demonicCovenant", dbField.demonicCovenant.getIntValue() == 1 ? true : false);
+		editor.putBoolean("demonicCovenant", query.getInt(dbField.demonicCovenant.getIntValue())>0);
 		//demonicCovenant = dbField.demonicCovenant.getIntValue()== 1 ? true : false;
-		editor.putBoolean("cloakedAura", dbField.cloakedAura.getIntValue() == 1 ? true : false);
+		editor.putBoolean("cloakedAura", query.getInt(dbField.cloakedAura.getIntValue())>0);
 		//cloakedAura = dbField.cloakedAura.getIntValue() == 1 ? true : false;
-		editor.putInt("weakPresence", dbField.weakPresence.getIntValue());
+		editor.putInt("weakPresence", query.getInt(dbField.weakPresence.getIntValue()));
 		//weakPresence = dbField.weakPresence.getIntValue();
 
-		editor.putInt("strengthOfStigma", dbField.strengthOfStigma.getIntValue());
+		editor.putInt("strengthOfStigma", query.getInt(dbField.strengthOfStigma.getIntValue()));
 		//strengthOfStigma = dbField.strengthOfStigma.getIntValue();
+
+		int characterEquipmentModifier = 0;
+		if(getFormElementBoolean(R.id.summonElementalCheckBoxEquipment1)){
+			characterEquipmentModifier = characterEquipmentModifier +1;
+		}
+		if(getFormElementBoolean(R.id.summonElementalCheckBoxEquipment2)){
+			characterEquipmentModifier = characterEquipmentModifier +2;
+		}
+		editor.putInt("characterEquipmentModifier",characterEquipmentModifier);
+		editor.putBoolean("radioElementalServant", ((RadioButton)findViewById(R.id.radioElementalServant)).isChecked());
+		;
+		editor.putBoolean("radioDjinn", ((RadioButton)findViewById(R.id.radioDjinn)).isChecked());
+		editor.putBoolean("radioMasterOfElement", ((RadioButton)findViewById(R.id.radioMasterOfElement)).isChecked());
+
+		editor.putString("qualityOfMaterial", getResources().getStringArray(spinnerElements[spinnerTypeOfElement].getStringArrayId())[getFormElementSpinnerPosition(R.id.spinnerChooseQualityOfMaterial)]);
+
+		editor.putString("qualityOfTrueName", getResources().getStringArray(R.array.str_QualityOfTrueNameArray)[getFormElementSpinnerPosition(R.id.spinnerQualityOfTrueName)]);
+		//editor.putInt("spinnerQualityOfTrueName", getFormElementSpinnerPosition(R.id.spinnerQualityOfTrueName));
+		editor.putString("circumstancesOfThePlace", getResources().getStringArray(R.array.str_CircumstancesOfTimeArray)[getFormElementSpinnerPosition(R.id.spinnerCircumstancesOfThePlace)]);
+		//editor.putInt("spinnerCircumstancesOfThePlace", getFormElementSpinnerPosition(R.id.spinnerCircumstancesOfThePlace));
+		editor.putString("circumstancesOfTime", getResources().getStringArray(R.array.str_CircumstancesOfTimeArray)[getFormElementSpinnerPosition(R.id.spinnerCircumstancesOfTimeArray)]);
+		//editor.putInt("spinnerCircumstancesOfTimeArray", getFormElementSpinnerPosition(R.id.spinnerCircumstancesOfTimeArray));
 		
 		editor.commit();
 		Database.close();
 	}
-	
+	private boolean getFormElementBoolean(int Rid){
+		final CheckBox checkBox = (CheckBox) findViewById(Rid);
+		return checkBox.isChecked();
+	}
+	private int getFormElementInt(int Rid){
+		String RidTextViewString = getFormElementString(Rid);
+		if(RidTextViewString == ""){
+        	return(0);
+        }else{
+            return(Integer.parseInt(RidTextViewString));
+        }
+	}
+	private String getFormElementString(int Rid){
+		final TextView RidTextView = (TextView) findViewById(Rid);
+		CharSequence sequence = RidTextView.getText();
+		if(sequence.length() == 0){
+			return("");
+		}
+        String RidTextViewString = sequence.toString();
+        return(RidTextViewString);
+	}
+	private int getFormElementSpinnerPosition(int Rid){
+		final Spinner spinner = (Spinner)findViewById(Rid);
+		int position = spinner.getSelectedItemPosition();
+		//System.out.println("spinner position = "+ position);
+		return position;
+	}
 	private void summonResultView(){
 		this.onStop();
 		Intent intent = new Intent();
@@ -206,8 +294,10 @@ public class SummonElementalActivity extends Activity
 			
 			View linearLayoutElementSpinners = 
 					findViewById(R.id.LinearLayoutElementSpinners);
+			int oldSpinnerPosition = 0;
 			try{
 				View oldSpinner = linearLayoutElementSpinners.findViewById(R.id.spinnerChooseQualityOfMaterial);
+				oldSpinnerPosition = getFormElementSpinnerPosition(R.id.spinnerChooseQualityOfMaterial);
 				((LinearLayout)oldSpinner.getParent()).removeView(oldSpinner);
 			}catch(NullPointerException e){
 				System.out.println("Catched the god damn nullpointer!");
@@ -226,12 +316,13 @@ public class SummonElementalActivity extends Activity
 			layoutSummonElementalActivity.addView(spinner);
 			// Create an ArrayAdapter using the string array and a default spinner layout
 			ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-			        spinnerElement.values()[(int)rId].getStringArrayId(), 
+			        SpinnerElement.values()[(int)rId].getStringArrayId(), 
 			        android.R.layout.simple_spinner_item);
 			// Specify the layout to use when the list of choices appears
 			adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 			// Apply the adapter to the spinner
 			spinner.setAdapter(adapter);
+			spinner.setSelection(oldSpinnerPosition);
 			System.out.println("view.getId() == R.id.spinnerTypeOfElement");
 		}
 	}

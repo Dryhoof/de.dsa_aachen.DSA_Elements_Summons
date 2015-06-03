@@ -55,7 +55,8 @@ public final class R {
         public static final int View04=0x7f050026;
         public static final int View05=0x7f050069;
         public static final int View06=0x7f05005f;
-        public static final int action_settings=0x7f050078;
+        public static final int action_settings=0x7f050079;
+        public static final int calculateSummoning=0x7f050077;
         public static final int createChar=0x7f050058;
         public static final int createCharTextCharacterClass=0x7f050024;
         public static final int deleteChar=0x7f050056;
@@ -138,7 +139,7 @@ public final class R {
         public static final int editCharTextTalents=0x7f050031;
         public static final int editCharTextWeakPresence=0x7f050051;
         public static final int imageView1=0x7f05005b;
-        public static final int menu_settings=0x7f050077;
+        public static final int menu_settings=0x7f050078;
         public static final int objLine=0x7f050030;
         public static final int radioDjinn=0x7f050066;
         public static final int radioElementalServant=0x7f050065;
@@ -182,6 +183,7 @@ public final class R {
         public static final int str_AffinityToElementals=0x7f06001e;
         public static final int str_Air=0x7f060030;
         public static final int str_Attributes=0x7f06000a;
+        public static final int str_CalculateSummoning=0x7f060042;
         public static final int str_CircumstancesOfThePlace=0x7f06003f;
         public static final int str_CircumstancesOfTime=0x7f060041;
         public static final int str_ClassesPrompt=0x7f060008;
