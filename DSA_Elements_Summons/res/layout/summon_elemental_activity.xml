@@ -256,6 +256,60 @@
 		            android:layout_height="wrap_content"
 		            android:entries="@array/str_CircumstancesOfTimeArray" />
 		    </LinearLayout>
+		    <LinearLayout
+		        android:id="@+id/LinearLayout04"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical" >
+
+		        <View
+		            android:id="@+id/View07"
+		            android:layout_width="match_parent"
+		            android:layout_height="1dp"
+		            android:layout_marginBottom="16dp"
+		            android:layout_marginTop="16dp"
+		            android:background="@android:color/darker_gray" />
+
+		        <TextView
+		            android:id="@+id/TextQualityOfGift"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:text="@string/str_QualityOfGift"
+		            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+		        <Spinner
+		            android:id="@+id/spinnerQualityOfGift"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:entries="@array/str_QualityOfGiftArray" />
+		    </LinearLayout>
+		    <LinearLayout
+		        android:id="@+id/LinearLayout05"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:orientation="vertical" >
+
+		        <View
+		            android:id="@+id/View08"
+		            android:layout_width="match_parent"
+		            android:layout_height="1dp"
+		            android:layout_marginBottom="16dp"
+		            android:layout_marginTop="16dp"
+		            android:background="@android:color/darker_gray" />
+
+		        <TextView
+		            android:id="@+id/TextQualityOfDeed"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:text="@string/str_QualityOfDeed"
+		            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+		        <Spinner
+		            android:id="@+id/spinnerQualityOfDeed"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:entries="@array/str_QualityOfDeedArray" />
+		    </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

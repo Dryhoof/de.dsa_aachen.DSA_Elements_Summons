@@ -53,11 +53,6 @@
     <string name="str_Djinn">Djinn</string>
     <string name="str_MasterOfElement">Master of element</string>
     <string name="str_ElementsPrompt">Choose an element</string>
-    <string name="str_Fire">Fire</string>
-    <string name="str_Water">Water</string>
-    <string name="str_Life">Life</string>
-    <string name="str_Stone">Stone</string>
-    <string name="str_Air">Air</string>
     <string name="str_SelectSummoning">Select summoning type:</string>
     <string name="str_Element">Element:</string>
     <string name="str_QualityOfMaterial">Quality of material:</string>
@@ -122,6 +117,42 @@
         <item>16–17 on D20 (+1/0)</item>
         <item>18–19 on D20 (+2/+1)</item>
         <item>20 on D20 (or nameless days) (+3/+1)</item>
+    </string-array>    
+    <string name="str_QualityOfGift">Quality of gift</string>
+    <string-array name="str_QualityOfGiftArray">
+        <item>(-7/-2)</item>
+        <item>(-6/-2)</item>
+        <item>(-5/-1)</item>
+        <item>(-4/-1)</item>
+        <item>(-3/-1)</item>
+        <item>(-2/-1)</item>
+        <item>(-1/0)</item>
+        <item>(0/0)</item>
+        <item>(+1/0)</item>
+        <item>(+2/+1)</item>
+        <item>(+3/+1)</item>
+        <item>(+4/+1)</item>
+        <item>(+5/+1)</item>
+        <item>(+6/+2)</item>
+        <item>(+7/+2)</item>
+    </string-array>
+    <string name="str_QualityOfDeed">Quality of deed</string>
+    <string-array name="str_QualityOfDeedArray">
+        <item>(-7/-2)</item>
+        <item>(-6/-2)</item>
+        <item>(-5/-1)</item>
+        <item>(-4/-1)</item>
+        <item>(-3/-1)</item>
+        <item>(-2/-1)</item>
+        <item>(-1/0)</item>
+        <item>(0/0)</item>
+        <item>(+1/0)</item>
+        <item>(+2/+1)</item>
+        <item>(+3/+1)</item>
+        <item>(+4/+1)</item>
+        <item>(+5/+1)</item>
+        <item>(+6/+2)</item>
+        <item>(+7/+2)</item>
     </string-array>
     <string-array name="str_ElementalPurityFireArray">
         <item>very precious: iron foundry,dragonfire(-6)</item>
@@ -187,6 +218,25 @@
         <item>ignoble: (+4)</item>
         <item>particularly ignoble: (+6)</item>
     </string-array>
-	
+	<string name="str_AstralSense">Astral sense</string>
+	<string name="str_LongArm">Long arm</string>
+	<string name="str_LifeSense">Life sense</string>
+	<string name="str_RegenerationOne">Regeneration I</string>
+	<string name="str_RegenerationTwo">Regeneration II</string>
+	<string name="str_ResistenceAgainstTrait">Resistance against /<trait/></string>
+	<string name="str_ImmunityAgainstTrait">Immunity against /<trait/></string>
+	<string name="str_ResistanceAgainstElementalDamage">Resistance against elemental damage</string>
+	<string name="str_ImmunityAgainstElementalDamage">Immunity against elemental damage</string>
+	<string name="str_ResistanceAgainstMagicDamage">Resistance against magic damage</string>
+	<string name="str_ImmunityAgainstMagicDamage">Immunity against magic damage</string>
+	<string name="str_AdditinalActionsOne">Additional actions I</string>
+	<string name="str_AdditinalActionsTwo">Additional actions II</string>
+	<string name="str_BloodmagicUsed">Bloodmagic used</string>
+	<string name="str_SummonedLesserDemon">Summoned a lesser demon (last 7h)</string>
+	<string name="str_SummonedHornedDemon">Summoned a horned demon (last 24h)</string>
     <string name="str_CalculateSummoning">Calculate summoning</string>
+    <string name="str_SummoningDifficulty">Summoning difficulty</string>
+    <string name="str_ControlTestDifficulty">Control test difficulty</string>
+    
+    
 </resources>
