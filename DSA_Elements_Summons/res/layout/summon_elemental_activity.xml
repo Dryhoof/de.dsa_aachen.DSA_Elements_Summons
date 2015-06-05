@@ -310,6 +310,55 @@
 		            android:layout_height="wrap_content"
 		            android:entries="@array/str_QualityOfDeedArray" />
 		    </LinearLayout>
+		    
+		    <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <View
+                    android:id="@+id/View09"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@android:color/darker_gray" />
+
+                <TextView
+                    android:id="@+id/editCharTextSpecialAttributes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/str_SpecialCharacteristics"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" 
+                	android:orientation="vertical" >
+
+                    <CheckBox
+                        android:id="@+id/summonElementalCheckBoxAstralSense"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_AstralSense" />
+                    
+                    <CheckBox
+                        android:id="@+id/summonElementalCheckBoxLongArm"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_LongArm" />
+                    
+                    <CheckBox
+                        android:id="@+id/summonElementalCheckBoxLifeSense"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_LifeSense" />		        
+
+                </LinearLayout>
+            </LinearLayout>
+		    
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -63,8 +63,9 @@ public final class R {
         public static final int View06=0x7f05005f;
         public static final int View07=0x7f050078;
         public static final int View08=0x7f05007c;
-        public static final int action_settings=0x7f050081;
-        public static final int calculateSummoning=0x7f05007f;
+        public static final int View09=0x7f05007f;
+        public static final int action_settings=0x7f050085;
+        public static final int calculateSummoning=0x7f050083;
         public static final int createChar=0x7f050058;
         public static final int createCharTextCharacterClass=0x7f050024;
         public static final int deleteChar=0x7f050056;
@@ -147,7 +148,7 @@ public final class R {
         public static final int editCharTextTalents=0x7f050031;
         public static final int editCharTextWeakPresence=0x7f050051;
         public static final int imageView1=0x7f05005b;
-        public static final int menu_settings=0x7f050080;
+        public static final int menu_settings=0x7f050084;
         public static final int objLine=0x7f050030;
         public static final int radioDjinn=0x7f050066;
         public static final int radioElementalServant=0x7f050065;
@@ -163,8 +164,11 @@ public final class R {
         public static final int spinnerTypeOfElement=0x7f05006b;
         public static final int summonElemental=0x7f05005a;
         public static final int summonElementalCharacterName=0x7f05005d;
+        public static final int summonElementalCheckBoxAstralSense=0x7f050080;
         public static final int summonElementalCheckBoxEquipment1=0x7f050061;
         public static final int summonElementalCheckBoxEquipment2=0x7f050062;
+        public static final int summonElementalCheckBoxLifeSense=0x7f050082;
+        public static final int summonElementalCheckBoxLongArm=0x7f050081;
         public static final int summonElementalLinearLayoutClassEquipBoxes=0x7f05005e;
         public static final int summonElementalTextCharacterName=0x7f05005c;
         public static final int textElement=0x7f050027;
@@ -190,22 +194,37 @@ public final class R {
         public static final int hello_world=0x7f060024;
         public static final int img_ElementCircle=0x7f060005;
         public static final int menu_settings=0x7f060001;
-        public static final int str_AdditinalActionsOne=0x7f06004a;
-        public static final int str_AdditinalActionsTwo=0x7f06004b;
+        public static final int str_AdditinalActions=0x7f060043;
         public static final int str_AffinityToElementals=0x7f06001e;
+        public static final int str_Air=0x7f06005b;
+        public static final int str_Antimagic=0x7f060049;
         public static final int str_AstralSense=0x7f06003f;
         public static final int str_Attributes=0x7f06000a;
-        public static final int str_BloodmagicUsed=0x7f06004c;
-        public static final int str_CalculateSummoning=0x7f06004f;
+        public static final int str_BloodmagicUsed=0x7f06006b;
+        public static final int str_CalculateSummoning=0x7f06006e;
         public static final int str_CircumstancesOfThePlace=0x7f06003a;
         public static final int str_CircumstancesOfTime=0x7f06003c;
         public static final int str_ClassesPrompt=0x7f060008;
         public static final int str_CloakedAura=0x7f060020;
-        public static final int str_ControlTestDifficulty=0x7f060051;
+        public static final int str_Conjuration=0x7f06004a;
+        public static final int str_ControlTestDifficulty=0x7f060070;
         public static final int str_CreateCharHead=0x7f060006;
         public static final int str_CreateCharacter=0x7f060002;
+        public static final int str_Damage=0x7f060051;
         public static final int str_DeleteChar=0x7f060026;
+        public static final int str_DemonicAgrimoth=0x7f060066;
+        public static final int str_DemonicAmazeroth=0x7f060061;
+        public static final int str_DemonicAsfaloth=0x7f060063;
+        public static final int str_DemonicBelhalhar=0x7f06005e;
+        public static final int str_DemonicBelkelel=0x7f060067;
+        public static final int str_DemonicBelshirash=0x7f060062;
+        public static final int str_DemonicBelzhorash=0x7f060065;
+        public static final int str_DemonicBlakharaz=0x7f06005d;
+        public static final int str_DemonicCharyptoroth=0x7f06005f;
         public static final int str_DemonicCovenant=0x7f06001f;
+        public static final int str_DemonicLolgramoth=0x7f060060;
+        public static final int str_DemonicTasfarelel=0x7f060064;
+        public static final int str_DemonicThargunitoth=0x7f060068;
         public static final int str_Djinn=0x7f060029;
         public static final int str_EditCharacter=0x7f060003;
         public static final int str_Element=0x7f06002d;
@@ -215,8 +234,45 @@ public final class R {
         public static final int str_ElementLife=0x7f060016;
         public static final int str_ElementStone=0x7f060017;
         public static final int str_ElementWater=0x7f060015;
+        /**  Antimagie
+	Beschwörung
+	Geisterwesen
+	Herbeirufung
+	Kraft
+	Limbus
+	Metamagie
+	Objekt
+	Schaden
+	Telekinese
+	Temporal
+	Umwelt
+	Elemente:
+		Feuer
+		Wasser
+		Lift
+		Erz
+		Eis
+		Humus
+	Dämonisch:
+		Blakharaz
+		Belhalhar
+		Charyptoroth
+		Lolgramoth
+		Thargunitoth
+		Amazeroth
+		Belshirash
+		Asfaloth
+		Tasfarelel
+		Belzhorash
+		Agrimoth
+		Belkelel
+	
+	
+         */
+        public static final int str_ElementalDamage=0x7f060069;
         public static final int str_ElementalServant=0x7f060028;
         public static final int str_ElementsPrompt=0x7f06002b;
+        public static final int str_Environment=0x7f060054;
         public static final int str_Equipment=0x7f06002f;
         public static final int str_EquipmentCristalomant1=0x7f060034;
         public static final int str_EquipmentCristalomant2=0x7f060035;
@@ -227,24 +283,33 @@ public final class R {
         public static final int str_EquipmentShaman1=0x7f060036;
         public static final int str_EquipmentShaman2=0x7f060037;
         public static final int str_ErrorCharName=0x7f060038;
-        public static final int str_ImmunityAgainstElementalDamage=0x7f060047;
-        public static final int str_ImmunityAgainstMagicDamage=0x7f060049;
-        public static final int str_ImmunityAgainstTrait=0x7f060045;
+        public static final int str_Fire=0x7f060056;
+        public static final int str_Ghostbeeings=0x7f06004b;
+        public static final int str_Ice=0x7f060059;
+        public static final int str_ImmunityAgainst=0x7f060048;
         public static final int str_KnowledgeDemonic=0x7f06001c;
         public static final int str_KnowledgeOfAttribute=0x7f06001a;
+        public static final int str_Life=0x7f060058;
         public static final int str_LifeSense=0x7f060041;
+        public static final int str_Limbus=0x7f06004e;
         public static final int str_LongArm=0x7f060040;
+        public static final int str_MagicDamage=0x7f06006a;
         public static final int str_MasterOfElement=0x7f06002a;
+        public static final int str_Metamagic=0x7f06004f;
+        public static final int str_Nope=0x7f060044;
+        public static final int str_Object=0x7f060050;
+        public static final int str_Power=0x7f06004d;
         public static final int str_Powernode=0x7f06003b;
         public static final int str_QualityOfDeed=0x7f06003e;
         public static final int str_QualityOfGift=0x7f06003d;
         public static final int str_QualityOfMaterial=0x7f06002e;
         public static final int str_QualityOfTrueName=0x7f060039;
-        public static final int str_RegenerationOne=0x7f060042;
-        public static final int str_RegenerationTwo=0x7f060043;
-        public static final int str_ResistanceAgainstElementalDamage=0x7f060046;
-        public static final int str_ResistanceAgainstMagicDamage=0x7f060048;
-        public static final int str_ResistenceAgainstTrait=0x7f060044;
+        public static final int str_Regeneration=0x7f060042;
+        public static final int str_ResistanceAgainstDemonic=0x7f06005c;
+        public static final int str_ResistanceAgainstElement=0x7f060055;
+        public static final int str_ResistanceAgainstTrait=0x7f060047;
+        public static final int str_RomanOne=0x7f060045;
+        public static final int str_RomanTwo=0x7f060046;
         public static final int str_SaveChar=0x7f060025;
         public static final int str_SelectSummoning=0x7f06002c;
         public static final int str_SpecialCharacteristics=0x7f06001d;
@@ -252,19 +317,24 @@ public final class R {
         public static final int str_StatCourage=0x7f06000b;
         public static final int str_StatIntuition=0x7f06000e;
         public static final int str_StatWisdom=0x7f06000c;
+        public static final int str_Stone=0x7f06005a;
         public static final int str_StrengthOfStigma=0x7f060022;
         public static final int str_SummonElemental=0x7f060004;
-        public static final int str_SummonedHornedDemon=0x7f06004e;
-        public static final int str_SummonedLesserDemon=0x7f06004d;
-        public static final int str_SummoningDifficulty=0x7f060050;
+        public static final int str_SummonedHornedDemon=0x7f06006d;
+        public static final int str_SummonedLesserDemon=0x7f06006c;
+        public static final int str_Summoning=0x7f06004c;
+        public static final int str_SummoningDifficulty=0x7f06006f;
         public static final int str_TalentCallDjinn=0x7f060011;
         public static final int str_TalentCallElementalServant=0x7f060010;
         public static final int str_TalentCallMasterOfElement=0x7f060012;
         public static final int str_TalentedDemonic=0x7f06001b;
         public static final int str_TalentedFor=0x7f060013;
         public static final int str_Talents=0x7f06000f;
+        public static final int str_Telekinesis=0x7f060052;
+        public static final int str_Temporal=0x7f060053;
         public static final int str_TextCharacterClass=0x7f060009;
         public static final int str_TextCharacterName=0x7f060007;
+        public static final int str_Water=0x7f060057;
         public static final int str_WeakPresence=0x7f060021;
         public static final int title_activity_summoning=0x7f060027;
     }

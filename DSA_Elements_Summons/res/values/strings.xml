@@ -218,22 +218,90 @@
         <item>ignoble: (+4)</item>
         <item>particularly ignoble: (+6)</item>
     </string-array>
+    
 	<string name="str_AstralSense">Astral sense</string>
 	<string name="str_LongArm">Long arm</string>
 	<string name="str_LifeSense">Life sense</string>
-	<string name="str_RegenerationOne">Regeneration I</string>
-	<string name="str_RegenerationTwo">Regeneration II</string>
-	<string name="str_ResistenceAgainstTrait">Resistance against /<trait/></string>
-	<string name="str_ImmunityAgainstTrait">Immunity against /<trait/></string>
-	<string name="str_ResistanceAgainstElementalDamage">Resistance against elemental damage</string>
-	<string name="str_ImmunityAgainstElementalDamage">Immunity against elemental damage</string>
-	<string name="str_ResistanceAgainstMagicDamage">Resistance against magic damage</string>
-	<string name="str_ImmunityAgainstMagicDamage">Immunity against magic damage</string>
-	<string name="str_AdditinalActionsOne">Additional actions I</string>
-	<string name="str_AdditinalActionsTwo">Additional actions II</string>
+	<string name="str_Regeneration">Regeneration I</string>
+	<string name="str_AdditinalActions">Additional actions</string>
+	<string name="str_Nope">No</string>
+	<string name="str_RomanOne">I</string>
+	<string name="str_RomanTwo">II</string>
+	<string name="str_ResistanceAgainstTrait">Resistance against trait</string>
+	<string name="str_ImmunityAgainst">Immunity against</string>
+	<string name="str_Antimagic">Antimagic</string>
+	<string name="str_Conjuration">Conjuration</string>
+	<string name="str_Ghostbeeings">Ghostbeeings</string>
+	<string name="str_Summoning">Summoning</string>
+	<string name="str_Power">Power</string>
+	<string name="str_Limbus">Limbus</string>
+	<string name="str_Metamagic">Metamagic</string>
+	<string name="str_Object">Object</string>
+	<string name="str_Damage">Damage</string>
+	<string name="str_Telekinesis">Telekinesis</string>
+	<string name="str_Temporal">Temporal</string>
+	<string name="str_Environment">Environment</string>
+	<string name="str_ResistanceAgainstElement">Resistance against element</string>
+	<string name="str_Fire">Fire</string>
+	<string name="str_Water">Water</string>
+	<string name="str_Life">Life</string>
+	<string name="str_Ice">Ice</string>
+	<string name="str_Stone">Stone</string>
+	<string name="str_Air">Air</string>
+	<string name="str_ResistanceAgainstDemonic">Resistance against demonic</string>
+	<string name="str_DemonicBlakharaz">Demonic Blakharaz</string>
+	<string name="str_DemonicBelhalhar">Demonic Belhalhar</string>
+	<string name="str_DemonicCharyptoroth">Demonic Charyptoroth</string>
+	<string name="str_DemonicLolgramoth">Demonic Lolgramoth</string>
+	<string name="str_DemonicAmazeroth">Demonic Amazeroth</string>
+	<string name="str_DemonicBelshirash">Demonic Belshirash</string>
+	<string name="str_DemonicAsfaloth">Demonic Asfaloth</string>
+	<string name="str_DemonicTasfarelel">Demonic Tasfarelel</string>
+	<string name="str_DemonicBelzhorash">Demonic Belzhorash</string>
+	<string name="str_DemonicAgrimoth">Demonic Agrimoth</string>
+	<string name="str_DemonicBelkelel">Demonic Belkelel</string>
+	<string name="str_DemonicThargunitoth">Demonic Thargunitoth</string>
+	<!-- Antimagie
+	Beschwörung
+	Geisterwesen
+	Herbeirufung
+	Kraft
+	Limbus
+	Metamagie
+	Objekt
+	Schaden
+	Telekinese
+	Temporal
+	Umwelt
+	Elemente:
+		Feuer
+		Wasser
+		Lift
+		Erz
+		Eis
+		Humus
+	Dämonisch:
+		Blakharaz
+		Belhalhar
+		Charyptoroth
+		Lolgramoth
+		Thargunitoth
+		Amazeroth
+		Belshirash
+		Asfaloth
+		Tasfarelel
+		Belzhorash
+		Agrimoth
+		Belkelel
+	
+	-->
+	<string name="str_ElementalDamage">Elemental damage</string>
+	<string name="str_MagicDamage">Magic damage</string>
+	
 	<string name="str_BloodmagicUsed">Bloodmagic used</string>
 	<string name="str_SummonedLesserDemon">Summoned a lesser demon (last 7h)</string>
 	<string name="str_SummonedHornedDemon">Summoned a horned demon (last 24h)</string>
+	
     <string name="str_CalculateSummoning">Calculate summoning</string>
     <string name="str_SummoningDifficulty">Summoning difficulty</string>
     <string name="str_ControlTestDifficulty">Control test difficulty</string>
