@@ -229,7 +229,7 @@
 	<string name="str_RomanTwo">II</string>
 	<string name="str_ResistanceAgainstTrait">Resistance against trait</string>
 	<string name="str_ImmunityAgainstTrait">Immunity against trait</string>
-	<string name="str_Antimagic">Antimagic</string>
+	<!-- <string name="str_Antimagic">Antimagic</string>
 	<string name="str_Conjuration">Conjuration</string>
 	<string name="str_Ghostbeeings">Ghostbeeings</string>
 	<string name="str_Summoning">Summoning</string>
@@ -237,12 +237,12 @@
 	<string name="str_Limbus">Limbus</string>
 	<string name="str_Metamagic">Metamagic</string>
 	<string name="str_Object">Object</string>
-	<string name="str_Damage">Damage</string>
 	<string name="str_Telekinesis">Telekinesis</string>
 	<string name="str_Temporal">Temporal</string>
-	<string name="str_Environment">Environment</string>
-	<string name="str_ResistanceAgainstElement">Resistance against element</string>
-	<string name="str_ImmunityAgainstElement">Immunity against element</string>
+	<string name="str_Environment">Environment</string> -->
+	<string name="str_Damage">Damage</string>
+	<string name="str_ResistanceAgainstElementalAttacks">Resistance against elemental attacks</string>
+	<string name="str_ImmunityAgainstElementalAttacks">Immunity against elemental attacks</string>
 	<string name="str_Fire">Fire</string>
 	<string name="str_Water">Water</string>
 	<string name="str_Life">Life</string>
@@ -251,18 +251,18 @@
 	<string name="str_Air">Air</string>
 	<string name="str_ResistanceAgainstDemonic">Resistance against demonic</string>
 	<string name="str_ImmunityAgainstDemonic">Immunity against demonic</string>
-	<string name="str_Blakharaz">Blakharaz</string>
-	<string name="str_Belhalhar">Belhalhar</string>
-	<string name="str_Charyptoroth">Charyptoroth</string>
-	<string name="str_Lolgramoth">Lolgramoth</string>
-	<string name="str_Amazeroth">Amazeroth</string>
-	<string name="str_Belshirash">Belshirash</string>
-	<string name="str_Asfaloth">Asfaloth</string>
-	<string name="str_Tasfarelel">Tasfarelel</string>
-	<string name="str_Belzhorash">Belzhorash</string>
-	<string name="str_Agrimoth">Agrimoth</string>
-	<string name="str_Belkelel">Belkelel</string>
-	<string name="str_Thargunitoth">Thargunitoth</string>
+	<string name="str_Blakharaz">Demonic Blakharaz</string>
+	<string name="str_Belhalhar">Demonic Belhalhar</string>
+	<string name="str_Charyptoroth">Demonic Charyptoroth</string>
+	<string name="str_Lolgramoth">Demonic Lolgramoth</string>
+	<string name="str_Amazeroth">Demonic Amazeroth</string>
+	<string name="str_Belshirash">Demonic Belshirash</string>
+	<string name="str_Asfaloth">Demonic Asfaloth</string>
+	<string name="str_Tasfarelel">Demonic Tasfarelel</string>
+	<string name="str_Belzhorash">Demonic Belzhorash</string>
+	<string name="str_Agrimoth">Demonic Agrimoth</string>
+	<string name="str_Belkelel">Demonic Belkelel</string>
+	<string name="str_Thargunitoth">Demonic Thargunitoth</string>
 	<!-- Antimagie
 	Beschwörung
 	Geisterwesen
@@ -297,8 +297,8 @@
 		Belkelel
 	
 	-->
-	<string name="str_ElementalDamage">Elemental damage</string>
-	<string name="str_MagicDamage">Magic damage</string>
+	<string name="str_ResistanceAgainstMagicAttacks">Resistance against magic attacks</string>
+	<string name="str_ImmunityAgainstMagicAttacks">Immunity against magic attacks</string>
 	
 	<string name="str_BloodmagicUsed">Bloodmagic used</string>
 	<string name="str_SummonedLesserDemon">Summoned a lesser demon (last 7h)</string>
