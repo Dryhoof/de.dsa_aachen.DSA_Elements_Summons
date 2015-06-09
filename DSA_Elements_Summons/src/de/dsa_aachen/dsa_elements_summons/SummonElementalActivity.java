@@ -28,12 +28,12 @@ public class SummonElementalActivity extends Activity
 	private int dbId;
 	DSA_Summons_Elements_Database DB = new DSA_Summons_Elements_Database(this);
 	public static enum SpinnerElement {
-		fire(0,R.array.str_ElementalPurityFireArray,dbField.talentedFire,dbField.knowledgeFire,dbField.talentedWater,dbField.knowledgeWater),
-        water(1,R.array.str_ElementalPurityWaterArray,dbField.talentedWater,dbField.knowledgeWater,dbField.talentedFire,dbField.knowledgeFire),
-        life(2,R.array.str_ElementalPurityLifeArray,dbField.talentedLife,dbField.knowledgeLife,dbField.talentedIce,dbField.knowledgeIce),
-        ice(3,R.array.str_ElementalPurityIceArray,dbField.talentedIce,dbField.knowledgeIce,dbField.talentedLife,dbField.knowledgeLife),
-        stone(4,R.array.str_ElementalPurityStoneArray,dbField.talentedStone,dbField.knowledgeStone,dbField.talentedAir,dbField.knowledgeAir),
-        air(5,R.array.str_ElementalPurityAirArray,dbField.talentedAir,dbField.knowledgeAir,dbField.talentedStone,dbField.knowledgeStone);
+		fire(0,R.array.str_ElementalPurityFireArray,dbField.talentedFire,dbField.knowledgeFire,dbField.talentedWater,dbField.knowledgeWater,R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksFire,R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksFire),
+        water(1,R.array.str_ElementalPurityWaterArray,dbField.talentedWater,dbField.knowledgeWater,dbField.talentedFire,dbField.knowledgeFire,R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksWater,R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksWater),
+        life(2,R.array.str_ElementalPurityLifeArray,dbField.talentedLife,dbField.knowledgeLife,dbField.talentedIce,dbField.knowledgeIce,R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksLife,R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksLife),
+        ice(3,R.array.str_ElementalPurityIceArray,dbField.talentedIce,dbField.knowledgeIce,dbField.talentedLife,dbField.knowledgeLife,R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksIce,R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksIce),
+        stone(4,R.array.str_ElementalPurityStoneArray,dbField.talentedStone,dbField.knowledgeStone,dbField.talentedAir,dbField.knowledgeAir,R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksStone,R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksStone),
+        air(5,R.array.str_ElementalPurityAirArray,dbField.talentedAir,dbField.knowledgeAir,dbField.talentedStone,dbField.knowledgeStone,R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksAir,R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksAir);
 		
 	    private int intValue;
 	    private int stringArrayId;
@@ -41,13 +41,17 @@ public class SummonElementalActivity extends Activity
 	    private dbField knowledgeElementDbField;
 	    private dbField talentedCounterElementDbField;
 	    private dbField knowledgeCounterElementDbField;
-        private SpinnerElement(int value,int array,dbField telentedElement,dbField knowledgeElement,dbField talentedCounterElementDbField,dbField knowledgeCounterElementDbField) {
+	    private int resistanceCheckboxId;
+	    private int immunityCheckboxId;
+        private SpinnerElement(int value,int array,dbField telentedElement,dbField knowledgeElement,dbField talentedCounterElementDbField,dbField knowledgeCounterElementDbField,int resistanceCheckboxId,int immunityCheckboxId) {
         	setIntValue(value);
         	setStringArrayId(array);
         	setTalentedElementDbField(telentedElement);
         	setKnowledgeElementDbField(knowledgeElement);
         	setTalentedCounterElementDbField(talentedCounterElementDbField);
         	setKnowledgeCounterElementDbField(knowledgeCounterElementDbField);
+        	setResistanceCheckboxId(resistanceCheckboxId);
+        	setImmunityCheckboxId(immunityCheckboxId);
         }
 		public int getIntValue() {
 			return intValue;
@@ -85,6 +89,18 @@ public class SummonElementalActivity extends Activity
 		}
 		public void setKnowledgeCounterElementDbField(dbField knowledgeCounterElementDbField) {
 			this.knowledgeCounterElementDbField = knowledgeCounterElementDbField;
+		}
+		public int getResistanceCheckboxId() {
+			return resistanceCheckboxId;
+		}
+		public void setResistanceCheckboxId(int resistanceCheckboxId) {
+			this.resistanceCheckboxId = resistanceCheckboxId;
+		}
+		public int getImmunityCheckboxId() {
+			return immunityCheckboxId;
+		}
+		public void setImmunityCheckboxId(int immunityCheckboxId) {
+			this.immunityCheckboxId = immunityCheckboxId;
 		}
 	}
 	public static SpinnerElement[] getSpinnerElementValue(){
@@ -267,7 +283,7 @@ public class SummonElementalActivity extends Activity
 			}catch(NullPointerException e){
 				System.out.println("Catched the god damn nullpointer!");
 			}
-	
+			
 			LinearLayout layoutSummonElementalActivity = 
 					(LinearLayout) linearLayoutElementSpinners;
 			//layoutSummonElementalActivity.removeView(spinnerBla);
@@ -289,6 +305,12 @@ public class SummonElementalActivity extends Activity
 			spinner.setAdapter(adapter);
 			spinner.setSelection(oldSpinnerPosition);
 			System.out.println("view.getId() == R.id.spinnerTypeOfElement");
+			CheckBox resistanceCheckbox = (CheckBox)findViewById(SpinnerElement.values()[(int)rId].getResistanceCheckboxId());
+			resistanceCheckbox.setChecked(true);
+			resistanceCheckbox.setEnabled(false);
+			CheckBox immunityCheckbox = (CheckBox)findViewById(SpinnerElement.values()[(int)rId].getImmunityCheckboxId());
+			immunityCheckbox.setChecked(true);
+			immunityCheckbox.setEnabled(false);
 		}
 	}
 	@Override
