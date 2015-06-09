@@ -357,6 +357,462 @@
                         android:text="@string/str_LifeSense" />		        
 
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" 
+                	android:orientation="vertical" >
+		        	        
+	                <TextView
+	                    android:id="@+id/summonElementalTextRegeneration"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="@string/str_Regeneration"
+	                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                	<RadioGroup
+			            android:id="@+id/radioGroupRegeneration"
+			            android:layout_width="fill_parent"
+			            android:layout_height="wrap_content" 
+			            android:orientation="horizontal">
+			
+			            <RadioButton
+			                android:id="@+id/radioRegenerationNo"
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+                    		android:layout_weight="1"
+			                android:checked="true"
+			                android:text="@string/str_Nope" />
+			
+			            <RadioButton
+			                android:id="@+id/radioRegenerationOne"
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+                    		android:layout_weight="1"
+			                android:text="@string/str_RomanOne" />
+			
+			            <RadioButton
+			                android:id="@+id/radioRegenerationTwo"
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+                    		android:layout_weight="1"
+			                android:text="@string/str_RomanTwo" />
+			        </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" 
+                	android:orientation="vertical" >
+		        	        
+	                <TextView
+	                    android:id="@+id/summonElementalTextAdditinalActions"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="@string/str_AdditinalActions"
+	                    android:textAppearance="?android:attr/textAppearanceLarge" />
+                	<RadioGroup
+			            android:id="@+id/radioGroupAdditinalActions"
+			            android:layout_width="fill_parent"
+			            android:layout_height="wrap_content" 
+			            android:orientation="horizontal">
+			
+			            <RadioButton
+			                android:id="@+id/radioAdditinalActionsNo"
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+                    		android:layout_weight="1"
+			                android:checked="true"
+			                android:text="@string/str_Nope" />
+			
+			            <RadioButton
+			                android:id="@+id/radioAdditinalActionsOne"
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+                    		android:layout_weight="1"
+			                android:text="@string/str_RomanOne" />
+			
+			            <RadioButton
+			                android:id="@+id/radioAdditinalActionsTwo"
+			                android:layout_width="fill_parent"
+			                android:layout_height="wrap_content"
+                    		android:layout_weight="1"
+			                android:text="@string/str_RomanTwo" />
+			        </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" 
+                	android:orientation="vertical" >
+
+	                <TextView
+	                    android:id="@+id/editCharTextResistanceAgainstTrait"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="@string/str_ResistanceAgainstTrait"
+	                    android:textAppearance="?android:attr/textAppearanceLarge" />
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="false"
+	                    android:weightSum="100" 
+	                	android:orientation="horizontal" >
+		                
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstTraitAntimagic"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Antimagic" />
+	                    
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstTraitConjuration"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Conjuration" />   
+					</LinearLayout>
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="false"
+	                    android:weightSum="100" 
+	                	android:orientation="horizontal" >
+		                
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstTraitGhostbeeings"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="46"
+	                        android:text="@string/str_Ghostbeeings" />
+	                    
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstTraitSummoning"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="54"
+	                        android:text="@string/str_Summoning" />   
+					</LinearLayout>
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="false"
+	                    android:weightSum="100" 
+	                	android:orientation="horizontal" >
+		                
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstTraitPower"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Power" />
+	                    
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstTraitLimbus"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Limbus" />   
+					</LinearLayout>
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="false"
+	                    android:weightSum="100" 
+	                	android:orientation="horizontal" >
+		                
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstTraitMetamagic"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Metamagic" />
+	                    
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstTraitObject"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Object" />   
+					</LinearLayout>
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="false"
+	                    android:weightSum="100" 
+	                	android:orientation="horizontal" >
+		                
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstTraitDamage"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Damage" />
+	                    
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstTraitTelekinesis"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Telekinesis" />   
+					</LinearLayout>
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="false"
+	                    android:weightSum="100" 
+	                	android:orientation="horizontal" >
+		                
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstTraitTemporal"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Temporal" />
+	                    
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstTraitEnvironment"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Environment" />   
+					</LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" 
+                	android:orientation="vertical" >
+
+	                <TextView
+	                    android:id="@+id/editCharTextResistanceAgainstElement"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="@string/str_ResistanceAgainstElement"
+	                    android:textAppearance="?android:attr/textAppearanceLarge" />
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="false"
+	                    android:weightSum="100" 
+	                	android:orientation="horizontal" >
+		                
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstElementFire"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Fire" />
+	                    
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstElementWater"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Water" />   
+					</LinearLayout>
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="false"
+	                    android:weightSum="100" 
+	                	android:orientation="horizontal" >
+		                
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstElementLife"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Life" />
+	                    
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstElementIce"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Ice" />   
+					</LinearLayout>
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="false"
+	                    android:weightSum="100" 
+	                	android:orientation="horizontal" >
+		                
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstElementStone"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Stone" />
+	                    
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstElementAir"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Air" />   
+					</LinearLayout>
+				</LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" 
+                	android:orientation="vertical" >
+
+	                <TextView
+	                    android:id="@+id/editCharTextResistanceAgainstDemonic"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:text="@string/str_ResistanceAgainstDemonic"
+	                    android:textAppearance="?android:attr/textAppearanceLarge" />
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="false"
+	                    android:weightSum="100" 
+	                	android:orientation="horizontal" >
+		                
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstDemonicBlakharaz"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Blakharaz" />
+	                    
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstDemonicBelhalhar"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Belhalhar" />   
+					</LinearLayout>
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="false"
+	                    android:weightSum="100" 
+	                	android:orientation="horizontal" >
+		                
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstDemonicCharyptoroth"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Charyptoroth" />
+	                    
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstDemonicLolgramoth"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Lolgramoth" />   
+					</LinearLayout>
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="false"
+	                    android:weightSum="100" 
+	                	android:orientation="horizontal" >
+		                
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstDemonicAmazeroth"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Amazeroth" />
+	                    
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstDemonicBelshirash"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Belshirash" />   
+					</LinearLayout>
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="false"
+	                    android:weightSum="100" 
+	                	android:orientation="horizontal" >
+		                
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstDemonicAsfaloth"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Asfaloth" />
+	                    
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstDemonicTasfarelel"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Tasfarelel" />   
+					</LinearLayout>
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="false"
+	                    android:weightSum="100" 
+	                	android:orientation="horizontal" >
+		                
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstDemonicBelzhorash"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Belzhorash" />
+	                    
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstDemonicAgrimoth"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Agrimoth" />   
+					</LinearLayout>
+	                
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="false"
+	                    android:weightSum="100" 
+	                	android:orientation="horizontal" >
+		                
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstDemonicBelkelel"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Belkelel" />
+	                    
+	                    <CheckBox
+	                        android:id="@+id/summonElementalCheckBoxResistanceAgainstDemonicThargunitoth"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+                    		android:layout_weight="50"
+	                        android:text="@string/str_Thargunitoth" />   
+					</LinearLayout>
+				</LinearLayout>
             </LinearLayout>
 		    
             <LinearLayout

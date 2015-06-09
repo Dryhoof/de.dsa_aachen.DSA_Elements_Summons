@@ -38,7 +38,7 @@
     <string name="str_KnowledgeOfAttribute">Knowledge of attribute</string>
     <string name="str_TalentedDemonic">No. of demonic talents:</string>
     <string name="str_KnowledgeDemonic">No. of demonic knowledges:</string>
-    <string name="str_SpecialCharacteristics">Special characteristics:</string>
+    <string name="str_SpecialCharacteristics">Special characteristics</string>
     <string name="str_AffinityToElementals">Affinity to elementals</string>
     <string name="str_DemonicCovenant">Demonic covenant</string>
     <string name="str_CloakedAura">Cloaked aura</string>
@@ -222,13 +222,13 @@
 	<string name="str_AstralSense">Astral sense</string>
 	<string name="str_LongArm">Long arm</string>
 	<string name="str_LifeSense">Life sense</string>
-	<string name="str_Regeneration">Regeneration I</string>
+	<string name="str_Regeneration">Regeneration</string>
 	<string name="str_AdditinalActions">Additional actions</string>
 	<string name="str_Nope">No</string>
 	<string name="str_RomanOne">I</string>
 	<string name="str_RomanTwo">II</string>
 	<string name="str_ResistanceAgainstTrait">Resistance against trait</string>
-	<string name="str_ImmunityAgainst">Immunity against</string>
+	<string name="str_ImmunityAgainstTrait">Immunity against trait</string>
 	<string name="str_Antimagic">Antimagic</string>
 	<string name="str_Conjuration">Conjuration</string>
 	<string name="str_Ghostbeeings">Ghostbeeings</string>
@@ -242,6 +242,7 @@
 	<string name="str_Temporal">Temporal</string>
 	<string name="str_Environment">Environment</string>
 	<string name="str_ResistanceAgainstElement">Resistance against element</string>
+	<string name="str_ImmunityAgainstElement">Immunity against element</string>
 	<string name="str_Fire">Fire</string>
 	<string name="str_Water">Water</string>
 	<string name="str_Life">Life</string>
@@ -249,18 +250,19 @@
 	<string name="str_Stone">Stone</string>
 	<string name="str_Air">Air</string>
 	<string name="str_ResistanceAgainstDemonic">Resistance against demonic</string>
-	<string name="str_DemonicBlakharaz">Demonic Blakharaz</string>
-	<string name="str_DemonicBelhalhar">Demonic Belhalhar</string>
-	<string name="str_DemonicCharyptoroth">Demonic Charyptoroth</string>
-	<string name="str_DemonicLolgramoth">Demonic Lolgramoth</string>
-	<string name="str_DemonicAmazeroth">Demonic Amazeroth</string>
-	<string name="str_DemonicBelshirash">Demonic Belshirash</string>
-	<string name="str_DemonicAsfaloth">Demonic Asfaloth</string>
-	<string name="str_DemonicTasfarelel">Demonic Tasfarelel</string>
-	<string name="str_DemonicBelzhorash">Demonic Belzhorash</string>
-	<string name="str_DemonicAgrimoth">Demonic Agrimoth</string>
-	<string name="str_DemonicBelkelel">Demonic Belkelel</string>
-	<string name="str_DemonicThargunitoth">Demonic Thargunitoth</string>
+	<string name="str_ImmunityAgainstDemonic">Immunity against demonic</string>
+	<string name="str_Blakharaz">Blakharaz</string>
+	<string name="str_Belhalhar">Belhalhar</string>
+	<string name="str_Charyptoroth">Charyptoroth</string>
+	<string name="str_Lolgramoth">Lolgramoth</string>
+	<string name="str_Amazeroth">Amazeroth</string>
+	<string name="str_Belshirash">Belshirash</string>
+	<string name="str_Asfaloth">Asfaloth</string>
+	<string name="str_Tasfarelel">Tasfarelel</string>
+	<string name="str_Belzhorash">Belzhorash</string>
+	<string name="str_Agrimoth">Agrimoth</string>
+	<string name="str_Belkelel">Belkelel</string>
+	<string name="str_Thargunitoth">Thargunitoth</string>
 	<!-- Antimagie
 	Beschwörung
 	Geisterwesen
