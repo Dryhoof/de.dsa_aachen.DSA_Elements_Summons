@@ -28,14 +28,16 @@ import android.widget.Spinner;
 public class SummonElementalActivity extends Activity 
 	implements OnItemSelectedListener{
 	private int dbId;
+	private boolean firstStart = true;
 	DSA_Summons_Elements_Database DB = new DSA_Summons_Elements_Database(this);
 	public static enum SpinnerElement {
 		fire(0,
 				R.array.str_ElementalPurityFireArray,
 				dbField.talentedFire,
 				dbField.knowledgeFire,
-				dbField.talentedWater,
-				dbField.knowledgeWater,
+				1,
+				//dbField.talentedWater,
+				//dbField.knowledgeWater,
 				R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksFire,
 				R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksFire,
 				R.array.str_personalityFireArray),
@@ -43,8 +45,9 @@ public class SummonElementalActivity extends Activity
         		R.array.str_ElementalPurityWaterArray,
         		dbField.talentedWater,
         		dbField.knowledgeWater,
-        		dbField.talentedFire,
-        		dbField.knowledgeFire,
+				0,
+        		//dbField.talentedFire,
+        		//dbField.knowledgeFire,
         		R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksWater,
         		R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksWater,
 				R.array.str_personalityWaterArray),
@@ -52,8 +55,9 @@ public class SummonElementalActivity extends Activity
         		R.array.str_ElementalPurityLifeArray,
         		dbField.talentedLife,
         		dbField.knowledgeLife,
-        		dbField.talentedIce,
-        		dbField.knowledgeIce,
+				3,
+        		//dbField.talentedIce,
+        		//dbField.knowledgeIce,
         		R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksLife,
         		R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksLife,
 				R.array.str_personalityLifeArray),
@@ -61,8 +65,9 @@ public class SummonElementalActivity extends Activity
         		R.array.str_ElementalPurityIceArray,
         		dbField.talentedIce,
         		dbField.knowledgeIce,
-        		dbField.talentedLife,
-        		dbField.knowledgeLife,
+				2,
+        		//dbField.talentedLife,
+        		//dbField.knowledgeLife,
         		R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksIce,
         		R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksIce,
 				R.array.str_personalityIceArray),
@@ -70,8 +75,9 @@ public class SummonElementalActivity extends Activity
         		R.array.str_ElementalPurityStoneArray,
         		dbField.talentedStone,
         		dbField.knowledgeStone,
-        		dbField.talentedAir,
-        		dbField.knowledgeAir,
+				5,
+        		//dbField.talentedAir,
+        		//dbField.knowledgeAir,
         		R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksStone,
         		R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksStone,
 				R.array.str_personalityStoneArray),
@@ -79,8 +85,9 @@ public class SummonElementalActivity extends Activity
         		R.array.str_ElementalPurityAirArray,
         		dbField.talentedAir,
         		dbField.knowledgeAir,
-        		dbField.talentedStone,
-        		dbField.knowledgeStone,
+				4,
+        		//dbField.talentedStone,
+        		//dbField.knowledgeStone,
         		R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksAir,
         		R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksAir,
 				R.array.str_personalityAirArray);
@@ -89,18 +96,31 @@ public class SummonElementalActivity extends Activity
 	    private int stringArrayId;
 	    private dbField talentedElementDbField;
 	    private dbField knowledgeElementDbField;
-	    private dbField talentedCounterElementDbField;
-	    private dbField knowledgeCounterElementDbField;
+	    private int counterElement;
+	    //private dbField talentedCounterElementDbField;
+	    //private dbField knowledgeCounterElementDbField;
 	    private int resistanceCheckboxId;
 	    private int immunityCheckboxId;
 	    private int personalityArrayId;
-        private SpinnerElement(int value,int array,dbField telentedElement,dbField knowledgeElement,dbField talentedCounterElementDbField,dbField knowledgeCounterElementDbField,int resistanceCheckboxId,int immunityCheckboxId,int personalityArrayId) {
+        private SpinnerElement(
+        		int value,
+        		int array,
+        		dbField telentedElement,
+        		dbField knowledgeElement,
+        		int counterElement,
+        		//dbField talentedCounterElementDbField,
+        		//dbField knowledgeCounterElementDbField,
+        		int resistanceCheckboxId,
+        		int immunityCheckboxId,
+        		int personalityArrayId) 
+        {
         	setIntValue(value);
         	setStringArrayId(array);
         	setTalentedElementDbField(telentedElement);
         	setKnowledgeElementDbField(knowledgeElement);
-        	setTalentedCounterElementDbField(talentedCounterElementDbField);
-        	setKnowledgeCounterElementDbField(knowledgeCounterElementDbField);
+        	setCounterElement(counterElement);
+        	//setTalentedCounterElementDbField(talentedCounterElementDbField);
+        	//setKnowledgeCounterElementDbField(knowledgeCounterElementDbField);
         	setResistanceCheckboxId(resistanceCheckboxId);
         	setImmunityCheckboxId(immunityCheckboxId);
         	setPersonalityArrayId(personalityArrayId);
@@ -130,7 +150,13 @@ public class SummonElementalActivity extends Activity
 			this.knowledgeElementDbField = knowledgeElementDbField;
 		}
 
-		public dbField getTalentedCounterElementDbField() {
+		public int getCounterElement() {
+			return counterElement;
+		}
+		public void setCounterElement(int counterElement) {
+			this.counterElement = counterElement;
+		}
+		/*public dbField getTalentedCounterElementDbField() {
 			return talentedCounterElementDbField;
 		}
 		public void setTalentedCounterElementDbField(dbField talentedCounterElementDbField) {
@@ -141,7 +167,7 @@ public class SummonElementalActivity extends Activity
 		}
 		public void setKnowledgeCounterElementDbField(dbField knowledgeCounterElementDbField) {
 			this.knowledgeCounterElementDbField = knowledgeCounterElementDbField;
-		}
+		}*/
 		public int getResistanceCheckboxId() {
 			return resistanceCheckboxId;
 		}
@@ -201,6 +227,17 @@ public class SummonElementalActivity extends Activity
 		CheckBox checkboxEquipment2 = (CheckBox)findViewById(R.id.summonElementalCheckBoxEquipment2);
 		checkboxEquipment2.setText(getString(character.getSecondEquipmentId()));
 		Database.close();
+		System.out.println(getFormElementSpinnerPosition(R.id.spinnerChooseQualityOfMaterial));
+		Spinner spinnerQualityOfTrueName = (Spinner) findViewById(R.id.spinnerQualityOfTrueName);
+		spinnerQualityOfTrueName.setSelection(0);
+		Spinner spinnerCircumstancesOfThePlace = (Spinner) findViewById(R.id.spinnerCircumstancesOfThePlace);
+		spinnerCircumstancesOfThePlace.setSelection(6);
+		Spinner spinnerCircumstancesOfTimeArray = (Spinner) findViewById(R.id.spinnerCircumstancesOfTimeArray);
+		spinnerCircumstancesOfTimeArray.setSelection(3);
+		Spinner spinnerQualityOfGift = (Spinner) findViewById(R.id.spinnerQualityOfGift);
+		spinnerQualityOfGift.setSelection(7);
+		Spinner spinnerQualityOfDeed = (Spinner) findViewById(R.id.spinnerQualityOfDeed);
+		spinnerQualityOfDeed.setSelection(7);
 	}
 	private void savePreferences(){
 		SQLiteDatabase Database = DB.getReadableDatabase();
@@ -211,8 +248,8 @@ public class SummonElementalActivity extends Activity
 		
 		int spinnerTypeOfElement = settings.getInt("spinnerTypeOfElement", 0);
 		SpinnerElement[] spinnerElements = SummonElementalActivity.getSpinnerElementValue();
-		spinnerElements[spinnerTypeOfElement].getStringArrayId();
-		
+		//spinnerElements[spinnerTypeOfElement].getStringArrayId();
+		editor.putInt("spinnerTypeOfElement", spinnerTypeOfElement);
 		editor.putInt("statCourage", query.getInt(dbField.statCourage.getIntValue()));
 		editor.putInt("statWisdom", query.getInt(dbField.statWisdom.getIntValue()));
 		editor.putInt("statCharisma", query.getInt(dbField.statCharisma.getIntValue()));
@@ -222,10 +259,10 @@ public class SummonElementalActivity extends Activity
 		editor.putInt("talentCallMasterOfElement", query.getInt(dbField.talentCallMasterOfElement.getIntValue()));
 
 		editor.putBoolean("talentedElement", query.getInt(spinnerElements[spinnerTypeOfElement].getTalentedElementDbField().getIntValue())>0);
-		editor.putBoolean("talentedCounterElement", query.getInt(spinnerElements[spinnerTypeOfElement].getTalentedCounterElementDbField().getIntValue())>0);
+		editor.putBoolean("talentedCounterElement", query.getInt(spinnerElements[spinnerElements[spinnerTypeOfElement].getCounterElement()].getTalentedElementDbField().getIntValue())>0);
 		editor.putInt("talentedDemonic", query.getInt(dbField.talentedDemonic.getIntValue()));
 		editor.putBoolean("knowledgeElement", query.getInt(spinnerElements[spinnerTypeOfElement].getKnowledgeElementDbField().getIntValue())>0);
-		editor.putBoolean("knowledgeCounterElement", query.getInt(spinnerElements[spinnerTypeOfElement].getKnowledgeCounterElementDbField().getIntValue())>0);
+		editor.putBoolean("knowledgeCounterElement", query.getInt(spinnerElements[spinnerElements[spinnerTypeOfElement].getCounterElement()].getKnowledgeElementDbField().getIntValue())>0);
 		editor.putInt("knowledgeDemonic", query.getInt(dbField.knowledgeDemonic.getIntValue()));
 
 		editor.putBoolean("affinityToElementals", query.getInt(dbField.affinityToElementals.getIntValue())>0);
@@ -245,21 +282,67 @@ public class SummonElementalActivity extends Activity
 		}
 		editor.putInt("characterEquipmentModifier",characterEquipmentModifier);
 		editor.putBoolean("radioElementalServant", ((RadioButton)findViewById(R.id.radioElementalServant)).isChecked());
-		;
 		editor.putBoolean("radioDjinn", ((RadioButton)findViewById(R.id.radioDjinn)).isChecked());
 		editor.putBoolean("radioMasterOfElement", ((RadioButton)findViewById(R.id.radioMasterOfElement)).isChecked());
 
 		editor.putString("qualityOfMaterial", getResources().getStringArray(spinnerElements[spinnerTypeOfElement].getStringArrayId())[getFormElementSpinnerPosition(R.id.spinnerChooseQualityOfMaterial)]);
 
 		editor.putString("qualityOfTrueName", getResources().getStringArray(R.array.str_QualityOfTrueNameArray)[getFormElementSpinnerPosition(R.id.spinnerQualityOfTrueName)]);
-		editor.putString("circumstancesOfThePlace", getResources().getStringArray(R.array.str_CircumstancesOfTimeArray)[getFormElementSpinnerPosition(R.id.spinnerCircumstancesOfThePlace)]);
+		editor.putString("circumstancesOfThePlace", getResources().getStringArray(R.array.str_CircumstancesOfThePlaceArray)[getFormElementSpinnerPosition(R.id.spinnerCircumstancesOfThePlace)]);
 		editor.putString("circumstancesOfTime", getResources().getStringArray(R.array.str_CircumstancesOfTimeArray)[getFormElementSpinnerPosition(R.id.spinnerCircumstancesOfTimeArray)]);
 		editor.putString("qualityOfGift", getResources().getStringArray(R.array.str_QualityOfGiftArray)[getFormElementSpinnerPosition(R.id.spinnerQualityOfGift)]);
 		editor.putString("qualityOfDeed", getResources().getStringArray(R.array.str_QualityOfDeedArray)[getFormElementSpinnerPosition(R.id.spinnerQualityOfDeed)]);
 		
 		//TODO
-		//Add all resistance & immunity checkboxes!
+		//Add all special abilities & resistance & immunity checkboxes!
+		editor.putBoolean("astralSense", ((CheckBox)findViewById(R.id.summonElementalCheckBoxAstralSense)).isChecked());
+		editor.putBoolean("longArm", ((CheckBox)findViewById(R.id.summonElementalCheckBoxLongArm)).isChecked());
+		editor.putBoolean("lifeSense", ((CheckBox)findViewById(R.id.summonElementalCheckBoxLifeSense)).isChecked());
+		editor.putBoolean("resistanceAgainstMagicAttacks", ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstMagicAttacks)).isChecked());
+		editor.putBoolean("immunityAgainstMagicAttacks", ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstMagicAttacks)).isChecked());
 		
+		//radiogroups
+		editor.putBoolean("regenerationOne", ((RadioButton)findViewById(R.id.radioRegenerationOne)).isChecked());
+		editor.putBoolean("regenerationTwo", ((RadioButton)findViewById(R.id.radioRegenerationTwo)).isChecked());
+		editor.putBoolean("additionalActionsOne", ((RadioButton)findViewById(R.id.radioAdditionalActionsOne)).isChecked());
+		editor.putBoolean("additionalActionsTwo", ((RadioButton)findViewById(R.id.radioAdditionalActionsTwo)).isChecked());
+		
+		editor.putBoolean("resistanceAgainstTraitDamage", ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstTraitDamage)).isChecked());
+		editor.putBoolean("resistanceAgainstDemonicBlakharaz", ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstDemonicBlakharaz)).isChecked());
+		editor.putBoolean("resistanceAgainstDemonicBelhalhar", ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstDemonicBelhalhar)).isChecked());
+		editor.putBoolean("resistanceAgainstDemonicLolgramoth", ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstDemonicLolgramoth)).isChecked());
+		editor.putBoolean("resistanceAgainstDemonicAmazeroth", ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstDemonicAmazeroth)).isChecked());
+		editor.putBoolean("resistanceAgainstDemonicAsfaloth", ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstDemonicAsfaloth)).isChecked());
+		editor.putBoolean("resistanceAgainstDemonicBelzhorash", ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstDemonicBelzhorash)).isChecked());
+		editor.putBoolean("resistanceAgainstDemonicAgrimoth", ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstDemonicAgrimoth)).isChecked());
+		editor.putBoolean("resistanceAgainstDemonicThargunitoth", ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstDemonicThargunitoth)).isChecked());
+		editor.putBoolean(String.valueOf(R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksFire), ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksFire)).isChecked());
+		editor.putBoolean(String.valueOf(R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksWater), ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksWater)).isChecked());
+		editor.putBoolean(String.valueOf(R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksLife), ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksLife)).isChecked());
+		editor.putBoolean(String.valueOf(R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksIce), ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksIce)).isChecked());
+		editor.putBoolean(String.valueOf(R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksStone), ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksStone)).isChecked());
+		editor.putBoolean(String.valueOf(R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksAir), ((CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstElementalAttacksAir)).isChecked());
+		
+		editor.putBoolean("immunityAgainstTraitDamage", ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstTraitDamage)).isChecked());
+		editor.putBoolean("immunityAgainstDemonicBlakharaz", ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstDemonicBlakharaz)).isChecked());
+		editor.putBoolean("immunityAgainstDemonicBelhalhar", ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstDemonicBelhalhar)).isChecked());
+		editor.putBoolean("immunityAgainstDemonicLolgramoth", ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstDemonicLolgramoth)).isChecked());
+		editor.putBoolean("immunityAgainstDemonicAmazeroth", ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstDemonicAmazeroth)).isChecked());
+		editor.putBoolean("immunityAgainstDemonicAsfaloth", ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstDemonicAsfaloth)).isChecked());
+		editor.putBoolean("immunityAgainstDemonicBelzhorash", ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstDemonicBelzhorash)).isChecked());
+		editor.putBoolean("immunityAgainstDemonicAgrimoth", ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstDemonicAgrimoth)).isChecked());
+		editor.putBoolean("immunityAgainstDemonicThargunitoth", ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstDemonicThargunitoth)).isChecked());
+		editor.putBoolean(String.valueOf(R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksFire), ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksFire)).isChecked());
+		editor.putBoolean(String.valueOf(R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksWater), ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksWater)).isChecked());
+		editor.putBoolean(String.valueOf(R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksLife), ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksLife)).isChecked());
+		editor.putBoolean(String.valueOf(R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksIce), ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksIce)).isChecked());
+		editor.putBoolean(String.valueOf(R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksStone), ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksStone)).isChecked());
+		editor.putBoolean(String.valueOf(R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksAir), ((CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstElementalAttacksAir)).isChecked());
+		
+
+		editor.putBoolean("bloodmagicUsed", ((CheckBox)findViewById(R.id.summonElementalCheckBoxBloodmagicUsed)).isChecked());
+		editor.putBoolean("summonedLesserDemon", ((CheckBox)findViewById(R.id.summonElementalCheckBoxSummonedLesserDemon)).isChecked());
+		editor.putBoolean("summonedHornedDemon", ((CheckBox)findViewById(R.id.summonElementalCheckBoxSummonedHornedDemon)).isChecked());
 		
 		String[] personalityStringArray = getResources().getStringArray(spinnerElements[spinnerTypeOfElement].getPersonalityArrayId());
 		Random rand = new Random();
@@ -370,14 +453,35 @@ public class SummonElementalActivity extends Activity
 			adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 			// Apply the adapter to the spinner
 			spinner.setAdapter(adapter);
-			spinner.setSelection(oldSpinnerPosition);
+			if(firstStart == true){
+				spinner.setSelection(3);
+				firstStart = false;
+			}else{
+				spinner.setSelection(oldSpinnerPosition);
+			}
 			System.out.println("view.getId() == R.id.spinnerTypeOfElement");
+			
+			for (SpinnerElement spinnerElement : SpinnerElement.values()) {
+				CheckBox resistanceCheckbox = (CheckBox)findViewById(spinnerElement.getResistanceCheckboxId());
+				resistanceCheckbox.setChecked(false);
+				resistanceCheckbox.setEnabled(true);
+				CheckBox immunityCheckbox = (CheckBox)findViewById(spinnerElement.getImmunityCheckboxId());
+				immunityCheckbox.setChecked(false);
+				immunityCheckbox.setEnabled(true);
+			}
+			
 			CheckBox resistanceCheckbox = (CheckBox)findViewById(SpinnerElement.values()[(int)rId].getResistanceCheckboxId());
-			resistanceCheckbox.setChecked(true);
 			resistanceCheckbox.setEnabled(false);
 			CheckBox immunityCheckbox = (CheckBox)findViewById(SpinnerElement.values()[(int)rId].getImmunityCheckboxId());
 			immunityCheckbox.setChecked(true);
 			immunityCheckbox.setEnabled(false);
+
+			int counterElement = SpinnerElement.values()[(int)rId].getCounterElement();
+			System.out.println("counterElement= "+counterElement);
+			CheckBox counterResistanceCheckbox = (CheckBox)findViewById(SpinnerElement.values()[counterElement].getResistanceCheckboxId());
+			counterResistanceCheckbox.setEnabled(false);
+			CheckBox counterImmunityCheckbox = (CheckBox)findViewById(SpinnerElement.values()[counterElement].getImmunityCheckboxId());
+			counterImmunityCheckbox.setEnabled(false);
 			
 		}
 	}

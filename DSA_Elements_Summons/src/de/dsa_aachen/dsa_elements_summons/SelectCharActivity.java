@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.ScrollView;
 
 public class SelectCharActivity extends Activity {
 	static final int CREATE_CHARACTER_REQUEST = 0;
@@ -37,12 +38,12 @@ public class SelectCharActivity extends Activity {
 			
 			System.out.println("no Character in Database!");
 			System.out.println("Starting EditCharActivity");
-			LinearLayout.LayoutParams editParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+			ScrollView.LayoutParams editParams = new ScrollView.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
 			Button createChar = new Button(this);
 			createChar.setTag(R.id.createChar);
 			createChar.setText(R.string.str_CreateCharacter);
 			createChar.setLayoutParams(editParams);
-			LinearLayout myLayout = (LinearLayout) findViewById(R.id.LinearLayout1);
+			ScrollView myLayout = (ScrollView) findViewById(R.id.LinearLayout1);
 			myLayout.addView(createChar);
 			//final Button createChar = (Button) findViewById(R.id.createChar);
 	        createChar.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +75,7 @@ public class SelectCharActivity extends Activity {
 			do{
 				button[i] = new Button(this);
 				//System.out.println("SelectCharActivity.echo");
-				LinearLayout.LayoutParams editParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
+				ScrollView.LayoutParams editParams = new ScrollView.LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.WRAP_CONTENT);
 				button[i].setLayoutParams(editParams);
 				//System.out.println("SelectCharActivity.echo");
 				int ressourceId = getResources().getIdentifier(
@@ -84,7 +85,7 @@ public class SelectCharActivity extends Activity {
 				button[i].setTag(ressourceId);
 				button[i].setText(cursor.getString(dbField.characterName.getIntValue()));
 				//button[i].setOnClickListener(onclicklistener);
-				LinearLayout myLayout = (LinearLayout) findViewById(R.id.LinearLayout1);
+				ScrollView myLayout = (ScrollView) findViewById(R.id.LinearLayout1);
 				myLayout.addView(button[i]);
 				System.out.println("SelectCharActivity.[i] = "+ i);
 				System.out.println("SelectCharActivity.button[i] = "+ ressourceId);

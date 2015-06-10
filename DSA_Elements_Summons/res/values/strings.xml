@@ -223,12 +223,14 @@
 	<string name="str_LongArm">Long arm</string>
 	<string name="str_LifeSense">Life sense</string>
 	<string name="str_Regeneration">Regeneration</string>
-	<string name="str_AdditinalActions">Additional actions</string>
+	<string name="str_AdditionalActions">Additional actions</string>
 	<string name="str_Nope">No</string>
 	<string name="str_RomanOne">I</string>
 	<string name="str_RomanTwo">II</string>
 	<string name="str_ResistanceAgainstTrait">Resistance against trait</string>
 	<string name="str_ImmunityAgainstTrait">Immunity against trait</string>
+	<string name="str_ResistanceAgainst">Resistance against</string>
+	<string name="str_ImmunityAgainst">Immunity against</string>
 	<!-- <string name="str_Antimagic">Antimagic</string>
 	<string name="str_Conjuration">Conjuration</string>
 	<string name="str_Ghostbeeings">Ghostbeeings</string>
@@ -299,14 +301,14 @@
 	-->
 	<string name="str_ResistanceAgainstMagicAttacks">Resistance against magic attacks</string>
 	<string name="str_ImmunityAgainstMagicAttacks">Immunity against magic attacks</string>
-	
+	<string name="str_SpecialStupidStuff">Special stupid stuff</string>
 	<string name="str_BloodmagicUsed">Bloodmagic used</string>
 	<string name="str_SummonedLesserDemon">Summoned a lesser demon (last 7h)</string>
 	<string name="str_SummonedHornedDemon">Summoned a horned demon (last 24h)</string>
 	
     <string name="str_CalculateSummoning">Calculate summoning</string>
-    <string name="str_SummoningDifficulty">Summoning difficulty</string>
-    <string name="str_ControlTestDifficulty">Control test difficulty</string>
+    <string name="str_SummoningDifficulty">Summoning difficulty:</string>
+    <string name="str_ControlTestDifficulty">Control test difficulty:</string>
     
     <string-array  name="str_personalityFireArray">
         <item>tempered</item>
@@ -395,7 +397,7 @@
         <item>reliable</item>
         <item>prolific</item>
     </string-array>
-    
+    <string name="str_weakAgainst">Weak against</string>
     
     <!-- <string-array  name="str_personalityFireArray">
         <item>aufbrausend</item>

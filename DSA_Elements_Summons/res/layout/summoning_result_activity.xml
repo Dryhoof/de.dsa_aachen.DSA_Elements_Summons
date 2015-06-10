@@ -1,6 +1,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/LinearLayout1"
+    android:id="@+id/ScrollLayout1"
     style="@style/mainLayoutMargin"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -11,4 +11,4 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".SummoningResultActivity" >
 
-	</ScrollView>
+</ScrollView>
