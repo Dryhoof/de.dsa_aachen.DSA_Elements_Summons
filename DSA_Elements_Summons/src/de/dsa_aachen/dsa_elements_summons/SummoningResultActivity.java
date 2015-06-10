@@ -11,7 +11,6 @@ import de.dsa_aachen.dsa_elements_summons.SummonElementalActivity;
 import de.dsa_aachen.dsa_elements_summons.SummonElementalActivity.SpinnerElement;
 
 public class SummoningResultActivity extends Activity {
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

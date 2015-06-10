@@ -22,6 +22,12 @@ public final class R {
         public static final int str_QualityOfDeedArray=0x7f070006;
         public static final int str_QualityOfGiftArray=0x7f070005;
         public static final int str_QualityOfTrueNameArray=0x7f070002;
+        public static final int str_personalityAirArray=0x7f070010;
+        public static final int str_personalityFireArray=0x7f07000d;
+        public static final int str_personalityIceArray=0x7f07000f;
+        public static final int str_personalityLifeArray=0x7f07000e;
+        public static final int str_personalityStoneArray=0x7f070012;
+        public static final int str_personalityWaterArray=0x7f070011;
     }
     public static final class attr {
     }
@@ -241,6 +247,7 @@ public final class R {
         public static final int main_activity=0x7f090001;
         public static final int select_char_activity=0x7f090002;
         public static final int summon_elemental_activity=0x7f090003;
+        public static final int summoning_result_activity=0x7f090004;
     }
     public static final class string {
         public static final int action_settings=0x7f060023;

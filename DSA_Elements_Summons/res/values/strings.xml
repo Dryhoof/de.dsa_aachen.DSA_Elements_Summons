@@ -308,5 +308,180 @@
     <string name="str_SummoningDifficulty">Summoning difficulty</string>
     <string name="str_ControlTestDifficulty">Control test difficulty</string>
     
+    <string-array  name="str_personalityFireArray">
+        <item>tempered</item>
+        <item>unsettled</item>
+        <item>vindictive</item>
+        <item>raving mad</item>
+        <item>irascible</item>
+        <item>aggressive</item>
+        <item>short-lived</item>
+        <item>zealously</item>
+        <item>brave</item>
+        <item>disobeys</item>
+        <item>truthful</item>
+        <item>demanding</item>
+        <item>freedom-loving</item>
+        <item>mocking</item>
+    </string-array>
+    <string-array  name="str_personalityLifeArray">
+        <item>life-giving</item>
+        <item>changeable</item>
+        <item>friendly</item>
+        <item>youthful</item>
+        <item>cozy</item>
+        <item>lively</item>
+        <item>creative</item>
+        <item>patient</item>
+        <item>optimistic</item>
+        <item>merciful</item>
+        <item>cheerful</item>
+    </string-array>
+    <string-array  name="str_personalityIceArray">
+        <item>rationally</item>
+        <item>emotionally cold</item>
+        <item>egoistic</item>
+        <item>calculating</item>
+        <item>perfectionistic</item>
+        <item>orderly</item>
+        <item>detached</item>
+        <item>ruthless</item>
+        <item>despising life</item>
+        <item>precise</item>
+        <item>timeless</item>
+    </string-array>
+    <string-array  name="str_personalityAirArray">
+        <item>cheerful</item>
+        <item>fleeting</item>
+        <item>impermanent</item>
+        <item>restless</item>
+        <item>nimble</item>
+        <item>illusionistic</item>
+        <item>playful</item>
+        <item>hypocritical</item>
+        <item>deceptive</item>
+        <item>confusing</item>
+        <item>fickle</item>
+        <item>flattering</item>
+    </string-array>
+    <string-array  name="str_personalityWaterArray">
+        <item>unsettled</item>
+        <item>profound</item>
+        <item>unfathomable</item>
+        <item>inspiring</item>
+        <item>changeable</item>
+        <item>strong-willed</item>
+        <item>flattering</item>
+        <item>adaptable</item>
+        <item>ruthless</item>
+        <item>thoughtless</item>
+        <item>wroth</item>
+        <item>melancholic</item>
+        <item>forgetful</item>
+        <item>insane</item>
+    </string-array>
+    <string-array  name="str_personalityStoneArray">
+        <item>strong-willed</item>
+        <item>Tradition-conscious</item>
+        <item>patient</item>
+        <item>dutiful</item>
+        <item>truthful</item>
+        <item>stubborn</item>
+        <item>calm</item>
+        <item>unyielding</item>
+        <item>immovable</item>
+        <item>not moldable</item>
+        <item>sluggish</item>
+        <item>reliable</item>
+        <item>prolific</item>
+    </string-array>
     
+    
+    <!-- <string-array  name="str_personalityFireArray">
+        <item>aufbrausend</item>
+        <item>unstet</item>
+        <item>rachsüchtig</item>
+        <item>tobsüchtig</item>
+        <item>jähzornig</item>
+        <item>kämpferisch</item>
+        <item>kurzlebig</item>
+        <item>eifrig</item>
+        <item>mutig</item>
+        <item>gehorcht nicht</item>
+        <item>wahrheitstreu</item>
+        <item>fordernd</item>
+        <item>freiheitsliebend</item>
+        <item>spottend</item>
+    </string-array>
+    <string-array  name="str_personalityLifeArray">
+        <item>lebensspendend</item>
+        <item>wandelbar</item>
+        <item>freundlich</item>
+        <item>jugendlich</item>
+        <item>gemütlich</item>
+        <item>lebendig</item>
+        <item>kreativ</item>
+        <item>geduldig</item>
+        <item>zuversichtlich</item>
+        <item>gnädig</item>
+        <item>lebensfroh</item>
+    </string-array>
+    <string-array  name="str_personalityIceArray">
+        <item>rational</item>
+        <item>gefühlskalt</item>
+        <item>egoistisch</item>
+        <item>berechnend</item>
+        <item>perfektionistisch</item>
+        <item>ordnungsliebend</item>
+        <item>distanziert</item>
+        <item>unbarmherzig</item>
+        <item>lebensverachtend</item>
+        <item>präzise</item>
+        <item>zeitlos</item>
+    </string-array>
+    <string-array  name="str_personalityAirArray">
+        <item>lebensfroh</item>
+        <item>flüchtig</item>
+        <item>unbeständig</item>
+        <item>rastlos</item>
+        <item>flink</item>
+        <item>illusionistisch</item>
+        <item>verspielt</item>
+        <item>heuchlerisch</item>
+        <item>trügerisch</item>
+        <item>verwirrend</item>
+        <item>wankelmütig</item>
+        <item>schmeichelnd</item>
+    </string-array>
+    <string-array  name="str_personalityWaterArray">
+        <item>unstet</item>
+        <item>tiefgründig</item>
+        <item>unergründlich</item>
+        <item>inspirierend</item>
+        <item>wandelbar</item>
+        <item>willensstark</item>
+        <item>schmeichelnd</item>
+        <item>anpassungsfähig</item>
+        <item>rücksichtslos</item>
+        <item>gedankenlos</item>
+        <item>zornig</item>
+        <item>melancholisch</item>
+        <item>vergesslich</item>
+        <item>wahnsinnig</item>
+    </string-array>
+    <string-array  name="str_personalityStoneArray">
+        <item>willensstark</item>
+        <item>traditionsbewusst</item>
+        <item>geduldig</item>
+        <item>pflichtbewusst</item>
+        <item>wahrheitsliebend</item>
+        <item>stur</item>
+        <item>gelassen</item>
+        <item>unnachgiebig</item>
+        <item>unbeweglich</item>
+        <item>unformbar</item>
+        <item>träge</item>
+        <item>zuverlässig</item>
+        <item>schaffensfroh</item>
+    </string-array> -->
 </resources>
