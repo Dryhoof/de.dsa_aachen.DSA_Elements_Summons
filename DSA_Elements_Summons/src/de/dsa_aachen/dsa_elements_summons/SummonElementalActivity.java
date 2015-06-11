@@ -246,7 +246,8 @@ public class SummonElementalActivity extends Activity
 		SharedPreferences settings = this.getSharedPreferences("de.dsa_aachen.dsa_elements_summons", MODE_PRIVATE);
 		SharedPreferences.Editor editor = settings.edit();
 		
-		int spinnerTypeOfElement = settings.getInt("spinnerTypeOfElement", 0);
+		//int spinnerTypeOfElement = settings.getInt("spinnerTypeOfElement", 0);
+		int spinnerTypeOfElement = getFormElementSpinnerPosition(R.id.spinnerTypeOfElement);
 		SpinnerElement[] spinnerElements = SummonElementalActivity.getSpinnerElementValue();
 		//spinnerElements[spinnerTypeOfElement].getStringArrayId();
 		editor.putInt("spinnerTypeOfElement", spinnerTypeOfElement);
