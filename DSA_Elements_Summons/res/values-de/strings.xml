@@ -1,126 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">DSA Elements Summons</string>
-    <string name="menu_settings">Settings</string>
-    <string name="str_CreateCharacter">Create character</string>
-    <string name="str_EditCharacter">Edit character</string>
-    <string name="str_SummonElemental">Summon elemental</string>
-    <string name="img_ElementCircle">Circle of elements</string>
-    <string name="str_CreateCharHead">Character creation:</string>
-    <string name="str_TextCharacterName">Character name:</string>
-    <string name="str_ClassesPrompt">Choose the class:</string>
+    <string name="app_name">DSA Elementarbeschwörung</string>
+    <string name="menu_settings">Einstellungen</string>
+    <string name="str_CreateCharacter">Charakter erstellen</string>
+    <string name="str_EditCharacter">Charakter bearbeiten</string>
+    <string name="str_SummonElemental">Elementar beschwören</string>
+    <string name="img_ElementCircle">Elementarkreis</string>
+    <string name="str_CreateCharHead">Charaktererstellung:</string>
+    <string name="str_TextCharacterName">Charaktername:</string>
+    <string name="str_ClassesPrompt">Profession:</string>
     <string-array name="str_ClassesArray">
-        <item>Mage</item>
-        <item>Druid</item>
+        <item>Magier</item>
+        <item>Druide</item>
         <item>Geode</item>
-        <item>Cristalomant</item>
-        <item>Shaman</item>
+        <item>Kristallomant</item>
+        <item>Shamane</item>
     </string-array>
     
-    <string name="str_TextCharacterClass">Character class:</string>
-    <string name="str_Attributes">Attributes:</string>
-    <string name="str_StatCourage">Courage:</string>
-    <string name="str_StatWisdom">Wisdom:</string>
+    <string name="str_TextCharacterClass">Profession:</string>
+    <string name="str_Attributes">Eigenschaften:</string>
+    <string name="str_StatCourage">Mut:</string>
+    <string name="str_StatWisdom">Klugheit:</string>
     <string name="str_StatCharisma">Charisma:</string>
     <string name="str_StatIntuition">Intuition:</string>
-    <string name="str_Talents">Talents</string>
-    <string name="str_TalentCallElementalServant">Call elemental servant:</string>
-    <string name="str_TalentCallDjinn">Call djinn:</string>
-    <string name="str_TalentCallMasterOfElement">Call master of element:</string>
-    <string name="str_TalentedFor">Talented for</string>
+    <string name="str_Talents">Talente</string>
+    <string name="str_TalentCallElementalServant">TaW Elementarer Diener:</string>
+    <string name="str_TalentCallDjinn">TaW Dschinnenruf:</string>
+    <string name="str_TalentCallMasterOfElement">TaW Meister der Elemente:</string>
+    <string name="str_TalentedFor">Begabung für</string>
     <string name="str_Element">Element</string>
-    <string name="str_Summoning">Summoning:</string>
-    <string name="str_ElementFire">Element fire</string>
-    <string name="str_ElementWater">Element water</string>
-    <string name="str_ElementLife">Element life</string>
-    <string name="str_ElementStone">Element stone</string>
-    <string name="str_ElementIce">Element ice</string>
-    <string name="str_ElementAir">Element air</string>
-    <string name="str_KnowledgeOfAttribute">Knowledge of attribute</string>
-    <string name="str_TalentedDemonic">No. of demonic talents:</string>
-    <string name="str_KnowledgeDemonic">No. of demonic knowledges:</string>
-    <string name="str_SpecialCharacteristics">Special characteristics</string>
-    <string name="str_AffinityToElementals">Affinity to elementals</string>
-    <string name="str_DemonicCovenant">Demonic covenant</string>
-    <string name="str_CloakedAura">Cloaked aura</string>
-    <string name="str_WeakPresence">Weak presence (1–5)</string>
-    <string name="str_StrengthOfStigma">Strength of stigma(1–3)</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="str_SaveChar">Save character</string>
-    <string name="str_DeleteChar">Delete character</string>
+    <string name="str_Summoning">Beschwöre:</string>
+    <string name="str_ElementFire">Element Feuer</string>
+    <string name="str_ElementWater">Element Wasser</string>
+    <string name="str_ElementLife">Element Humus</string>
+    <string name="str_ElementStone">Element Stein</string>
+    <string name="str_ElementIce">Element Eis</string>
+    <string name="str_ElementAir">Element Luft</string>
+    <string name="str_KnowledgeOfAttribute">Merkmalskenntnis</string>
+    <string name="str_TalentedDemonic">Anzahl Begabung (Dämonisch):</string>
+    <string name="str_KnowledgeDemonic">Anzahl Merkmalskenntnis (Dämonisch):</string>
+    <string name="str_SpecialCharacteristics">Spezielle Eigenschaften</string>
+    <string name="str_AffinityToElementals">Affinität zu Elementarenntals</string>
+    <string name="str_DemonicCovenant">Paktierer</string>
+    <string name="str_CloakedAura">Verhüllte Aura</string>
+    <string name="str_WeakPresence">Schwache Ausstrahlung (1–5)</string>
+    <string name="str_StrengthOfStigma">Stigma(1–3)</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="str_SaveChar">Charakter speichern</string>
+    <string name="str_DeleteChar">Charakter löschen</string>
     <string name="title_activity_summoning">SummoningActivity</string>
-    <string name="str_ElementalServant">Elemental servant</string>
-    <string name="str_Djinn">Djinn</string>
-    <string name="str_MasterOfElement">Master of element</string>
-    <string name="str_ElementsPrompt">Choose an element</string>
-    <string name="str_SelectSummoning">Select summoning type:</string>
+    <string name="str_ElementalServant">Elementargeist</string>
+    <string name="str_Djinn">Dschinn</string>
+    <string name="str_MasterOfElement">Elementarer Meister</string>
+    <string name="str_ElementsPrompt">Element wählen</string>
+    <string name="str_SelectSummoning">Art der Beschwörung:</string>
     <string name="str_ElementDD">Element:</string>
-    <string name="str_QualityOfMaterial">Quality of material:</string>
+    <string name="str_QualityOfMaterial">Qualität der verwendeten Materialien:</string>
     
-    <string name="str_Equipment">Equipment:</string>
-    <string name="str_EquipmentMage1">White summoning robe (-1)</string>
-    <string name="str_EquipmentMage2">Barefoot (-1)</string>
+    <string name="str_Equipment">Ausrüsstung:</string>
+    <string name="str_EquipmentMage1">Weiße Beschwörungsrobe (-1)</string>
+    <string name="str_EquipmentMage2">Barfuß (-1)</string>
     
-    <string name="str_EquipmentDruid1">Naked (-1)</string>
-    <string name="str_EquipmentDruid2">Ritual cleansing (-1)</string>
+    <string name="str_EquipmentDruid1">Nackt (-1)</string>
+    <string name="str_EquipmentDruid2">Rituelle Reinigung (-1)</string>
     
-    <string name="str_EquipmentCristalomant1">First potent cristal (-1)</string>
-    <string name="str_EquipmentCristalomant2">Second potent cristal (-1)</string>
+    <string name="str_EquipmentCristalomant1">Erster potenter Kristall (-1)</string>
+    <string name="str_EquipmentCristalomant2">Zweiter potenter Kristall (-1)</string>
     
-    <string name="str_EquipmentShaman1">First Equipment (-1)</string>
-    <string name="str_EquipmentShaman2">Second Equipment (-1)</string>
-    <string name="str_ErrorCharName">You need to enter a character name!</string>
+    <string name="str_EquipmentShaman1">Erster Gegenstand (-1)</string>
+    <string name="str_EquipmentShaman2">Zweiter Gegenstand  (-1)</string>
+    <string name="str_ErrorCharName">Bitte gib einen Charakternamen ein!</string>
     
     <string-array name="str_ElementsArray">
-        <item>Fire</item>
-        <item>Water</item>
-        <item>Life</item>
-        <item>Ice</item>
-        <item>Stone</item>
-        <item>Air</item>
+        <item>Feuer</item>
+        <item>Wasser</item>
+        <item>Humus</item>
+        <item>Eis</item>
+        <item>Stein</item>
+        <item>Luft</item>
     </string-array>
-    <string name="str_QualityOfTrueName">Quality of true name:</string>
+    <string name="str_QualityOfTrueName">Qualität des Wahren Namens:</string>
     <string-array name="str_QualityOfTrueNameArray">
-        <item>no true name (0/0)</item>
-        <item>Quality 1 (rough thesis-sketch) (-1/0)</item>
-        <item>Quality 2 (-2/-1)</item>
-        <item>Quality 3 (-3/-1)</item>
-        <item>Quality 4 (-4/-1)</item>
-        <item>Quality 5 (-5/-2)</item>
-        <item>Quality 6 (-6/-2)</item>
-        <item>Quality 7 (complete "Submatrix") (-7/-2)</item>
+        <item>kein Wahrer Name(0/0)</item>
+        <item>Qualität 1 (grobe Thesis-Skizze) (-1/0)</item>
+        <item>Qualität 2 (-2/-1)</item>
+        <item>Qualität 3 (-3/-1)</item>
+        <item>Qualität 4 (-4/-1)</item>
+        <item>Qualität 5 (-5/-2)</item>
+        <item>Qualität 6 (-6/-2)</item>
+        <item>Qualität 7 (vollständige "Submatrix") (-7/-2)</item>
     </string-array>
-    <string name="str_CircumstancesOfThePlace">Circumstances of place:</string>
+    <string name="str_CircumstancesOfThePlace">Umstände des Ortes:</string>
     <string-array name="str_CircumstancesOfThePlaceArray">
-        <item>elemental citadel of used element (-7/-2)</item>
-        <item>near the elemental citadel (-6/-2)</item>
-        <item>grand sanctuary (f.e. valley of elements) (-5/-2)</item>
-        <item>important ritual space(f.e. Drakonia) (-4/-1)</item>
-        <item>place of elemental purity(f.e. Schlund) (-3/-1)</item>
-        <item>potent elemental location (-2/-1)</item>
-        <item>element predominantly (-1/0)</item>
-        <item>culturally-used place (+1/0)</item>
-        <item>another element predominantly (+2/+1)</item>
-        <item>complete absence of the element (+3/+1)</item>
-        <item>contaminated site (+4/+1)</item>
-        <item>large demonic sanctuary (+5/+2)</item>
-        <item>gate of horror (+6/+2)</item>
-        <item>gate of horror (Agrimoth) (+7/+2)</item>
+        <item>Elementare Zitadelle (-7/-2)</item>
+        <item>unmittelbare Umgebung einer Zitadelle (-6/-2)</item>
+        <item>großes Heiligtum (z.B.Tal der Elemente)) (-5/-2)</item>
+        <item>bedeutender Ritualplatz (z.B. Drakonia) (-4/-1)</item>
+        <item>Ort elementarer Reinheit(z.B. Schlund) (-3/-1)</item>
+        <item>potenter elementarer Ort (z.B. Vulkan) (-2/-1)</item>
+        <item>Element vorherrschend (z.B. Wäldchen) (-1/0)</item>
+        <item>kulturell genutzter Ort (z.B. Acker,Stadt) (+1/0)</item>
+        <item>anderes Element vorherrschend (+2/+1)</item>
+        <item>völlige Abwesenheit des Elements (+3/+1)</item>
+        <item>verseuchter Ort (z.B. Dämonenbrache) (+4/+1)</item>
+        <item>großes Unheiligtum (z.B. Yol-Ghurmak) (+5/+2)</item>
+        <item>Pforte des Grauens (+6/+2)</item>
+        <item>Pforte des Grauens (Agrimoth) (+7/+2)</item>
     </string-array>
-    <string name="str_Powernode">Powernode (with Powerlinemagic I)</string>
-    <string name="str_CircumstancesOfTime">Circumstances of time</string>
+    <string name="str_Powernode">Kraftknoten (mit Kraftlinienmagie I)</string>
+    <string name="str_CircumstancesOfTime">Umstände der Zeit</string>
     <string-array name="str_CircumstancesOfTimeArray">
-        <item>1 on D20 (-3/-1)</item>
-        <item>2–3 on D20 (-2/-1)</item>
-        <item>4–5 on D20 (-1/0)</item>
-        <item>6–15 on D20(0/0)</item>
-        <item>16–17 on D20 (+1/0)</item>
-        <item>18–19 on D20 (+2/+1)</item>
-        <item>20 on D20 (or nameless days) (+3/+1)</item>
+        <item>1 auf W20 (-3/-1)</item>
+        <item>2–3 auf W20 (-2/-1)</item>
+        <item>4–5 auf W20 (-1/0)</item>
+        <item>6–15 auf W20 (0/0)</item>
+        <item>16–17 auf W20 (+1/0)</item>
+        <item>18–19 auf W20 (+2/+1)</item>
+        <item>20 auf W20 (immer:namenlose Tage) (+3/+1)</item>
     </string-array>    
-    <string name="str_QualityOfGift">Quality of gift</string>
+    <string name="str_QualityOfGift">Qualität eines Geschenks</string>
     <string-array name="str_QualityOfGiftArray">
         <item>(-7/-2)</item>
         <item>(-6/-2)</item>
@@ -138,7 +137,7 @@
         <item>(+6/+2)</item>
         <item>(+7/+2)</item>
     </string-array>
-    <string name="str_QualityOfDeed">Quality of deed</string>
+    <string name="str_QualityOfDeed">Qualität einer Tat</string>
     <string-array name="str_QualityOfDeedArray">
         <item>(-7/-2)</item>
         <item>(-6/-2)</item>
@@ -157,68 +156,68 @@
         <item>(+7/+2)</item>
     </string-array>
     <string-array name="str_ElementalPurityFireArray">
-        <item>very precious: iron foundry,dragonfire(-6)</item>
-        <item>precious: lava, volcano embers(-4)</item>
-        <item>concentrated: forge fire(-2)</item>
-        <item>pure: camp fire,oven(0)</item>
-        <item>impaired:candle flame(+2)</item>
-        <item>ignoble: Khôm heat(+4)</item>
-        <item>particularly ignoble: \'cold\' light(+6)</item>
+        <item>besonders edel: Eisengießerei, Drachenfeuer(-6)</item>
+        <item>edel: Lava, Vulkanglut(-4)</item>
+        <item>konzentriert: Schmiedefeuer(-2)</item>
+        <item>rein: Lagerfeuer, Backofen(0)</item>
+        <item>gemindert: Kerzenfeuer(+2)</item>
+        <item>unedel: Khômglut(+4)</item>
+        <item>besonders unedel: \'kaltes\' licht(+6)</item>
     </string-array>
     
     
     <string-array name="str_ElementalPurityWaterArray">
-        <item>very precious: pure water(citadel)(-6)</item>
-        <item>precious: deep sea water, Efferd sanctuary(-4)</item>
-        <item>concentrated: fresh spring water, mountain lake(-2)</item>
-        <item>pure: seawater, lake, river(0)</item>
-        <item>impaired: rainwawter,used water(+2)</item>
-        <item>ignoble: brackish water, swampwater(+4)</item>
-        <item>particularly ignoble: air moisture, drain water(+6)</item>
+        <item>besonders edel: reines Wasser (Zitadelle)(-6)</item>
+        <item>edel: Tiefseewasser, Efferdheiligtum(-4)</item>
+        <item>konzentriert: fresh spring water, mountain lake(-2)</item>
+        <item>rein: seawater, lake, river(0)</item>
+        <item>gemindert: rainwawter,used water(+2)</item>
+        <item>unedel: brackish water, swampwater(+4)</item>
+        <item>besonders unedel: air moisture, drain water(+6)</item>
     </string-array>
     
     
     <string-array name="str_ElementalPurityLifeArray">
-        <item>very precious: very rare plant/animal(-6)</item>
-        <item>precious: (-4)</item>
-        <item>concentrated: (-2)</item>
-        <item>pure: (0)</item>
-        <item>impaired: (+2)</item>
-        <item>ignoble: (+4)</item>
-        <item>particularly ignoble: (+6)</item>
+        <item>besonders edel: very rare plant/animal(-6)</item>
+        <item>edel: (-4)</item>
+        <item>konzentriert: (-2)</item>
+        <item>rein: (0)</item>
+        <item>gemindert: (+2)</item>
+        <item>unedel: (+4)</item>
+        <item>besonders unedel: (+6)</item>
     </string-array>
     
     
     <string-array name="str_ElementalPurityIceArray">
-        <item>very precious: deep abyssial frost(-6)</item>
-        <item>precious: (-4)</item>
-        <item>concentrated: (-2)</item>
-        <item>pure: (0)</item>
-        <item>impaired: (+2)</item>
-        <item>ignoble: (+4)</item>
-        <item>particularly ignoble: (+6)</item>
+        <item>besonders edel: deep abyssial frost(-6)</item>
+        <item>edel: (-4)</item>
+        <item>konzentriert: (-2)</item>
+        <item>rein: (0)</item>
+        <item>gemindert: (+2)</item>
+        <item>unedel: (+4)</item>
+        <item>besonders unedel: (+6)</item>
     </string-array>
     
     
     <string-array name="str_ElementalPurityStoneArray">
-        <item>very precious: gemstones, dwarven gold(-6)</item>
-        <item>precious: (-4)</item>
-        <item>concentrated: (-2)</item>
-        <item>pure: (0)</item>
-        <item>impaired: (+2)</item>
-        <item>ignoble: (+4)</item>
-        <item>particularly ignoble: (+6)</item>
+        <item>besonders edel: gemstones, dwarven gold(-6)</item>
+        <item>edel: (-4)</item>
+        <item>konzentriert: (-2)</item>
+        <item>rein: (0)</item>
+        <item>gemindert: (+2)</item>
+        <item>unedel: (+4)</item>
+        <item>besonders unedel: (+6)</item>
     </string-array>
     
     
     <string-array name="str_ElementalPurityAirArray">
-        <item>very precious: pure air(citadel)(-6)</item>
-        <item>precious: (-4)</item>
-        <item>concentrated: (-2)</item>
-        <item>pure: (0)</item>
-        <item>impaired: (+2)</item>
-        <item>ignoble: (+4)</item>
-        <item>particularly ignoble: (+6)</item>
+        <item>besonders edel: pure air(citadel)(-6)</item>
+        <item>edel: (-4)</item>
+        <item>konzentriert: (-2)</item>
+        <item>rein: (0)</item>
+        <item>gemindert: (+2)</item>
+        <item>unedel: (+4)</item>
+        <item>besonders unedel: (+6)</item>
     </string-array>
     
 	<string name="str_AstralSense">Astral sense</string>
