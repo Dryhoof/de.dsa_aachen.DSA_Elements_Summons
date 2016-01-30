@@ -169,69 +169,69 @@
     <string-array name="str_ElementalPurityWaterArray">
         <item>besonders edel: reines Wasser (Zitadelle)(-6)</item>
         <item>edel: Tiefseewasser, Efferdheiligtum(-4)</item>
-        <item>konzentriert: fresh spring water, mountain lake(-2)</item>
-        <item>rein: seawater, lake, river(0)</item>
-        <item>gemindert: rainwawter,used water(+2)</item>
-        <item>unedel: brackish water, swampwater(+4)</item>
-        <item>besonders unedel: air moisture, drain water(+6)</item>
+        <item>konzentriert: frisches Quellwasser, Bergsee(-2)</item>
+        <item>rein: Meerwasser, Fluss, See(0)</item>
+        <item>gemindert: Regenwasser, Nutzwasser(+2)</item>
+        <item>unedel: Brackwasser, Sumpfwasser(+4)</item>
+        <item>besonders unedel: Luftfeuchte, Abwasser(+6)</item>
     </string-array>
     
     
     <string-array name="str_ElementalPurityLifeArray">
-        <item>besonders edel: very rare plant/animal(-6)</item>
-        <item>edel: (-4)</item>
-        <item>konzentriert: (-2)</item>
-        <item>rein: (0)</item>
-        <item>gemindert: (+2)</item>
-        <item>unedel: (+4)</item>
-        <item>besonders unedel: (+6)</item>
+        <item>besonders edel: vser seltene Pflanze, Tiere(-6)</item>
+        <item>edel: potente Heil-/Giftpflanze, Insekten(-4)</item>
+        <item>konzentriert: Baumriesen, Heilpflanzen(-2)</item>
+        <item>rein: Pflanzen, frisches Holz(0)</item>
+        <item>gemindert: Algen, Flechten, altes Holz(+2)</item>
+        <item>unedel: Woldboden, Kompost(+4)</item>
+        <item>besonders unedel: Gebeine, Holzmehl(+6)</item>
     </string-array>
     
     
     <string-array name="str_ElementalPurityIceArray">
-        <item>besonders edel: deep abyssial frost(-6)</item>
-        <item>edel: (-4)</item>
-        <item>konzentriert: (-2)</item>
-        <item>rein: (0)</item>
-        <item>gemindert: (+2)</item>
-        <item>unedel: (+4)</item>
-        <item>besonders unedel: (+6)</item>
+        <item>besonders edel: niederhöllische Kälte(-6)</item>
+        <item>edel: Grimmfrost(-4)</item>
+        <item>konzentriert: Firunskälte(-2)</item>
+        <item>rein: eiskalt(0)</item>
+        <item>gemindert: kalt(+2)</item>
+        <item>unedel: kühl(+4)</item>
+        <item>besonders unedel: Kälte eines Luftzuges(+6)</item>
     </string-array>
     
     
     <string-array name="str_ElementalPurityStoneArray">
-        <item>besonders edel: gemstones, dwarven gold(-6)</item>
-        <item>edel: (-4)</item>
-        <item>konzentriert: (-2)</item>
-        <item>rein: (0)</item>
-        <item>gemindert: (+2)</item>
-        <item>unedel: (+4)</item>
-        <item>besonders unedel: (+6)</item>
+        <item>besonders edel: Edelsteine, Zwergengold(-6)</item>
+        <item>edel: Gold, unreine (Halb)edelsteine(-4)</item>
+        <item>konzentriert: Metall, unedle Kristalle, Stahl(-2)</item>
+        <item>rein: Erz, Gestein(0)</item>
+        <item>gemindert: Kies, Geröll, brüchiges Gestein(+2)</item>
+        <item>unedel: Sand(+4)</item>
+        <item>besonders unedel: Staub(+6)</item>
     </string-array>
     
     
     <string-array name="str_ElementalPurityAirArray">
-        <item>besonders edel: pure air(citadel)(-6)</item>
-        <item>edel: (-4)</item>
-        <item>konzentriert: (-2)</item>
-        <item>rein: (0)</item>
-        <item>gemindert: (+2)</item>
-        <item>unedel: (+4)</item>
-        <item>besonders unedel: (+6)</item>
+        <item>besonders edel: reine Luft (Zitadelle)(-6)</item>
+        <item>edel: flüchtige, starke Gerüche(-4)</item>
+        <item>konzentriert: Sturm, starke Luftwirbel(-2)</item>
+        <item>rein: frische Berg- oder Seeluft(0)</item>
+        <item>gemindert: normale Landluft(+2)</item>
+        <item>unedel: schwülwarme Luft, Dunst, Nebel(+4)</item>
+        <item>besonders unedel: erstickende, träge Luft(+6)</item>
     </string-array>
     
-	<string name="str_AstralSense">Astral sense</string>
-	<string name="str_LongArm">Long arm</string>
-	<string name="str_LifeSense">Life sense</string>
+	<string name="str_AstralSense">Astralsinn</string>
+	<string name="str_LongArm">Langer Arm</string>
+	<string name="str_LifeSense">Lebenssinn</string>
 	<string name="str_Regeneration">Regeneration</string>
-	<string name="str_AdditionalActions">Additional actions</string>
-	<string name="str_Nope">No</string>
+	<string name="str_AdditionalActions">Zusätzliche Aktion</string>
+	<string name="str_Nope">0</string>
 	<string name="str_RomanOne">I</string>
 	<string name="str_RomanTwo">II</string>
-	<string name="str_ResistanceAgainstTrait">Resistance against trait</string>
-	<string name="str_ImmunityAgainstTrait">Immunity against trait</string>
-	<string name="str_ResistanceAgainst">Resistance against</string>
-	<string name="str_ImmunityAgainst">Immunity against</string>
+	<string name="str_ResistanceAgainstTrait">Resistenz gegen [Merkmal]</string>
+	<string name="str_ImmunityAgainstTrait">Immunität gegen [Merkmal]</string>
+	<string name="str_ResistanceAgainst">Resistenz gegen</string>
+	<string name="str_ImmunityAgainst">Immunität gegen</string>
 	<!-- <string name="str_Antimagic">Antimagic</string>
 	<string name="str_Conjuration">Conjuration</string>
 	<string name="str_Ghostbeeings">Ghostbeeings</string>
@@ -243,29 +243,29 @@
 	<string name="str_Telekinesis">Telekinesis</string>
 	<string name="str_Temporal">Temporal</string>
 	<string name="str_Environment">Environment</string> -->
-	<string name="str_Damage">Damage</string>
-	<string name="str_ResistanceAgainstElementalAttacks">Resistance against elemental attacks</string>
-	<string name="str_ImmunityAgainstElementalAttacks">Immunity against elemental attacks</string>
-	<string name="str_Fire">Fire</string>
-	<string name="str_Water">Water</string>
-	<string name="str_Life">Life</string>
-	<string name="str_Ice">Ice</string>
-	<string name="str_Stone">Stone</string>
-	<string name="str_Air">Air</string>
-	<string name="str_ResistanceAgainstDemonic">Resistance against demonic</string>
-	<string name="str_ImmunityAgainstDemonic">Immunity against demonic</string>
-	<string name="str_Blakharaz">Demonic Blakharaz</string>
-	<string name="str_Belhalhar">Demonic Belhalhar</string>
-	<string name="str_Charyptoroth">Demonic Charyptoroth</string>
-	<string name="str_Lolgramoth">Demonic Lolgramoth</string>
-	<string name="str_Amazeroth">Demonic Amazeroth</string>
-	<string name="str_Belshirash">Demonic Belshirash</string>
-	<string name="str_Asfaloth">Demonic Asfaloth</string>
-	<string name="str_Tasfarelel">Demonic Tasfarelel</string>
-	<string name="str_Belzhorash">Demonic Belzhorash</string>
-	<string name="str_Agrimoth">Demonic Agrimoth</string>
-	<string name="str_Belkelel">Demonic Belkelel</string>
-	<string name="str_Thargunitoth">Demonic Thargunitoth</string>
+	<string name="str_Damage">Schaden</string>
+	<string name="str_ResistanceAgainstElementalAttacks">Resistenz gegen elementare Angriffe</string>
+	<string name="str_ImmunityAgainstElementalAttacks">Immunität gegen elementare Angriffe</string>
+	<string name="str_Fire">Feuer</string>
+	<string name="str_Water">Wasser</string>
+	<string name="str_Life">Humus</string>
+	<string name="str_Ice">Eis</string>
+	<string name="str_Stone">Stein</string>
+	<string name="str_Air">Luft</string>
+	<string name="str_ResistanceAgainstDemonic">Resistenz gegen [Dämonisch]</string>
+	<string name="str_ImmunityAgainstDemonic">Immunität gegen [Dämonisch]</string>
+	<string name="str_Blakharaz">Dämonisch Blakharaz</string>
+	<string name="str_Belhalhar">Dämonisch Belhalhar</string>
+	<string name="str_Charyptoroth">Dämonisch Charyptoroth</string>
+	<string name="str_Lolgramoth">Dämonisch Lolgramoth</string>
+	<string name="str_Amazeroth">Dämonisch Amazeroth</string>
+	<string name="str_Belshirash">Dämonisch Belshirash</string>
+	<string name="str_Asfaloth">Dämonisch Asfaloth</string>
+	<string name="str_Tasfarelel">Dämonisch Tasfarelel</string>
+	<string name="str_Belzhorash">Dämonisch Belzhorash</string>
+	<string name="str_Agrimoth">Dämonisch Agrimoth</string>
+	<string name="str_Belkelel">Dämonisch Belkelel</string>
+	<string name="str_Thargunitoth">Dämonisch Thargunitoth</string>
 	<!-- Antimagie
 	Beschwörung
 	Geisterwesen
@@ -300,20 +300,20 @@
 		Belkelel
 	
 	-->
-	<string name="str_ResistanceAgainstMagicAttacks">Resistance against magic attacks</string>
-	<string name="str_ImmunityAgainstMagicAttacks">Immunity against magic attacks</string>
-	<string name="str_SpecialStupidStuff">Special stupid stuff</string>
-	<string name="str_BloodmagicUsed">Bloodmagic used</string>
-	<string name="str_SummonedLesserDemon">Summoned a lesser demon (last 7h)</string>
-	<string name="str_SummonedHornedDemon">Summoned a horned demon (last 24h)</string>
+	<string name="str_ResistanceAgainstMagicAttacks">Resistenz gegen magische Angriffe</string>
+	<string name="str_ImmunityAgainstMagicAttacks">Immunität gegen magische Angriffe</string>
+	<string name="str_SpecialStupidStuff">Spezielle Meisterdinge</string>
+	<string name="str_BloodmagicUsed">Blutmagie angewandt</string>
+	<string name="str_SummonedLesserDemon">Niederen Dämon beschworen (letzte 7 Std.)</string>
+	<string name="str_SummonedHornedDemon">Gehörnten Dämon beschworen (letzte 24 Std.)</string>
 	
-    <string name="str_CalculateSummoning">Calculate summoning</string>
-    <string name="str_SummoningModifier">Summoning modifier:</string>
-    <string name="str_ControlTestModifier">Control test modifier:</string>
+    <string name="str_CalculateSummoning">Beschwörung berechnen</string>
+    <string name="str_SummoningModifier">Beschwörungsschiwierigkeit:</string>
+    <string name="str_ControlTestModifier">Kontrollschwierigkeit:</string>
 
-    <string name="str_weakAgainst">Weak against</string>
+    <string name="str_weakAgainst">Schwäche gegen</string>
     
-    <string name="str_Personality">Personality:</string>
+    <string name="str_Personality">Persönlichkeit:</string>
     <string-array  name="str_personalityFireArray">
         <item>aufbrausend</item>
         <item>unstet</item>

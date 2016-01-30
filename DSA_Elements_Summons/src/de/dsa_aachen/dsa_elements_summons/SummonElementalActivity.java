@@ -344,7 +344,8 @@ public class SummonElementalActivity extends Activity
 		editor.putBoolean("bloodmagicUsed", ((CheckBox)findViewById(R.id.summonElementalCheckBoxBloodmagicUsed)).isChecked());
 		editor.putBoolean("summonedLesserDemon", ((CheckBox)findViewById(R.id.summonElementalCheckBoxSummonedLesserDemon)).isChecked());
 		editor.putBoolean("summonedHornedDemon", ((CheckBox)findViewById(R.id.summonElementalCheckBoxSummonedHornedDemon)).isChecked());
-		
+		editor.putInt("additionalSummon",getFormElementInt(R.id.summonElementalEditAdditionalSummon));
+		editor.putInt("additionalControl",getFormElementInt(R.id.summonElementalEditAdditionalControl));
 		String[] personalityStringArray = getResources().getStringArray(spinnerElements[spinnerTypeOfElement].getPersonalityArrayId());
 		Random rand = new Random();
 		int randomIntInPersonalityArray = rand.nextInt(personalityStringArray.length);

@@ -39,19 +39,12 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
             </LinearLayout>
             
-
      		<LinearLayout
-                 android:id="@+id/summonElementalLinearLayoutClassEquipBoxes"
-        		 android:orientation="vertical"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content" >
-                
-	            <View android:id="@+id/View06" 
-	                  android:layout_width="match_parent" 
-	                  android:layout_height="1dp" 
-	                  android:layout_marginBottom="16dp" 
-	                  android:layout_marginTop="16dp" 
-	                  android:background="@android:color/darker_gray" />
+     		    android:id="@+id/summonElementalLinearLayoutClassEquipBoxes"
+     		    android:layout_width="match_parent"
+     		    android:layout_height="wrap_content"
+     		    android:layout_marginTop="@dimen/activity_horizontal_margin"
+     		    android:orientation="vertical" >
 	            
 	            <TextView
                     android:id="@+id/textEquipment"
@@ -76,14 +69,9 @@
 		    <LinearLayout
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
+		        android:layout_marginTop="@dimen/activity_horizontal_margin"
 		        android:orientation="vertical" >
-		        <View
-                    android:id="@+id/View04"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@android:color/darker_gray" />
+
 		        <TextView
 		            android:id="@+id/TextView01"
 		            android:layout_width="wrap_content"
@@ -125,18 +113,11 @@
 		        android:layout_height="wrap_content"
 		        android:orientation="vertical" >
 		
-		        <View
-		            android:id="@+id/View05"
-		            android:layout_width="match_parent"
-		            android:layout_height="1dp"
-		            android:layout_marginBottom="16dp"
-		            android:layout_marginTop="16dp"
-		            android:background="@android:color/darker_gray" />
-		
 		        <LinearLayout
 		            android:id="@+id/LinearLayoutElementSpinners2"
 		            android:layout_width="match_parent"
 		            android:layout_height="wrap_content"
+		            android:layout_marginTop="@dimen/activity_horizontal_margin"
 		            android:weightSum="100" >
 		            
 		        <TextView
@@ -162,6 +143,7 @@
 		            android:id="@+id/QualityOfMaterial"
 		            android:layout_width="fill_parent"
 		            android:layout_height="wrap_content"
+		            android:layout_marginTop="@dimen/activity_horizontal_margin"
 		            android:text="@string/str_QualityOfMaterial"
 		            android:textAppearance="?android:attr/textAppearanceLarge" />
 		
@@ -176,15 +158,8 @@
 		        android:id="@+id/LinearLayout01"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
+		        android:layout_marginTop="@dimen/activity_horizontal_margin"
 		        android:orientation="vertical" >
-
-		        <View
-		            android:id="@+id/View01"
-		            android:layout_width="match_parent"
-		            android:layout_height="1dp"
-		            android:layout_marginBottom="16dp"
-		            android:layout_marginTop="16dp"
-		            android:background="@android:color/darker_gray" />
 
 		        <TextView
 		            android:id="@+id/TextQualityOfTrueName"
@@ -205,15 +180,8 @@
 		        android:id="@+id/LinearLayout02"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
+		        android:layout_marginTop="@dimen/activity_horizontal_margin"
 		        android:orientation="vertical" >
-
-		        <View
-		            android:id="@+id/View02"
-		            android:layout_width="match_parent"
-		            android:layout_height="1dp"
-		            android:layout_marginBottom="16dp"
-		            android:layout_marginTop="16dp"
-		            android:background="@android:color/darker_gray" />
 
 		        <TextView
 		            android:id="@+id/TextCircumstancesOfThePlace"
@@ -233,15 +201,8 @@
 		        android:id="@+id/LinearLayout03"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
+		        android:layout_marginTop="@dimen/activity_horizontal_margin"
 		        android:orientation="vertical" >
-
-		        <View
-		            android:id="@+id/View03"
-		            android:layout_width="match_parent"
-		            android:layout_height="1dp"
-		            android:layout_marginBottom="16dp"
-		            android:layout_marginTop="16dp"
-		            android:background="@android:color/darker_gray" />
 
 		        <TextView
 		            android:id="@+id/TextCircumstancesOfTime"
@@ -256,19 +217,13 @@
 		            android:layout_height="wrap_content"
 		            android:entries="@array/str_CircumstancesOfTimeArray" />
 		    </LinearLayout>
+
 		    <LinearLayout
 		        android:id="@+id/LinearLayout04"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
+		        android:layout_marginTop="@dimen/activity_horizontal_margin"
 		        android:orientation="vertical" >
-
-		        <View
-		            android:id="@+id/View07"
-		            android:layout_width="match_parent"
-		            android:layout_height="1dp"
-		            android:layout_marginBottom="16dp"
-		            android:layout_marginTop="16dp"
-		            android:background="@android:color/darker_gray" />
 
 		        <TextView
 		            android:id="@+id/TextQualityOfGift"
@@ -283,19 +238,13 @@
 		            android:layout_height="wrap_content"
 		            android:entries="@array/str_QualityOfGiftArray" />
 		    </LinearLayout>
+
 		    <LinearLayout
 		        android:id="@+id/LinearLayout05"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
+		        android:layout_marginTop="@dimen/activity_horizontal_margin"
 		        android:orientation="vertical" >
-
-		        <View
-		            android:id="@+id/View08"
-		            android:layout_width="match_parent"
-		            android:layout_height="1dp"
-		            android:layout_marginBottom="16dp"
-		            android:layout_marginTop="16dp"
-		            android:background="@android:color/darker_gray" />
 
 		        <TextView
 		            android:id="@+id/TextQualityOfDeed"
@@ -312,17 +261,10 @@
 		    </LinearLayout>
 		    
 		    <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
-
-                <View
-                    android:id="@+id/View09"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@android:color/darker_gray" />
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="@dimen/activity_horizontal_margin"
+		        android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/editCharTextSpecialAttributes"
@@ -382,6 +324,7 @@
 	                    android:layout_height="wrap_content"
 	                    android:text="@string/str_Regeneration"
 	                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
                 	<RadioGroup
 			            android:id="@+id/radioGroupRegeneration"
 			            android:layout_width="fill_parent"
@@ -953,11 +896,13 @@
 	                	android:orientation="vertical" >
 	
 		                <TextView
-		                    android:id="@+id/editCharTextSpecialStupidStuff"
+		                    android:id="@+id/summonElementalTextSpecialStupidStuff"
 		                    android:layout_width="wrap_content"
 		                    android:layout_height="wrap_content"
+		                    android:layout_marginTop="@dimen/activity_horizontal_margin"
 		                    android:text="@string/str_SpecialStupidStuff"
 		                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
 	                    <CheckBox
 	                        android:id="@+id/summonElementalCheckBoxBloodmagicUsed"
 	                        android:layout_width="fill_parent"
@@ -1125,17 +1070,86 @@
 					</LinearLayout>
 				</LinearLayout> -->
             </LinearLayout>
-		    
+
+		    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_marginTop="@dimen/activity_horizontal_margin"
+		        android:weightSum="100"
+		        android:orientation="vertical" >
+					<TextView
+		                    android:id="@+id/summonElementalTextAdditionalModification"
+		                    android:layout_width="wrap_content"
+		                    android:layout_height="wrap_content"
+		                    android:layout_marginTop="@dimen/activity_horizontal_margin"
+		                    android:text="@string/str_additionalModification"
+		                    android:textAppearance="?android:attr/textAppearanceLarge" />
+					
+	                <LinearLayout
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="true"
+	                    android:weightSum="100" >
+						<TextView
+						    android:id="@+id/summonElementalTextAdditionalSummon"
+						    android:layout_width="fill_parent"
+						    android:layout_height="wrap_content"
+						    android:layout_weight="35"
+						    android:text="@string/str_additionalSummon"
+						    android:textAppearance="?android:attr/textAppearanceMedium"
+						    android:textSize="16sp" />
+						
+						<EditText
+						    android:id="@+id/summonElementalEditAdditionalSummon"
+							android:nextFocusDown="@+id/calculateSummoning"
+							android:nextFocusRight="@+id/calculateSummoning"
+						    style="@style/styleEditDecimal"
+						    android:layout_width="fill_parent"
+						    android:layout_height="wrap_content"
+						    android:layout_weight="65"
+						    android:ems="10"
+						    android:inputType="numberDecimal|numberSigned" />
+					</LinearLayout>
+					
+	                <LinearLayout
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:baselineAligned="true"
+	                    android:weightSum="100" >
+	                    <TextView
+	                        android:id="@+id/summonElementalTextAdditionalControl"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_weight="35"
+	                        android:text="@string/str_additionalControl"
+	                        android:textAppearance="?android:attr/textAppearanceMedium"
+	                        android:textSize="16sp" />
+	
+	                    <EditText
+	                        android:id="@+id/summonElementalEditAdditionalControl"
+		                    android:nextFocusDown="@+id/calculateSummoning"
+		                    android:nextFocusRight="@+id/calculateSummoning"
+	                        style="@style/styleEditDecimal"
+	                        android:layout_width="fill_parent"
+	                        android:layout_height="wrap_content"
+	                        android:layout_weight="65"
+	                        android:ems="10"
+	                        android:inputType="numberDecimal|numberSigned" />
+                    </LinearLayout>
+                </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:orientation="vertical" >
 
                 <Button
                     android:id="@+id/calculateSummoning"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_horizontal_margin"
                     android:text="@string/str_CalculateSummoning" />
+
             </LinearLayout>
 		</LinearLayout>
 	</ScrollView>

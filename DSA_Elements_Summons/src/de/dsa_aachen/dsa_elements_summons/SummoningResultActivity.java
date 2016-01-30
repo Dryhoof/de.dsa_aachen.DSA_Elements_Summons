@@ -337,7 +337,21 @@ public class SummoningResultActivity extends Activity {
 			System.out.println("Summon summonedHornedDemon +4");
 			controlTestDifficulty += 4;
 		}
-
+		if(settings.getInt("additionalSummon",0) > 0){
+			System.out.println("Summon additionalSummon +" + settings.getInt("additionalSummon",0));
+			summonDifficulty += settings.getInt("additionalSummon",0);
+		}else if(settings.getInt("additionalSummon",0) < 0){
+			System.out.println("Summon additionalSummon " + settings.getInt("additionalSummon",0));
+			summonDifficulty += settings.getInt("additionalSummon",0);
+		}
+		
+		if(settings.getInt("additionalControl",0) > 0){
+			System.out.println("Summon additionalControl +" + settings.getInt("additionalControl",0));
+			controlTestDifficulty += settings.getInt("additionalControl",0);
+		}else if(settings.getInt("additionalControl",0) < 0){
+			System.out.println("Summon additionalControl " + settings.getInt("additionalControl",0));
+			controlTestDifficulty += settings.getInt("additionalControl",0);
+		}
 		int statCourage = settings.getInt("statCourage", 0);
 		int statWisdom = settings.getInt("statWisdom", 0);
 		int statCharisma = settings.getInt("statCharisma", 0);

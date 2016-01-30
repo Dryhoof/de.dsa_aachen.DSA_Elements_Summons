@@ -303,7 +303,7 @@
 	-->
 	<string name="str_ResistanceAgainstMagicAttacks">Resistance against magic attacks</string>
 	<string name="str_ImmunityAgainstMagicAttacks">Immunity against magic attacks</string>
-	<string name="str_SpecialStupidStuff">Special stupid stuff</string>
+	<string name="str_SpecialStupidStuff">Special GM stuff</string>
 	<string name="str_BloodmagicUsed">Bloodmagic used</string>
 	<string name="str_SummonedLesserDemon">Summoned a lesser demon (last 7h)</string>
 	<string name="str_SummonedHornedDemon">Summoned a horned demon (last 24h)</string>
@@ -400,7 +400,9 @@
         <item>prolific</item>
     </string-array>
     <string name="str_weakAgainst">Weak against</string>
-    
+    <string name="str_additionalModification">Aditional Modifications</string>
+    <string name="str_additionalSummon">Summon</string>
+    <string name="str_additionalControl">Control</string>
     <!-- <string-array  name="str_personalityFireArray">
         <item>aufbrausend</item>
         <item>unstet</item>
