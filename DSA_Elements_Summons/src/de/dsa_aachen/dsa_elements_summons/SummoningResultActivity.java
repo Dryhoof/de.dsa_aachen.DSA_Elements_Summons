@@ -304,6 +304,9 @@ public class SummoningResultActivity extends Activity {
 		System.out.println("Control circumstancesOfThePlaceIntArray[1] " + circumstancesOfThePlaceIntArray[1]);
 		controlTestDifficulty += circumstancesOfThePlaceIntArray[1];
 		
+		System.out.println("Summon powernode " + settings.getString("powernode", "(0)"));
+		summonDifficulty += getIntFromStringArray(settings.getString("powernode", "(0)"));
+		
 		int[] circumstancesOfTimeIntArray = getIntArrayFromStringArray(settings.getString("circumstancesOfTime", "(0/0)"));
 		System.out.println("Summon circumstancesOfTimeIntArray[0] " + circumstancesOfTimeIntArray[0]);
 		summonDifficulty += circumstancesOfTimeIntArray[0];

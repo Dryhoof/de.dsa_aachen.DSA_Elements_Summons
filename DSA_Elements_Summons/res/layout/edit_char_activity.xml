@@ -24,6 +24,7 @@
                     android:id="@+id/editCharTextHead"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+    				android:maxLines="4"
                     android:text="@string/str_CreateCharHead"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -36,6 +37,7 @@
                         android:id="@+id/editCharTextCharacterName"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+    				    android:maxLines="4"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="50"
                         android:text="@string/str_TextCharacterName"
@@ -61,22 +63,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:weightSum="100" >
-                <TextView
-                    android:id="@+id/createCharTextCharacterClass"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="50"
-                    android:text="@string/str_TextCharacterClass"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textSize="16sp" />
-                <Spinner
-            		android:id="@+id/editCharChooseCharacterClass"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="50"
-            		android:entries="@array/str_ClassesArray"
-            		android:prompt="@string/str_ClassesPrompt"  />
+	                <TextView
+	                    android:id="@+id/createCharTextCharacterClass"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:layout_gravity="center_vertical"
+    				    android:maxLines="4"
+	                    android:layout_weight="50"
+	                    android:text="@string/str_TextCharacterClass"
+	                    android:textAppearance="?android:attr/textAppearanceMedium"
+	                    android:textSize="16sp" />
+	                <Spinner
+	            		android:id="@+id/editCharChooseCharacterClass"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="50"
+	            		android:entries="@array/str_ClassesArray"
+	            		android:prompt="@string/str_ClassesPrompt"  />
                 </LinearLayout>
                 
                 <!-- <LinearLayout
@@ -115,6 +118,7 @@
                     android:id="@+id/textElement"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+    				android:maxLines="4"
                     android:text="@string/str_Attributes"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -137,6 +141,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="35"
+    				        android:maxLines="4"
                             android:text="@string/str_StatCourage"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textSize="16sp" />
@@ -168,6 +173,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="35"
+    				        android:maxLines="4"
                             android:text="@string/str_StatWisdom"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textSize="16sp" />
@@ -206,6 +212,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="35"
+    						android:maxLines="4"
                             android:text="@string/str_StatCharisma"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textSize="16sp" />
@@ -237,6 +244,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="35"
+    						android:maxLines="4"
                             android:text="@string/str_StatIntuition"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:textSize="16sp" />
@@ -274,6 +282,7 @@
                     android:id="@+id/editCharTextTalents"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+    				android:maxLines="4"
                     android:text="@string/str_Talents"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -286,6 +295,7 @@
                         android:id="@+id/editCharTextTalentCallElementalServant"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
+    					android:maxLines="4"
                         android:layout_weight="35"
                         android:text="@string/str_TalentCallElementalServant"
                         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -315,6 +325,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="35"
+    					android:maxLines="4"
                         android:text="@string/str_TalentCallDjinn"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textSize="16sp" />
@@ -343,6 +354,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="35"
+    					android:maxLines="4"
                         android:text="@string/str_TalentCallMasterOfElement"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textSize="16sp" />
@@ -379,6 +391,7 @@
                     android:id="@+id/editCharTextTalented"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+    				android:maxLines="4"
                     android:text="@string/str_TalentedFor"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -455,6 +468,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="35"
+    					android:maxLines="4"
                         android:text="@string/str_TalentedDemonic"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textSize="16sp" />
@@ -491,6 +505,7 @@
                     android:id="@+id/editCharTextKnowledgeOfAttribute"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+    				android:maxLines="4"
                     android:text="@string/str_KnowledgeOfAttribute"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -564,9 +579,11 @@
 
                     <TextView
                         android:id="@+id/editCharTextKnowledgeDemonic"
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="35"
+                        android:includeFontPadding="true"
+                        android:maxLines="4"
                         android:text="@string/str_KnowledgeDemonic"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textSize="16sp" />
@@ -603,6 +620,7 @@
                     android:id="@+id/editCharTextSpecialAttributes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+    				android:maxLines="4"
                     android:text="@string/str_SpecialCharacteristics"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -617,6 +635,19 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/str_AffinityToElementals" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:baselineAligned="false"
+                    android:weightSum="100" >
+
+                    <CheckBox
+                        android:id="@+id/editCharCheckBoxPowerlinemagicI"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/str_PowerlinemagicI" />
                 </LinearLayout>
 
                 <LinearLayout

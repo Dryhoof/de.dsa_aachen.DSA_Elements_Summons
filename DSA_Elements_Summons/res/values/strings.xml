@@ -109,7 +109,21 @@
         <item>gate of horror (+6/+2)</item>
         <item>gate of horror (Agrimoth) (+7/+2)</item>
     </string-array>
-    <string name="str_Powernode">Powernode (with Powerlinemagic I)</string>
+    <string name="str_Powernode">Strength of Powernode (with Powerlinemagic I)</string>
+    <string-array name="str_PowernodeArray">
+        <item>PS 0-1 (0)</item>
+        <item>PS 2-5 (-1)</item>
+        <item>PS 6-9 (-2)</item>
+        <item>PS 10-13 (-3)</item>
+        <item>PS 14-17 (-4)</item>
+        <item>PS 18-21 (-5)</item>
+        <item>PS 22-25 (-6)</item>
+        <item>PS 26-29 (-7)</item>
+        <item>PS 30-33 (-8)</item>
+        <item>PS 34-37 (-9)</item>
+    </string-array>
+    <string name="str_PowerlinemagicI">Powerlinemagic I</string>
+    
     <string name="str_CircumstancesOfTime">Circumstances of time</string>
     <string-array name="str_CircumstancesOfTimeArray">
         <item>1 on D20 (-3/-1)</item>

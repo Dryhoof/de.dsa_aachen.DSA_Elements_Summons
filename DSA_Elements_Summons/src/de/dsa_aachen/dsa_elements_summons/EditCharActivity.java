@@ -117,6 +117,7 @@ public class EditCharActivity extends Activity
 				setCheckBox(query, dbField.cloakedAura.getIntValue(), R.id.editCharCheckBoxCloakedAura);
 				setEditTextInt(query, dbField.weakPresence.getIntValue(), R.id.editCharEditWeakPresence);
 				setEditTextInt(query, dbField.strengthOfStigma.getIntValue(), R.id.editCharEditStrengthOfStigma);
+				setCheckBox(query, dbField.powerlinemagicI.getIntValue(), R.id.editCharCheckBoxPowerlinemagicI);
 				
 				/*String characterName = query.getString(dbField.characterName.intValue);
 			    final TextView editCharEditCharacterName = (TextView) findViewById(R.id.editCharEditCharacterName);
@@ -269,6 +270,7 @@ public class EditCharActivity extends Activity
 		values.put(dbField.cloakedAura.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxCloakedAura));
 		values.put(dbField.weakPresence.getStringValue(),getFormElementInt(R.id.editCharEditWeakPresence));
 		values.put(dbField.strengthOfStigma.getStringValue(),getFormElementInt(R.id.editCharEditStrengthOfStigma));
+		values.put(dbField.powerlinemagicI.getStringValue(),getFormElementBoolean(R.id.editCharCheckBoxPowerlinemagicI));
 		 if(dbId != 0){
 			 System.out.println("Database update!");
 			 Database.update("Characters", values, "id = '"+dbId+"'", null); 

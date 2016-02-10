@@ -168,38 +168,52 @@ public class SummonElementalActivity extends Activity
 		public void setKnowledgeCounterElementDbField(dbField knowledgeCounterElementDbField) {
 			this.knowledgeCounterElementDbField = knowledgeCounterElementDbField;
 		}*/
-		public int getResistanceCheckboxId() {
+		public int getResistanceCheckboxId()
+		{
 			return resistanceCheckboxId;
 		}
-		public void setResistanceCheckboxId(int resistanceCheckboxId) {
+		public void setResistanceCheckboxId(int resistanceCheckboxId)
+		{
 			this.resistanceCheckboxId = resistanceCheckboxId;
 		}
-		public int getImmunityCheckboxId() {
+		public int getImmunityCheckboxId()
+		{
 			return immunityCheckboxId;
 		}
-		public void setImmunityCheckboxId(int immunityCheckboxId) {
+		public void setImmunityCheckboxId(int immunityCheckboxId)
+		{
 			this.immunityCheckboxId = immunityCheckboxId;
 		}
-		public int getPersonalityArrayId() {
+		public int getPersonalityArrayId()
+		{
 			return personalityArrayId;
 		}
-		public void setPersonalityArrayId(int personalityArrayId) {
+		public void setPersonalityArrayId(int personalityArrayId)
+		{
 			this.personalityArrayId = personalityArrayId;
 		}
 	}
-	public static SpinnerElement[] getSpinnerElementValue(){
+	public static SpinnerElement[] getSpinnerElementValue()
+	{
 		return SpinnerElement.values();
 	}
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		if (savedInstanceState == null) {
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		if (savedInstanceState == null)
+		{
 		    Bundle extras = getIntent().getExtras();
-		    if(extras == null) {
+		    if(extras == null)
+		    {
 		        dbId= 0;
-		    } else {
+		    }
+		    else
+		    {
 		    	dbId= extras.getInt("dbId");
 		    }
-		} else {
+		}
+		else 
+		{
 			dbId= (Integer) savedInstanceState.getSerializable("dbId");
 		}
 		System.out.println("SummonElementalActivity.dbId = "+ dbId);
@@ -207,7 +221,8 @@ public class SummonElementalActivity extends Activity
 		setContentView(R.layout.summon_elemental_activity);
         final Button calculateSummoning = (Button) findViewById(R.id.calculateSummoning);
         calculateSummoning.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
             	savePreferences();
             	summonResultView();
             }
@@ -220,13 +235,21 @@ public class SummonElementalActivity extends Activity
 		spinner.setOnItemSelectedListener(this);
 		
 		setEditTextString(query, dbField.characterName.getIntValue(), R.id.summonElementalCharacterName);
-		
+		Spinner powernode = (Spinner)findViewById(R.id.spinnerPowernode);
+		if(query.getInt(dbField.powerlinemagicI.getIntValue()) == 0)
+		{
+			powernode.setEnabled(false);
+			powernode.setClickable(false);
+		}
+		powernode.setSelection(0);
 		Classes character = Classes.getById(dbField.characterClass.getIntValue());
 		CheckBox checkboxEquipment1 = (CheckBox)findViewById(R.id.summonElementalCheckBoxEquipment1);
 		checkboxEquipment1.setText(getString(character.getFirstEquipmentId()));
 		CheckBox checkboxEquipment2 = (CheckBox)findViewById(R.id.summonElementalCheckBoxEquipment2);
 		checkboxEquipment2.setText(getString(character.getSecondEquipmentId()));
+		
 		Database.close();
+		
 		System.out.println(getFormElementSpinnerPosition(R.id.spinnerChooseQualityOfMaterial));
 		Spinner spinnerQualityOfTrueName = (Spinner) findViewById(R.id.spinnerQualityOfTrueName);
 		spinnerQualityOfTrueName.setSelection(0);
@@ -290,6 +313,7 @@ public class SummonElementalActivity extends Activity
 
 		editor.putString("qualityOfTrueName", getResources().getStringArray(R.array.str_QualityOfTrueNameArray)[getFormElementSpinnerPosition(R.id.spinnerQualityOfTrueName)]);
 		editor.putString("circumstancesOfThePlace", getResources().getStringArray(R.array.str_CircumstancesOfThePlaceArray)[getFormElementSpinnerPosition(R.id.spinnerCircumstancesOfThePlace)]);
+		editor.putString("powernode", getResources().getStringArray(R.array.str_PowernodeArray)[getFormElementSpinnerPosition(R.id.spinnerPowernode)]);
 		editor.putString("circumstancesOfTime", getResources().getStringArray(R.array.str_CircumstancesOfTimeArray)[getFormElementSpinnerPosition(R.id.spinnerCircumstancesOfTimeArray)]);
 		editor.putString("qualityOfGift", getResources().getStringArray(R.array.str_QualityOfGiftArray)[getFormElementSpinnerPosition(R.id.spinnerQualityOfGift)]);
 		editor.putString("qualityOfDeed", getResources().getStringArray(R.array.str_QualityOfDeedArray)[getFormElementSpinnerPosition(R.id.spinnerQualityOfDeed)]);
