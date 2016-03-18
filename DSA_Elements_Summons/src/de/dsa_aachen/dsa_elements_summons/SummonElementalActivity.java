@@ -242,7 +242,9 @@ public class SummonElementalActivity extends Activity
 			powernode.setClickable(false);
 		}
 		powernode.setSelection(0);
-		Classes character = Classes.getById(dbField.characterClass.getIntValue());
+		//Classes character = Classes.getById(dbField.characterClass.getIntValue());
+		Classes character = Classes.getById(query.getInt(dbField.characterClass.getIntValue()));
+		System.out.println("dbField.characterClass.getIntValue(): "+dbField.characterClass.getIntValue());
 		CheckBox checkboxEquipment1 = (CheckBox)findViewById(R.id.summonElementalCheckBoxEquipment1);
 		checkboxEquipment1.setText(getString(character.getFirstEquipmentId()));
 		CheckBox checkboxEquipment2 = (CheckBox)findViewById(R.id.summonElementalCheckBoxEquipment2);

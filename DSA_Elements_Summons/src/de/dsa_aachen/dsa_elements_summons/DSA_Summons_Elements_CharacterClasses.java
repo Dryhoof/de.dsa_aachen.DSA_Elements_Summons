@@ -46,7 +46,6 @@ public class DSA_Summons_Elements_CharacterClasses {
 		public void setSecondEquipmentId(int secondEquipmentId) {
 			this.secondEquipmentId = secondEquipmentId;
 		}
-		
 	}
-	
+		
 }

@@ -229,8 +229,7 @@ public class EditCharActivity extends Activity
 	        return;
         }
 		values.put(dbField.characterName.getStringValue(),name);
-		values.put(dbField.characterClass.getStringValue(),getFormElementSpinnerPosition(R.id.editCharChooseCharacterClass));  
-		
+		values.put(dbField.characterClass.getStringValue(),getFormElementSpinnerPosition(R.id.editCharChooseCharacterClass));
 		/*int charakterEquipmentModifier = 0;
 		if(getFormElementBoolean(R.id.editCharCheckBoxEquipment1)){
 			charakterEquipmentModifier = charakterEquipmentModifier + 1;
