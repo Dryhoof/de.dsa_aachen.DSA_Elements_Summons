@@ -690,8 +690,14 @@
                         android:text="@string/str_WeakPresence"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textSize="16sp" />
-
-                    <EditText
+                    
+					<Spinner
+	            		android:id="@+id/editCharSpinnerWeakPresence"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="50"
+	            		android:entries="@array/str_WeakPresenceArray" />
+                    <!-- <EditText
                         android:id="@+id/editCharEditWeakPresence"
 	                    android:nextFocusUp="@id/editCharEditKnowledgeDemonic"
 	                    android:nextFocusLeft="@id/editCharEditKnowledgeDemonic"
@@ -702,7 +708,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="65"
                         android:ems="10"
-                        android:inputType="number" />
+                        android:inputType="number" /> -->
                 </LinearLayout>
 
                 <LinearLayout
@@ -720,7 +726,15 @@
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textSize="16sp" />
 
-                    <EditText
+                    
+					<Spinner
+	            		android:id="@+id/editCharSpinnerStrengthOfStigma"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:layout_weight="50"
+	            		android:entries="@array/str_StrengthOfStigmaArray" />
+					
+                    <!-- <EditText
                         android:id="@+id/editCharEditStrengthOfStigma"
 	                    android:nextFocusUp="@id/editCharEditWeakPresence"
 	                    android:nextFocusLeft="@id/editCharEditWeakPresence"
@@ -729,7 +743,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="65"
                         android:ems="10"
-                        android:inputType="number" />
+                        android:inputType="number" /> -->
                 </LinearLayout>
             </LinearLayout>
 

@@ -5,10 +5,10 @@ import java.util.Random;
 import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_Database.dbField;
 import de.dsa_aachen.dsa_elements_summons.DSA_Summons_Elements_CharacterClasses.Classes;
 import android.app.Activity;
-import android.content.Context;
+//import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
+//import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -420,7 +420,7 @@ public class SummonElementalActivity extends Activity
 		startActivity(intent);
 	}
 	
-	private void setCheckBox(Cursor cursor, int columnId, int Rid){
+	/*private void setCheckBox(Cursor cursor, int columnId, int Rid){
 	    boolean bool = cursor.getInt(columnId)>0;
 	    final CheckBox checkBox = (CheckBox) findViewById(Rid);
 	    checkBox.setChecked(bool);
@@ -434,7 +434,7 @@ public class SummonElementalActivity extends Activity
 		int Int = cursor.getInt(columnId);
 		final Spinner spinner = (Spinner)findViewById(Rid);
 		spinner.setSelection(Int);
-	}
+	}*/
 	private void setEditTextString(Cursor cursor, int columnId, int Rid){
 		String string = cursor.getString(columnId);
 	    final TextView textView = (TextView) findViewById(Rid);

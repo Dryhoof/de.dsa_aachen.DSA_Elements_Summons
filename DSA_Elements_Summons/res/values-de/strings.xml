@@ -415,4 +415,9 @@
         <item>zuverlässig</item>
         <item>schaffensfroh</item>
     </string-array>
+    
+    
+    <string name="str_additionalModification">Zusätzliche Modifikationen</string>
+    <string name="str_additionalSummon">Beschwörung</string>
+    <string name="str_additionalControl">Beherrschung</string>
 </resources>

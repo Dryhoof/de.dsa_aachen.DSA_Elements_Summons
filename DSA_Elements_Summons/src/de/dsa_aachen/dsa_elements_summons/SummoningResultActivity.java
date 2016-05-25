@@ -1,6 +1,6 @@
 package de.dsa_aachen.dsa_elements_summons;
 
-import java.util.Map;
+//import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,9 +8,9 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.LinearLayout;
+//import android.widget.Button;
+//import android.widget.CheckBox;
+//import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -355,13 +355,13 @@ public class SummoningResultActivity extends Activity {
 			System.out.println("Summon additionalControl " + settings.getInt("additionalControl",0));
 			controlTestDifficulty += settings.getInt("additionalControl",0);
 		}
-		int statCourage = settings.getInt("statCourage", 0);
+		/*int statCourage = settings.getInt("statCourage", 0);
 		int statWisdom = settings.getInt("statWisdom", 0);
 		int statCharisma = settings.getInt("statCharisma", 0);
 		int statIntuition = settings.getInt("statIntuition", 0);
 		int talentCallElementalServant = settings.getInt("talentCallElementalServant", 0);
 		int talentCallDjinn = settings.getInt("talentCallDjinn", 0);
-		int talentCallMasterOfElement = settings.getInt("talentCallMasterOfElement", 0);
+		int talentCallMasterOfElement = settings.getInt("talentCallMasterOfElement", 0);*/
 		
 		String summonDifficultyString = resources.getString(R.string.str_SummoningModifier)+ " " + summonDifficulty + "\n";
 		String controlTestDifficultyString = resources.getString(R.string.str_ControlTestModifier)+ " " + controlTestDifficulty + "\n";
