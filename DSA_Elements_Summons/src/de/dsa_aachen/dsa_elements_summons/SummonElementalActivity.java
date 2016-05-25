@@ -19,6 +19,8 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -26,9 +28,11 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.Spinner;
 
 public class SummonElementalActivity extends Activity 
-	implements OnItemSelectedListener{
+	implements OnItemSelectedListener, OnCheckedChangeListener{
 	private int dbId;
 	private boolean firstStart = true;
+	private boolean lastResistanceAgainstTraitDamage = false;
+	private boolean lastImmunityAgainstTraitDamage = false;
 	DSA_Summons_Elements_Database DB = new DSA_Summons_Elements_Database(this);
 	public static enum SpinnerElement {
 		fire(0,
@@ -234,6 +238,8 @@ public class SummonElementalActivity extends Activity
 		Spinner spinner = (Spinner) findViewById(R.id.spinnerTypeOfElement);
 		spinner.setOnItemSelectedListener(this);
 		
+		CheckBox immunityAgainstMagic = (CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstMagicAttacks);
+		immunityAgainstMagic.setOnCheckedChangeListener(this);
 		setEditTextString(query, dbField.characterName.getIntValue(), R.id.summonElementalCharacterName);
 		Spinner powernode = (Spinner)findViewById(R.id.spinnerPowernode);
 		if(query.getInt(dbField.powerlinemagicI.getIntValue()) == 0)
@@ -320,7 +326,6 @@ public class SummonElementalActivity extends Activity
 		editor.putString("qualityOfGift", getResources().getStringArray(R.array.str_QualityOfGiftArray)[getFormElementSpinnerPosition(R.id.spinnerQualityOfGift)]);
 		editor.putString("qualityOfDeed", getResources().getStringArray(R.array.str_QualityOfDeedArray)[getFormElementSpinnerPosition(R.id.spinnerQualityOfDeed)]);
 		
-		//TODO
 		//Add all special abilities & resistance & immunity checkboxes!
 		editor.putBoolean("astralSense", ((CheckBox)findViewById(R.id.summonElementalCheckBoxAstralSense)).isChecked());
 		editor.putBoolean("longArm", ((CheckBox)findViewById(R.id.summonElementalCheckBoxLongArm)).isChecked());
@@ -514,9 +519,25 @@ public class SummonElementalActivity extends Activity
 		}
 	}
 	@Override
-	public void onNothingSelected(AdapterView<?> arg0) {
-		// TODO Auto-generated method stub
+	public void onCheckedChanged(CompoundButton buttonView,boolean isChecked) {
+		CheckBox resistanceTraitDamage = (CheckBox)findViewById(R.id.summonElementalCheckBoxResistanceAgainstTraitDamage);
+		CheckBox immunityTraitDamage = (CheckBox)findViewById(R.id.summonElementalCheckBoxImmunityAgainstTraitDamage);
+		if(isChecked == true){
+			lastResistanceAgainstTraitDamage = resistanceTraitDamage.isChecked();
+			resistanceTraitDamage.setChecked(false);
+			resistanceTraitDamage.setEnabled(false);
+			lastImmunityAgainstTraitDamage = immunityTraitDamage.isChecked();
+			immunityTraitDamage.setChecked(false);
+			immunityTraitDamage.setEnabled(false);
+		}else{
+			resistanceTraitDamage.setChecked(lastResistanceAgainstTraitDamage);
+			resistanceTraitDamage.setEnabled(true);
+			immunityTraitDamage.setChecked(lastImmunityAgainstTraitDamage);
+			immunityTraitDamage.setEnabled(true);
+		}
 		
-	}
+	} 
+	@Override
+	public void onNothingSelected(AdapterView<?> arg0){}
 
 }
