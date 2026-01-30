@@ -201,13 +201,13 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
       ));
     }
 
-    if (mounted) context.pop();
+    if (mounted) context.go('/');
   }
 
   Future<void> _delete() async {
     final db = ref.read(databaseProvider);
     await db.deleteCharacter(widget.characterId!);
-    if (mounted) context.pop();
+    if (mounted) context.go('/');
   }
 
   @override
@@ -221,8 +221,17 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
       );
     }
 
-    return Scaffold(
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) context.go('/');
+      },
+      child: Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.go('/'),
+        ),
         title: Text(_isEditing ? l10n.editCharacter : l10n.newCharacter),
         actions: [
           IconButton(
@@ -359,6 +368,7 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
           ),
         ),
       ),
+    ),
     );
   }
 

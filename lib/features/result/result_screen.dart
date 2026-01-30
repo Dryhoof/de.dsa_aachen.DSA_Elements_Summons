@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:dsa_elements_summons_flutter/l10n/app_localizations.dart';
 
 import 'package:dsa_elements_summons_flutter/core/calculation/summoning_calculator.dart';
@@ -14,7 +15,13 @@ class ResultScreen extends StatelessWidget {
 
     if (config == null) {
       return Scaffold(
-        appBar: AppBar(title: Text(l10n.result)),
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () => context.pop(),
+          ),
+          title: Text(l10n.result),
+        ),
         body: Center(child: Text(l10n.noData)),
       );
     }
@@ -23,7 +30,13 @@ class ResultScreen extends StatelessWidget {
     final result = SummoningCalculator.calculate(config, locale: locale);
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.result)),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.pop(),
+        ),
+        title: Text(l10n.result),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Card(

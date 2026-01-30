@@ -202,7 +202,13 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
 
     if (_isLoading || _character == null) {
       return Scaffold(
-        appBar: AppBar(title: Text(l10n.summoning)),
+        appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.go('/'),
+        ),
+        title: Text(l10n.summoning),
+      ),
         body: const Center(child: CircularProgressIndicator()),
       );
     }
@@ -210,8 +216,19 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
     final config = _buildConfig();
     final result = SummoningCalculator.calculate(config);
 
-    return Scaffold(
-      appBar: AppBar(title: Text(l10n.summoning)),
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) context.go('/');
+      },
+      child: Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => context.go('/'),
+        ),
+        title: Text(l10n.summoning),
+      ),
       body: Column(
         children: [
           Expanded(
@@ -540,7 +557,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                     FilledButton(
                       onPressed: () {
                         SummoningScreen.lastConfig = _buildConfig();
-                        context.go('/result');
+                        context.push('/result');
                       },
                       child: Text(l10n.calculate),
                     ),
@@ -551,6 +568,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
           ),
         ],
       ),
+    ),
     );
   }
 
