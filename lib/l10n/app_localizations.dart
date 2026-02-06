@@ -599,13 +599,13 @@ abstract class AppLocalizations {
   /// No description provided for @summoningModifier.
   ///
   /// In en, this message translates to:
-  /// **'Summoning modifier:'**
+  /// **'Summoning modifier'**
   String get summoningModifier;
 
   /// No description provided for @controlTestModifier.
   ///
   /// In en, this message translates to:
-  /// **'Control test modifier:'**
+  /// **'Control test modifier'**
   String get controlTestModifier;
 
   /// No description provided for @additionalModifications.
@@ -629,7 +629,7 @@ abstract class AppLocalizations {
   /// No description provided for @personality.
   ///
   /// In en, this message translates to:
-  /// **'Personality:'**
+  /// **'Personality'**
   String get personality;
 
   /// No description provided for @element.
@@ -641,7 +641,7 @@ abstract class AppLocalizations {
   /// No description provided for @weakAgainst.
   ///
   /// In en, this message translates to:
-  /// **'Weak against:'**
+  /// **'Weak against'**
   String get weakAgainst;
 
   /// No description provided for @summoning.
@@ -901,6 +901,474 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Ritual cleansing (-1)'**
   String get equipmentGeode2;
+
+  /// No description provided for @unsavedChangesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Unsaved changes'**
+  String get unsavedChangesTitle;
+
+  /// No description provided for @unsavedChangesMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'You have unsaved changes. What would you like to do?'**
+  String get unsavedChangesMessage;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @discard.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard'**
+  String get discard;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @elementalTemplates.
+  ///
+  /// In en, this message translates to:
+  /// **'Elemental templates'**
+  String get elementalTemplates;
+
+  /// No description provided for @newTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'New template'**
+  String get newTemplate;
+
+  /// No description provided for @editTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit template'**
+  String get editTemplate;
+
+  /// No description provided for @templateName.
+  ///
+  /// In en, this message translates to:
+  /// **'Template name'**
+  String get templateName;
+
+  /// No description provided for @loadTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'Load template'**
+  String get loadTemplate;
+
+  /// No description provided for @saveAsTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'Save as template'**
+  String get saveAsTemplate;
+
+  /// No description provided for @noTemplates.
+  ///
+  /// In en, this message translates to:
+  /// **'No templates yet. Create one first!'**
+  String get noTemplates;
+
+  /// No description provided for @deleteTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete template'**
+  String get deleteTemplate;
+
+  /// No description provided for @templateSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Template saved'**
+  String get templateSaved;
+
+  /// No description provided for @templateLoaded.
+  ///
+  /// In en, this message translates to:
+  /// **'Template loaded'**
+  String get templateLoaded;
+
+  /// No description provided for @templateDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Template deleted'**
+  String get templateDeleted;
+
+  /// No description provided for @elementals.
+  ///
+  /// In en, this message translates to:
+  /// **'Elementals'**
+  String get elementals;
+
+  /// No description provided for @errorTemplateName.
+  ///
+  /// In en, this message translates to:
+  /// **'You need to enter a template name!'**
+  String get errorTemplateName;
+
+  /// No description provided for @place0.
+  ///
+  /// In en, this message translates to:
+  /// **'Elemental citadel (-7/-2)'**
+  String get place0;
+
+  /// No description provided for @place1.
+  ///
+  /// In en, this message translates to:
+  /// **'Near elemental citadel (-5/-1)'**
+  String get place1;
+
+  /// No description provided for @place2.
+  ///
+  /// In en, this message translates to:
+  /// **'Place of elemental purity (-3/-1)'**
+  String get place2;
+
+  /// No description provided for @place3.
+  ///
+  /// In en, this message translates to:
+  /// **'Element strongly present (-2/0)'**
+  String get place3;
+
+  /// No description provided for @place4.
+  ///
+  /// In en, this message translates to:
+  /// **'Element slightly present (-1/0)'**
+  String get place4;
+
+  /// No description provided for @place5.
+  ///
+  /// In en, this message translates to:
+  /// **'No connection to element (0/0)'**
+  String get place5;
+
+  /// No description provided for @place6.
+  ///
+  /// In en, this message translates to:
+  /// **'Neutral (0/0)'**
+  String get place6;
+
+  /// No description provided for @place7.
+  ///
+  /// In en, this message translates to:
+  /// **'Counter element slightly present (+1/0)'**
+  String get place7;
+
+  /// No description provided for @place8.
+  ///
+  /// In en, this message translates to:
+  /// **'Counter element strongly present (+2/0)'**
+  String get place8;
+
+  /// No description provided for @place9.
+  ///
+  /// In en, this message translates to:
+  /// **'Place of counter element (+3/+1)'**
+  String get place9;
+
+  /// No description provided for @place10.
+  ///
+  /// In en, this message translates to:
+  /// **'Elemental node of counter element (+5/+1)'**
+  String get place10;
+
+  /// No description provided for @place11.
+  ///
+  /// In en, this message translates to:
+  /// **'Citadel of counter element (+7/+2)'**
+  String get place11;
+
+  /// No description provided for @place12.
+  ///
+  /// In en, this message translates to:
+  /// **'Gate of horror (Blakharaz) (+5/+1)'**
+  String get place12;
+
+  /// No description provided for @place13.
+  ///
+  /// In en, this message translates to:
+  /// **'Gate of horror (Agrimoth) (+7/+2)'**
+  String get place13;
+
+  /// No description provided for @time0.
+  ///
+  /// In en, this message translates to:
+  /// **'1 on D20 (-3/-1)'**
+  String get time0;
+
+  /// No description provided for @time1.
+  ///
+  /// In en, this message translates to:
+  /// **'2-5 on D20 (-2/-1)'**
+  String get time1;
+
+  /// No description provided for @time2.
+  ///
+  /// In en, this message translates to:
+  /// **'6-9 on D20 (-1/0)'**
+  String get time2;
+
+  /// No description provided for @time3.
+  ///
+  /// In en, this message translates to:
+  /// **'10-11 on D20 (0/0)'**
+  String get time3;
+
+  /// No description provided for @time4.
+  ///
+  /// In en, this message translates to:
+  /// **'12-15 on D20 (+1/0)'**
+  String get time4;
+
+  /// No description provided for @time5.
+  ///
+  /// In en, this message translates to:
+  /// **'16-19 on D20 (+2/+1)'**
+  String get time5;
+
+  /// No description provided for @time6.
+  ///
+  /// In en, this message translates to:
+  /// **'20 on D20 / Nameless days (+3/+1)'**
+  String get time6;
+
+  /// No description provided for @gift0.
+  ///
+  /// In en, this message translates to:
+  /// **'Outstanding gift (-7/-2)'**
+  String get gift0;
+
+  /// No description provided for @gift1.
+  ///
+  /// In en, this message translates to:
+  /// **'Very valuable gift (-6/-2)'**
+  String get gift1;
+
+  /// No description provided for @gift2.
+  ///
+  /// In en, this message translates to:
+  /// **'Valuable gift (-5/-1)'**
+  String get gift2;
+
+  /// No description provided for @gift3.
+  ///
+  /// In en, this message translates to:
+  /// **'Good gift (-4/-1)'**
+  String get gift3;
+
+  /// No description provided for @gift4.
+  ///
+  /// In en, this message translates to:
+  /// **'Appropriate gift (-3/-1)'**
+  String get gift4;
+
+  /// No description provided for @gift5.
+  ///
+  /// In en, this message translates to:
+  /// **'Acceptable gift (-2/0)'**
+  String get gift5;
+
+  /// No description provided for @gift6.
+  ///
+  /// In en, this message translates to:
+  /// **'Small gift (-1/0)'**
+  String get gift6;
+
+  /// No description provided for @gift7.
+  ///
+  /// In en, this message translates to:
+  /// **'No gift (0/0)'**
+  String get gift7;
+
+  /// No description provided for @gift8.
+  ///
+  /// In en, this message translates to:
+  /// **'Unsuitable gift (+1/0)'**
+  String get gift8;
+
+  /// No description provided for @gift9.
+  ///
+  /// In en, this message translates to:
+  /// **'Insulting gift (+2/0)'**
+  String get gift9;
+
+  /// No description provided for @gift10.
+  ///
+  /// In en, this message translates to:
+  /// **'Bad gift (+3/+1)'**
+  String get gift10;
+
+  /// No description provided for @gift11.
+  ///
+  /// In en, this message translates to:
+  /// **'Very bad gift (+4/+1)'**
+  String get gift11;
+
+  /// No description provided for @gift12.
+  ///
+  /// In en, this message translates to:
+  /// **'Offensive gift (+5/+1)'**
+  String get gift12;
+
+  /// No description provided for @gift13.
+  ///
+  /// In en, this message translates to:
+  /// **'Reprehensible gift (+6/+2)'**
+  String get gift13;
+
+  /// No description provided for @gift14.
+  ///
+  /// In en, this message translates to:
+  /// **'Abominable gift (+7/+2)'**
+  String get gift14;
+
+  /// No description provided for @deed0.
+  ///
+  /// In en, this message translates to:
+  /// **'Outstanding deed (-7/-2)'**
+  String get deed0;
+
+  /// No description provided for @deed1.
+  ///
+  /// In en, this message translates to:
+  /// **'Very good deed (-6/-2)'**
+  String get deed1;
+
+  /// No description provided for @deed2.
+  ///
+  /// In en, this message translates to:
+  /// **'Good deed (-5/-1)'**
+  String get deed2;
+
+  /// No description provided for @deed3.
+  ///
+  /// In en, this message translates to:
+  /// **'Helpful deed (-4/-1)'**
+  String get deed3;
+
+  /// No description provided for @deed4.
+  ///
+  /// In en, this message translates to:
+  /// **'Appropriate deed (-3/-1)'**
+  String get deed4;
+
+  /// No description provided for @deed5.
+  ///
+  /// In en, this message translates to:
+  /// **'Acceptable deed (-2/0)'**
+  String get deed5;
+
+  /// No description provided for @deed6.
+  ///
+  /// In en, this message translates to:
+  /// **'Small deed (-1/0)'**
+  String get deed6;
+
+  /// No description provided for @deed7.
+  ///
+  /// In en, this message translates to:
+  /// **'No deed (0/0)'**
+  String get deed7;
+
+  /// No description provided for @deed8.
+  ///
+  /// In en, this message translates to:
+  /// **'Unsuitable deed (+1/0)'**
+  String get deed8;
+
+  /// No description provided for @deed9.
+  ///
+  /// In en, this message translates to:
+  /// **'Insulting deed (+2/0)'**
+  String get deed9;
+
+  /// No description provided for @deed10.
+  ///
+  /// In en, this message translates to:
+  /// **'Bad deed (+3/+1)'**
+  String get deed10;
+
+  /// No description provided for @deed11.
+  ///
+  /// In en, this message translates to:
+  /// **'Very bad deed (+4/+1)'**
+  String get deed11;
+
+  /// No description provided for @deed12.
+  ///
+  /// In en, this message translates to:
+  /// **'Offensive deed (+5/+1)'**
+  String get deed12;
+
+  /// No description provided for @deed13.
+  ///
+  /// In en, this message translates to:
+  /// **'Reprehensible deed (+6/+2)'**
+  String get deed13;
+
+  /// No description provided for @deed14.
+  ///
+  /// In en, this message translates to:
+  /// **'Abominable deed (+7/+2)'**
+  String get deed14;
+
+  /// No description provided for @overwriteTemplateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Overwrite template?'**
+  String get overwriteTemplateTitle;
+
+  /// No description provided for @overwriteTemplateMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'A template with this name already exists. Do you want to overwrite it?'**
+  String get overwriteTemplateMessage;
+
+  /// No description provided for @overwrite.
+  ///
+  /// In en, this message translates to:
+  /// **'Overwrite'**
+  String get overwrite;
+
+  /// No description provided for @deleteConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete?'**
+  String get deleteConfirmTitle;
+
+  /// No description provided for @deleteCharacterConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you really want to delete this character?'**
+  String get deleteCharacterConfirm;
+
+  /// No description provided for @deleteTemplateConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you really want to delete this template?'**
+  String get deleteTemplateConfirm;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @overwriteCharacterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Overwrite character?'**
+  String get overwriteCharacterTitle;
+
+  /// No description provided for @overwriteCharacterMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'A character with this name already exists. Do you want to overwrite it?'**
+  String get overwriteCharacterMessage;
 }
 
 class _AppLocalizationsDelegate

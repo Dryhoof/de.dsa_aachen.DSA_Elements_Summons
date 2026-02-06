@@ -261,10 +261,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get calculateSummoning => 'Beschwörung berechnen';
 
   @override
-  String get summoningModifier => 'Beschwörungserschwernis:';
+  String get summoningModifier => 'Beschwörungsmodifikator';
 
   @override
-  String get controlTestModifier => 'Beherrschungserschwernis:';
+  String get controlTestModifier => 'Beherrschungsmodifikator';
 
   @override
   String get additionalModifications => 'Zusätzliche Modifikationen';
@@ -276,13 +276,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get additionalControl => 'Beherrschung';
 
   @override
-  String get personality => 'Persönlichkeit:';
+  String get personality => 'Persönlichkeit';
 
   @override
   String get element => 'Element:';
 
   @override
-  String get weakAgainst => 'Schwach gegen:';
+  String get weakAgainst => 'Schwach gegen';
 
   @override
   String get summoning => 'Beschwörung:';
@@ -378,13 +378,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get resistanceMagic => 'Resistenz gegen magische Angriffe';
 
   @override
-  String get resistanceTraitDamage => 'Resistenz gegen Merkmalsschaden';
+  String get resistanceTraitDamage => 'Resistenz gegen Merkmal Schaden';
 
   @override
   String get immunityMagic => 'Immunität gegen magische Angriffe';
 
   @override
-  String get immunityTraitDamage => 'Immunität gegen Merkmalsschaden';
+  String get immunityTraitDamage => 'Immunität gegen Merkmal Schaden';
 
   @override
   String get summonLabel => 'Beschwörung';
@@ -402,14 +402,253 @@ class AppLocalizationsDe extends AppLocalizations {
   String get noData => 'Keine Daten verfügbar';
 
   @override
-  String get additionalSummonMod => 'Zusätzliche Beschwörungserschwernis';
+  String get additionalSummonMod => 'Zusätzlicher Beschwörungsmodifikator';
 
   @override
-  String get additionalControlMod => 'Zusätzliche Beherrschungserschwernis';
+  String get additionalControlMod => 'Zusätzlicher Beherrschungsmodifikator';
 
   @override
   String get equipmentGeode1 => 'Nackt (-1)';
 
   @override
   String get equipmentGeode2 => 'Rituelle Reinigung (-1)';
+
+  @override
+  String get unsavedChangesTitle => 'Ungespeicherte Änderungen';
+
+  @override
+  String get unsavedChangesMessage =>
+      'Du hast ungespeicherte Änderungen. Was möchtest du tun?';
+
+  @override
+  String get save => 'Speichern';
+
+  @override
+  String get discard => 'Verwerfen';
+
+  @override
+  String get cancel => 'Abbrechen';
+
+  @override
+  String get elementalTemplates => 'Elementar-Vorlagen';
+
+  @override
+  String get newTemplate => 'Neue Vorlage';
+
+  @override
+  String get editTemplate => 'Vorlage bearbeiten';
+
+  @override
+  String get templateName => 'Vorlagenname';
+
+  @override
+  String get loadTemplate => 'Vorlage laden';
+
+  @override
+  String get saveAsTemplate => 'Als Vorlage speichern';
+
+  @override
+  String get noTemplates => 'Noch keine Vorlagen. Erstelle zuerst eine!';
+
+  @override
+  String get deleteTemplate => 'Vorlage löschen';
+
+  @override
+  String get templateSaved => 'Vorlage gespeichert';
+
+  @override
+  String get templateLoaded => 'Vorlage geladen';
+
+  @override
+  String get templateDeleted => 'Vorlage gelöscht';
+
+  @override
+  String get elementals => 'Elementare';
+
+  @override
+  String get errorTemplateName => 'Du musst einen Vorlagennamen eingeben!';
+
+  @override
+  String get place0 => 'Elementare Zitadelle (-7/-2)';
+
+  @override
+  String get place1 => 'Umgebung einer Zitadelle (-5/-1)';
+
+  @override
+  String get place2 => 'Ort elementarer Reinheit (-3/-1)';
+
+  @override
+  String get place3 => 'Element stark vertreten (-2/0)';
+
+  @override
+  String get place4 => 'Element leicht vertreten (-1/0)';
+
+  @override
+  String get place5 => 'Keine Verbindung zu Element (0/0)';
+
+  @override
+  String get place6 => 'Neutral (0/0)';
+
+  @override
+  String get place7 => 'Gegenelement leicht vertreten (+1/0)';
+
+  @override
+  String get place8 => 'Gegenelement stark vertreten (+2/0)';
+
+  @override
+  String get place9 => 'Ort des Gegenelements (+3/+1)';
+
+  @override
+  String get place10 => 'Elementarknoten Gegenelement (+5/+1)';
+
+  @override
+  String get place11 => 'Zitadelle des Gegenelements (+7/+2)';
+
+  @override
+  String get place12 => 'Pforte des Grauens (Blakharaz) (+5/+1)';
+
+  @override
+  String get place13 => 'Pforte des Grauens (Agrimoth) (+7/+2)';
+
+  @override
+  String get time0 => '1 auf W20 (-3/-1)';
+
+  @override
+  String get time1 => '2-5 auf W20 (-2/-1)';
+
+  @override
+  String get time2 => '6-9 auf W20 (-1/0)';
+
+  @override
+  String get time3 => '10-11 auf W20 (0/0)';
+
+  @override
+  String get time4 => '12-15 auf W20 (+1/0)';
+
+  @override
+  String get time5 => '16-19 auf W20 (+2/+1)';
+
+  @override
+  String get time6 => '20 auf W20 / Namenlose Tage (+3/+1)';
+
+  @override
+  String get gift0 => 'Herausragendes Geschenk (-7/-2)';
+
+  @override
+  String get gift1 => 'Sehr wertvolles Geschenk (-6/-2)';
+
+  @override
+  String get gift2 => 'Wertvolles Geschenk (-5/-1)';
+
+  @override
+  String get gift3 => 'Gutes Geschenk (-4/-1)';
+
+  @override
+  String get gift4 => 'Angemessenes Geschenk (-3/-1)';
+
+  @override
+  String get gift5 => 'Akzeptables Geschenk (-2/0)';
+
+  @override
+  String get gift6 => 'Kleines Geschenk (-1/0)';
+
+  @override
+  String get gift7 => 'Kein Geschenk (0/0)';
+
+  @override
+  String get gift8 => 'Unpassendes Geschenk (+1/0)';
+
+  @override
+  String get gift9 => 'Beleidigendes Geschenk (+2/0)';
+
+  @override
+  String get gift10 => 'Schlechtes Geschenk (+3/+1)';
+
+  @override
+  String get gift11 => 'Sehr schlechtes Geschenk (+4/+1)';
+
+  @override
+  String get gift12 => 'Anstößiges Geschenk (+5/+1)';
+
+  @override
+  String get gift13 => 'Verwerfliches Geschenk (+6/+2)';
+
+  @override
+  String get gift14 => 'Abscheuliches Geschenk (+7/+2)';
+
+  @override
+  String get deed0 => 'Herausragende Tat (-7/-2)';
+
+  @override
+  String get deed1 => 'Sehr gute Tat (-6/-2)';
+
+  @override
+  String get deed2 => 'Gute Tat (-5/-1)';
+
+  @override
+  String get deed3 => 'Hilfreiche Tat (-4/-1)';
+
+  @override
+  String get deed4 => 'Angemessene Tat (-3/-1)';
+
+  @override
+  String get deed5 => 'Akzeptable Tat (-2/0)';
+
+  @override
+  String get deed6 => 'Kleine Tat (-1/0)';
+
+  @override
+  String get deed7 => 'Keine Tat (0/0)';
+
+  @override
+  String get deed8 => 'Unpassende Tat (+1/0)';
+
+  @override
+  String get deed9 => 'Beleidigende Tat (+2/0)';
+
+  @override
+  String get deed10 => 'Schlechte Tat (+3/+1)';
+
+  @override
+  String get deed11 => 'Sehr schlechte Tat (+4/+1)';
+
+  @override
+  String get deed12 => 'Anstößige Tat (+5/+1)';
+
+  @override
+  String get deed13 => 'Verwerfliche Tat (+6/+2)';
+
+  @override
+  String get deed14 => 'Abscheuliche Tat (+7/+2)';
+
+  @override
+  String get overwriteTemplateTitle => 'Vorlage überschreiben?';
+
+  @override
+  String get overwriteTemplateMessage =>
+      'Eine Vorlage mit diesem Namen existiert bereits. Möchtest du sie überschreiben?';
+
+  @override
+  String get overwrite => 'Überschreiben';
+
+  @override
+  String get deleteConfirmTitle => 'Löschen?';
+
+  @override
+  String get deleteCharacterConfirm =>
+      'Möchtest du diesen Charakter wirklich löschen?';
+
+  @override
+  String get deleteTemplateConfirm =>
+      'Möchtest du diese Vorlage wirklich löschen?';
+
+  @override
+  String get delete => 'Löschen';
+
+  @override
+  String get overwriteCharacterTitle => 'Charakter überschreiben?';
+
+  @override
+  String get overwriteCharacterMessage =>
+      'Ein Charakter mit diesem Namen existiert bereits. Möchtest du ihn überschreiben?';
 }

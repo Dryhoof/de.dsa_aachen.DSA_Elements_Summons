@@ -11,12 +11,16 @@ import 'package:dsa_elements_summons_flutter/core/models/summoning_config.dart';
 import 'package:dsa_elements_summons_flutter/core/models/character_class.dart';
 import 'package:dsa_elements_summons_flutter/core/constants/element_data.dart';
 import 'package:dsa_elements_summons_flutter/core/calculation/summoning_calculator.dart';
+import 'package:dsa_elements_summons_flutter/core/l10n_helpers.dart';
+import 'dart:convert';
+import 'package:drift/drift.dart' show Value;
 import 'package:dsa_elements_summons_flutter/features/home/providers.dart';
 
 class SummoningScreen extends ConsumerStatefulWidget {
   final int characterId;
+  final int? initialTemplateId;
 
-  const SummoningScreen({super.key, required this.characterId});
+  const SummoningScreen({super.key, required this.characterId, this.initialTemplateId});
 
   static SummoningConfig? lastConfig;
 
@@ -27,6 +31,7 @@ class SummoningScreen extends ConsumerStatefulWidget {
 class _SummoningScreenState extends ConsumerState<SummoningScreen> {
   Character? _character;
   bool _isLoading = true;
+  String? _loadedTemplateName;
 
   DsaElement _element = DsaElement.fire;
   SummoningType _summoningType = SummoningType.servant;
@@ -93,6 +98,11 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
       _character = c;
       _isLoading = false;
     });
+    if (widget.initialTemplateId != null) {
+      final t = await db.getTemplateById(widget.initialTemplateId!);
+      _loadFromTemplate(t);
+      _loadedTemplateName = t.templateName;
+    }
   }
 
   @override
@@ -152,10 +162,8 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
   void _onImmunityMagicChanged(bool? value) {
     setState(() {
       _immunityMagic = value ?? false;
-      if (_immunityMagic) {
-        _resistanceTraitDamage = false;
-        _immunityTraitDamage = false;
-      }
+      // Don't reset resistance/immunity values - just disable the checkboxes
+      // The calculator already ignores resistances when immunity is active
     });
   }
 
@@ -196,6 +204,206 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
   bool _isOwnElement(DsaElement e) => e == _element;
   bool _isCounterElement(DsaElement e) => e == _element.counterElement;
 
+  void _loadFromTemplate(ElementalTemplate t) {
+    setState(() {
+      _element = DsaElement.values[t.element];
+      _summoningType = SummoningType.values[t.summoningType];
+      _astralSense = t.astralSense;
+      _longArm = t.longArm;
+      _lifeSense = t.lifeSense;
+      _regenerationLevel = t.regenerationLevel;
+      _additionalActionsLevel = t.additionalActionsLevel;
+      _resistanceMagic = t.resistanceMagic;
+      _resistanceTraitDamage = t.resistanceTraitDamage;
+      _immunityMagic = t.immunityMagic;
+      _immunityTraitDamage = t.immunityTraitDamage;
+
+      // Decode demonic maps
+      final resDem = jsonDecode(t.resistancesDemonicJson) as Map<String, dynamic>;
+      for (final d in demonNames) {
+        _resistancesDemonic[d] = (resDem[d] as bool?) ?? false;
+      }
+      final immDem = jsonDecode(t.immunitiesDemonicJson) as Map<String, dynamic>;
+      for (final d in demonNames) {
+        _immunitiesDemonic[d] = (immDem[d] as bool?) ?? false;
+      }
+
+      // Decode elemental maps
+      final resElem = jsonDecode(t.resistancesElementalJson) as Map<String, dynamic>;
+      for (final e in DsaElement.values) {
+        _resistancesElemental[e] = (resElem[e.index.toString()] as bool?) ?? false;
+      }
+      final immElem = jsonDecode(t.immunitiesElementalJson) as Map<String, dynamic>;
+      for (final e in DsaElement.values) {
+        _immunitiesElemental[e] = (immElem[e.index.toString()] as bool?) ?? false;
+      }
+    });
+  }
+
+  Future<void> _showLoadTemplateSheet() async {
+    final db = ref.read(databaseProvider);
+    final templates = await db.getTemplatesForCharacter(widget.characterId);
+    if (!mounted) return;
+    final l10n = AppLocalizations.of(context)!;
+
+    if (templates.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.noTemplates)),
+      );
+      return;
+    }
+
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) => SafeArea(
+        child: ListView(
+          shrinkWrap: true,
+          children: templates.map((t) {
+            final elem = DsaElement.values[t.element];
+            final type = SummoningType.values[t.summoningType];
+            return ListTile(
+              title: Text(t.templateName),
+              subtitle: Text('${type.localized(l10n)} - ${elem.localized(l10n)}'),
+              onTap: () {
+                Navigator.pop(ctx);
+                _loadFromTemplate(t);
+                _loadedTemplateName = t.templateName;
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(l10n.templateLoaded)),
+                );
+              },
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
+
+  Future<void> _showSaveAsTemplateDialog() async {
+    final l10n = AppLocalizations.of(context)!;
+    final nameCtrl = TextEditingController(text: _loadedTemplateName ?? '');
+    final formKey = GlobalKey<FormState>();
+    final name = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(l10n.saveAsTemplate),
+        content: Form(
+          key: formKey,
+          child: TextFormField(
+            controller: nameCtrl,
+            decoration: InputDecoration(labelText: l10n.templateName),
+            autofocus: true,
+            validator: (v) =>
+                (v == null || v.trim().isEmpty) ? l10n.errorTemplateName : null,
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx),
+            child: Text(l10n.cancel),
+          ),
+          TextButton(
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                Navigator.pop(ctx, nameCtrl.text.trim());
+              }
+            },
+            child: Text(l10n.save),
+          ),
+        ],
+      ),
+    );
+
+    if (name == null || name.isEmpty) return;
+
+    final db = ref.read(databaseProvider);
+
+    // Check if template with this name already exists
+    final existingTemplates = await db.getTemplatesForCharacter(widget.characterId);
+    final existing = existingTemplates.where((t) => t.templateName == name).firstOrNull;
+
+    if (existing != null && mounted) {
+      // Ask for confirmation to overwrite
+      final shouldOverwrite = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text(l10n.overwriteTemplateTitle),
+          content: Text(l10n.overwriteTemplateMessage),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: Text(l10n.cancel),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              child: Text(l10n.overwrite),
+            ),
+          ],
+        ),
+      );
+
+      if (shouldOverwrite != true) return;
+    }
+
+    String encodeDemonic(Map<String, bool> m) =>
+        jsonEncode(m.map((k, v) => MapEntry(k, v)));
+    String encodeElemental(Map<DsaElement, bool> m) =>
+        jsonEncode(m.map((k, v) => MapEntry(k.index.toString(), v)));
+
+    if (existing != null) {
+      // Update existing template
+      await db.updateTemplate(ElementalTemplate(
+        id: existing.id,
+        characterId: widget.characterId,
+        templateName: name,
+        element: _element.index,
+        summoningType: _summoningType.index,
+        astralSense: _astralSense,
+        longArm: _longArm,
+        lifeSense: _lifeSense,
+        regenerationLevel: _regenerationLevel,
+        additionalActionsLevel: _additionalActionsLevel,
+        resistanceMagic: _resistanceMagic,
+        resistanceTraitDamage: _resistanceTraitDamage,
+        immunityMagic: _immunityMagic,
+        immunityTraitDamage: _immunityTraitDamage,
+        resistancesDemonicJson: encodeDemonic(_resistancesDemonic),
+        resistancesElementalJson: encodeElemental(_resistancesElemental),
+        immunitiesDemonicJson: encodeDemonic(_immunitiesDemonic),
+        immunitiesElementalJson: encodeElemental(_immunitiesElemental),
+      ));
+    } else {
+      // Insert new template
+      await db.insertTemplate(ElementalTemplatesCompanion.insert(
+        characterId: widget.characterId,
+        templateName: name,
+        element: Value(_element.index),
+        summoningType: Value(_summoningType.index),
+        astralSense: Value(_astralSense),
+        longArm: Value(_longArm),
+        lifeSense: Value(_lifeSense),
+        regenerationLevel: Value(_regenerationLevel),
+        additionalActionsLevel: Value(_additionalActionsLevel),
+        resistanceMagic: Value(_resistanceMagic),
+        resistanceTraitDamage: Value(_resistanceTraitDamage),
+        immunityMagic: Value(_immunityMagic),
+        immunityTraitDamage: Value(_immunityTraitDamage),
+        resistancesDemonicJson: Value(encodeDemonic(_resistancesDemonic)),
+        resistancesElementalJson: Value(encodeElemental(_resistancesElemental)),
+        immunitiesDemonicJson: Value(encodeDemonic(_immunitiesDemonic)),
+        immunitiesElementalJson: Value(encodeElemental(_immunitiesElemental)),
+      ));
+    }
+
+    _loadedTemplateName = name;
+
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(l10n.templateSaved)),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -228,13 +436,25 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
           onPressed: () => context.go('/'),
         ),
         title: Text(l10n.summoning),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.bookmark),
+            tooltip: l10n.loadTemplate,
+            onPressed: _showLoadTemplateSheet,
+          ),
+          IconButton(
+            icon: const Icon(Icons.bookmark_add),
+            tooltip: l10n.saveAsTemplate,
+            onPressed: _showSaveAsTemplateDialog,
+          ),
+        ],
       ),
       body: Column(
         children: [
           Expanded(
-            child: ListView(
+            child: SingleChildScrollView(
               padding: const EdgeInsets.all(8),
-              children: [
+              child: Column(children: [
                 // Section 1: Element & Type
                 ExpansionTile(
                   title: Text(l10n.elementAndType),
@@ -249,7 +469,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                         items: DsaElement.values
                             .map((e) => DropdownMenuItem(
                                   value: e,
-                                  child: Text(e.name),
+                                  child: Text(e.localized(l10n)),
                                 ))
                             .toList(),
                         onChanged: (v) {
@@ -264,7 +484,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                         segments: SummoningType.values
                             .map((t) => ButtonSegment(
                                   value: t,
-                                  label: Text(t.name),
+                                  label: Text(t.localized(l10n)),
                                 ))
                             .toList(),
                         selected: {_summoningType},
@@ -312,7 +532,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                       label: l10n.place,
                       value: _placeIndex,
                       items: List.generate(14, (i) => i),
-                      labelFn: (i) => '${l10n.place} ${i + 1}',
+                      labelFn: (i) => placeLabel(i, l10n),
                       onChanged: (v) =>
                           setState(() => _placeIndex = v ?? 6),
                     ),
@@ -330,7 +550,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                       label: l10n.time,
                       value: _timeIndex,
                       items: List.generate(7, (i) => i),
-                      labelFn: (i) => '${l10n.time} ${i + 1}',
+                      labelFn: (i) => timeLabel(i, l10n),
                       onChanged: (v) =>
                           setState(() => _timeIndex = v ?? 3),
                     ),
@@ -338,7 +558,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                       label: l10n.gift,
                       value: _giftIndex,
                       items: List.generate(15, (i) => i),
-                      labelFn: (i) => '${l10n.quality} ${i + 1}',
+                      labelFn: (i) => giftLabel(i, l10n),
                       onChanged: (v) =>
                           setState(() => _giftIndex = v ?? 7),
                     ),
@@ -346,7 +566,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                       label: l10n.deed,
                       value: _deedIndex,
                       items: List.generate(15, (i) => i),
-                      labelFn: (i) => '${l10n.quality} ${i + 1}',
+                      labelFn: (i) => deedLabel(i, l10n),
                       onChanged: (v) =>
                           setState(() => _deedIndex = v ?? 7),
                     ),
@@ -419,13 +639,17 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                     CheckboxListTile(
                       title: Text(l10n.resistanceMagic),
                       value: _resistanceMagic,
-                      onChanged: (v) =>
-                          setState(() => _resistanceMagic = v ?? false),
+                      onChanged: _immunityMagic
+                          ? null
+                          : (v) => setState(
+                              () => _resistanceMagic = v ?? false),
                     ),
                     CheckboxListTile(
                       title: Text(l10n.resistanceTraitDamage),
                       value: _resistanceTraitDamage,
-                      onChanged: _immunityMagic
+                      onChanged: (_resistanceMagic ||
+                              _immunityMagic ||
+                              _immunityTraitDamage)
                           ? null
                           : (v) => setState(
                               () => _resistanceTraitDamage = v ?? false),
@@ -433,14 +657,17 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                     ...demonNames.map((name) => CheckboxListTile(
                           title: Text('${l10n.resistance} $name'),
                           value: _resistancesDemonic[name],
-                          onChanged: (v) => setState(
-                              () => _resistancesDemonic[name] = v ?? false),
+                          onChanged: (_immunitiesDemonic[name] == true)
+                              ? null
+                              : (v) => setState(
+                                  () => _resistancesDemonic[name] = v ?? false),
                         )),
                     ...DsaElement.values.map((e) => CheckboxListTile(
-                          title: Text('${l10n.resistance} ${e.name}'),
+                          title: Text('${l10n.resistance} ${e.localized(l10n)}'),
                           value: _resistancesElemental[e],
                           onChanged: (_isOwnElement(e) ||
-                                  _isCounterElement(e))
+                                  _isCounterElement(e) ||
+                                  _immunitiesElemental[e] == true)
                               ? null
                               : (v) => setState(
                                   () => _resistancesElemental[e] = v ?? false),
@@ -472,7 +699,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                               () => _immunitiesDemonic[name] = v ?? false),
                         )),
                     ...DsaElement.values.map((e) => CheckboxListTile(
-                          title: Text('${l10n.immunity} ${e.name}'),
+                          title: Text('${l10n.immunity} ${e.localized(l10n)}'),
                           value: _immunitiesElemental[e],
                           onChanged: (_isOwnElement(e) ||
                                   _isCounterElement(e))
@@ -534,7 +761,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                     ),
                   ],
                 ),
-              ],
+              ]),
             ),
           ),
 
@@ -548,10 +775,19 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                 child: Row(
                   children: [
                     Expanded(
-                      child: Text(
-                        '${l10n.summonLabel}: ${result.summonDifficulty >= 0 ? '+' : ''}${result.summonDifficulty}'
-                        ' / ${l10n.controlLabel}: ${result.controlDifficulty >= 0 ? '+' : ''}${result.controlDifficulty}',
-                        style: Theme.of(context).textTheme.titleMedium,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${l10n.summonLabel}: ${result.summonDifficulty >= 0 ? '+' : ''}${result.summonDifficulty}',
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                          Text(
+                            '${l10n.controlLabel}: ${result.controlDifficulty >= 0 ? '+' : ''}${result.controlDifficulty}',
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                        ],
                       ),
                     ),
                     FilledButton(
@@ -582,6 +818,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
       child: DropdownButtonFormField<T>(
+        isExpanded: true,
         initialValue: value,
         decoration: InputDecoration(labelText: label),
         items: items

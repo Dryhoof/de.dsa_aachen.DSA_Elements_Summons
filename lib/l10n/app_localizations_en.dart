@@ -261,10 +261,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get calculateSummoning => 'Calculate summoning';
 
   @override
-  String get summoningModifier => 'Summoning modifier:';
+  String get summoningModifier => 'Summoning modifier';
 
   @override
-  String get controlTestModifier => 'Control test modifier:';
+  String get controlTestModifier => 'Control test modifier';
 
   @override
   String get additionalModifications => 'Additional Modifications';
@@ -276,13 +276,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get additionalControl => 'Control';
 
   @override
-  String get personality => 'Personality:';
+  String get personality => 'Personality';
 
   @override
   String get element => 'Element:';
 
   @override
-  String get weakAgainst => 'Weak against:';
+  String get weakAgainst => 'Weak against';
 
   @override
   String get summoning => 'Summoning:';
@@ -412,4 +412,243 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get equipmentGeode2 => 'Ritual cleansing (-1)';
+
+  @override
+  String get unsavedChangesTitle => 'Unsaved changes';
+
+  @override
+  String get unsavedChangesMessage =>
+      'You have unsaved changes. What would you like to do?';
+
+  @override
+  String get save => 'Save';
+
+  @override
+  String get discard => 'Discard';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get elementalTemplates => 'Elemental templates';
+
+  @override
+  String get newTemplate => 'New template';
+
+  @override
+  String get editTemplate => 'Edit template';
+
+  @override
+  String get templateName => 'Template name';
+
+  @override
+  String get loadTemplate => 'Load template';
+
+  @override
+  String get saveAsTemplate => 'Save as template';
+
+  @override
+  String get noTemplates => 'No templates yet. Create one first!';
+
+  @override
+  String get deleteTemplate => 'Delete template';
+
+  @override
+  String get templateSaved => 'Template saved';
+
+  @override
+  String get templateLoaded => 'Template loaded';
+
+  @override
+  String get templateDeleted => 'Template deleted';
+
+  @override
+  String get elementals => 'Elementals';
+
+  @override
+  String get errorTemplateName => 'You need to enter a template name!';
+
+  @override
+  String get place0 => 'Elemental citadel (-7/-2)';
+
+  @override
+  String get place1 => 'Near elemental citadel (-5/-1)';
+
+  @override
+  String get place2 => 'Place of elemental purity (-3/-1)';
+
+  @override
+  String get place3 => 'Element strongly present (-2/0)';
+
+  @override
+  String get place4 => 'Element slightly present (-1/0)';
+
+  @override
+  String get place5 => 'No connection to element (0/0)';
+
+  @override
+  String get place6 => 'Neutral (0/0)';
+
+  @override
+  String get place7 => 'Counter element slightly present (+1/0)';
+
+  @override
+  String get place8 => 'Counter element strongly present (+2/0)';
+
+  @override
+  String get place9 => 'Place of counter element (+3/+1)';
+
+  @override
+  String get place10 => 'Elemental node of counter element (+5/+1)';
+
+  @override
+  String get place11 => 'Citadel of counter element (+7/+2)';
+
+  @override
+  String get place12 => 'Gate of horror (Blakharaz) (+5/+1)';
+
+  @override
+  String get place13 => 'Gate of horror (Agrimoth) (+7/+2)';
+
+  @override
+  String get time0 => '1 on D20 (-3/-1)';
+
+  @override
+  String get time1 => '2-5 on D20 (-2/-1)';
+
+  @override
+  String get time2 => '6-9 on D20 (-1/0)';
+
+  @override
+  String get time3 => '10-11 on D20 (0/0)';
+
+  @override
+  String get time4 => '12-15 on D20 (+1/0)';
+
+  @override
+  String get time5 => '16-19 on D20 (+2/+1)';
+
+  @override
+  String get time6 => '20 on D20 / Nameless days (+3/+1)';
+
+  @override
+  String get gift0 => 'Outstanding gift (-7/-2)';
+
+  @override
+  String get gift1 => 'Very valuable gift (-6/-2)';
+
+  @override
+  String get gift2 => 'Valuable gift (-5/-1)';
+
+  @override
+  String get gift3 => 'Good gift (-4/-1)';
+
+  @override
+  String get gift4 => 'Appropriate gift (-3/-1)';
+
+  @override
+  String get gift5 => 'Acceptable gift (-2/0)';
+
+  @override
+  String get gift6 => 'Small gift (-1/0)';
+
+  @override
+  String get gift7 => 'No gift (0/0)';
+
+  @override
+  String get gift8 => 'Unsuitable gift (+1/0)';
+
+  @override
+  String get gift9 => 'Insulting gift (+2/0)';
+
+  @override
+  String get gift10 => 'Bad gift (+3/+1)';
+
+  @override
+  String get gift11 => 'Very bad gift (+4/+1)';
+
+  @override
+  String get gift12 => 'Offensive gift (+5/+1)';
+
+  @override
+  String get gift13 => 'Reprehensible gift (+6/+2)';
+
+  @override
+  String get gift14 => 'Abominable gift (+7/+2)';
+
+  @override
+  String get deed0 => 'Outstanding deed (-7/-2)';
+
+  @override
+  String get deed1 => 'Very good deed (-6/-2)';
+
+  @override
+  String get deed2 => 'Good deed (-5/-1)';
+
+  @override
+  String get deed3 => 'Helpful deed (-4/-1)';
+
+  @override
+  String get deed4 => 'Appropriate deed (-3/-1)';
+
+  @override
+  String get deed5 => 'Acceptable deed (-2/0)';
+
+  @override
+  String get deed6 => 'Small deed (-1/0)';
+
+  @override
+  String get deed7 => 'No deed (0/0)';
+
+  @override
+  String get deed8 => 'Unsuitable deed (+1/0)';
+
+  @override
+  String get deed9 => 'Insulting deed (+2/0)';
+
+  @override
+  String get deed10 => 'Bad deed (+3/+1)';
+
+  @override
+  String get deed11 => 'Very bad deed (+4/+1)';
+
+  @override
+  String get deed12 => 'Offensive deed (+5/+1)';
+
+  @override
+  String get deed13 => 'Reprehensible deed (+6/+2)';
+
+  @override
+  String get deed14 => 'Abominable deed (+7/+2)';
+
+  @override
+  String get overwriteTemplateTitle => 'Overwrite template?';
+
+  @override
+  String get overwriteTemplateMessage =>
+      'A template with this name already exists. Do you want to overwrite it?';
+
+  @override
+  String get overwrite => 'Overwrite';
+
+  @override
+  String get deleteConfirmTitle => 'Delete?';
+
+  @override
+  String get deleteCharacterConfirm =>
+      'Do you really want to delete this character?';
+
+  @override
+  String get deleteTemplateConfirm =>
+      'Do you really want to delete this template?';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get overwriteCharacterTitle => 'Overwrite character?';
+
+  @override
+  String get overwriteCharacterMessage =>
+      'A character with this name already exists. Do you want to overwrite it?';
 }

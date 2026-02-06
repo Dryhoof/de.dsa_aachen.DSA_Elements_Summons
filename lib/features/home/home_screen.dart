@@ -6,19 +6,51 @@ import 'package:dsa_elements_summons_flutter/l10n/app_localizations.dart';
 
 import 'package:dsa_elements_summons_flutter/core/database/app_database.dart';
 import 'package:dsa_elements_summons_flutter/core/models/character_class.dart';
+import 'package:dsa_elements_summons_flutter/core/l10n_helpers.dart';
+import 'package:dsa_elements_summons_flutter/core/providers/locale_provider.dart';
 import 'package:dsa_elements_summons_flutter/features/home/providers.dart';
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  // Store templates before deletion for undo
+  Map<int, List<ElementalTemplate>> _deletedTemplates = {};
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final charactersAsync = ref.watch(characterListProvider);
 
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.appTitle),
+        actions: [
+          PopupMenuButton<Locale?>(
+            icon: const Icon(Icons.language),
+            onSelected: (locale) {
+              ref.read(localeProvider.notifier).set(locale);
+            },
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: null,
+                child: Text('System'),
+              ),
+              const PopupMenuItem(
+                value: Locale('de'),
+                child: Text('Deutsch'),
+              ),
+              const PopupMenuItem(
+                value: Locale('en'),
+                child: Text('English'),
+              ),
+            ],
+          ),
+        ],
       ),
       body: charactersAsync.when(
         loading: () => const Center(child: CircularProgressIndicator()),
@@ -33,7 +65,7 @@ class HomeScreen extends ConsumerWidget {
               final character = characters[index];
               final className = CharacterClass
                   .values[character.characterClass]
-                  .name;
+                  .localized(l10n);
               return Dismissible(
                 key: ValueKey(character.id),
                 direction: DismissDirection.endToStart,
@@ -43,16 +75,48 @@ class HomeScreen extends ConsumerWidget {
                   padding: const EdgeInsets.only(right: 16),
                   child: const Icon(Icons.delete, color: Colors.white),
                 ),
+                confirmDismiss: (_) async {
+                  final confirmed = await showDialog<bool>(
+                    context: context,
+                    builder: (ctx) => AlertDialog(
+                      title: Text(l10n.deleteConfirmTitle),
+                      content: Text(l10n.deleteCharacterConfirm),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(ctx, false),
+                          child: Text(l10n.cancel),
+                        ),
+                        TextButton(
+                          onPressed: () => Navigator.pop(ctx, true),
+                          child: Text(l10n.delete),
+                        ),
+                      ],
+                    ),
+                  ) ?? false;
+
+                  if (confirmed) {
+                    // Save templates before deletion for potential undo
+                    final db = ref.read(databaseProvider);
+                    final templates = await db.getTemplatesForCharacter(character.id);
+                    _deletedTemplates[character.id] = templates;
+                  }
+
+                  return confirmed;
+                },
                 onDismissed: (_) {
                   final db = ref.read(databaseProvider);
+                  final templates = _deletedTemplates[character.id] ?? [];
                   db.deleteCharacter(character.id);
+
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('${character.characterName} deleted'),
+                      duration: const Duration(seconds: 3),
+                      content: Text('${character.characterName} - ${l10n.characterDeleted}'),
                       action: SnackBarAction(
                         label: l10n.undo,
-                        onPressed: () {
-                          db.insertCharacter(CharactersCompanion.insert(
+                        onPressed: () async {
+                          // Restore character
+                          final newCharId = await db.insertCharacter(CharactersCompanion.insert(
                             characterName: character.characterName,
                             characterClass: Value(character.characterClass),
                             statCourage: Value(character.statCourage),
@@ -92,6 +156,32 @@ class HomeScreen extends ConsumerWidget {
                             powerlineMagicI:
                                 Value(character.powerlineMagicI),
                           ));
+
+                          // Restore all templates with new character ID
+                          for (final template in templates) {
+                            await db.insertTemplate(ElementalTemplatesCompanion.insert(
+                              characterId: newCharId,
+                              templateName: template.templateName,
+                              element: Value(template.element),
+                              summoningType: Value(template.summoningType),
+                              astralSense: Value(template.astralSense),
+                              longArm: Value(template.longArm),
+                              lifeSense: Value(template.lifeSense),
+                              regenerationLevel: Value(template.regenerationLevel),
+                              additionalActionsLevel: Value(template.additionalActionsLevel),
+                              resistanceMagic: Value(template.resistanceMagic),
+                              resistanceTraitDamage: Value(template.resistanceTraitDamage),
+                              immunityMagic: Value(template.immunityMagic),
+                              immunityTraitDamage: Value(template.immunityTraitDamage),
+                              resistancesDemonicJson: Value(template.resistancesDemonicJson),
+                              resistancesElementalJson: Value(template.resistancesElementalJson),
+                              immunitiesDemonicJson: Value(template.immunitiesDemonicJson),
+                              immunitiesElementalJson: Value(template.immunitiesElementalJson),
+                            ));
+                          }
+
+                          // Clean up
+                          _deletedTemplates.remove(character.id);
                         },
                       ),
                     ),
@@ -137,6 +227,14 @@ class HomeScreen extends ConsumerWidget {
               onTap: () {
                 Navigator.pop(ctx);
                 context.go('/summon/${character.id}');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.bookmark),
+              title: Text(l10n.elementals),
+              onTap: () {
+                Navigator.pop(ctx);
+                context.push('/character/${character.id}/elementals');
               },
             ),
           ],

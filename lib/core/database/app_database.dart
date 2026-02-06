@@ -35,14 +35,45 @@ class Characters extends Table {
   BoolColumn get powerlineMagicI => boolean().withDefault(const Constant(false))();
 }
 
-@DriftDatabase(tables: [Characters])
+class ElementalTemplates extends Table {
+  IntColumn get id => integer().autoIncrement()();
+  IntColumn get characterId => integer()();
+  TextColumn get templateName => text()();
+  IntColumn get element => integer().withDefault(const Constant(0))();
+  IntColumn get summoningType => integer().withDefault(const Constant(0))();
+  BoolColumn get astralSense => boolean().withDefault(const Constant(false))();
+  BoolColumn get longArm => boolean().withDefault(const Constant(false))();
+  BoolColumn get lifeSense => boolean().withDefault(const Constant(false))();
+  IntColumn get regenerationLevel => integer().withDefault(const Constant(0))();
+  IntColumn get additionalActionsLevel => integer().withDefault(const Constant(0))();
+  BoolColumn get resistanceMagic => boolean().withDefault(const Constant(false))();
+  BoolColumn get resistanceTraitDamage => boolean().withDefault(const Constant(false))();
+  BoolColumn get immunityMagic => boolean().withDefault(const Constant(false))();
+  BoolColumn get immunityTraitDamage => boolean().withDefault(const Constant(false))();
+  TextColumn get resistancesDemonicJson => text().withDefault(const Constant('{}'))();
+  TextColumn get resistancesElementalJson => text().withDefault(const Constant('{}'))();
+  TextColumn get immunitiesDemonicJson => text().withDefault(const Constant('{}'))();
+  TextColumn get immunitiesElementalJson => text().withDefault(const Constant('{}'))();
+}
+
+@DriftDatabase(tables: [Characters, ElementalTemplates])
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.e);
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
 
-  // CRUD operations
+  @override
+  MigrationStrategy get migration => MigrationStrategy(
+        onCreate: (m) => m.createAll(),
+        onUpgrade: (m, from, to) async {
+          if (from < 2) {
+            await m.createTable(elementalTemplates);
+          }
+        },
+      );
+
+  // Character CRUD
   Future<List<Character>> getAllCharacters() => select(characters).get();
   Stream<List<Character>> watchAllCharacters() => select(characters).watch();
   Future<Character> getCharacterById(int id) =>
@@ -53,4 +84,20 @@ class AppDatabase extends _$AppDatabase {
       update(characters).replace(entry);
   Future<int> deleteCharacter(int id) =>
       (delete(characters)..where((c) => c.id.equals(id))).go();
+
+  // ElementalTemplate CRUD
+  Stream<List<ElementalTemplate>> watchTemplatesForCharacter(int charId) =>
+      (select(elementalTemplates)..where((t) => t.characterId.equals(charId)))
+          .watch();
+  Future<List<ElementalTemplate>> getTemplatesForCharacter(int charId) =>
+      (select(elementalTemplates)..where((t) => t.characterId.equals(charId)))
+          .get();
+  Future<ElementalTemplate> getTemplateById(int id) =>
+      (select(elementalTemplates)..where((t) => t.id.equals(id))).getSingle();
+  Future<int> insertTemplate(ElementalTemplatesCompanion entry) =>
+      into(elementalTemplates).insert(entry);
+  Future<bool> updateTemplate(ElementalTemplate entry) =>
+      update(elementalTemplates).replace(entry);
+  Future<int> deleteTemplate(int id) =>
+      (delete(elementalTemplates)..where((t) => t.id.equals(id))).go();
 }

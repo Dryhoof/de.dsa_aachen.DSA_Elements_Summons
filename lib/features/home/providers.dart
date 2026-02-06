@@ -12,3 +12,9 @@ final characterListProvider = StreamProvider<List<Character>>((ref) {
   final db = ref.watch(databaseProvider);
   return db.watchAllCharacters();
 });
+
+final elementalTemplatesProvider =
+    StreamProvider.family<List<ElementalTemplate>, int>((ref, characterId) {
+  final db = ref.watch(databaseProvider);
+  return db.watchTemplatesForCharacter(characterId);
+});

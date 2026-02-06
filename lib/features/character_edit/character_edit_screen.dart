@@ -8,6 +8,7 @@ import 'package:dsa_elements_summons_flutter/l10n/app_localizations.dart';
 import 'package:dsa_elements_summons_flutter/core/database/app_database.dart';
 import 'package:dsa_elements_summons_flutter/core/models/character_class.dart';
 import 'package:dsa_elements_summons_flutter/core/models/element.dart';
+import 'package:dsa_elements_summons_flutter/core/l10n_helpers.dart';
 import 'package:dsa_elements_summons_flutter/features/home/providers.dart';
 
 class CharacterEditScreen extends ConsumerStatefulWidget {
@@ -50,6 +51,7 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
   int _strengthOfStigma = 0;
 
   bool _isLoading = false;
+  bool _isDirty = false;
   bool get _isEditing => widget.characterId != null;
 
   @override
@@ -66,9 +68,30 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
     _talentedDemonicCtrl = TextEditingController(text: '0');
     _knowledgeDemonicCtrl = TextEditingController(text: '0');
 
+    for (final ctrl in _allControllers) {
+      ctrl.addListener(_markDirty);
+    }
+
     if (_isEditing) {
       _loadCharacter();
     }
+  }
+
+  List<TextEditingController> get _allControllers => [
+        _nameCtrl,
+        _courageCtrl,
+        _wisdomCtrl,
+        _charismaCtrl,
+        _intuitionCtrl,
+        _talentServantCtrl,
+        _talentDjinnCtrl,
+        _talentMasterCtrl,
+        _talentedDemonicCtrl,
+        _knowledgeDemonicCtrl,
+      ];
+
+  void _markDirty() {
+    if (!_isDirty) setState(() => _isDirty = true);
   }
 
   Future<void> _loadCharacter() async {
@@ -106,6 +129,7 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
       _weakPresence = c.weakPresence;
       _strengthOfStigma = c.strengthOfStigma;
       _isLoading = false;
+      _isDirty = false;
     });
   }
 
@@ -127,15 +151,83 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
   int _intFromCtrl(TextEditingController ctrl) =>
       int.tryParse(ctrl.text) ?? 0;
 
+  Future<void> _handleBack() async {
+    if (!_isDirty) {
+      context.go('/');
+      return;
+    }
+    final l10n = AppLocalizations.of(context)!;
+    final result = await showDialog<String>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(l10n.unsavedChangesTitle),
+        content: Text(l10n.unsavedChangesMessage),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, 'cancel'),
+            child: Text(l10n.cancel),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, 'discard'),
+            child: Text(l10n.discard),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(ctx, 'save'),
+            child: Text(l10n.save),
+          ),
+        ],
+      ),
+    );
+    if (!mounted) return;
+    if (result == 'save') {
+      await _save();
+    } else if (result == 'discard') {
+      context.go('/');
+    }
+  }
+
   Future<void> _save() async {
     if (!_formKey.currentState!.validate()) return;
 
+    final l10n = AppLocalizations.of(context)!;
     final db = ref.read(databaseProvider);
+    final name = _nameCtrl.text.trim();
+
+    // Check if another character with this name already exists
+    final allCharacters = await db.getAllCharacters();
+    final conflicting = allCharacters.where((c) =>
+        c.characterName == name && c.id != (widget.characterId ?? -1)).firstOrNull;
+
+    if (conflicting != null && mounted) {
+      // Ask for confirmation to overwrite
+      final shouldOverwrite = await showDialog<bool>(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: Text(l10n.overwriteCharacterTitle),
+          content: Text(l10n.overwriteCharacterMessage),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, false),
+              child: Text(l10n.cancel),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(ctx, true),
+              child: Text(l10n.overwrite),
+            ),
+          ],
+        ),
+      );
+
+      if (shouldOverwrite != true) return;
+
+      // Delete the conflicting character
+      await db.deleteCharacter(conflicting.id);
+    }
 
     if (_isEditing) {
       await db.updateCharacter(Character(
         id: widget.characterId!,
-        characterName: _nameCtrl.text,
+        characterName: name,
         characterClass: _characterClass.index,
         statCourage: _intFromCtrl(_courageCtrl),
         statWisdom: _intFromCtrl(_wisdomCtrl),
@@ -167,7 +259,7 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
       ));
     } else {
       await db.insertCharacter(CharactersCompanion(
-        characterName: drift.Value(_nameCtrl.text),
+        characterName: drift.Value(name),
         characterClass: drift.Value(_characterClass.index),
         statCourage: drift.Value(_intFromCtrl(_courageCtrl)),
         statWisdom: drift.Value(_intFromCtrl(_wisdomCtrl)),
@@ -205,6 +297,27 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
   }
 
   Future<void> _delete() async {
+    final l10n = AppLocalizations.of(context)!;
+    final shouldDelete = await showDialog<bool>(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text(l10n.deleteConfirmTitle),
+        content: Text(l10n.deleteCharacterConfirm),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, false),
+            child: Text(l10n.cancel),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(ctx, true),
+            child: Text(l10n.delete),
+          ),
+        ],
+      ),
+    );
+
+    if (shouldDelete != true) return;
+
     final db = ref.read(databaseProvider);
     await db.deleteCharacter(widget.characterId!);
     if (mounted) context.go('/');
@@ -224,13 +337,13 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, _) {
-        if (!didPop) context.go('/');
+        if (!didPop) _handleBack();
       },
       child: Scaffold(
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () => context.go('/'),
+          onPressed: _handleBack,
         ),
         title: Text(_isEditing ? l10n.editCharacter : l10n.newCharacter),
         actions: [
@@ -268,10 +381,10 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
                 items: CharacterClass.values
                     .map((c) => DropdownMenuItem(
                           value: c,
-                          child: Text(c.name),
+                          child: Text(c.localized(l10n)),
                         ))
                     .toList(),
-                onChanged: (v) => setState(() => _characterClass = v!),
+                onChanged: (v) { setState(() => _characterClass = v!); _markDirty(); },
               ),
               const SizedBox(height: 16),
 
@@ -293,10 +406,10 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
               // Talented for elements
               _sectionHeader(l10n.talentedFor),
               ...DsaElement.values.map((e) => CheckboxListTile(
-                    title: Text(e.name),
+                    title: Text(e.localized(l10n)),
                     value: _talented[e],
                     onChanged: (v) =>
-                        setState(() => _talented[e] = v ?? false),
+                        setState(() { _talented[e] = v ?? false; _isDirty = true; }),
                   )),
               _numberField(_talentedDemonicCtrl, l10n.talentedDemonic),
               const SizedBox(height: 16),
@@ -304,10 +417,10 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
               // Knowledge of attribute
               _sectionHeader(l10n.knowledgeOfAttribute),
               ...DsaElement.values.map((e) => CheckboxListTile(
-                    title: Text(e.name),
+                    title: Text(e.localized(l10n)),
                     value: _knowledge[e],
                     onChanged: (v) =>
-                        setState(() => _knowledge[e] = v ?? false),
+                        setState(() { _knowledge[e] = v ?? false; _isDirty = true; }),
                   )),
               _numberField(_knowledgeDemonicCtrl, l10n.knowledgeDemonic),
               const SizedBox(height: 16),
@@ -318,25 +431,25 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
                 title: Text(l10n.affinityToElementals),
                 value: _affinityToElementals,
                 onChanged: (v) =>
-                    setState(() => _affinityToElementals = v ?? false),
+                    setState(() { _affinityToElementals = v ?? false; _isDirty = true; }),
               ),
               CheckboxListTile(
                 title: Text(l10n.demonicCovenant),
                 value: _demonicCovenant,
                 onChanged: (v) =>
-                    setState(() => _demonicCovenant = v ?? false),
+                    setState(() { _demonicCovenant = v ?? false; _isDirty = true; }),
               ),
               CheckboxListTile(
                 title: Text(l10n.cloakedAura),
                 value: _cloakedAura,
                 onChanged: (v) =>
-                    setState(() => _cloakedAura = v ?? false),
+                    setState(() { _cloakedAura = v ?? false; _isDirty = true; }),
               ),
               CheckboxListTile(
                 title: Text(l10n.powerlineMagicI),
                 value: _powerlineMagicI,
                 onChanged: (v) =>
-                    setState(() => _powerlineMagicI = v ?? false),
+                    setState(() { _powerlineMagicI = v ?? false; _isDirty = true; }),
               ),
               DropdownButtonFormField<int>(
                 initialValue: _weakPresence,
@@ -347,7 +460,7 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
                           value: i,
                           child: Text('$i'),
                         )),
-                onChanged: (v) => setState(() => _weakPresence = v ?? 0),
+                onChanged: (v) { setState(() => _weakPresence = v ?? 0); _markDirty(); },
               ),
               const SizedBox(height: 8),
               DropdownButtonFormField<int>(
@@ -361,7 +474,7 @@ class _CharacterEditScreenState extends ConsumerState<CharacterEditScreen> {
                           child: Text('$i'),
                         )),
                 onChanged: (v) =>
-                    setState(() => _strengthOfStigma = v ?? 0),
+                    setState(() { _strengthOfStigma = v ?? 0; _isDirty = true; }),
               ),
               const SizedBox(height: 32),
             ],

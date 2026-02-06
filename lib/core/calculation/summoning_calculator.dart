@@ -62,9 +62,15 @@ class SummoningCalculator {
     }
 
     // 9. Immunity/Resistance against trait damage (mutually exclusive)
-    if (c.immunityTraitDamage) {
+    // - Immunity magic overrides both immunity and resistance trait damage
+    // - Resistance magic overrides only resistance trait damage
+    // - Immunity trait damage overrides resistance trait damage
+    if (c.immunityMagic) {
+      // Magic immunity covers everything, skip trait damage entirely
+    } else if (c.immunityTraitDamage) {
       summon += 10;
-    } else if (c.resistanceTraitDamage) {
+    } else if (!c.resistanceMagic && c.resistanceTraitDamage) {
+      // Only add resistance trait damage if no magic resistance
       summon += 5;
     }
 
@@ -182,13 +188,10 @@ class SummoningCalculator {
       control += 12;
     }
 
-    // 31. Summoned lesser demon (last 7h)
-    if (c.summonedLesserDemon) {
-      control += 4;
-    }
-
-    // 32. Summoned horned demon (last 24h)
+    // 31/32. Summoned demon (horned takes precedence over lesser)
     if (c.summonedHornedDemon) {
+      control += 4;
+    } else if (c.summonedLesserDemon) {
       control += 4;
     }
 
