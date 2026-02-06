@@ -13,8 +13,7 @@ class SummoningConfig {
   final int timeIndex;
   final int giftIndex;
   final int deedIndex;
-  final bool equipment1;
-  final bool equipment2;
+  final bool properAttire;
   final bool astralSense;
   final bool longArm;
   final bool lifeSense;
@@ -34,6 +33,46 @@ class SummoningConfig {
   final int additionalSummonMod;
   final int additionalControlMod;
 
+  // Special properties (S. 140)
+  final bool causeFear;
+  final int artifactAnimationLevel; // 0-3
+  final bool aura;
+  final bool blinkingInvisibility;
+  final bool elementalShackle;
+  final int elementalGripLevel; // 0-3
+  final bool elementalInferno;
+  final bool elementalGrowth;
+  final bool drowning;
+  final bool areaAttack;
+  final bool flight;
+  final bool frost;
+  final bool ember;
+  final bool criticalImmunity;
+  final bool boilingBlood;
+  final bool fog;
+  final bool smoke;
+  final bool stasis;
+  final int stoneEatingLevel; // 0-6
+  final int stoneSkinLevel; // 0-6
+  final bool mergeWithElement;
+  final bool sinking;
+  final bool wildGrowth;
+  final bool burst;
+  final bool shatteringArmor;
+
+  // Value modifications (S. 141)
+  final int modLeP;
+  final int modINI;
+  final int modRS;
+  final int modGS;
+  final int modMR;
+  final int modAT;
+  final int modPA;
+  final int modTP;
+  final int modAttribute;
+  final int modNewTalent;
+  final int modTaWZfW;
+
   const SummoningConfig({
     required this.character,
     required this.element,
@@ -45,8 +84,7 @@ class SummoningConfig {
     this.timeIndex = 3,
     this.giftIndex = 7,
     this.deedIndex = 7,
-    this.equipment1 = false,
-    this.equipment2 = false,
+    this.properAttire = false,
     this.astralSense = false,
     this.longArm = false,
     this.lifeSense = false,
@@ -65,6 +103,42 @@ class SummoningConfig {
     this.summonedHornedDemon = false,
     this.additionalSummonMod = 0,
     this.additionalControlMod = 0,
+    this.causeFear = false,
+    this.artifactAnimationLevel = 0,
+    this.aura = false,
+    this.blinkingInvisibility = false,
+    this.elementalShackle = false,
+    this.elementalGripLevel = 0,
+    this.elementalInferno = false,
+    this.elementalGrowth = false,
+    this.drowning = false,
+    this.areaAttack = false,
+    this.flight = false,
+    this.frost = false,
+    this.ember = false,
+    this.criticalImmunity = false,
+    this.boilingBlood = false,
+    this.fog = false,
+    this.smoke = false,
+    this.stasis = false,
+    this.stoneEatingLevel = 0,
+    this.stoneSkinLevel = 0,
+    this.mergeWithElement = false,
+    this.sinking = false,
+    this.wildGrowth = false,
+    this.burst = false,
+    this.shatteringArmor = false,
+    this.modLeP = 0,
+    this.modINI = 0,
+    this.modRS = 0,
+    this.modGS = 0,
+    this.modMR = 0,
+    this.modAT = 0,
+    this.modPA = 0,
+    this.modTP = 0,
+    this.modAttribute = 0,
+    this.modNewTalent = 0,
+    this.modTaWZfW = 0,
   });
 
   SummoningConfig copyWith({
@@ -78,8 +152,7 @@ class SummoningConfig {
     int? timeIndex,
     int? giftIndex,
     int? deedIndex,
-    bool? equipment1,
-    bool? equipment2,
+    bool? properAttire,
     bool? astralSense,
     bool? longArm,
     bool? lifeSense,
@@ -98,6 +171,42 @@ class SummoningConfig {
     bool? summonedHornedDemon,
     int? additionalSummonMod,
     int? additionalControlMod,
+    bool? causeFear,
+    int? artifactAnimationLevel,
+    bool? aura,
+    bool? blinkingInvisibility,
+    bool? elementalShackle,
+    int? elementalGripLevel,
+    bool? elementalInferno,
+    bool? elementalGrowth,
+    bool? drowning,
+    bool? areaAttack,
+    bool? flight,
+    bool? frost,
+    bool? ember,
+    bool? criticalImmunity,
+    bool? boilingBlood,
+    bool? fog,
+    bool? smoke,
+    bool? stasis,
+    int? stoneEatingLevel,
+    int? stoneSkinLevel,
+    bool? mergeWithElement,
+    bool? sinking,
+    bool? wildGrowth,
+    bool? burst,
+    bool? shatteringArmor,
+    int? modLeP,
+    int? modINI,
+    int? modRS,
+    int? modGS,
+    int? modMR,
+    int? modAT,
+    int? modPA,
+    int? modTP,
+    int? modAttribute,
+    int? modNewTalent,
+    int? modTaWZfW,
   }) {
     return SummoningConfig(
       character: character ?? this.character,
@@ -110,8 +219,7 @@ class SummoningConfig {
       timeIndex: timeIndex ?? this.timeIndex,
       giftIndex: giftIndex ?? this.giftIndex,
       deedIndex: deedIndex ?? this.deedIndex,
-      equipment1: equipment1 ?? this.equipment1,
-      equipment2: equipment2 ?? this.equipment2,
+      properAttire: properAttire ?? this.properAttire,
       astralSense: astralSense ?? this.astralSense,
       longArm: longArm ?? this.longArm,
       lifeSense: lifeSense ?? this.lifeSense,
@@ -130,6 +238,42 @@ class SummoningConfig {
       summonedHornedDemon: summonedHornedDemon ?? this.summonedHornedDemon,
       additionalSummonMod: additionalSummonMod ?? this.additionalSummonMod,
       additionalControlMod: additionalControlMod ?? this.additionalControlMod,
+      causeFear: causeFear ?? this.causeFear,
+      artifactAnimationLevel: artifactAnimationLevel ?? this.artifactAnimationLevel,
+      aura: aura ?? this.aura,
+      blinkingInvisibility: blinkingInvisibility ?? this.blinkingInvisibility,
+      elementalShackle: elementalShackle ?? this.elementalShackle,
+      elementalGripLevel: elementalGripLevel ?? this.elementalGripLevel,
+      elementalInferno: elementalInferno ?? this.elementalInferno,
+      elementalGrowth: elementalGrowth ?? this.elementalGrowth,
+      drowning: drowning ?? this.drowning,
+      areaAttack: areaAttack ?? this.areaAttack,
+      flight: flight ?? this.flight,
+      frost: frost ?? this.frost,
+      ember: ember ?? this.ember,
+      criticalImmunity: criticalImmunity ?? this.criticalImmunity,
+      boilingBlood: boilingBlood ?? this.boilingBlood,
+      fog: fog ?? this.fog,
+      smoke: smoke ?? this.smoke,
+      stasis: stasis ?? this.stasis,
+      stoneEatingLevel: stoneEatingLevel ?? this.stoneEatingLevel,
+      stoneSkinLevel: stoneSkinLevel ?? this.stoneSkinLevel,
+      mergeWithElement: mergeWithElement ?? this.mergeWithElement,
+      sinking: sinking ?? this.sinking,
+      wildGrowth: wildGrowth ?? this.wildGrowth,
+      burst: burst ?? this.burst,
+      shatteringArmor: shatteringArmor ?? this.shatteringArmor,
+      modLeP: modLeP ?? this.modLeP,
+      modINI: modINI ?? this.modINI,
+      modRS: modRS ?? this.modRS,
+      modGS: modGS ?? this.modGS,
+      modMR: modMR ?? this.modMR,
+      modAT: modAT ?? this.modAT,
+      modPA: modPA ?? this.modPA,
+      modTP: modTP ?? this.modTP,
+      modAttribute: modAttribute ?? this.modAttribute,
+      modNewTalent: modNewTalent ?? this.modNewTalent,
+      modTaWZfW: modTaWZfW ?? this.modTaWZfW,
     );
   }
 }

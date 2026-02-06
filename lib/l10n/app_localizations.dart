@@ -344,59 +344,11 @@ abstract class AppLocalizations {
   /// **'Select summoning type:'**
   String get selectSummoningType;
 
-  /// No description provided for @equipment.
+  /// No description provided for @properAttire.
   ///
   /// In en, this message translates to:
-  /// **'Equipment:'**
-  String get equipment;
-
-  /// No description provided for @equipmentMage1.
-  ///
-  /// In en, this message translates to:
-  /// **'White summoning robe (-1)'**
-  String get equipmentMage1;
-
-  /// No description provided for @equipmentMage2.
-  ///
-  /// In en, this message translates to:
-  /// **'Barefoot (-1)'**
-  String get equipmentMage2;
-
-  /// No description provided for @equipmentDruid1.
-  ///
-  /// In en, this message translates to:
-  /// **'Naked (-1)'**
-  String get equipmentDruid1;
-
-  /// No description provided for @equipmentDruid2.
-  ///
-  /// In en, this message translates to:
-  /// **'Ritual cleansing (-1)'**
-  String get equipmentDruid2;
-
-  /// No description provided for @equipmentCristalomant1.
-  ///
-  /// In en, this message translates to:
-  /// **'First potent cristal (-1)'**
-  String get equipmentCristalomant1;
-
-  /// No description provided for @equipmentCristalomant2.
-  ///
-  /// In en, this message translates to:
-  /// **'Second potent cristal (-1)'**
-  String get equipmentCristalomant2;
-
-  /// No description provided for @equipmentShaman1.
-  ///
-  /// In en, this message translates to:
-  /// **'First Equipment (-1)'**
-  String get equipmentShaman1;
-
-  /// No description provided for @equipmentShaman2.
-  ///
-  /// In en, this message translates to:
-  /// **'Second Equipment (-1)'**
-  String get equipmentShaman2;
+  /// **'Proper Attire (-2 summoning)'**
+  String get properAttire;
 
   /// No description provided for @qualityOfMaterial.
   ///
@@ -446,11 +398,23 @@ abstract class AppLocalizations {
   /// **'Astral sense'**
   String get astralSense;
 
+  /// No description provided for @astralSenseCost.
+  ///
+  /// In en, this message translates to:
+  /// **'5 ZfP*'**
+  String get astralSenseCost;
+
   /// No description provided for @longArm.
   ///
   /// In en, this message translates to:
   /// **'Long arm'**
   String get longArm;
+
+  /// No description provided for @longArmCost.
+  ///
+  /// In en, this message translates to:
+  /// **'3 ZfP*'**
+  String get longArmCost;
 
   /// No description provided for @lifeSense.
   ///
@@ -458,17 +422,47 @@ abstract class AppLocalizations {
   /// **'Life sense'**
   String get lifeSense;
 
+  /// No description provided for @lifeSenseCost.
+  ///
+  /// In en, this message translates to:
+  /// **'4 ZfP*'**
+  String get lifeSenseCost;
+
   /// No description provided for @regeneration.
   ///
   /// In en, this message translates to:
   /// **'Regeneration'**
   String get regeneration;
 
+  /// No description provided for @regenerationCostI.
+  ///
+  /// In en, this message translates to:
+  /// **'4 ZfP*'**
+  String get regenerationCostI;
+
+  /// No description provided for @regenerationCostII.
+  ///
+  /// In en, this message translates to:
+  /// **'7 ZfP*'**
+  String get regenerationCostII;
+
   /// No description provided for @additionalActions.
   ///
   /// In en, this message translates to:
   /// **'Additional actions'**
   String get additionalActions;
+
+  /// No description provided for @additionalActionsCostI.
+  ///
+  /// In en, this message translates to:
+  /// **'3 ZfP*'**
+  String get additionalActionsCostI;
+
+  /// No description provided for @additionalActionsCostII.
+  ///
+  /// In en, this message translates to:
+  /// **'7 ZfP*'**
+  String get additionalActionsCostII;
 
   /// No description provided for @no.
   ///
@@ -889,18 +883,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Additional control modifier'**
   String get additionalControlMod;
-
-  /// No description provided for @equipmentGeode1.
-  ///
-  /// In en, this message translates to:
-  /// **'Naked (-1)'**
-  String get equipmentGeode1;
-
-  /// No description provided for @equipmentGeode2.
-  ///
-  /// In en, this message translates to:
-  /// **'Ritual cleansing (-1)'**
-  String get equipmentGeode2;
 
   /// No description provided for @unsavedChangesTitle.
   ///
@@ -1369,6 +1351,480 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'A character with this name already exists. Do you want to overwrite it?'**
   String get overwriteCharacterMessage;
+
+  /// No description provided for @specialProperties.
+  ///
+  /// In en, this message translates to:
+  /// **'Special Properties'**
+  String get specialProperties;
+
+  /// No description provided for @elementSpecificProperties.
+  ///
+  /// In en, this message translates to:
+  /// **'Element-Specific Properties'**
+  String get elementSpecificProperties;
+
+  /// No description provided for @valueModifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Value Modifications'**
+  String get valueModifications;
+
+  /// No description provided for @zfpCost.
+  ///
+  /// In en, this message translates to:
+  /// **'ZfP* cost'**
+  String get zfpCost;
+
+  /// No description provided for @totalZfpCost.
+  ///
+  /// In en, this message translates to:
+  /// **'Total ZfP* cost'**
+  String get totalZfpCost;
+
+  /// No description provided for @causeFear.
+  ///
+  /// In en, this message translates to:
+  /// **'Cause Fear'**
+  String get causeFear;
+
+  /// No description provided for @causeFearCost.
+  ///
+  /// In en, this message translates to:
+  /// **'5 ZfP*'**
+  String get causeFearCost;
+
+  /// No description provided for @artifactAnimation.
+  ///
+  /// In en, this message translates to:
+  /// **'Artifact Animation'**
+  String get artifactAnimation;
+
+  /// No description provided for @artifactAnimationCost.
+  ///
+  /// In en, this message translates to:
+  /// **'3 ZfP*/level'**
+  String get artifactAnimationCost;
+
+  /// No description provided for @aura.
+  ///
+  /// In en, this message translates to:
+  /// **'Aura (Element)'**
+  String get aura;
+
+  /// No description provided for @auraCost.
+  ///
+  /// In en, this message translates to:
+  /// **'5 ZfP*'**
+  String get auraCost;
+
+  /// No description provided for @blinkingInvisibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Blinking Invisibility'**
+  String get blinkingInvisibility;
+
+  /// No description provided for @blinkingInvisibilityCost.
+  ///
+  /// In en, this message translates to:
+  /// **'6 ZfP*'**
+  String get blinkingInvisibilityCost;
+
+  /// No description provided for @elementalShackle.
+  ///
+  /// In en, this message translates to:
+  /// **'Elemental Shackle'**
+  String get elementalShackle;
+
+  /// No description provided for @elementalShackleCost.
+  ///
+  /// In en, this message translates to:
+  /// **'5 ZfP*'**
+  String get elementalShackleCost;
+
+  /// No description provided for @elementalGrip.
+  ///
+  /// In en, this message translates to:
+  /// **'Elemental Grip'**
+  String get elementalGrip;
+
+  /// No description provided for @elementalGripCost.
+  ///
+  /// In en, this message translates to:
+  /// **'7 ZfP*/level'**
+  String get elementalGripCost;
+
+  /// No description provided for @elementalInferno.
+  ///
+  /// In en, this message translates to:
+  /// **'Elemental Inferno'**
+  String get elementalInferno;
+
+  /// No description provided for @elementalInfernoCost.
+  ///
+  /// In en, this message translates to:
+  /// **'8 ZfP*'**
+  String get elementalInfernoCost;
+
+  /// No description provided for @elementalGrowth.
+  ///
+  /// In en, this message translates to:
+  /// **'Elemental Growth'**
+  String get elementalGrowth;
+
+  /// No description provided for @elementalGrowthCost.
+  ///
+  /// In en, this message translates to:
+  /// **'7 ZfP*'**
+  String get elementalGrowthCost;
+
+  /// No description provided for @drowning.
+  ///
+  /// In en, this message translates to:
+  /// **'Drowning'**
+  String get drowning;
+
+  /// No description provided for @drowningCost.
+  ///
+  /// In en, this message translates to:
+  /// **'4 ZfP*'**
+  String get drowningCost;
+
+  /// No description provided for @areaAttack.
+  ///
+  /// In en, this message translates to:
+  /// **'Area Attack with Element'**
+  String get areaAttack;
+
+  /// No description provided for @areaAttackCost.
+  ///
+  /// In en, this message translates to:
+  /// **'7 ZfP*'**
+  String get areaAttackCost;
+
+  /// No description provided for @flight.
+  ///
+  /// In en, this message translates to:
+  /// **'Flight'**
+  String get flight;
+
+  /// No description provided for @flightCost.
+  ///
+  /// In en, this message translates to:
+  /// **'5 ZfP*'**
+  String get flightCost;
+
+  /// No description provided for @frost.
+  ///
+  /// In en, this message translates to:
+  /// **'Frost'**
+  String get frost;
+
+  /// No description provided for @frostCost.
+  ///
+  /// In en, this message translates to:
+  /// **'3 ZfP*'**
+  String get frostCost;
+
+  /// No description provided for @ember.
+  ///
+  /// In en, this message translates to:
+  /// **'Ember'**
+  String get ember;
+
+  /// No description provided for @emberCost.
+  ///
+  /// In en, this message translates to:
+  /// **'3 ZfP*'**
+  String get emberCost;
+
+  /// No description provided for @criticalImmunity.
+  ///
+  /// In en, this message translates to:
+  /// **'Immunity to Critical Hits'**
+  String get criticalImmunity;
+
+  /// No description provided for @criticalImmunityCost.
+  ///
+  /// In en, this message translates to:
+  /// **'2 ZfP*'**
+  String get criticalImmunityCost;
+
+  /// No description provided for @boilingBlood.
+  ///
+  /// In en, this message translates to:
+  /// **'Boiling Blood'**
+  String get boilingBlood;
+
+  /// No description provided for @boilingBloodCost.
+  ///
+  /// In en, this message translates to:
+  /// **'5 ZfP*'**
+  String get boilingBloodCost;
+
+  /// No description provided for @fog.
+  ///
+  /// In en, this message translates to:
+  /// **'Fog'**
+  String get fog;
+
+  /// No description provided for @fogCost.
+  ///
+  /// In en, this message translates to:
+  /// **'2 ZfP*'**
+  String get fogCost;
+
+  /// No description provided for @smoke.
+  ///
+  /// In en, this message translates to:
+  /// **'Smoke'**
+  String get smoke;
+
+  /// No description provided for @smokeCost.
+  ///
+  /// In en, this message translates to:
+  /// **'4 ZfP*'**
+  String get smokeCost;
+
+  /// No description provided for @stasis.
+  ///
+  /// In en, this message translates to:
+  /// **'Stasis'**
+  String get stasis;
+
+  /// No description provided for @stasisCost.
+  ///
+  /// In en, this message translates to:
+  /// **'5 ZfP*'**
+  String get stasisCost;
+
+  /// No description provided for @stoneEating.
+  ///
+  /// In en, this message translates to:
+  /// **'Stone Eating'**
+  String get stoneEating;
+
+  /// No description provided for @stoneEatingCost.
+  ///
+  /// In en, this message translates to:
+  /// **'2 ZfP*/level'**
+  String get stoneEatingCost;
+
+  /// No description provided for @stoneSkin.
+  ///
+  /// In en, this message translates to:
+  /// **'Stoneskin'**
+  String get stoneSkin;
+
+  /// No description provided for @stoneSkinCost.
+  ///
+  /// In en, this message translates to:
+  /// **'2 ZfP*/level'**
+  String get stoneSkinCost;
+
+  /// No description provided for @mergeWithElement.
+  ///
+  /// In en, this message translates to:
+  /// **'Merge with Element'**
+  String get mergeWithElement;
+
+  /// No description provided for @mergeWithElementCost.
+  ///
+  /// In en, this message translates to:
+  /// **'7 ZfP*'**
+  String get mergeWithElementCost;
+
+  /// No description provided for @sinking.
+  ///
+  /// In en, this message translates to:
+  /// **'Sinking'**
+  String get sinking;
+
+  /// No description provided for @sinkingCost.
+  ///
+  /// In en, this message translates to:
+  /// **'6 ZfP*'**
+  String get sinkingCost;
+
+  /// No description provided for @wildGrowth.
+  ///
+  /// In en, this message translates to:
+  /// **'Wild Growth'**
+  String get wildGrowth;
+
+  /// No description provided for @wildGrowthCost.
+  ///
+  /// In en, this message translates to:
+  /// **'7 ZfP*'**
+  String get wildGrowthCost;
+
+  /// No description provided for @burst.
+  ///
+  /// In en, this message translates to:
+  /// **'Burst'**
+  String get burst;
+
+  /// No description provided for @burstCost.
+  ///
+  /// In en, this message translates to:
+  /// **'4 ZfP*'**
+  String get burstCost;
+
+  /// No description provided for @shatteringArmor.
+  ///
+  /// In en, this message translates to:
+  /// **'Shattering Armor'**
+  String get shatteringArmor;
+
+  /// No description provided for @shatteringArmorCost.
+  ///
+  /// In en, this message translates to:
+  /// **'3 ZfP*'**
+  String get shatteringArmorCost;
+
+  /// No description provided for @modLeP.
+  ///
+  /// In en, this message translates to:
+  /// **'LeP +5'**
+  String get modLeP;
+
+  /// No description provided for @modLePCost.
+  ///
+  /// In en, this message translates to:
+  /// **'2 ZfP*'**
+  String get modLePCost;
+
+  /// No description provided for @modINI.
+  ///
+  /// In en, this message translates to:
+  /// **'INI +1'**
+  String get modINI;
+
+  /// No description provided for @modINICost.
+  ///
+  /// In en, this message translates to:
+  /// **'3 ZfP*'**
+  String get modINICost;
+
+  /// No description provided for @modRS.
+  ///
+  /// In en, this message translates to:
+  /// **'RS +1'**
+  String get modRS;
+
+  /// No description provided for @modRSCost.
+  ///
+  /// In en, this message translates to:
+  /// **'3 ZfP*'**
+  String get modRSCost;
+
+  /// No description provided for @modGS.
+  ///
+  /// In en, this message translates to:
+  /// **'GS +1'**
+  String get modGS;
+
+  /// No description provided for @modGSCost.
+  ///
+  /// In en, this message translates to:
+  /// **'3 ZfP*'**
+  String get modGSCost;
+
+  /// No description provided for @modMR.
+  ///
+  /// In en, this message translates to:
+  /// **'MR +1'**
+  String get modMR;
+
+  /// No description provided for @modMRCost.
+  ///
+  /// In en, this message translates to:
+  /// **'3 ZfP*'**
+  String get modMRCost;
+
+  /// No description provided for @modAT.
+  ///
+  /// In en, this message translates to:
+  /// **'AT +1'**
+  String get modAT;
+
+  /// No description provided for @modATCost.
+  ///
+  /// In en, this message translates to:
+  /// **'4 ZfP*'**
+  String get modATCost;
+
+  /// No description provided for @modPA.
+  ///
+  /// In en, this message translates to:
+  /// **'PA +1'**
+  String get modPA;
+
+  /// No description provided for @modPACost.
+  ///
+  /// In en, this message translates to:
+  /// **'4 ZfP*'**
+  String get modPACost;
+
+  /// No description provided for @modTP.
+  ///
+  /// In en, this message translates to:
+  /// **'TP +1'**
+  String get modTP;
+
+  /// No description provided for @modTPCost.
+  ///
+  /// In en, this message translates to:
+  /// **'4 ZfP*'**
+  String get modTPCost;
+
+  /// No description provided for @modAttribute.
+  ///
+  /// In en, this message translates to:
+  /// **'Attribute +1'**
+  String get modAttribute;
+
+  /// No description provided for @modAttributeCost.
+  ///
+  /// In en, this message translates to:
+  /// **'5 ZfP*'**
+  String get modAttributeCost;
+
+  /// No description provided for @modNewTalent.
+  ///
+  /// In en, this message translates to:
+  /// **'New Talent'**
+  String get modNewTalent;
+
+  /// No description provided for @modNewTalentCost.
+  ///
+  /// In en, this message translates to:
+  /// **'4 ZfP*'**
+  String get modNewTalentCost;
+
+  /// No description provided for @modTaWZfW.
+  ///
+  /// In en, this message translates to:
+  /// **'TaW/ZfW +2'**
+  String get modTaWZfW;
+
+  /// No description provided for @modTaWZfWCost.
+  ///
+  /// In en, this message translates to:
+  /// **'1 ZfP*'**
+  String get modTaWZfWCost;
+
+  /// No description provided for @level.
+  ///
+  /// In en, this message translates to:
+  /// **'Level'**
+  String get level;
+
+  /// No description provided for @perApplication.
+  ///
+  /// In en, this message translates to:
+  /// **'per application'**
+  String get perApplication;
 }
 
 class _AppLocalizationsDelegate

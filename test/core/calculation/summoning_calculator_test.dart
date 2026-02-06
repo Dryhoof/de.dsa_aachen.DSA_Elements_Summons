@@ -59,8 +59,7 @@ SummoningConfig _config({
   Character? character,
   DsaElement element = DsaElement.fire,
   SummoningType summoningType = SummoningType.servant,
-  bool equipment1 = false,
-  bool equipment2 = false,
+  bool properAttire = false,
   bool astralSense = false,
   bool longArm = false,
   bool lifeSense = false,
@@ -98,8 +97,7 @@ SummoningConfig _config({
       timeIndex: timeIndex,
       giftIndex: giftIndex,
       deedIndex: deedIndex,
-      equipment1: equipment1,
-      equipment2: equipment2,
+      properAttire: properAttire,
       astralSense: astralSense,
       longArm: longArm,
       lifeSense: lifeSense,
@@ -146,23 +144,10 @@ void main() {
     });
 
     group('equipment', () {
-      test('one equipment reduces by 1', () {
-        final r = SummoningCalculator.calculate(_config(equipment1: true));
-        expect(r.summonDifficulty, 4 - 1);
-        expect(r.controlDifficulty, 2 - 1);
-      });
-
-      test('other equipment reduces by 1', () {
-        final r = SummoningCalculator.calculate(_config(equipment2: true));
-        expect(r.summonDifficulty, 4 - 1);
-        expect(r.controlDifficulty, 2 - 1);
-      });
-
-      test('both equipment reduces by 2', () {
-        final r = SummoningCalculator.calculate(
-            _config(equipment1: true, equipment2: true));
+      test('proper attire reduces summon by 2, control unchanged', () {
+        final r = SummoningCalculator.calculate(_config(properAttire: true));
         expect(r.summonDifficulty, 4 - 2);
-        expect(r.controlDifficulty, 2 - 2);
+        expect(r.controlDifficulty, 2);
       });
     });
 
@@ -179,10 +164,10 @@ void main() {
         expect(r.controlDifficulty, 2);
       });
 
-      test('life sense adds +6 summon, +9 control', () {
+      test('life sense adds +4 summon', () {
         final r = SummoningCalculator.calculate(_config(lifeSense: true));
-        expect(r.summonDifficulty, 4 + 6);
-        expect(r.controlDifficulty, 2 + 9);
+        expect(r.summonDifficulty, 4 + 4);
+        expect(r.controlDifficulty, 2);
       });
 
       test('regeneration I adds +4 summon', () {
@@ -211,16 +196,16 @@ void main() {
     });
 
     group('resistances and immunities', () {
-      test('resistance magic adds +6 summon', () {
+      test('resistance magic adds +5 summon', () {
         final r =
             SummoningCalculator.calculate(_config(resistanceMagic: true));
-        expect(r.summonDifficulty, 4 + 6);
+        expect(r.summonDifficulty, 4 + 5);
       });
 
-      test('immunity magic adds +13 summon (overrides resistance)', () {
+      test('immunity magic adds +10 summon (overrides resistance)', () {
         final r = SummoningCalculator.calculate(
             _config(immunityMagic: true, resistanceMagic: true));
-        expect(r.summonDifficulty, 4 + 13);
+        expect(r.summonDifficulty, 4 + 10);
       });
 
       test('resistance trait damage adds +5 summon', () {
@@ -238,15 +223,15 @@ void main() {
       test('resistance magic makes resistance trait damage redundant', () {
         final r = SummoningCalculator.calculate(
             _config(resistanceMagic: true, resistanceTraitDamage: true));
-        // Only +6 for magic resistance, trait damage ignored
-        expect(r.summonDifficulty, 4 + 6);
+        // Only +5 for magic resistance, trait damage ignored
+        expect(r.summonDifficulty, 4 + 5);
       });
 
       test('immunity magic makes immunity trait damage redundant', () {
         final r = SummoningCalculator.calculate(
             _config(immunityMagic: true, immunityTraitDamage: true));
-        // Only +13 for magic immunity, trait damage ignored
-        expect(r.summonDifficulty, 4 + 13);
+        // Only +10 for magic immunity, trait damage ignored
+        expect(r.summonDifficulty, 4 + 10);
       });
 
       test('demonic resistance adds +5 per demon', () {
@@ -511,22 +496,22 @@ void main() {
     group('combined scenario', () {
       test('complex summoning scenario accumulates correctly', () {
         // Servant + fire, talented fire, knowledge fire,
-        // astral sense, regen I, 1 equipment, true name quality 3
+        // astral sense, regen I, proper attire (equip1), true name quality 3
         final r = SummoningCalculator.calculate(_config(
           character: _char(talentedFire: true, knowledgeFire: true),
           element: DsaElement.fire,
           summoningType: SummoningType.servant,
           astralSense: true,
           regenerationLevel: 1,
-          equipment1: true,
+          properAttire: true,
           trueNameIndex: 3,
         ));
 
-        // summon: 4 (base) +5 (astral) +4 (regen I) -1 (equip) -3 (truename)
-        //         -2 (talented) -2 (knowledge) = 5
-        expect(r.summonDifficulty, 5);
-        // control: 2 (base) -1 (equip) -1 (truename) -2 (talented) -2 (knowledge) = -4
-        expect(r.controlDifficulty, -4);
+        // summon: 4 (base) +5 (astral) +4 (regen I) -2 (equip1) -3 (truename)
+        //         -2 (talented) -2 (knowledge) = 4
+        expect(r.summonDifficulty, 4);
+        // control: 2 (base) +0 (equip1) -1 (truename) -2 (talented) -2 (knowledge) = -3
+        expect(r.controlDifficulty, -3);
       });
     });
   });

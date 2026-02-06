@@ -19,7 +19,7 @@ class HomeScreen extends ConsumerStatefulWidget {
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
   // Store templates before deletion for undo
-  Map<int, List<ElementalTemplate>> _deletedTemplates = {};
+  final Map<int, List<ElementalTemplate>> _deletedTemplates = {};
 
   @override
   Widget build(BuildContext context) {

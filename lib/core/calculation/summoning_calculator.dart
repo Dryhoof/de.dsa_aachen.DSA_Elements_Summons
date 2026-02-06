@@ -14,14 +14,9 @@ class SummoningCalculator {
     summon += c.summoningType.summonCost;
     control += c.summoningType.controlCost;
 
-    // 2. Equipment bitmask
-    final equipBits = (c.equipment1 ? 1 : 0) + (c.equipment2 ? 2 : 0);
-    if (equipBits == 1 || equipBits == 2) {
-      summon -= 1;
-      control -= 1;
-    } else if (equipBits == 3) {
+    // 2. Proper Attire (Richtige Gewandung): -2 summon only
+    if (c.properAttire) {
       summon -= 2;
-      control -= 2;
     }
 
     // 3. Astral sense
@@ -34,17 +29,16 @@ class SummoningCalculator {
       summon += 3;
     }
 
-    // 5. Life sense
+    // 5. Life sense (4 ZfP*)
     if (c.lifeSense) {
-      summon += 6;
-      control += 9;
+      summon += 4;
     }
 
     // 6. Immunity/Resistance against magic (mutually exclusive)
     if (c.immunityMagic) {
-      summon += 13;
+      summon += 10;
     } else if (c.resistanceMagic) {
-      summon += 6;
+      summon += 5;
     }
 
     // 7. Regeneration
@@ -195,7 +189,47 @@ class SummoningCalculator {
       control += 4;
     }
 
-    // 33. Additional manual modifiers
+    // 33. Special properties (ZfP* → summon)
+    if (c.causeFear) summon += 5;
+    summon += c.artifactAnimationLevel * 3; // 3 ZfP* per level
+    if (c.aura) summon += 5;
+    if (c.blinkingInvisibility) summon += 6;
+    if (c.elementalShackle) summon += 5;
+    summon += c.elementalGripLevel * 7; // 7 ZfP* per level
+    if (c.elementalInferno) summon += 8;
+    if (c.elementalGrowth) summon += 7;
+    if (c.drowning) summon += 4;
+    if (c.areaAttack) summon += 7;
+    if (c.flight) summon += 5;
+    if (c.frost) summon += 3;
+    if (c.ember) summon += 3;
+    if (c.criticalImmunity) summon += 2;
+    if (c.boilingBlood) summon += 5;
+    if (c.fog) summon += 2;
+    if (c.smoke) summon += 4;
+    if (c.stasis) summon += 5;
+    summon += c.stoneEatingLevel * 2; // 2 ZfP* per level
+    summon += c.stoneSkinLevel * 2; // 2 ZfP* per level
+    if (c.mergeWithElement) summon += 7;
+    if (c.sinking) summon += 6;
+    if (c.wildGrowth) summon += 7;
+    if (c.burst) summon += 4;
+    if (c.shatteringArmor) summon += 3;
+
+    // 34. Value modifications (ZfP* → summon)
+    summon += c.modLeP * 2;
+    summon += c.modINI * 3;
+    summon += c.modRS * 3;
+    summon += c.modGS * 3;
+    summon += c.modMR * 3;
+    summon += c.modAT * 4;
+    summon += c.modPA * 4;
+    summon += c.modTP * 4;
+    summon += c.modAttribute * 5;
+    summon += c.modNewTalent * 4;
+    summon += c.modTaWZfW * 1;
+
+    // 35. Additional manual modifiers
     summon += c.additionalSummonMod;
     control += c.additionalControlMod;
 

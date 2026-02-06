@@ -52,8 +52,7 @@ void main() {
       expect(config.timeIndex, 3);
       expect(config.giftIndex, 7);
       expect(config.deedIndex, 7);
-      expect(config.equipment1, false);
-      expect(config.equipment2, false);
+      expect(config.properAttire, false);
       expect(config.astralSense, false);
       expect(config.bloodMagicUsed, false);
     });

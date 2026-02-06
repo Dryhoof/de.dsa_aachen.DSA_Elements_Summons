@@ -218,6 +218,44 @@ void main() {
         resistancesElementalJson: '{}',
         immunitiesDemonicJson: '{}',
         immunitiesElementalJson: '{}',
+        // New general properties
+        causeFear: true,
+        artifactAnimationLevel: 0,
+        aura: false,
+        blinkingInvisibility: false,
+        elementalShackle: false,
+        elementalGripLevel: 2,
+        elementalInferno: false,
+        elementalGrowth: false,
+        drowning: false,
+        areaAttack: false,
+        flight: false,
+        frost: false,
+        ember: false,
+        criticalImmunity: false,
+        boilingBlood: false,
+        fog: false,
+        smoke: false,
+        stasis: false,
+        stoneEatingLevel: 0,
+        stoneSkinLevel: 0,
+        mergeWithElement: false,
+        sinking: false,
+        wildGrowth: true,
+        burst: false,
+        shatteringArmor: false,
+        // Value modifications
+        modLeP: 3,
+        modINI: 0,
+        modRS: 0,
+        modGS: 0,
+        modMR: 0,
+        modAT: 0,
+        modPA: 0,
+        modTP: 0,
+        modAttribute: 0,
+        modNewTalent: 0,
+        modTaWZfW: 0,
       ));
 
       final updated = await db.getTemplateById(id);
@@ -227,6 +265,11 @@ void main() {
       expect(updated.astralSense, true);
       expect(updated.resistanceMagic, true);
       expect(updated.regenerationLevel, 1);
+      // Check new properties
+      expect(updated.causeFear, true);
+      expect(updated.elementalGripLevel, 2);
+      expect(updated.wildGrowth, true);
+      expect(updated.modLeP, 3);
     });
 
     test('delete template', () async {
@@ -296,6 +339,44 @@ void main() {
       expect(t.resistancesElementalJson, '{}');
       expect(t.immunitiesDemonicJson, '{}');
       expect(t.immunitiesElementalJson, '{}');
+      // New general properties defaults
+      expect(t.causeFear, false);
+      expect(t.artifactAnimationLevel, 0);
+      expect(t.aura, false);
+      expect(t.blinkingInvisibility, false);
+      expect(t.elementalShackle, false);
+      expect(t.elementalGripLevel, 0);
+      expect(t.elementalInferno, false);
+      expect(t.elementalGrowth, false);
+      expect(t.drowning, false);
+      expect(t.areaAttack, false);
+      expect(t.flight, false);
+      expect(t.frost, false);
+      expect(t.ember, false);
+      expect(t.criticalImmunity, false);
+      expect(t.boilingBlood, false);
+      expect(t.fog, false);
+      expect(t.smoke, false);
+      expect(t.stasis, false);
+      expect(t.stoneEatingLevel, 0);
+      expect(t.stoneSkinLevel, 0);
+      expect(t.mergeWithElement, false);
+      expect(t.sinking, false);
+      expect(t.wildGrowth, false);
+      expect(t.burst, false);
+      expect(t.shatteringArmor, false);
+      // Value modifications defaults
+      expect(t.modLeP, 0);
+      expect(t.modINI, 0);
+      expect(t.modRS, 0);
+      expect(t.modGS, 0);
+      expect(t.modMR, 0);
+      expect(t.modAT, 0);
+      expect(t.modPA, 0);
+      expect(t.modTP, 0);
+      expect(t.modAttribute, 0);
+      expect(t.modNewTalent, 0);
+      expect(t.modTaWZfW, 0);
     });
 
     test('watchTemplatesForCharacter emits updates', () async {
@@ -331,6 +412,34 @@ void main() {
       final t = (await db.getTemplatesForCharacter(charId)).first;
       expect(t.resistancesDemonicJson, demonicJson);
       expect(t.resistancesElementalJson, elementalJson);
+    });
+
+    test('template stores new properties correctly', () async {
+      await db.insertTemplate(
+        ElementalTemplatesCompanion.insert(
+          characterId: charId,
+          templateName: 'PropertiesTest',
+          causeFear: Value(true),
+          elementalGripLevel: Value(3),
+          flight: Value(true),
+          stoneSkinLevel: Value(2),
+          modLeP: Value(5),
+          modAT: Value(2),
+          modTaWZfW: Value(4),
+        ),
+      );
+
+      final t = (await db.getTemplatesForCharacter(charId)).first;
+      expect(t.causeFear, true);
+      expect(t.elementalGripLevel, 3);
+      expect(t.flight, true);
+      expect(t.stoneSkinLevel, 2);
+      expect(t.modLeP, 5);
+      expect(t.modAT, 2);
+      expect(t.modTaWZfW, 4);
+      // Others should be default
+      expect(t.aura, false);
+      expect(t.modINI, 0);
     });
   });
 }

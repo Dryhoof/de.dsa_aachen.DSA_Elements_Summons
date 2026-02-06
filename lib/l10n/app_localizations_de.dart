@@ -132,31 +132,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get selectSummoningType => 'Beschwörungstyp wählen:';
 
   @override
-  String get equipment => 'Ausrüstung:';
-
-  @override
-  String get equipmentMage1 => 'Weiße Beschwörungsrobe (-1)';
-
-  @override
-  String get equipmentMage2 => 'Barfuß (-1)';
-
-  @override
-  String get equipmentDruid1 => 'Nackt (-1)';
-
-  @override
-  String get equipmentDruid2 => 'Rituelle Reinigung (-1)';
-
-  @override
-  String get equipmentCristalomant1 => 'Erster potenter Kristall (-1)';
-
-  @override
-  String get equipmentCristalomant2 => 'Zweiter potenter Kristall (-1)';
-
-  @override
-  String get equipmentShaman1 => 'Erste Ausrüstung (-1)';
-
-  @override
-  String get equipmentShaman2 => 'Zweite Ausrüstung (-1)';
+  String get properAttire => 'Richtige Gewandung (-2 Beschwörung)';
 
   @override
   String get qualityOfMaterial => 'Qualität des Materials:';
@@ -183,16 +159,37 @@ class AppLocalizationsDe extends AppLocalizations {
   String get astralSense => 'Astraler Spürsinn';
 
   @override
+  String get astralSenseCost => '5 ZfP*';
+
+  @override
   String get longArm => 'Langer Arm';
+
+  @override
+  String get longArmCost => '3 ZfP*';
 
   @override
   String get lifeSense => 'Lebenssinn';
 
   @override
+  String get lifeSenseCost => '4 ZfP*';
+
+  @override
   String get regeneration => 'Regeneration';
 
   @override
+  String get regenerationCostI => '4 ZfP*';
+
+  @override
+  String get regenerationCostII => '7 ZfP*';
+
+  @override
   String get additionalActions => 'Zusätzliche Aktionen';
+
+  @override
+  String get additionalActionsCostI => '3 ZfP*';
+
+  @override
+  String get additionalActionsCostII => '7 ZfP*';
 
   @override
   String get no => 'Nein';
@@ -264,7 +261,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get summoningModifier => 'Beschwörungsmodifikator';
 
   @override
-  String get controlTestModifier => 'Beherrschungsmodifikator';
+  String get controlTestModifier => 'Kontrollmodifikator';
 
   @override
   String get additionalModifications => 'Zusätzliche Modifikationen';
@@ -273,7 +270,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get additionalSummon => 'Beschwörung';
 
   @override
-  String get additionalControl => 'Beherrschung';
+  String get additionalControl => 'Kontrolle';
 
   @override
   String get personality => 'Persönlichkeit';
@@ -390,7 +387,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get summonLabel => 'Beschwörung';
 
   @override
-  String get controlLabel => 'Beherrschung';
+  String get controlLabel => 'Kontrolle';
 
   @override
   String get calculate => 'Berechnen';
@@ -405,13 +402,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get additionalSummonMod => 'Zusätzlicher Beschwörungsmodifikator';
 
   @override
-  String get additionalControlMod => 'Zusätzlicher Beherrschungsmodifikator';
-
-  @override
-  String get equipmentGeode1 => 'Nackt (-1)';
-
-  @override
-  String get equipmentGeode2 => 'Rituelle Reinigung (-1)';
+  String get additionalControlMod => 'Zusätzlicher Kontrollmodifikator';
 
   @override
   String get unsavedChangesTitle => 'Ungespeicherte Änderungen';
@@ -651,4 +642,241 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get overwriteCharacterMessage =>
       'Ein Charakter mit diesem Namen existiert bereits. Möchtest du ihn überschreiben?';
+
+  @override
+  String get specialProperties => 'Besondere Eigenschaften';
+
+  @override
+  String get elementSpecificProperties => 'Elementspezifische Eigenschaften';
+
+  @override
+  String get valueModifications => 'Wertmodifikationen';
+
+  @override
+  String get zfpCost => 'ZfP*-Kosten';
+
+  @override
+  String get totalZfpCost => 'Gesamt ZfP*-Kosten';
+
+  @override
+  String get causeFear => 'Ängste auslösen';
+
+  @override
+  String get causeFearCost => '5 ZfP*';
+
+  @override
+  String get artifactAnimation => 'Artefaktbeseelung';
+
+  @override
+  String get artifactAnimationCost => '3 ZfP*/Stufe';
+
+  @override
+  String get aura => 'Aura (Element)';
+
+  @override
+  String get auraCost => '5 ZfP*';
+
+  @override
+  String get blinkingInvisibility => 'Blinkende Unsichtbarkeit';
+
+  @override
+  String get blinkingInvisibilityCost => '6 ZfP*';
+
+  @override
+  String get elementalShackle => 'Elementare Fessel';
+
+  @override
+  String get elementalShackleCost => '5 ZfP*';
+
+  @override
+  String get elementalGrip => 'Elementarer Griff';
+
+  @override
+  String get elementalGripCost => '7 ZfP*/Stufe';
+
+  @override
+  String get elementalInferno => 'Elementares Inferno';
+
+  @override
+  String get elementalInfernoCost => '8 ZfP*';
+
+  @override
+  String get elementalGrowth => 'Elementares Wachstum';
+
+  @override
+  String get elementalGrowthCost => '7 ZfP*';
+
+  @override
+  String get drowning => 'Ersäufen';
+
+  @override
+  String get drowningCost => '4 ZfP*';
+
+  @override
+  String get areaAttack => 'Flächenangriff mit Element';
+
+  @override
+  String get areaAttackCost => '7 ZfP*';
+
+  @override
+  String get flight => 'Flugfähigkeit';
+
+  @override
+  String get flightCost => '5 ZfP*';
+
+  @override
+  String get frost => 'Frost';
+
+  @override
+  String get frostCost => '3 ZfP*';
+
+  @override
+  String get ember => 'Glut';
+
+  @override
+  String get emberCost => '3 ZfP*';
+
+  @override
+  String get criticalImmunity => 'Immunität gg. Krit. Treffer';
+
+  @override
+  String get criticalImmunityCost => '2 ZfP*';
+
+  @override
+  String get boilingBlood => 'Kochendes Blut';
+
+  @override
+  String get boilingBloodCost => '5 ZfP*';
+
+  @override
+  String get fog => 'Nebel';
+
+  @override
+  String get fogCost => '2 ZfP*';
+
+  @override
+  String get smoke => 'Rauch';
+
+  @override
+  String get smokeCost => '4 ZfP*';
+
+  @override
+  String get stasis => 'Starre';
+
+  @override
+  String get stasisCost => '5 ZfP*';
+
+  @override
+  String get stoneEating => 'Steinfraß';
+
+  @override
+  String get stoneEatingCost => '2 ZfP*/Stufe';
+
+  @override
+  String get stoneSkin => 'Steinhaut';
+
+  @override
+  String get stoneSkinCost => '2 ZfP*/Stufe';
+
+  @override
+  String get mergeWithElement => 'Verschmelzen mit Element';
+
+  @override
+  String get mergeWithElementCost => '7 ZfP*';
+
+  @override
+  String get sinking => 'Versinken';
+
+  @override
+  String get sinkingCost => '6 ZfP*';
+
+  @override
+  String get wildGrowth => 'Wildwuchs';
+
+  @override
+  String get wildGrowthCost => '7 ZfP*';
+
+  @override
+  String get burst => 'Zerbersten';
+
+  @override
+  String get burstCost => '4 ZfP*';
+
+  @override
+  String get shatteringArmor => 'Zerschellender Panzer';
+
+  @override
+  String get shatteringArmorCost => '3 ZfP*';
+
+  @override
+  String get modLeP => 'LeP +5';
+
+  @override
+  String get modLePCost => '2 ZfP*';
+
+  @override
+  String get modINI => 'INI +1';
+
+  @override
+  String get modINICost => '3 ZfP*';
+
+  @override
+  String get modRS => 'RS +1';
+
+  @override
+  String get modRSCost => '3 ZfP*';
+
+  @override
+  String get modGS => 'GS +1';
+
+  @override
+  String get modGSCost => '3 ZfP*';
+
+  @override
+  String get modMR => 'MR +1';
+
+  @override
+  String get modMRCost => '3 ZfP*';
+
+  @override
+  String get modAT => 'AT +1';
+
+  @override
+  String get modATCost => '4 ZfP*';
+
+  @override
+  String get modPA => 'PA +1';
+
+  @override
+  String get modPACost => '4 ZfP*';
+
+  @override
+  String get modTP => 'TP +1';
+
+  @override
+  String get modTPCost => '4 ZfP*';
+
+  @override
+  String get modAttribute => 'Eigenschaft +1';
+
+  @override
+  String get modAttributeCost => '5 ZfP*';
+
+  @override
+  String get modNewTalent => 'Neues Talent';
+
+  @override
+  String get modNewTalentCost => '4 ZfP*';
+
+  @override
+  String get modTaWZfW => 'TaW/ZfW +2';
+
+  @override
+  String get modTaWZfWCost => '1 ZfP*';
+
+  @override
+  String get level => 'Stufe';
+
+  @override
+  String get perApplication => 'pro Anwendung';
 }

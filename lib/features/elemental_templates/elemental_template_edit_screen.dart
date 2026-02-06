@@ -49,6 +49,46 @@ class _ElementalTemplateEditScreenState
   bool _immunityMagic = false;
   bool _immunityTraitDamage = false;
 
+  // New general properties (S. 140)
+  bool _causeFear = false;
+  int _artifactAnimationLevel = 0;
+  bool _aura = false;
+  bool _blinkingInvisibility = false;
+  bool _elementalShackle = false;
+  int _elementalGripLevel = 0;
+  bool _elementalInferno = false;
+  bool _elementalGrowth = false;
+  bool _drowning = false;
+  bool _areaAttack = false;
+  bool _flight = false;
+  bool _frost = false;
+  bool _ember = false;
+  bool _criticalImmunity = false;
+  bool _boilingBlood = false;
+  bool _fog = false;
+  bool _smoke = false;
+  bool _stasis = false;
+  int _stoneEatingLevel = 0;
+  int _stoneSkinLevel = 0;
+  bool _mergeWithElement = false;
+  bool _sinking = false;
+  bool _wildGrowth = false;
+  bool _burst = false;
+  bool _shatteringArmor = false;
+
+  // Value modifications (S. 141)
+  int _modLeP = 0;
+  int _modINI = 0;
+  int _modRS = 0;
+  int _modGS = 0;
+  int _modMR = 0;
+  int _modAT = 0;
+  int _modPA = 0;
+  int _modTP = 0;
+  int _modAttribute = 0;
+  int _modNewTalent = 0;
+  int _modTaWZfW = 0;
+
   late Map<String, bool> _resistancesDemonic;
   late Map<String, bool> _immunitiesDemonic;
   late Map<DsaElement, bool> _resistancesElemental;
@@ -86,6 +126,46 @@ class _ElementalTemplateEditScreenState
       _immunitiesDemonic = _decodeDemonicMap(t.immunitiesDemonicJson);
       _resistancesElemental = _decodeElementalMap(t.resistancesElementalJson);
       _immunitiesElemental = _decodeElementalMap(t.immunitiesElementalJson);
+
+      // New properties
+      _causeFear = t.causeFear;
+      _artifactAnimationLevel = t.artifactAnimationLevel;
+      _aura = t.aura;
+      _blinkingInvisibility = t.blinkingInvisibility;
+      _elementalShackle = t.elementalShackle;
+      _elementalGripLevel = t.elementalGripLevel;
+      _elementalInferno = t.elementalInferno;
+      _elementalGrowth = t.elementalGrowth;
+      _drowning = t.drowning;
+      _areaAttack = t.areaAttack;
+      _flight = t.flight;
+      _frost = t.frost;
+      _ember = t.ember;
+      _criticalImmunity = t.criticalImmunity;
+      _boilingBlood = t.boilingBlood;
+      _fog = t.fog;
+      _smoke = t.smoke;
+      _stasis = t.stasis;
+      _stoneEatingLevel = t.stoneEatingLevel;
+      _stoneSkinLevel = t.stoneSkinLevel;
+      _mergeWithElement = t.mergeWithElement;
+      _sinking = t.sinking;
+      _wildGrowth = t.wildGrowth;
+      _burst = t.burst;
+      _shatteringArmor = t.shatteringArmor;
+
+      // Value modifications
+      _modLeP = t.modLeP;
+      _modINI = t.modINI;
+      _modRS = t.modRS;
+      _modGS = t.modGS;
+      _modMR = t.modMR;
+      _modAT = t.modAT;
+      _modPA = t.modPA;
+      _modTP = t.modTP;
+      _modAttribute = t.modAttribute;
+      _modNewTalent = t.modNewTalent;
+      _modTaWZfW = t.modTaWZfW;
     }
     setState(() {
       _isLoading = false;
@@ -216,6 +296,42 @@ class _ElementalTemplateEditScreenState
         resistancesElementalJson: _encodeElementalMap(_resistancesElemental),
         immunitiesDemonicJson: _encodeDemonicMap(_immunitiesDemonic),
         immunitiesElementalJson: _encodeElementalMap(_immunitiesElemental),
+        causeFear: _causeFear,
+        artifactAnimationLevel: _artifactAnimationLevel,
+        aura: _aura,
+        blinkingInvisibility: _blinkingInvisibility,
+        elementalShackle: _elementalShackle,
+        elementalGripLevel: _elementalGripLevel,
+        elementalInferno: _elementalInferno,
+        elementalGrowth: _elementalGrowth,
+        drowning: _drowning,
+        areaAttack: _areaAttack,
+        flight: _flight,
+        frost: _frost,
+        ember: _ember,
+        criticalImmunity: _criticalImmunity,
+        boilingBlood: _boilingBlood,
+        fog: _fog,
+        smoke: _smoke,
+        stasis: _stasis,
+        stoneEatingLevel: _stoneEatingLevel,
+        stoneSkinLevel: _stoneSkinLevel,
+        mergeWithElement: _mergeWithElement,
+        sinking: _sinking,
+        wildGrowth: _wildGrowth,
+        burst: _burst,
+        shatteringArmor: _shatteringArmor,
+        modLeP: _modLeP,
+        modINI: _modINI,
+        modRS: _modRS,
+        modGS: _modGS,
+        modMR: _modMR,
+        modAT: _modAT,
+        modPA: _modPA,
+        modTP: _modTP,
+        modAttribute: _modAttribute,
+        modNewTalent: _modNewTalent,
+        modTaWZfW: _modTaWZfW,
       ));
     } else {
       await db.insertTemplate(ElementalTemplatesCompanion.insert(
@@ -233,11 +349,45 @@ class _ElementalTemplateEditScreenState
         immunityMagic: Value(_immunityMagic),
         immunityTraitDamage: Value(_immunityTraitDamage),
         resistancesDemonicJson: Value(_encodeDemonicMap(_resistancesDemonic)),
-        resistancesElementalJson:
-            Value(_encodeElementalMap(_resistancesElemental)),
+        resistancesElementalJson: Value(_encodeElementalMap(_resistancesElemental)),
         immunitiesDemonicJson: Value(_encodeDemonicMap(_immunitiesDemonic)),
-        immunitiesElementalJson:
-            Value(_encodeElementalMap(_immunitiesElemental)),
+        immunitiesElementalJson: Value(_encodeElementalMap(_immunitiesElemental)),
+        causeFear: Value(_causeFear),
+        artifactAnimationLevel: Value(_artifactAnimationLevel),
+        aura: Value(_aura),
+        blinkingInvisibility: Value(_blinkingInvisibility),
+        elementalShackle: Value(_elementalShackle),
+        elementalGripLevel: Value(_elementalGripLevel),
+        elementalInferno: Value(_elementalInferno),
+        elementalGrowth: Value(_elementalGrowth),
+        drowning: Value(_drowning),
+        areaAttack: Value(_areaAttack),
+        flight: Value(_flight),
+        frost: Value(_frost),
+        ember: Value(_ember),
+        criticalImmunity: Value(_criticalImmunity),
+        boilingBlood: Value(_boilingBlood),
+        fog: Value(_fog),
+        smoke: Value(_smoke),
+        stasis: Value(_stasis),
+        stoneEatingLevel: Value(_stoneEatingLevel),
+        stoneSkinLevel: Value(_stoneSkinLevel),
+        mergeWithElement: Value(_mergeWithElement),
+        sinking: Value(_sinking),
+        wildGrowth: Value(_wildGrowth),
+        burst: Value(_burst),
+        shatteringArmor: Value(_shatteringArmor),
+        modLeP: Value(_modLeP),
+        modINI: Value(_modINI),
+        modRS: Value(_modRS),
+        modGS: Value(_modGS),
+        modMR: Value(_modMR),
+        modAT: Value(_modAT),
+        modPA: Value(_modPA),
+        modTP: Value(_modTP),
+        modAttribute: Value(_modAttribute),
+        modNewTalent: Value(_modNewTalent),
+        modTaWZfW: Value(_modTaWZfW),
       ));
     }
 
@@ -282,6 +432,29 @@ class _ElementalTemplateEditScreenState
     } else if (action == 'discard') {
       if (mounted) context.pop();
     }
+  }
+
+  Widget _buildModifierRow(String label, String cost, int value, ValueChanged<int> onChanged) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      child: Row(
+        children: [
+          Expanded(child: Text('$label ($cost)')),
+          IconButton(
+            icon: const Icon(Icons.remove),
+            onPressed: value > 0 ? () => onChanged(value - 1) : null,
+          ),
+          SizedBox(
+            width: 32,
+            child: Text('$value', textAlign: TextAlign.center),
+          ),
+          IconButton(
+            icon: const Icon(Icons.add),
+            onPressed: value < 10 ? () => onChanged(value + 1) : null,
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -381,12 +554,13 @@ class _ElementalTemplateEditScreenState
               ],
             ),
 
-            // Abilities
+            // Abilities (merged with Special Properties)
             ExpansionTile(
               title: Text(l10n.abilities),
               children: [
+                // Original abilities with ZfP* costs
                 CheckboxListTile(
-                  title: Text(l10n.astralSense),
+                  title: Text('${l10n.astralSense} (${l10n.astralSenseCost})'),
                   value: _astralSense,
                   onChanged: (v) => setState(() {
                     _astralSense = v ?? false;
@@ -394,7 +568,7 @@ class _ElementalTemplateEditScreenState
                   }),
                 ),
                 CheckboxListTile(
-                  title: Text(l10n.longArm),
+                  title: Text('${l10n.longArm} (${l10n.longArmCost})'),
                   value: _longArm,
                   onChanged: (v) => setState(() {
                     _longArm = v ?? false;
@@ -402,51 +576,332 @@ class _ElementalTemplateEditScreenState
                   }),
                 ),
                 CheckboxListTile(
-                  title: Text(l10n.lifeSense),
+                  title: Text('${l10n.lifeSense} (${l10n.lifeSenseCost})'),
                   value: _lifeSense,
                   onChanged: (v) => setState(() {
                     _lifeSense = v ?? false;
                     _isDirty = true;
                   }),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(l10n.regeneration),
-                      const SizedBox(height: 4),
-                      SegmentedButton<int>(
-                        segments: [
-                          ButtonSegment(value: 0, label: Text(l10n.no)),
-                          const ButtonSegment(value: 1, label: Text('I')),
-                          const ButtonSegment(value: 2, label: Text('II')),
-                        ],
-                        selected: {_regenerationLevel},
-                        onSelectionChanged: (v) => setState(() {
-                          _regenerationLevel = v.first;
-                          _isDirty = true;
-                        }),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(l10n.additionalActions),
-                      const SizedBox(height: 4),
-                      SegmentedButton<int>(
-                        segments: [
-                          ButtonSegment(value: 0, label: Text(l10n.no)),
-                          const ButtonSegment(value: 1, label: Text('I')),
-                          const ButtonSegment(value: 2, label: Text('II')),
-                        ],
-                        selected: {_additionalActionsLevel},
-                        onSelectionChanged: (v) => setState(() {
-                          _additionalActionsLevel = v.first;
-                          _isDirty = true;
-                        }),
-                      ),
-                      const SizedBox(height: 8),
+                ListTile(
+                  title: Text('${l10n.regeneration} (I: ${l10n.regenerationCostI}, II: ${l10n.regenerationCostII})'),
+                  subtitle: SegmentedButton<int>(
+                    showSelectedIcon: false,
+                    segments: [
+                      ButtonSegment(value: 0, label: Text(l10n.no)),
+                      const ButtonSegment(value: 1, label: Text('I')),
+                      const ButtonSegment(value: 2, label: Text('II')),
                     ],
+                    selected: {_regenerationLevel},
+                    onSelectionChanged: (v) => setState(() {
+                      _regenerationLevel = v.first;
+                      _isDirty = true;
+                    }),
                   ),
                 ),
+                ListTile(
+                  title: Text('${l10n.additionalActions} (I: ${l10n.additionalActionsCostI}, II: ${l10n.additionalActionsCostII})'),
+                  subtitle: SegmentedButton<int>(
+                    showSelectedIcon: false,
+                    segments: [
+                      ButtonSegment(value: 0, label: Text(l10n.no)),
+                      const ButtonSegment(value: 1, label: Text('I')),
+                      const ButtonSegment(value: 2, label: Text('II')),
+                    ],
+                    selected: {_additionalActionsLevel},
+                    onSelectionChanged: (v) => setState(() {
+                      _additionalActionsLevel = v.first;
+                      _isDirty = true;
+                    }),
+                  ),
+                ),
+                // Additional special properties
+                CheckboxListTile(
+                  title: Text('${l10n.causeFear} (${l10n.causeFearCost})'),
+                  value: _causeFear,
+                  onChanged: (v) => setState(() {
+                    _causeFear = v ?? false;
+                    _isDirty = true;
+                  }),
+                ),
+                ListTile(
+                  title: Text('${l10n.artifactAnimation} (${l10n.artifactAnimationCost})'),
+                  subtitle: SegmentedButton<int>(
+                    showSelectedIcon: false,
+                    segments: [
+                      ButtonSegment(value: 0, label: Text(l10n.no)),
+                      const ButtonSegment(value: 1, label: Text('I')),
+                      const ButtonSegment(value: 2, label: Text('II')),
+                      const ButtonSegment(value: 3, label: Text('III')),
+                    ],
+                    selected: {_artifactAnimationLevel},
+                    onSelectionChanged: (v) => setState(() {
+                      _artifactAnimationLevel = v.first;
+                      _isDirty = true;
+                    }),
+                  ),
+                ),
+                CheckboxListTile(
+                  title: Text('${l10n.aura} (${l10n.auraCost})'),
+                  value: _aura,
+                  onChanged: (v) => setState(() {
+                    _aura = v ?? false;
+                    _isDirty = true;
+                  }),
+                ),
+                CheckboxListTile(
+                  title: Text('${l10n.blinkingInvisibility} (${l10n.blinkingInvisibilityCost})'),
+                  value: _blinkingInvisibility,
+                  onChanged: (v) => setState(() {
+                    _blinkingInvisibility = v ?? false;
+                    _isDirty = true;
+                  }),
+                ),
+                CheckboxListTile(
+                  title: Text('${l10n.elementalShackle} (${l10n.elementalShackleCost})'),
+                  value: _elementalShackle,
+                  onChanged: (v) => setState(() {
+                    _elementalShackle = v ?? false;
+                    _isDirty = true;
+                  }),
+                ),
+                ListTile(
+                  title: Text('${l10n.elementalGrip} (${l10n.elementalGripCost})'),
+                  subtitle: SegmentedButton<int>(
+                    showSelectedIcon: false,
+                    segments: [
+                      ButtonSegment(value: 0, label: Text(l10n.no)),
+                      const ButtonSegment(value: 1, label: Text('I')),
+                      const ButtonSegment(value: 2, label: Text('II')),
+                      const ButtonSegment(value: 3, label: Text('III')),
+                    ],
+                    selected: {_elementalGripLevel},
+                    onSelectionChanged: (v) => setState(() {
+                      _elementalGripLevel = v.first;
+                      _isDirty = true;
+                    }),
+                  ),
+                ),
+                CheckboxListTile(
+                  title: Text('${l10n.elementalInferno} (${l10n.elementalInfernoCost})'),
+                  value: _elementalInferno,
+                  onChanged: (v) => setState(() {
+                    _elementalInferno = v ?? false;
+                    _isDirty = true;
+                  }),
+                ),
+                CheckboxListTile(
+                  title: Text('${l10n.elementalGrowth} (${l10n.elementalGrowthCost})'),
+                  value: _elementalGrowth,
+                  onChanged: (v) => setState(() {
+                    _elementalGrowth = v ?? false;
+                    _isDirty = true;
+                  }),
+                ),
+                CheckboxListTile(
+                  title: Text('${l10n.areaAttack} (${l10n.areaAttackCost})'),
+                  value: _areaAttack,
+                  onChanged: (v) => setState(() {
+                    _areaAttack = v ?? false;
+                    _isDirty = true;
+                  }),
+                ),
+                // Flight - not available for Stone
+                if (_element != DsaElement.stone)
+                  CheckboxListTile(
+                    title: Text('${l10n.flight} (${l10n.flightCost})'),
+                    value: _flight,
+                    onChanged: (v) => setState(() {
+                      _flight = v ?? false;
+                      _isDirty = true;
+                    }),
+                  ),
+                CheckboxListTile(
+                  title: Text('${l10n.criticalImmunity} (${l10n.criticalImmunityCost})'),
+                  value: _criticalImmunity,
+                  onChanged: (v) => setState(() {
+                    _criticalImmunity = v ?? false;
+                    _isDirty = true;
+                  }),
+                ),
+                CheckboxListTile(
+                  title: Text('${l10n.mergeWithElement} (${l10n.mergeWithElementCost})'),
+                  value: _mergeWithElement,
+                  onChanged: (v) => setState(() {
+                    _mergeWithElement = v ?? false;
+                    _isDirty = true;
+                  }),
+                ),
+                CheckboxListTile(
+                  title: Text('${l10n.burst} (${l10n.burstCost})'),
+                  value: _burst,
+                  onChanged: (v) => setState(() {
+                    _burst = v ?? false;
+                    _isDirty = true;
+                  }),
+                ),
+              ],
+            ),
+
+            // Element-Specific Properties
+            ExpansionTile(
+              title: Text(l10n.elementSpecificProperties),
+              children: [
+                // Frost - only Ice
+                if (_element == DsaElement.ice)
+                  CheckboxListTile(
+                    title: Text('${l10n.frost} (${l10n.frostCost})'),
+                    value: _frost,
+                    onChanged: (v) => setState(() {
+                      _frost = v ?? false;
+                      _isDirty = true;
+                    }),
+                  ),
+                // Ember - Fire, Stone
+                if (_element == DsaElement.fire || _element == DsaElement.stone)
+                  CheckboxListTile(
+                    title: Text('${l10n.ember} (${l10n.emberCost})'),
+                    value: _ember,
+                    onChanged: (v) => setState(() {
+                      _ember = v ?? false;
+                      _isDirty = true;
+                    }),
+                  ),
+                // Fog - Water, Air
+                if (_element == DsaElement.water || _element == DsaElement.air)
+                  CheckboxListTile(
+                    title: Text('${l10n.fog} (${l10n.fogCost})'),
+                    value: _fog,
+                    onChanged: (v) => setState(() {
+                      _fog = v ?? false;
+                      _isDirty = true;
+                    }),
+                  ),
+                // Smoke - Fire, Air
+                if (_element == DsaElement.fire || _element == DsaElement.air)
+                  CheckboxListTile(
+                    title: Text('${l10n.smoke} (${l10n.smokeCost})'),
+                    value: _smoke,
+                    onChanged: (v) => setState(() {
+                      _smoke = v ?? false;
+                      _isDirty = true;
+                    }),
+                  ),
+                // Drowning - Water
+                if (_element == DsaElement.water)
+                  CheckboxListTile(
+                    title: Text('${l10n.drowning} (${l10n.drowningCost})'),
+                    value: _drowning,
+                    onChanged: (v) => setState(() {
+                      _drowning = v ?? false;
+                      _isDirty = true;
+                    }),
+                  ),
+                // Boiling Blood - Fire, Water
+                if (_element == DsaElement.fire || _element == DsaElement.water)
+                  CheckboxListTile(
+                    title: Text('${l10n.boilingBlood} (${l10n.boilingBloodCost})'),
+                    value: _boilingBlood,
+                    onChanged: (v) => setState(() {
+                      _boilingBlood = v ?? false;
+                      _isDirty = true;
+                    }),
+                  ),
+                // Stasis - Stone, Ice, Life
+                if (_element == DsaElement.stone || _element == DsaElement.ice || _element == DsaElement.life)
+                  CheckboxListTile(
+                    title: Text('${l10n.stasis} (${l10n.stasisCost})'),
+                    value: _stasis,
+                    onChanged: (v) => setState(() {
+                      _stasis = v ?? false;
+                      _isDirty = true;
+                    }),
+                  ),
+                // Stone Eating - Stone, Ice
+                if (_element == DsaElement.stone || _element == DsaElement.ice)
+                  ListTile(
+                    title: Text('${l10n.stoneEating} (${l10n.stoneEatingCost})'),
+                    subtitle: SegmentedButton<int>(
+                      showSelectedIcon: false,
+                      segments: List.generate(7, (i) => ButtonSegment(
+                        value: i,
+                        label: Text(i == 0 ? l10n.no : '$i'),
+                      )),
+                      selected: {_stoneEatingLevel},
+                      onSelectionChanged: (v) => setState(() {
+                        _stoneEatingLevel = v.first;
+                        _isDirty = true;
+                      }),
+                    ),
+                  ),
+                // Stoneskin - Stone, Life
+                if (_element == DsaElement.stone || _element == DsaElement.life)
+                  ListTile(
+                    title: Text('${l10n.stoneSkin} (${l10n.stoneSkinCost})'),
+                    subtitle: SegmentedButton<int>(
+                      showSelectedIcon: false,
+                      segments: List.generate(7, (i) => ButtonSegment(
+                        value: i,
+                        label: Text(i == 0 ? l10n.no : '$i'),
+                      )),
+                      selected: {_stoneSkinLevel},
+                      onSelectionChanged: (v) => setState(() {
+                        _stoneSkinLevel = v.first;
+                        _isDirty = true;
+                      }),
+                    ),
+                  ),
+                // Sinking - Life, Water
+                if (_element == DsaElement.life || _element == DsaElement.water)
+                  CheckboxListTile(
+                    title: Text('${l10n.sinking} (${l10n.sinkingCost})'),
+                    value: _sinking,
+                    onChanged: (v) => setState(() {
+                      _sinking = v ?? false;
+                      _isDirty = true;
+                    }),
+                  ),
+                // Wild Growth - Life only
+                if (_element == DsaElement.life)
+                  CheckboxListTile(
+                    title: Text('${l10n.wildGrowth} (${l10n.wildGrowthCost})'),
+                    value: _wildGrowth,
+                    onChanged: (v) => setState(() {
+                      _wildGrowth = v ?? false;
+                      _isDirty = true;
+                    }),
+                  ),
+                // Shattering Armor - Stone, Life, Fire, Ice
+                if (_element == DsaElement.stone || _element == DsaElement.life ||
+                    _element == DsaElement.fire || _element == DsaElement.ice)
+                  CheckboxListTile(
+                    title: Text('${l10n.shatteringArmor} (${l10n.shatteringArmorCost})'),
+                    value: _shatteringArmor,
+                    onChanged: (v) => setState(() {
+                      _shatteringArmor = v ?? false;
+                      _isDirty = true;
+                    }),
+                  ),
+                const SizedBox(height: 8),
+              ],
+            ),
+
+            // Value Modifications
+            ExpansionTile(
+              title: Text(l10n.valueModifications),
+              children: [
+                _buildModifierRow(l10n.modLeP, l10n.modLePCost, _modLeP, (v) => setState(() { _modLeP = v; _isDirty = true; })),
+                _buildModifierRow(l10n.modINI, l10n.modINICost, _modINI, (v) => setState(() { _modINI = v; _isDirty = true; })),
+                _buildModifierRow(l10n.modRS, l10n.modRSCost, _modRS, (v) => setState(() { _modRS = v; _isDirty = true; })),
+                _buildModifierRow(l10n.modGS, l10n.modGSCost, _modGS, (v) => setState(() { _modGS = v; _isDirty = true; })),
+                _buildModifierRow(l10n.modMR, l10n.modMRCost, _modMR, (v) => setState(() { _modMR = v; _isDirty = true; })),
+                _buildModifierRow(l10n.modAT, l10n.modATCost, _modAT, (v) => setState(() { _modAT = v; _isDirty = true; })),
+                _buildModifierRow(l10n.modPA, l10n.modPACost, _modPA, (v) => setState(() { _modPA = v; _isDirty = true; })),
+                _buildModifierRow(l10n.modTP, l10n.modTPCost, _modTP, (v) => setState(() { _modTP = v; _isDirty = true; })),
+                _buildModifierRow(l10n.modAttribute, l10n.modAttributeCost, _modAttribute, (v) => setState(() { _modAttribute = v; _isDirty = true; })),
+                _buildModifierRow(l10n.modNewTalent, l10n.modNewTalentCost, _modNewTalent, (v) => setState(() { _modNewTalent = v; _isDirty = true; })),
+                _buildModifierRow(l10n.modTaWZfW, l10n.modTaWZfWCost, _modTaWZfW, (v) => setState(() { _modTaWZfW = v; _isDirty = true; })),
+                const SizedBox(height: 8),
               ],
             ),
 

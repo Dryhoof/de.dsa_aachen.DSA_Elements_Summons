@@ -39,3 +39,6 @@ windows/flutter/generated_plugins.cmake
 .DS_Store
 nul
 .claude/
+
+# PDFs
+*.pdf
