@@ -291,5 +291,12 @@
   "modTaWZfWCost": "1 ZfP*",
 
   "level": "Stufe",
-  "perApplication": "pro Anwendung"
+  "perApplication": "pro Anwendung",
+
+  "predefinedSummonings": "Vordefinierte Beschwörungen",
+  "hide": "Ausblenden",
+  "unhide": "Einblenden",
+  "hiddenPredefined": "Ausgeblendete Beschwörungen",
+  "noHiddenPredefined": "Keine ausgeblendeten Beschwörungen",
+  "managePredefined": "Ausgeblendete verwalten"
 }

@@ -30,21 +30,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       appBar: AppBar(
         title: Text(l10n.appTitle),
         actions: [
-          PopupMenuButton<Locale?>(
+          PopupMenuButton<Locale>(
             icon: const Icon(Icons.language),
             onSelected: (locale) {
               ref.read(localeProvider.notifier).set(locale);
             },
-            itemBuilder: (context) => [
+            itemBuilder: (context) => const [
               PopupMenuItem(
-                value: null,
-                child: Text('System'),
-              ),
-              const PopupMenuItem(
                 value: Locale('de'),
                 child: Text('Deutsch'),
               ),
-              const PopupMenuItem(
+              PopupMenuItem(
                 value: Locale('en'),
                 child: Text('English'),
               ),
@@ -107,6 +103,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   final db = ref.read(databaseProvider);
                   final templates = _deletedTemplates[character.id] ?? [];
                   db.deleteCharacter(character.id);
+                  db.deleteHiddenForCharacter(character.id);
 
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(

@@ -13,13 +13,15 @@ import 'package:dsa_elements_summons_flutter/core/calculation/summoning_calculat
 import 'package:dsa_elements_summons_flutter/core/l10n_helpers.dart';
 import 'dart:convert';
 import 'package:drift/drift.dart' show Value;
+import 'package:dsa_elements_summons_flutter/core/constants/predefined_summonings.dart';
 import 'package:dsa_elements_summons_flutter/features/home/providers.dart';
 
 class SummoningScreen extends ConsumerStatefulWidget {
   final int characterId;
   final int? initialTemplateId;
+  final String? initialPredefinedId;
 
-  const SummoningScreen({super.key, required this.characterId, this.initialTemplateId});
+  const SummoningScreen({super.key, required this.characterId, this.initialTemplateId, this.initialPredefinedId});
 
   static SummoningConfig? lastConfig;
 
@@ -31,6 +33,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
   Character? _character;
   bool _isLoading = true;
   String? _loadedTemplateName;
+  PredefinedSummoning? _activePredefined;
 
   DsaElement _element = DsaElement.fire;
   SummoningType _summoningType = SummoningType.servant;
@@ -140,6 +143,18 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
       final t = await db.getTemplateById(widget.initialTemplateId!);
       _loadFromTemplate(t);
       _loadedTemplateName = t.templateName;
+    } else if (widget.initialPredefinedId != null) {
+      final p = predefinedSummonings
+          .where((s) => s.id == widget.initialPredefinedId)
+          .firstOrNull;
+      if (p != null) {
+        _loadFromTemplate(p.toElementalTemplate());
+        _activePredefined = p;
+        if (mounted) {
+          final locale = Localizations.localeOf(context).languageCode;
+          _loadedTemplateName = predefinedName(p.id, locale);
+        }
+      }
     }
   }
 
@@ -181,6 +196,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
       summonedHornedDemon: _summonedHornedDemon,
       additionalSummonMod: int.tryParse(_additionalSummonCtrl.text) ?? 0,
       additionalControlMod: int.tryParse(_additionalControlCtrl.text) ?? 0,
+      predefined: _activePredefined,
       causeFear: _causeFear,
       artifactAnimationLevel: _artifactAnimationLevel,
       aura: _aura,
@@ -240,6 +256,13 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
     });
   }
 
+  bool get _isPredefined => _activePredefined != null;
+  /// Whether a boolean ability is locked because the predefined creature has it.
+  bool _lockedBool(bool Function(PredefinedSummoning p) getter) =>
+      _isPredefined && getter(_activePredefined!);
+  /// Minimum level for a level-based ability from predefined creature.
+  int _predefinedMin(int Function(PredefinedSummoning p) getter) =>
+      _isPredefined ? getter(_activePredefined!) : 0;
   bool _isOwnElement(DsaElement e) => e == _element;
   bool _isCounterElement(DsaElement e) => e == _element.counterElement;
 
@@ -322,10 +345,16 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
   Future<void> _showLoadTemplateSheet() async {
     final db = ref.read(databaseProvider);
     final templates = await db.getTemplatesForCharacter(widget.characterId);
+    final hiddenIds = await db.getHiddenPredefinedIds(widget.characterId);
     if (!mounted) return;
     final l10n = AppLocalizations.of(context)!;
+    final locale = Localizations.localeOf(context).languageCode;
 
-    if (templates.isEmpty) {
+    final visiblePredefined = predefinedSummonings
+        .where((p) => !hiddenIds.contains(p.id))
+        .toList();
+
+    if (templates.isEmpty && visiblePredefined.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(l10n.noTemplates)),
       );
@@ -337,22 +366,65 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
       builder: (ctx) => SafeArea(
         child: ListView(
           shrinkWrap: true,
-          children: templates.map((t) {
-            final elem = DsaElement.values[t.element];
-            final type = SummoningType.values[t.summoningType];
-            return ListTile(
-              title: Text(t.templateName),
-              subtitle: Text('${type.localized(l10n)} - ${elem.localized(l10n)}'),
-              onTap: () {
-                Navigator.pop(ctx);
-                _loadFromTemplate(t);
-                _loadedTemplateName = t.templateName;
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(l10n.templateLoaded)),
+          children: [
+            if (visiblePredefined.isNotEmpty) ...[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+                child: Text(
+                  l10n.predefinedSummonings,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                ),
+              ),
+              ...visiblePredefined.map((p) {
+                final elem = p.element;
+                final type = p.summoningType;
+                return ListTile(
+                  leading: const Icon(Icons.menu_book, size: 20),
+                  title: Text(predefinedName(p.id, locale)),
+                  subtitle: Text('${type.localized(l10n)} - ${elem.localized(l10n)}'),
+                  onTap: () {
+                    Navigator.pop(ctx);
+                    _loadFromTemplate(p.toElementalTemplate());
+                    _activePredefined = p;
+                    _loadedTemplateName = predefinedName(p.id, locale);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(l10n.templateLoaded)),
+                    );
+                  },
                 );
-              },
-            );
-          }).toList(),
+              }),
+            ],
+            if (templates.isNotEmpty) ...[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 12, 16, 4),
+                child: Text(
+                  l10n.elementalTemplates,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                ),
+              ),
+              ...templates.map((t) {
+                final elem = DsaElement.values[t.element];
+                final type = SummoningType.values[t.summoningType];
+                return ListTile(
+                  title: Text(t.templateName),
+                  subtitle: Text('${type.localized(l10n)} - ${elem.localized(l10n)}'),
+                  onTap: () {
+                    Navigator.pop(ctx);
+                    _loadFromTemplate(t);
+                    _activePredefined = null;
+                    _loadedTemplateName = t.templateName;
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(l10n.templateLoaded)),
+                    );
+                  },
+                );
+              }),
+            ],
+          ],
         ),
       ),
     );
@@ -623,9 +695,11 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                                   child: Text(e.localized(l10n)),
                                 ))
                             .toList(),
-                        onChanged: (v) {
-                          if (v != null) _onElementChanged(v);
-                        },
+                        onChanged: _isPredefined
+                            ? null
+                            : (v) {
+                                if (v != null) _onElementChanged(v);
+                              },
                       ),
                     ),
                     const SizedBox(height: 8),
@@ -639,8 +713,9 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                                 ))
                             .toList(),
                         selected: {_summoningType},
-                        onSelectionChanged: (v) =>
-                            setState(() => _summoningType = v.first),
+                        onSelectionChanged: _isPredefined
+                            ? null
+                            : (v) => setState(() => _summoningType = v.first),
                       ),
                     ),
                     CheckboxListTile(
@@ -726,19 +801,19 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                     CheckboxListTile(
                       title: Text('${l10n.astralSense} (${l10n.astralSenseCost})'),
                       value: _astralSense,
-                      onChanged: (v) =>
+                      onChanged: _lockedBool((p) => p.astralSense) ? null : (v) =>
                           setState(() => _astralSense = v ?? false),
                     ),
                     CheckboxListTile(
                       title: Text('${l10n.longArm} (${l10n.longArmCost})'),
                       value: _longArm,
-                      onChanged: (v) =>
+                      onChanged: _lockedBool((p) => p.longArm) ? null : (v) =>
                           setState(() => _longArm = v ?? false),
                     ),
                     CheckboxListTile(
                       title: Text('${l10n.lifeSense} (${l10n.lifeSenseCost})'),
                       value: _lifeSense,
-                      onChanged: (v) =>
+                      onChanged: _lockedBool((p) => p.lifeSense) ? null : (v) =>
                           setState(() => _lifeSense = v ?? false),
                     ),
                     ListTile(
@@ -751,8 +826,10 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                           const ButtonSegment(value: 2, label: Text('II')),
                         ],
                         selected: {_regenerationLevel},
-                        onSelectionChanged: (v) =>
-                            setState(() => _regenerationLevel = v.first),
+                        onSelectionChanged: (v) {
+                          final min = _predefinedMin((p) => p.regenerationLevel);
+                          if (v.first >= min) setState(() => _regenerationLevel = v.first);
+                        },
                       ),
                     ),
                     ListTile(
@@ -765,15 +842,17 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                           const ButtonSegment(value: 2, label: Text('II')),
                         ],
                         selected: {_additionalActionsLevel},
-                        onSelectionChanged: (v) => setState(
-                            () => _additionalActionsLevel = v.first),
+                        onSelectionChanged: (v) {
+                          final min = _predefinedMin((p) => p.additionalActionsLevel);
+                          if (v.first >= min) setState(() => _additionalActionsLevel = v.first);
+                        },
                       ),
                     ),
                     // Additional special properties
                     CheckboxListTile(
                       title: Text('${l10n.causeFear} (${l10n.causeFearCost})'),
                       value: _causeFear,
-                      onChanged: (v) => setState(() => _causeFear = v ?? false),
+                      onChanged: _lockedBool((p) => p.causeFear) ? null : (v) => setState(() => _causeFear = v ?? false),
                     ),
                     ListTile(
                       title: Text('${l10n.artifactAnimation} (${l10n.artifactAnimationCost})'),
@@ -786,23 +865,26 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                           const ButtonSegment(value: 3, label: Text('III')),
                         ],
                         selected: {_artifactAnimationLevel},
-                        onSelectionChanged: (v) => setState(() => _artifactAnimationLevel = v.first),
+                        onSelectionChanged: (v) {
+                          final min = _predefinedMin((p) => p.artifactAnimationLevel);
+                          if (v.first >= min) setState(() => _artifactAnimationLevel = v.first);
+                        },
                       ),
                     ),
                     CheckboxListTile(
                       title: Text('${l10n.aura} (${l10n.auraCost})'),
                       value: _aura,
-                      onChanged: (v) => setState(() => _aura = v ?? false),
+                      onChanged: _lockedBool((p) => p.aura) ? null : (v) => setState(() => _aura = v ?? false),
                     ),
                     CheckboxListTile(
                       title: Text('${l10n.blinkingInvisibility} (${l10n.blinkingInvisibilityCost})'),
                       value: _blinkingInvisibility,
-                      onChanged: (v) => setState(() => _blinkingInvisibility = v ?? false),
+                      onChanged: _lockedBool((p) => p.blinkingInvisibility) ? null : (v) => setState(() => _blinkingInvisibility = v ?? false),
                     ),
                     CheckboxListTile(
                       title: Text('${l10n.elementalShackle} (${l10n.elementalShackleCost})'),
                       value: _elementalShackle,
-                      onChanged: (v) => setState(() => _elementalShackle = v ?? false),
+                      onChanged: _lockedBool((p) => p.elementalShackle) ? null : (v) => setState(() => _elementalShackle = v ?? false),
                     ),
                     ListTile(
                       title: Text('${l10n.elementalGrip} (${l10n.elementalGripCost})'),
@@ -815,44 +897,47 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                           const ButtonSegment(value: 3, label: Text('III')),
                         ],
                         selected: {_elementalGripLevel},
-                        onSelectionChanged: (v) => setState(() => _elementalGripLevel = v.first),
+                        onSelectionChanged: (v) {
+                          final min = _predefinedMin((p) => p.elementalGripLevel);
+                          if (v.first >= min) setState(() => _elementalGripLevel = v.first);
+                        },
                       ),
                     ),
                     CheckboxListTile(
                       title: Text('${l10n.elementalInferno} (${l10n.elementalInfernoCost})'),
                       value: _elementalInferno,
-                      onChanged: (v) => setState(() => _elementalInferno = v ?? false),
+                      onChanged: _lockedBool((p) => p.elementalInferno) ? null : (v) => setState(() => _elementalInferno = v ?? false),
                     ),
                     CheckboxListTile(
                       title: Text('${l10n.elementalGrowth} (${l10n.elementalGrowthCost})'),
                       value: _elementalGrowth,
-                      onChanged: (v) => setState(() => _elementalGrowth = v ?? false),
+                      onChanged: _lockedBool((p) => p.elementalGrowth) ? null : (v) => setState(() => _elementalGrowth = v ?? false),
                     ),
                     CheckboxListTile(
                       title: Text('${l10n.areaAttack} (${l10n.areaAttackCost})'),
                       value: _areaAttack,
-                      onChanged: (v) => setState(() => _areaAttack = v ?? false),
+                      onChanged: _lockedBool((p) => p.areaAttack) ? null : (v) => setState(() => _areaAttack = v ?? false),
                     ),
                     if (_element != DsaElement.stone)
                       CheckboxListTile(
                         title: Text('${l10n.flight} (${l10n.flightCost})'),
                         value: _flight,
-                        onChanged: (v) => setState(() => _flight = v ?? false),
+                        onChanged: _lockedBool((p) => p.flight) ? null : (v) => setState(() => _flight = v ?? false),
                       ),
                     CheckboxListTile(
                       title: Text('${l10n.criticalImmunity} (${l10n.criticalImmunityCost})'),
                       value: _criticalImmunity,
-                      onChanged: (v) => setState(() => _criticalImmunity = v ?? false),
+                      onChanged: _lockedBool((p) => p.criticalImmunity) ? null : (v) => setState(() => _criticalImmunity = v ?? false),
                     ),
                     CheckboxListTile(
                       title: Text('${l10n.mergeWithElement} (${l10n.mergeWithElementCost})'),
                       value: _mergeWithElement,
-                      onChanged: (v) => setState(() => _mergeWithElement = v ?? false),
+                      onChanged: _lockedBool((p) => p.mergeWithElement) ? null : (v) => setState(() => _mergeWithElement = v ?? false),
                     ),
                     CheckboxListTile(
                       title: Text('${l10n.burst} (${l10n.burstCost})'),
                       value: _burst,
-                      onChanged: (v) => setState(() => _burst = v ?? false),
+                      onChanged: _lockedBool((p) => p.burst) ? null : (v) => setState(() => _burst = v ?? false),
                     ),
                   ],
                 ),
@@ -865,43 +950,43 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                       CheckboxListTile(
                         title: Text('${l10n.frost} (${l10n.frostCost})'),
                         value: _frost,
-                        onChanged: (v) => setState(() => _frost = v ?? false),
+                        onChanged: _lockedBool((p) => p.frost) ? null : (v) => setState(() => _frost = v ?? false),
                       ),
                     if (_element == DsaElement.fire || _element == DsaElement.stone)
                       CheckboxListTile(
                         title: Text('${l10n.ember} (${l10n.emberCost})'),
                         value: _ember,
-                        onChanged: (v) => setState(() => _ember = v ?? false),
+                        onChanged: _lockedBool((p) => p.ember) ? null : (v) => setState(() => _ember = v ?? false),
                       ),
                     if (_element == DsaElement.water || _element == DsaElement.air)
                       CheckboxListTile(
                         title: Text('${l10n.fog} (${l10n.fogCost})'),
                         value: _fog,
-                        onChanged: (v) => setState(() => _fog = v ?? false),
+                        onChanged: _lockedBool((p) => p.fog) ? null : (v) => setState(() => _fog = v ?? false),
                       ),
                     if (_element == DsaElement.fire || _element == DsaElement.air)
                       CheckboxListTile(
                         title: Text('${l10n.smoke} (${l10n.smokeCost})'),
                         value: _smoke,
-                        onChanged: (v) => setState(() => _smoke = v ?? false),
+                        onChanged: _lockedBool((p) => p.smoke) ? null : (v) => setState(() => _smoke = v ?? false),
                       ),
                     if (_element == DsaElement.water)
                       CheckboxListTile(
                         title: Text('${l10n.drowning} (${l10n.drowningCost})'),
                         value: _drowning,
-                        onChanged: (v) => setState(() => _drowning = v ?? false),
+                        onChanged: _lockedBool((p) => p.drowning) ? null : (v) => setState(() => _drowning = v ?? false),
                       ),
                     if (_element == DsaElement.fire || _element == DsaElement.water)
                       CheckboxListTile(
                         title: Text('${l10n.boilingBlood} (${l10n.boilingBloodCost})'),
                         value: _boilingBlood,
-                        onChanged: (v) => setState(() => _boilingBlood = v ?? false),
+                        onChanged: _lockedBool((p) => p.boilingBlood) ? null : (v) => setState(() => _boilingBlood = v ?? false),
                       ),
                     if (_element == DsaElement.stone || _element == DsaElement.ice || _element == DsaElement.life)
                       CheckboxListTile(
                         title: Text('${l10n.stasis} (${l10n.stasisCost})'),
                         value: _stasis,
-                        onChanged: (v) => setState(() => _stasis = v ?? false),
+                        onChanged: _lockedBool((p) => p.stasis) ? null : (v) => setState(() => _stasis = v ?? false),
                       ),
                     if (_element == DsaElement.stone || _element == DsaElement.ice)
                       ListTile(
@@ -913,7 +998,10 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                             label: Text(i == 0 ? l10n.no : '$i'),
                           )),
                           selected: {_stoneEatingLevel},
-                          onSelectionChanged: (v) => setState(() => _stoneEatingLevel = v.first),
+                          onSelectionChanged: (v) {
+                            final min = _predefinedMin((p) => p.stoneEatingLevel);
+                            if (v.first >= min) setState(() => _stoneEatingLevel = v.first);
+                          },
                         ),
                       ),
                     if (_element == DsaElement.stone || _element == DsaElement.life)
@@ -926,27 +1014,30 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                             label: Text(i == 0 ? l10n.no : '$i'),
                           )),
                           selected: {_stoneSkinLevel},
-                          onSelectionChanged: (v) => setState(() => _stoneSkinLevel = v.first),
+                          onSelectionChanged: (v) {
+                            final min = _predefinedMin((p) => p.stoneSkinLevel);
+                            if (v.first >= min) setState(() => _stoneSkinLevel = v.first);
+                          },
                         ),
                       ),
                     if (_element == DsaElement.life || _element == DsaElement.water)
                       CheckboxListTile(
                         title: Text('${l10n.sinking} (${l10n.sinkingCost})'),
                         value: _sinking,
-                        onChanged: (v) => setState(() => _sinking = v ?? false),
+                        onChanged: _lockedBool((p) => p.sinking) ? null : (v) => setState(() => _sinking = v ?? false),
                       ),
                     if (_element == DsaElement.life)
                       CheckboxListTile(
                         title: Text('${l10n.wildGrowth} (${l10n.wildGrowthCost})'),
                         value: _wildGrowth,
-                        onChanged: (v) => setState(() => _wildGrowth = v ?? false),
+                        onChanged: _lockedBool((p) => p.wildGrowth) ? null : (v) => setState(() => _wildGrowth = v ?? false),
                       ),
                     if (_element == DsaElement.stone || _element == DsaElement.life ||
                         _element == DsaElement.fire || _element == DsaElement.ice)
                       CheckboxListTile(
                         title: Text('${l10n.shatteringArmor} (${l10n.shatteringArmorCost})'),
                         value: _shatteringArmor,
-                        onChanged: (v) => setState(() => _shatteringArmor = v ?? false),
+                        onChanged: _lockedBool((p) => p.shatteringArmor) ? null : (v) => setState(() => _shatteringArmor = v ?? false),
                       ),
                     const SizedBox(height: 8),
                   ],
@@ -978,7 +1069,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                     CheckboxListTile(
                       title: Text(l10n.resistanceMagic),
                       value: _resistanceMagic,
-                      onChanged: _immunityMagic
+                      onChanged: (_lockedBool((p) => p.resistanceMagic) || _immunityMagic)
                           ? null
                           : (v) => setState(
                               () => _resistanceMagic = v ?? false),
@@ -986,7 +1077,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                     CheckboxListTile(
                       title: Text(l10n.resistanceTraitDamage),
                       value: _resistanceTraitDamage,
-                      onChanged: (_resistanceMagic ||
+                      onChanged: (_lockedBool((p) => p.resistanceTraitDamage) || _resistanceMagic ||
                               _immunityMagic ||
                               _immunityTraitDamage)
                           ? null
@@ -996,7 +1087,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                     ...demonNames.map((name) => CheckboxListTile(
                           title: Text('${l10n.resistance} $name'),
                           value: _resistancesDemonic[name],
-                          onChanged: (_immunitiesDemonic[name] == true)
+                          onChanged: (_lockedBool((p) => p.resistancesDemonic[name] == true) || _immunitiesDemonic[name] == true)
                               ? null
                               : (v) => setState(
                                   () => _resistancesDemonic[name] = v ?? false),
@@ -1004,7 +1095,7 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                     ...DsaElement.values.map((e) => CheckboxListTile(
                           title: Text('${l10n.resistance} ${e.localized(l10n)}'),
                           value: _resistancesElemental[e],
-                          onChanged: (_isOwnElement(e) ||
+                          onChanged: (_lockedBool((p) => p.resistancesElemental[e] == true) || _isOwnElement(e) ||
                                   _isCounterElement(e) ||
                                   _immunitiesElemental[e] == true)
                               ? null
@@ -1021,12 +1112,12 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                     CheckboxListTile(
                       title: Text(l10n.immunityMagic),
                       value: _immunityMagic,
-                      onChanged: _onImmunityMagicChanged,
+                      onChanged: _lockedBool((p) => p.immunityMagic) ? null : _onImmunityMagicChanged,
                     ),
                     CheckboxListTile(
                       title: Text(l10n.immunityTraitDamage),
                       value: _immunityTraitDamage,
-                      onChanged: _immunityMagic
+                      onChanged: (_lockedBool((p) => p.immunityTraitDamage) || _immunityMagic)
                           ? null
                           : (v) => setState(
                               () => _immunityTraitDamage = v ?? false),
@@ -1034,13 +1125,13 @@ class _SummoningScreenState extends ConsumerState<SummoningScreen> {
                     ...demonNames.map((name) => CheckboxListTile(
                           title: Text('${l10n.immunity} $name'),
                           value: _immunitiesDemonic[name],
-                          onChanged: (v) => setState(
+                          onChanged: _lockedBool((p) => p.immunitiesDemonic[name] == true) ? null : (v) => setState(
                               () => _immunitiesDemonic[name] = v ?? false),
                         )),
                     ...DsaElement.values.map((e) => CheckboxListTile(
                           title: Text('${l10n.immunity} ${e.localized(l10n)}'),
                           value: _immunitiesElemental[e],
-                          onChanged: (_isOwnElement(e) ||
+                          onChanged: (_lockedBool((p) => p.immunitiesElemental[e] == true) || _isOwnElement(e) ||
                                   _isCounterElement(e))
                               ? null
                               : (v) => setState(

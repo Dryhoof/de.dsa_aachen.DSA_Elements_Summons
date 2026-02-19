@@ -291,5 +291,12 @@
   "modTaWZfWCost": "1 ZfP*",
 
   "level": "Level",
-  "perApplication": "per application"
+  "perApplication": "per application",
+
+  "predefinedSummonings": "Predefined summonings",
+  "hide": "Hide",
+  "unhide": "Unhide",
+  "hiddenPredefined": "Hidden predefined summonings",
+  "noHiddenPredefined": "No hidden summonings",
+  "managePredefined": "Manage hidden"
 }

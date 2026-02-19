@@ -1,4 +1,5 @@
 import 'package:dsa_elements_summons_flutter/core/database/app_database.dart';
+import 'package:dsa_elements_summons_flutter/core/constants/predefined_summonings.dart';
 import 'package:dsa_elements_summons_flutter/core/models/element.dart';
 import 'package:dsa_elements_summons_flutter/core/models/summoning_type.dart';
 
@@ -32,6 +33,9 @@ class SummoningConfig {
   final bool summonedHornedDemon;
   final int additionalSummonMod;
   final int additionalControlMod;
+
+  // Predefined creature (null = normal calculation mode)
+  final PredefinedSummoning? predefined;
 
   // Special properties (S. 140)
   final bool causeFear;
@@ -103,6 +107,7 @@ class SummoningConfig {
     this.summonedHornedDemon = false,
     this.additionalSummonMod = 0,
     this.additionalControlMod = 0,
+    this.predefined,
     this.causeFear = false,
     this.artifactAnimationLevel = 0,
     this.aura = false,
@@ -171,6 +176,7 @@ class SummoningConfig {
     bool? summonedHornedDemon,
     int? additionalSummonMod,
     int? additionalControlMod,
+    PredefinedSummoning? predefined,
     bool? causeFear,
     int? artifactAnimationLevel,
     bool? aura,
@@ -238,6 +244,7 @@ class SummoningConfig {
       summonedHornedDemon: summonedHornedDemon ?? this.summonedHornedDemon,
       additionalSummonMod: additionalSummonMod ?? this.additionalSummonMod,
       additionalControlMod: additionalControlMod ?? this.additionalControlMod,
+      predefined: predefined ?? this.predefined,
       causeFear: causeFear ?? this.causeFear,
       artifactAnimationLevel: artifactAnimationLevel ?? this.artifactAnimationLevel,
       aura: aura ?? this.aura,

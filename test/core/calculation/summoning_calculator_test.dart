@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:dsa_elements_summons_flutter/core/calculation/summoning_calculator.dart';
 import 'package:dsa_elements_summons_flutter/core/constants/element_data.dart';
+import 'package:dsa_elements_summons_flutter/core/constants/predefined_summonings.dart';
 import 'package:dsa_elements_summons_flutter/core/database/app_database.dart';
 import 'package:dsa_elements_summons_flutter/core/models/element.dart';
 import 'package:dsa_elements_summons_flutter/core/models/summoning_type.dart';
@@ -78,6 +79,7 @@ SummoningConfig _config({
   bool summonedHornedDemon = false,
   int additionalSummonMod = 0,
   int additionalControlMod = 0,
+  PredefinedSummoning? predefined,
   int materialPurityIndex = 3,
   int trueNameIndex = 0,
   int placeIndex = 6,
@@ -116,6 +118,7 @@ SummoningConfig _config({
       summonedHornedDemon: summonedHornedDemon,
       additionalSummonMod: additionalSummonMod,
       additionalControlMod: additionalControlMod,
+      predefined: predefined,
     );
 
 void main() {
@@ -490,6 +493,157 @@ void main() {
               SummoningCalculator.calculate(_config(), locale: 'de');
           expect(r.personality, isNotEmpty);
         }
+      });
+    });
+
+    group('predefined mode', () {
+      // Quecksilbergeist: baseSummon=5, baseControl=3, regenerationLevel=1
+      final quecksilber = const PredefinedSummoning(
+        id: 'quecksilbergeist',
+        element: DsaElement.stone,
+        summoningType: SummoningType.servant,
+        baseSummonMod: 5,
+        baseControlMod: 3,
+        regenerationLevel: 1,
+      );
+
+      // Doryphoros: baseSummon=9, baseControl=6, stoneSkin=2, shatteringArmor
+      final doryphoros = const PredefinedSummoning(
+        id: 'doryphoros',
+        element: DsaElement.stone,
+        summoningType: SummoningType.djinn,
+        baseSummonMod: 9,
+        baseControlMod: 6,
+        stoneSkinLevel: 2,
+        shatteringArmor: true,
+      );
+
+      // Sholgothar: baseSummon=9, baseControl=6, aura, ember
+      final sholgothar = const PredefinedSummoning(
+        id: 'sholgothar',
+        element: DsaElement.fire,
+        summoningType: SummoningType.djinn,
+        baseSummonMod: 9,
+        baseControlMod: 6,
+        aura: true,
+        ember: true,
+      );
+
+      test('built-in abilities are free (net zero cost)', () {
+        // Quecksilbergeist with its built-in regen I → should be exactly 5/3
+        final r = SummoningCalculator.calculate(_config(
+          predefined: quecksilber,
+          element: DsaElement.stone,
+          summoningType: SummoningType.servant,
+          regenerationLevel: 1, // same as predefined
+        ));
+        expect(r.summonDifficulty, 5);
+        expect(r.controlDifficulty, 3);
+      });
+
+      test('additional abilities add cost on top of predefined base', () {
+        // Quecksilbergeist + astral sense (+5)
+        final r = SummoningCalculator.calculate(_config(
+          predefined: quecksilber,
+          element: DsaElement.stone,
+          summoningType: SummoningType.servant,
+          regenerationLevel: 1,
+          astralSense: true, // +5 additional
+        ));
+        expect(r.summonDifficulty, 5 + 5);
+        expect(r.controlDifficulty, 3);
+      });
+
+      test('Doryphoros built-in stoneSkin+shatteringArmor are free', () {
+        final r = SummoningCalculator.calculate(_config(
+          predefined: doryphoros,
+          element: DsaElement.stone,
+          summoningType: SummoningType.djinn,
+        ).copyWith(stoneSkinLevel: 2, shatteringArmor: true));
+        expect(r.summonDifficulty, 9);
+        expect(r.controlDifficulty, 6);
+      });
+
+      test('Doryphoros with extra aura costs +5', () {
+        final r = SummoningCalculator.calculate(_config(
+          predefined: doryphoros,
+          element: DsaElement.stone,
+          summoningType: SummoningType.djinn,
+        ).copyWith(stoneSkinLevel: 2, shatteringArmor: true, aura: true));
+        expect(r.summonDifficulty, 9 + 5);
+        expect(r.controlDifficulty, 6);
+      });
+
+      test('upgrading level ability costs only the delta', () {
+        // Doryphoros has stoneSkinLevel=2 (cost 4). Upgrade to 4 → cost 8.
+        // Delta = 8 - 4 = 4 additional
+        final r = SummoningCalculator.calculate(_config(
+          predefined: doryphoros,
+          element: DsaElement.stone,
+          summoningType: SummoningType.djinn,
+        ).copyWith(stoneSkinLevel: 4, shatteringArmor: true));
+        expect(r.summonDifficulty, 9 + 4); // 4 extra for stoneSkin 2→4
+        expect(r.controlDifficulty, 6);
+      });
+
+      test('circumstances still apply in predefined mode', () {
+        final r = SummoningCalculator.calculate(_config(
+          predefined: quecksilber,
+          element: DsaElement.stone,
+          summoningType: SummoningType.servant,
+          regenerationLevel: 1,
+          trueNameIndex: 7, // -7/-2
+          placeIndex: 0, // -7/-2
+        ));
+        expect(r.summonDifficulty, 5 - 7 - 7);
+        expect(r.controlDifficulty, 3 - 2 - 2);
+      });
+
+      test('character modifiers still apply in predefined mode', () {
+        final r = SummoningCalculator.calculate(_config(
+          predefined: sholgothar,
+          element: DsaElement.fire,
+          character: _char(talentedFire: true, affinityToElementals: true),
+        ).copyWith(aura: true, ember: true));
+        // talented: -2/-2, affinity: 0/-3
+        expect(r.summonDifficulty, 9 - 2);
+        expect(r.controlDifficulty, 6 - 2 - 3);
+      });
+
+      test('proper attire still applies in predefined mode', () {
+        final r = SummoningCalculator.calculate(_config(
+          predefined: doryphoros,
+          element: DsaElement.stone,
+          summoningType: SummoningType.djinn,
+          properAttire: true,
+        ).copyWith(stoneSkinLevel: 2, shatteringArmor: true));
+        expect(r.summonDifficulty, 9 - 2);
+        expect(r.controlDifficulty, 6);
+      });
+
+      test('GM modifiers still apply in predefined mode', () {
+        final r = SummoningCalculator.calculate(_config(
+          predefined: quecksilber,
+          element: DsaElement.stone,
+          summoningType: SummoningType.servant,
+          regenerationLevel: 1,
+          bloodMagicUsed: true,
+          additionalSummonMod: -2,
+          additionalControlMod: 1,
+        ));
+        expect(r.summonDifficulty, 5 - 2);
+        expect(r.controlDifficulty, 3 + 12 + 1);
+      });
+
+      test('value modifications add cost in predefined mode', () {
+        final r = SummoningCalculator.calculate(_config(
+          predefined: doryphoros,
+          element: DsaElement.stone,
+          summoningType: SummoningType.djinn,
+        ).copyWith(stoneSkinLevel: 2, shatteringArmor: true, modLeP: 3, modAT: 2));
+        // modLeP*2=6, modAT*4=8 → +14 additional
+        expect(r.summonDifficulty, 9 + 14);
+        expect(r.controlDifficulty, 6);
       });
     });
 

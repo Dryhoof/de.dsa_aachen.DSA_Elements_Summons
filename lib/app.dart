@@ -52,9 +52,11 @@ final _router = GoRouter(
       path: '/summon/:characterId',
       builder: (context, state) {
         final templateIdStr = state.uri.queryParameters['templateId'];
+        final predefinedId = state.uri.queryParameters['predefinedId'];
         return SummoningScreen(
           characterId: int.parse(state.pathParameters['characterId']!),
           initialTemplateId: templateIdStr != null ? int.parse(templateIdStr) : null,
+          initialPredefinedId: predefinedId,
         );
       },
     ),

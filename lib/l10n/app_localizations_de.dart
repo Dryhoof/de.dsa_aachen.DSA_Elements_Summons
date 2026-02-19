@@ -879,4 +879,22 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get perApplication => 'pro Anwendung';
+
+  @override
+  String get predefinedSummonings => 'Vordefinierte Beschwörungen';
+
+  @override
+  String get hide => 'Ausblenden';
+
+  @override
+  String get unhide => 'Einblenden';
+
+  @override
+  String get hiddenPredefined => 'Ausgeblendete Beschwörungen';
+
+  @override
+  String get noHiddenPredefined => 'Keine ausgeblendeten Beschwörungen';
+
+  @override
+  String get managePredefined => 'Ausgeblendete verwalten';
 }

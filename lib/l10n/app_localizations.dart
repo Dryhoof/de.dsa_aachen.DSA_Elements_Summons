@@ -1825,6 +1825,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'per application'**
   String get perApplication;
+
+  /// No description provided for @predefinedSummonings.
+  ///
+  /// In en, this message translates to:
+  /// **'Predefined summonings'**
+  String get predefinedSummonings;
+
+  /// No description provided for @hide.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide'**
+  String get hide;
+
+  /// No description provided for @unhide.
+  ///
+  /// In en, this message translates to:
+  /// **'Unhide'**
+  String get unhide;
+
+  /// No description provided for @hiddenPredefined.
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden predefined summonings'**
+  String get hiddenPredefined;
+
+  /// No description provided for @noHiddenPredefined.
+  ///
+  /// In en, this message translates to:
+  /// **'No hidden summonings'**
+  String get noHiddenPredefined;
+
+  /// No description provided for @managePredefined.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage hidden'**
+  String get managePredefined;
 }
 
 class _AppLocalizationsDelegate

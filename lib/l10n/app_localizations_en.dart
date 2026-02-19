@@ -879,4 +879,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get perApplication => 'per application';
+
+  @override
+  String get predefinedSummonings => 'Predefined summonings';
+
+  @override
+  String get hide => 'Hide';
+
+  @override
+  String get unhide => 'Unhide';
+
+  @override
+  String get hiddenPredefined => 'Hidden predefined summonings';
+
+  @override
+  String get noHiddenPredefined => 'No hidden summonings';
+
+  @override
+  String get managePredefined => 'Manage hidden';
 }

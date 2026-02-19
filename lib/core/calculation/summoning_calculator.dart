@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:dsa_elements_summons_flutter/core/constants/element_data.dart';
+import 'package:dsa_elements_summons_flutter/core/constants/predefined_summonings.dart';
 import 'package:dsa_elements_summons_flutter/core/models/element.dart';
 import 'package:dsa_elements_summons_flutter/core/models/summoning_config.dart';
 import 'package:dsa_elements_summons_flutter/core/models/summoning_result.dart';
@@ -10,13 +11,18 @@ class SummoningCalculator {
     int summon = 0;
     int control = 0;
 
-    // 1. Summoning type base cost
-    summon += c.summoningType.summonCost;
-    control += c.summoningType.controlCost;
-
-    // 2. Proper Attire (Richtige Gewandung): -2 summon only
-    if (c.properAttire) {
-      summon -= 2;
+    // 1. Base cost: predefined adjusted base OR summoning type base
+    if (c.predefined != null) {
+      final p = c.predefined!;
+      // Predefined mode: use fixed base minus standard ability cost.
+      // All abilities are computed normally below, so subtracting the
+      // predefined creature's standard ability cost ensures built-in
+      // abilities are "free" while additional ones cost normally.
+      summon += p.baseSummonMod - _predefinedAbilitySummonCost(p, c.element);
+      control += p.baseControlMod;
+    } else {
+      summon += c.summoningType.summonCost;
+      control += c.summoningType.controlCost;
     }
 
     // 3. Astral sense
@@ -88,6 +94,11 @@ class SummoningCalculator {
       } else if (c.resistancesElemental[el] == true) {
         summon += 3;
       }
+    }
+
+    // 2. Proper Attire (Richtige Gewandung): -2 summon only
+    if (c.properAttire) {
+      summon -= 2;
     }
 
     // 12. Quality of true name
@@ -246,6 +257,103 @@ class SummoningCalculator {
       element: c.element,
       summoningType: c.summoningType,
     );
+  }
+
+  /// Computes the standard ZfP* summon cost of a predefined creature's
+  /// built-in abilities. Used to calculate the adjusted base so that
+  /// built-in abilities are effectively "free" in predefined mode.
+  static int _predefinedAbilitySummonCost(PredefinedSummoning p, DsaElement element) {
+    int cost = 0;
+
+    // Abilities (steps 3-11)
+    if (p.astralSense) cost += 5;
+    if (p.longArm) cost += 3;
+    if (p.lifeSense) cost += 4;
+
+    if (p.immunityMagic) {
+      cost += 10;
+    } else if (p.resistanceMagic) {
+      cost += 5;
+    }
+
+    if (p.regenerationLevel == 2) {
+      cost += 7;
+    } else if (p.regenerationLevel == 1) {
+      cost += 4;
+    }
+
+    if (p.additionalActionsLevel == 2) {
+      cost += 7;
+    } else if (p.additionalActionsLevel == 1) {
+      cost += 3;
+    }
+
+    if (p.immunityMagic) {
+      // covered above
+    } else if (p.immunityTraitDamage) {
+      cost += 10;
+    } else if (!p.resistanceMagic && p.resistanceTraitDamage) {
+      cost += 5;
+    }
+
+    for (final demon in demonNames) {
+      if (p.immunitiesDemonic[demon] == true) {
+        cost += 10;
+      } else if (p.resistancesDemonic[demon] == true) {
+        cost += 5;
+      }
+    }
+
+    for (final el in DsaElement.values) {
+      if (el == element) continue;
+      if (p.immunitiesElemental[el] == true) {
+        cost += 7;
+      } else if (p.resistancesElemental[el] == true) {
+        cost += 3;
+      }
+    }
+
+    // Special properties (step 33)
+    if (p.causeFear) cost += 5;
+    cost += p.artifactAnimationLevel * 3;
+    if (p.aura) cost += 5;
+    if (p.blinkingInvisibility) cost += 6;
+    if (p.elementalShackle) cost += 5;
+    cost += p.elementalGripLevel * 7;
+    if (p.elementalInferno) cost += 8;
+    if (p.elementalGrowth) cost += 7;
+    if (p.drowning) cost += 4;
+    if (p.areaAttack) cost += 7;
+    if (p.flight) cost += 5;
+    if (p.frost) cost += 3;
+    if (p.ember) cost += 3;
+    if (p.criticalImmunity) cost += 2;
+    if (p.boilingBlood) cost += 5;
+    if (p.fog) cost += 2;
+    if (p.smoke) cost += 4;
+    if (p.stasis) cost += 5;
+    cost += p.stoneEatingLevel * 2;
+    cost += p.stoneSkinLevel * 2;
+    if (p.mergeWithElement) cost += 7;
+    if (p.sinking) cost += 6;
+    if (p.wildGrowth) cost += 7;
+    if (p.burst) cost += 4;
+    if (p.shatteringArmor) cost += 3;
+
+    // Value modifications (step 34)
+    cost += p.modLeP * 2;
+    cost += p.modINI * 3;
+    cost += p.modRS * 3;
+    cost += p.modGS * 3;
+    cost += p.modMR * 3;
+    cost += p.modAT * 4;
+    cost += p.modPA * 4;
+    cost += p.modTP * 4;
+    cost += p.modAttribute * 5;
+    cost += p.modNewTalent * 4;
+    cost += p.modTaWZfW * 1;
+
+    return cost;
   }
 
   static bool _isTalentedForElement(SummoningConfig c, DsaElement element) {

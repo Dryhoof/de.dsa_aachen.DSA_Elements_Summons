@@ -98,12 +98,20 @@ class ElementalTemplates extends Table {
   IntColumn get modTaWZfW => integer().withDefault(const Constant(0))();               // TaW/ZfW +2 - 1 ZfP*
 }
 
-@DriftDatabase(tables: [Characters, ElementalTemplates])
+class HiddenPredefinedSummonings extends Table {
+  IntColumn get characterId => integer()();
+  TextColumn get predefinedId => text()();
+
+  @override
+  Set<Column> get primaryKey => {characterId, predefinedId};
+}
+
+@DriftDatabase(tables: [Characters, ElementalTemplates, HiddenPredefinedSummonings])
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.e);
 
   @override
-  int get schemaVersion => 4;
+  int get schemaVersion => 5;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -138,6 +146,9 @@ class AppDatabase extends _$AppDatabase {
             await customStatement('ALTER TABLE elemental_templates ADD COLUMN artifact_animation_level INTEGER NOT NULL DEFAULT 0');
             await customStatement('UPDATE elemental_templates SET artifact_animation_level = artifact_animation');
           }
+          if (from < 5) {
+            await m.createTable(hiddenPredefinedSummonings);
+          }
         },
       );
 
@@ -168,4 +179,34 @@ class AppDatabase extends _$AppDatabase {
       update(elementalTemplates).replace(entry);
   Future<int> deleteTemplate(int id) =>
       (delete(elementalTemplates)..where((t) => t.id.equals(id))).go();
+
+  // HiddenPredefinedSummonings CRUD
+  Future<void> hidePredefined(int characterId, String predefinedId) =>
+      into(hiddenPredefinedSummonings).insertOnConflictUpdate(
+        HiddenPredefinedSummoningsCompanion.insert(
+          characterId: characterId,
+          predefinedId: predefinedId,
+        ),
+      );
+  Future<int> unhidePredefined(int characterId, String predefinedId) =>
+      (delete(hiddenPredefinedSummonings)
+            ..where((h) =>
+                h.characterId.equals(characterId) &
+                h.predefinedId.equals(predefinedId)))
+          .go();
+  Stream<List<String>> watchHiddenPredefinedIds(int characterId) =>
+      (select(hiddenPredefinedSummonings)
+            ..where((h) => h.characterId.equals(characterId)))
+          .watch()
+          .map((rows) => rows.map((r) => r.predefinedId).toList());
+  Future<List<String>> getHiddenPredefinedIds(int characterId) async {
+    final rows = await (select(hiddenPredefinedSummonings)
+          ..where((h) => h.characterId.equals(characterId)))
+        .get();
+    return rows.map((r) => r.predefinedId).toList();
+  }
+  Future<int> deleteHiddenForCharacter(int characterId) =>
+      (delete(hiddenPredefinedSummonings)
+            ..where((h) => h.characterId.equals(characterId)))
+          .go();
 }

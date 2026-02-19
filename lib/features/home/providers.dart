@@ -18,3 +18,9 @@ final elementalTemplatesProvider =
   final db = ref.watch(databaseProvider);
   return db.watchTemplatesForCharacter(characterId);
 });
+
+final hiddenPredefinedProvider =
+    StreamProvider.family<List<String>, int>((ref, characterId) {
+  final db = ref.watch(databaseProvider);
+  return db.watchHiddenPredefinedIds(characterId);
+});
