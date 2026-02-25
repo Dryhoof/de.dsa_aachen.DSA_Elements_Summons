@@ -1,0 +1,182 @@
+import { DsaElement } from '../models/element';
+
+/** Material purity modifiers per element. Each list has 7 entries. Value is single summon modifier. */
+export const materialPurityModifiers: Record<DsaElement, number[]> = {
+  [DsaElement.Fire]:  [-3, -2, -1, 0, 1, 2, 3],
+  [DsaElement.Water]: [-3, -2, -1, 0, 1, 2, 3],
+  [DsaElement.Life]:  [-3, -2, -1, 0, 1, 2, 3],
+  [DsaElement.Ice]:   [-3, -2, -1, 0, 1, 2, 3],
+  [DsaElement.Stone]: [-3, -2, -1, 0, 1, 2, 3],
+  [DsaElement.Air]:   [-3, -2, -1, 0, 1, 2, 3],
+};
+
+/** Quality of true name: [summon, control] */
+export const trueNameModifiers: [number, number][] = [
+  [0, 0],    // no true name
+  [-1, 0],   // Quality 1
+  [-2, -1],  // Quality 2
+  [-3, -1],  // Quality 3
+  [-4, -1],  // Quality 4
+  [-5, -2],  // Quality 5
+  [-6, -2],  // Quality 6
+  [-7, -2],  // Quality 7
+];
+
+/** Circumstances of place: [summon, control] */
+export const placeModifiers: [number, number][] = [
+  [-7, -2],  // elemental citadel of used element
+  [-5, -1],  // elemental node of used element
+  [-3, -1],  // place typical for used element
+  [-2, 0],   // element strongly represented
+  [-1, 0],   // element slightly represented
+  [0, 0],    // no connection to any element
+  [0, 0],    // neutral (default)
+  [1, 0],    // counter element slightly represented
+  [2, 0],    // counter element strongly represented
+  [3, 1],    // place typical for counter element
+  [5, 1],    // elemental node of counter element
+  [7, 2],    // elemental citadel of counter element
+  [5, 1],    // gate of horror (Blakharaz)
+  [7, 2],    // gate of horror (Agrimoth)
+];
+
+/** Powernode strength: single summon modifier */
+export const powernodeModifiers: number[] = [
+  0,   // PS 0-1
+  -1,  // PS 2-5
+  -2,  // PS 6-9
+  -3,  // PS 10-13
+  -4,  // PS 14-17
+  -5,  // PS 18-21
+  -6,  // PS 22-25
+  -7,  // PS 26-29
+  -8,  // PS 30-33
+  -9,  // PS 34-37
+];
+
+/** Circumstances of time: [summon, control] */
+export const timeModifiers: [number, number][] = [
+  [-3, -1],  // 1 on D20
+  [-2, -1],  // 2-5 on D20
+  [-1, 0],   // 6-9 on D20
+  [0, 0],    // 10-11 on D20
+  [1, 0],    // 12-15 on D20
+  [2, 1],    // 16-19 on D20
+  [3, 1],    // 20 on D20 (or nameless days)
+];
+
+/** Quality of gift: [summon, control] */
+export const giftModifiers: [number, number][] = [
+  [-7, -2],
+  [-6, -2],
+  [-5, -1],
+  [-4, -1],
+  [-3, -1],
+  [-2, 0],
+  [-1, 0],
+  [0, 0],   // neutral (default index 7)
+  [1, 0],
+  [2, 0],
+  [3, 1],
+  [4, 1],
+  [5, 1],
+  [6, 2],
+  [7, 2],
+];
+
+/** Quality of deed: [summon, control] */
+export const deedModifiers: [number, number][] = [
+  [-7, -2],
+  [-6, -2],
+  [-5, -1],
+  [-4, -1],
+  [-3, -1],
+  [-2, 0],
+  [-1, 0],
+  [0, 0],   // neutral (default index 7)
+  [1, 0],
+  [2, 0],
+  [3, 1],
+  [4, 1],
+  [5, 1],
+  [6, 2],
+  [7, 2],
+];
+
+/** Personality traits per element (English) */
+export const personalitiesEn: Record<DsaElement, string[]> = {
+  [DsaElement.Fire]: [
+    'tempered', 'unsettled', 'vindictive', 'raving mad', 'irascible',
+    'aggressive', 'short-lived', 'zealously', 'brave', 'disobeys',
+    'truthful', 'demanding', 'freedom-loving', 'mocking',
+  ],
+  [DsaElement.Water]: [
+    'unsettled', 'profound', 'unfathomable', 'inspiring', 'changeable',
+    'strong-willed', 'flattering', 'adaptable', 'ruthless', 'thoughtless',
+    'wroth', 'melancholic', 'forgetful', 'insane',
+  ],
+  [DsaElement.Life]: [
+    'life-giving', 'changeable', 'friendly', 'youthful', 'cozy',
+    'lively', 'creative', 'patient', 'optimistic', 'merciful', 'cheerful',
+  ],
+  [DsaElement.Ice]: [
+    'rationally', 'emotionally cold', 'egoistic', 'calculating',
+    'perfectionistic', 'orderly', 'detached', 'ruthless',
+    'despising life', 'precise', 'timeless',
+  ],
+  [DsaElement.Stone]: [
+    'strong-willed', 'tradition-conscious', 'patient', 'dutiful',
+    'truthful', 'stubborn', 'calm', 'unyielding', 'immovable',
+    'not moldable', 'sluggish', 'reliable', 'prolific',
+  ],
+  [DsaElement.Air]: [
+    'cheerful', 'fleeting', 'impermanent', 'restless', 'nimble',
+    'illusionistic', 'playful', 'hypocritical', 'deceptive',
+    'confusing', 'fickle', 'flattering',
+  ],
+};
+
+/** Personality traits per element (German) */
+export const personalitiesDe: Record<DsaElement, string[]> = {
+  [DsaElement.Fire]: [
+    'aufbrausend', 'unruhig', 'rachsüchtig', 'rasend', 'jähzornig',
+    'aggressiv', 'kurzlebig', 'eifrig', 'mutig', 'ungehorsam',
+    'wahrheitsliebend', 'fordernd', 'freiheitsliebend', 'spöttisch',
+  ],
+  [DsaElement.Water]: [
+    'unruhig', 'tiefgründig', 'unergründlich', 'inspirierend', 'wandelbar',
+    'willensstark', 'schmeichelnd', 'anpassungsfähig', 'rücksichtslos',
+    'gedankenlos', 'zornig', 'melancholisch', 'vergesslich', 'wahnsinnig',
+  ],
+  [DsaElement.Life]: [
+    'lebensspendend', 'wandelbar', 'freundlich', 'jugendlich', 'gemütlich',
+    'lebhaft', 'kreativ', 'geduldig', 'optimistisch', 'barmherzig', 'fröhlich',
+  ],
+  [DsaElement.Ice]: [
+    'rational', 'emotional kalt', 'egoistisch', 'berechnend',
+    'perfektionistisch', 'ordentlich', 'distanziert', 'rücksichtslos',
+    'lebensverachtend', 'präzise', 'zeitlos',
+  ],
+  [DsaElement.Stone]: [
+    'willensstark', 'traditionsbewusst', 'geduldig', 'pflichtbewusst',
+    'wahrheitsliebend', 'stur', 'ruhig', 'unnachgiebig', 'unbeweglich',
+    'nicht formbar', 'träge', 'zuverlässig', 'fruchtbar',
+  ],
+  [DsaElement.Air]: [
+    'fröhlich', 'flüchtig', 'vergänglich', 'rastlos', 'flink',
+    'illusionistisch', 'verspielt', 'heuchlerisch', 'trügerisch',
+    'verwirrend', 'wankelmütig', 'schmeichelnd',
+  ],
+};
+
+/** Demon names for resistance/immunity */
+export const demonNames: string[] = [
+  'Blakharaz',
+  'Belhalhar',
+  'Lolgramoth',
+  'Amazeroth',
+  'Asfaloth',
+  'Belzhorash',
+  'Agrimoth',
+  'Thargunitoth',
+];

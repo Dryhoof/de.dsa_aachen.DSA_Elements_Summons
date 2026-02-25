@@ -34,11 +34,20 @@ windows/flutter/generated_plugin_registrant.cc
 windows/flutter/generated_plugin_registrant.h
 windows/flutter/generated_plugins.cmake
 
+# Node / PWA
+node_modules/
+dist/
+dev-dist/
+
 # Miscellaneous
 *.swp
 .DS_Store
 nul
 .claude/
+temp_pdf.txt
 
 # PDFs
 *.pdf
+
+# Screenshots / temp images
+emulator_*.png

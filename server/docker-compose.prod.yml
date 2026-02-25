@@ -1,0 +1,78 @@
+# =============================================================================
+# docker-compose.prod.yml — Production override with automatic HTTPS
+#
+# This file layers on top of docker-compose.yml via the -f flag:
+#
+#   docker compose \
+#     -f server/docker-compose.yml \
+#     -f server/docker-compose.prod.yml \
+#     up -d
+#
+# It adds a Caddy reverse proxy that automatically obtains and renews
+# TLS certificates from Let's Encrypt (ACME).  Caddy listens on ports
+# 80 and 443; nginx (the pwa service) is only reachable internally.
+#
+# Required environment variables (set them in a .env file or export):
+#   DOMAIN      — fully-qualified domain name, e.g. dsa-pwa.example.com
+#   ACME_EMAIL  — email address for Let's Encrypt notifications
+# =============================================================================
+
+services:
+  # ---------------------------------------------------------------------------
+  # Override the pwa service: remove the published port so nginx is internal
+  # ---------------------------------------------------------------------------
+  pwa:
+    ports: []             # Remove the host port published in base file
+    restart: always
+    networks:
+      - internal
+
+  # ---------------------------------------------------------------------------
+  # Caddy — automatic HTTPS reverse proxy
+  # ---------------------------------------------------------------------------
+  caddy:
+    image: caddy:2-alpine
+    container_name: dsa-pwa-caddy
+    restart: always
+    ports:
+      - "80:80"           # HTTP → redirect to HTTPS
+      - "443:443"         # HTTPS (TLS)
+      - "443:443/udp"     # HTTP/3 (QUIC)
+    environment:
+      - DOMAIN=${DOMAIN:?Please set the DOMAIN environment variable}
+      - ACME_EMAIL=${ACME_EMAIL:?Please set the ACME_EMAIL environment variable}
+    volumes:
+      - caddy_data:/data          # Persists certificates between restarts
+      - caddy_config:/config      # Caddy JSON config cache
+    command: >
+      caddy reverse-proxy
+        --from ${DOMAIN}
+        --to pwa:80
+        --email ${ACME_EMAIL}
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:2019/metrics"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    depends_on:
+      pwa:
+        condition: service_healthy
+
+# ---------------------------------------------------------------------------
+# Volumes for certificate and config persistence
+# ---------------------------------------------------------------------------
+volumes:
+  caddy_data:
+    driver: local
+  caddy_config:
+    driver: local
+
+# ---------------------------------------------------------------------------
+# Internal network — pwa is not directly reachable from the host
+# ---------------------------------------------------------------------------
+networks:
+  internal:
+    driver: bridge

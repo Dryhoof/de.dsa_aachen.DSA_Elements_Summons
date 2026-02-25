@@ -1,0 +1,28 @@
+# =============================================================================
+# docker-compose.yml — DSA Elements Summons PWA (development / staging)
+#
+# Usage:
+#   docker compose up -d          # start in detached mode
+#   docker compose down           # stop and remove containers
+#   docker compose up --build -d  # rebuild image and start
+# =============================================================================
+
+services:
+  pwa:
+    build:
+      context: ..           # repository root (Dockerfile copies from pwa/ sub-dir)
+      dockerfile: server/Dockerfile
+    image: dsa-elements-summons-pwa:latest
+    container_name: dsa-pwa
+    ports:
+      - "8080:80"           # Access the app at http://localhost:8080
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    labels:
+      - "com.dsa-pwa.description=DSA Elements Summons PWA"
+      - "com.dsa-pwa.version=1.0"
