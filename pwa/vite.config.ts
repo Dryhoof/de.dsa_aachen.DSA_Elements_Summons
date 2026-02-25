@@ -12,7 +12,7 @@ export default defineConfig({
         name: 'DSA Elements Summons',
         short_name: 'DSA Summons',
         description: 'DSA (Das Schwarze Auge) elemental summoning calculator',
-        start_url: '/home',
+        start_url: '/',
         display: 'standalone',
         background_color: '#0f1117',
         theme_color: '#7c3aed',
