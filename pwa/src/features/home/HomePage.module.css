@@ -163,6 +163,15 @@
   color: var(--danger);
 }
 
+/* Version */
+.version {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  opacity: 0.5;
+  padding: 8px 0;
+}
+
 /* FAB */
 .fab {
   position: fixed;

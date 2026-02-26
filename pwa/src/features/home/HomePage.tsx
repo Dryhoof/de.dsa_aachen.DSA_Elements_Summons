@@ -7,6 +7,7 @@ import { getAllCharacters, deleteCharacter, insertCharacter } from '../../core/d
 import { Character, CharacterClass } from '../../core/models/character';
 import { setLanguage } from '../../core/i18n';
 import styles from './HomePage.module.css';
+import packageJson from '../../../package.json';
 
 const CLASS_KEYS: Record<CharacterClass, string> = {
   [CharacterClass.Mage]: 'classMage',
@@ -103,6 +104,8 @@ export function HomePage() {
           </div>
         )}
       </div>
+
+      <div className={styles.version}>v{packageJson.version}</div>
 
       {/* FAB */}
       <button

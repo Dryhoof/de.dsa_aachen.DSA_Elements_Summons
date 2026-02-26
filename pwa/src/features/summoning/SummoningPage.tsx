@@ -459,9 +459,9 @@ export function SummoningPage() {
                   key={e}
                   type="button"
                   className={`${styles.elementBtn} ${styles[ELEMENT_CLASS[e]]} ${el === e ? styles.active : ''}`}
+                  disabled={isPredefined}
                   onClick={() => {
                     upd('element', e);
-                    if (isPredefined) upd('predefined', null);
                     setActivePredefinedId(null);
                   }}
                 >
@@ -477,9 +477,9 @@ export function SummoningPage() {
                   key={st}
                   type="button"
                   className={`${styles.typeBtn} ${config.summoningType === st ? styles.active : ''}`}
+                  disabled={isPredefined}
                   onClick={() => {
                     upd('summoningType', st);
-                    if (isPredefined) upd('predefined', null);
                     setActivePredefinedId(null);
                   }}
                 >
